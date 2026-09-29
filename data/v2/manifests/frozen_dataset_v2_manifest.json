@@ -1,0 +1,47 @@
+{
+  "artifact": "frozen_dataset_v2.jsonl",
+  "status": "frozen",
+  "rows": 1400,
+  "dataset_sha256": "05b5abb311a3aa973b0b5dbc3bc96637be8039e99d4f42bd18ef86f608c44fb2",
+  "splits": {
+    "path": "data/v2/processed/splits_v2.json",
+    "sha256": "14535a2a32dbf2ed2cb7037ff5ea05001be96039709db00aba8b360c601640ac",
+    "split_hash": "01bbf0c609450e640197b6d4328573f378b6727459a2869ccfc7c05bff6703d6",
+    "salt": "mls-v2-splits-20260818",
+    "dev_behaviors": 140,
+    "final_test_behaviors": 60,
+    "final_test_readable_before_freeze": false
+  },
+  "translation": {
+    "model_id": "facebook/nllb-200-distilled-600M",
+    "revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+    "seed": 20260818,
+    "translated_rows": 1200,
+    "english_canonical_rows": 200
+  },
+  "source_request_hashes": {
+    "full_selection_jsonl": "0c42fc094012f6d5e19f1c780bf98c491961a43c56ad837350407dc9bdb842cc",
+    "full_translation_requests_jsonl": "b502b06817da0b957679f782943a838fd8593a889cff2332b117fd216fa057e4"
+  },
+  "semantic_review": {
+    "pilot_two_person_reviewed": true,
+    "pilot_estimated_fidelity": 0.97,
+    "full_dataset_formal_review_complete": true,
+    "reviewers": 2,
+    "languages_reviewed": [
+      "en",
+      "ar",
+      "ha",
+      "yo",
+      "sw",
+      "hi",
+      "ko"
+    ],
+    "estimated_correctness": 0.98,
+    "harmful_and_benign_reviewed": true,
+    "row_level_kappa": null,
+    "review_note": "Two-person manual review completed across all 1,400 rows; estimated translation correctness 98%. Formal row-level agreement was not computed."
+  },
+  "contains_prompt_text": true,
+  "storage": "private Git LFS"
+}

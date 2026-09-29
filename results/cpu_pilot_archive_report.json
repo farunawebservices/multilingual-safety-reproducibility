@@ -1,0 +1,79 @@
+{
+  "archive_dir": "data/interim/archive/cpu_pilot",
+  "archive_dir_git_ignored": true,
+  "config": {
+    "archive_dir": "/workspace/multilingual-multiagent-safety/data/interim/archive/cpu_pilot"
+  },
+  "config_hash": "3614dd92a406209e9e0a0d5bff4106e990ef3799b728d8f43b7812a38494e3ff",
+  "contains_prompt_text": false,
+  "deterministic_digest": "50adbf7b536ec58ca24478e564326685f56bb3a07d24987cdfe429acc30d4f4a",
+  "files": [
+    {
+      "archive_path": "data/interim/archive/cpu_pilot/translation_pilot_responses.jsonl",
+      "archived_sha256": "9b74e168e772fb3333b39f2d818afe16bc6c9d1a03aab001b824192e636a9988",
+      "bytes": 135517,
+      "identical": true,
+      "name": "translation_pilot_responses.jsonl",
+      "sha256": "9b74e168e772fb3333b39f2d818afe16bc6c9d1a03aab001b824192e636a9988",
+      "source_path": "data/interim/translation_pilot_responses.jsonl"
+    },
+    {
+      "archive_path": "data/interim/archive/cpu_pilot/translation_pilot_outputs.jsonl",
+      "archived_sha256": "324836a55adeb12556f37b9613a769a6d9e4a52a5f34a0ecea9665f29a265768",
+      "bytes": 108106,
+      "identical": true,
+      "name": "translation_pilot_outputs.jsonl",
+      "sha256": "324836a55adeb12556f37b9613a769a6d9e4a52a5f34a0ecea9665f29a265768",
+      "source_path": "data/interim/translation_pilot_outputs.jsonl"
+    },
+    {
+      "archive_path": "data/interim/archive/cpu_pilot/translation_pilot_requests.jsonl",
+      "archived_sha256": "fec3c64bf60dcbb14d51e4bf057ada2402237e235a39b3b2cea90e53b67924eb",
+      "bytes": 140358,
+      "identical": true,
+      "name": "translation_pilot_requests.jsonl",
+      "sha256": "fec3c64bf60dcbb14d51e4bf057ada2402237e235a39b3b2cea90e53b67924eb",
+      "source_path": "data/interim/translation_pilot_requests.jsonl"
+    }
+  ],
+  "generated_at": "2026-08-17T00:03:00.116994+00:00",
+  "git_branch": "main",
+  "git_commit": "8bbfd2632a6c72ef8a86dbec934c6cccf15346fe",
+  "git_dirty": true,
+  "notes": [
+    "Copies, not moves: the originals remain in data/interim/ unchanged.",
+    "Beam search is not bit-identical across CPU and CUDA, so these rows are not reproducible under the CUDA configuration and are retained as a record."
+  ],
+  "originals_modified": false,
+  "provenance": {
+    "dtypes": [
+      "float32"
+    ],
+    "model_ids": [
+      "facebook/nllb-200-distilled-600M"
+    ],
+    "model_revisions": [
+      "f8d333a098d19b4fd9a8b18f94170487ad3f821d"
+    ],
+    "n_effective": 120,
+    "n_effective_ok": 120,
+    "n_records_total": 138,
+    "records_by_run_id": {
+      "run_20260816T182300Z_9d665238": 18,
+      "run_20260816T185117Z_d8f077be": 18,
+      "run_20260816T230323Z_6ebcb91d": 102
+    },
+    "records_by_status": {
+      "ERROR": 18,
+      "OK": 120
+    },
+    "successful_records_by_device": {
+      "cuda": 120
+    }
+  },
+  "purpose": "Preserve the CPU-generated pilot artifacts before the CUDA corpus supersedes them. Superseding is not deletion: these hashes keep the original provenance verifiable.",
+  "run_id": "run_20260817T000300Z_62d26e40",
+  "stage": "stage2.2_archive_cpu_pilot",
+  "superseded_by": "CUDA regeneration written to data/interim/full/",
+  "tool_version": "0.0.1"
+}

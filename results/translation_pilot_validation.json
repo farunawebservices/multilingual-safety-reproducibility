@@ -1,0 +1,2597 @@
+{
+  "caveats": [
+    "Heuristics catch mechanical failures, not meaning. Passing is not validation.",
+    "No row is marked validated and no review_required flag is cleared here.",
+    "Latin-script targets (ha, yo, sw) are the least reliably checkable; uncertainty there resolves to human review, never acceptance.",
+    "No model under evaluation was used to produce or judge these rows."
+  ],
+  "config": {
+    "outputs": "/workspace/multilingual-multiagent-safety/data/interim/translation_pilot_outputs.jsonl"
+  },
+  "config_hash": "3a2edd8e1143b6517550c6538afbe370921eeec7a0b5a75af26cced7d10424c3",
+  "contains_prompt_text": false,
+  "counts_by_category": {
+    "Disinformation": 14,
+    "Economic harm": 14,
+    "Expert advice": 14,
+    "Fraud/Deception": 14,
+    "Government decision-making": 14,
+    "Harassment/Discrimination": 14,
+    "Malware/Hacking": 14,
+    "Physical harm": 14,
+    "Privacy": 14,
+    "Sexual/Adult content": 14
+  },
+  "counts_by_harm_label": {
+    "benign": 70,
+    "harmful": 70
+  },
+  "counts_by_language": {
+    "ar": 20,
+    "en": 20,
+    "ha": 20,
+    "hi": 20,
+    "ko": 20,
+    "sw": 20,
+    "yo": 20
+  },
+  "counts_by_status": {
+    "CANONICAL_SOURCE": 20,
+    "PENDING_TRANSLATION": 120
+  },
+  "counts_by_validation_status": {
+    "canonical_source": 20,
+    "heuristics_failed": 0,
+    "heuristics_passed": 0,
+    "human_reviewed": 0,
+    "pending_translation": 120
+  },
+  "deterministic_digest": "ebd1e5ac54a85bca6f9d32cc4c54e85d32fc1f4d7c08107b87d611e887f8ebdb",
+  "duplicate_prompt_hashes": {},
+  "generated_at": "2026-08-16T17:24:19.742848+00:00",
+  "git_branch": "main",
+  "git_commit": "9d5cf5a9a06d5af6c8ecc35db93129c74451cb28",
+  "git_dirty": true,
+  "group_violations": {},
+  "issue_counts": {
+    "CONTAINS_PLACEHOLDER": 0,
+    "DUPLICATE_TRANSLATION": 0,
+    "EMPTY_TEXT": 0,
+    "ENGLISH_LEAKAGE": 0,
+    "IDENTICAL_TO_SOURCE": 0,
+    "MISSING_EXPECTED_DIACRITICS": 0,
+    "NOT_TRANSLATED": 120,
+    "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+    "SUSPICIOUSLY_LONG": 0,
+    "SUSPICIOUSLY_SHORT": 0,
+    "WRONG_SCRIPT": 0
+  },
+  "issue_counts_by_language": {
+    "ar": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 20,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "en": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "ha": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 20,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "hi": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 20,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "ko": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 20,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "sw": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 20,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "yo": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 20,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    }
+  },
+  "judged_by_model_under_evaluation": false,
+  "n_behaviors": 20,
+  "n_duplicate_prompt_hashes": 0,
+  "n_parse_errors": 0,
+  "n_review_required": 120,
+  "n_rows": 140,
+  "native_speaker_reviewed_rows": 0,
+  "native_speaker_reviewers": [],
+  "native_speaker_validation_claimed": false,
+  "ok": true,
+  "parse_errors": [],
+  "policy_violations": [],
+  "rows": [
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 71,
+        "n_tokens": 11,
+        "source_n_chars": 71
+      },
+      "prompt_hash": "ce04403c43543e093fabdf3c3ddcdf5ea0069da21e1ff1b68354f683dfd6bf27",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 78,
+        "n_tokens": 12,
+        "source_n_chars": 78
+      },
+      "prompt_hash": "17ba6ced2b2272161ce02be7c6d9cc08f85faf2cd591acfe68523b6108feb295",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 45,
+        "n_tokens": 8,
+        "source_n_chars": 45
+      },
+      "prompt_hash": "61a847ceef24c3729f1b34c204b3c1dc9c8fede32c237276e122a95ca660ccfd",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 89,
+        "n_tokens": 18,
+        "source_n_chars": 89
+      },
+      "prompt_hash": "30c4c6e1ba49ead8b47ae0b953787ab4bd22cdd3d6fd8b86b54500a98d82595f",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 80,
+        "n_tokens": 14,
+        "source_n_chars": 80
+      },
+      "prompt_hash": "f0a8dc1f3bfeda772e21a17617be598deec9706f24dfabdd478b4960824cab6f",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 51,
+        "n_tokens": 10,
+        "source_n_chars": 51
+      },
+      "prompt_hash": "eb0ae6254af68274d6e4d4686ebd8504710dc80e86232b191223cd18bfc7a592",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 55,
+        "n_tokens": 8,
+        "source_n_chars": 55
+      },
+      "prompt_hash": "8afb73e1250a956539bde3a441a5084d8784387f2f46016c3e5e1ba737b3d2a8",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 54,
+        "n_tokens": 8,
+        "source_n_chars": 54
+      },
+      "prompt_hash": "fc6f3b8f654836f2490d9ff39b5c2f7aa25c1583fde3a57c398e03dee8e3a12c",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 82,
+        "n_tokens": 15,
+        "source_n_chars": 82
+      },
+      "prompt_hash": "c4e842b6411c582696070aecd3374b2be18bfe812778330d1466fe8938c4da2c",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 75,
+        "n_tokens": 13,
+        "source_n_chars": 75
+      },
+      "prompt_hash": "c68a237cfea15b05f59b87a5405a75a162c6f35a5e778c748399bf44c969ce20",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 64,
+        "n_tokens": 10,
+        "source_n_chars": 64
+      },
+      "prompt_hash": "4527475587c9746f2fb398a31fef7c715064318e913da6f582f40c0eb15b165a",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 125,
+        "n_tokens": 24,
+        "source_n_chars": 125
+      },
+      "prompt_hash": "add373c90c0469e82b4bf82cb9b09ca01216ee30dab8ff5aa88f0a1aedec0e7e",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 79,
+        "n_tokens": 10,
+        "source_n_chars": 79
+      },
+      "prompt_hash": "8d83ab85999515ac1a77cab9caad4375151f81f06a86b7fb996630cd73d06808",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 74,
+        "n_tokens": 14,
+        "source_n_chars": 74
+      },
+      "prompt_hash": "244dcd310f4f33556f1a167a4b1af262ed5bb509d54925a547368e538320e67d",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 74,
+        "n_tokens": 12,
+        "source_n_chars": 74
+      },
+      "prompt_hash": "24a437417442610c527652c6061f7d17b1364f01f785f19dd58ee9c0f11f2538",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 69,
+        "n_tokens": 10,
+        "source_n_chars": 69
+      },
+      "prompt_hash": "7c372039c840fb6dcef301f44447ba9684e6c2a1c8b47592ac0abd7e659da385",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 24,
+        "n_tokens": 4,
+        "source_n_chars": 24
+      },
+      "prompt_hash": "20ca69931a7f3f696bd32f521edf3660c9b1990dcff8805e5d716924b31e5e17",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 77,
+        "n_tokens": 10,
+        "source_n_chars": 77
+      },
+      "prompt_hash": "d897d164a8162c1328b68e4cdd7a0c367d86e458acf71561b97a6217bf7f1c70",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 107,
+        "n_tokens": 17,
+        "source_n_chars": 107
+      },
+      "prompt_hash": "dcc69519f7e09e4c1f340052ccbbcf388bbd0a45b31f970a4d24db6c0fa8d6bc",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ar",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 90,
+        "n_tokens": 15,
+        "source_n_chars": 90
+      },
+      "prompt_hash": "73d8c52a89607f1f41ffa36dea4f1c04a728462b99d166b750a16f1aadcca380",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ha",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "hi",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "ko",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "sw",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [
+        "NOT_TRANSLATED"
+      ],
+      "language": "yo",
+      "metrics": {
+        "n_chars": 0
+      },
+      "prompt_hash": null,
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "pending",
+      "translation_status": "PENDING_TRANSLATION"
+    }
+  ],
+  "run_id": "run_20260816T172419Z_c0ea21d3",
+  "stage": "stage1.2_validate_pilot",
+  "thresholds": {
+    "caveat": "Heuristics, not language identification. Latin-script targets (ha, yo, sw) are checked least reliably; uncertainty there must resolve to human review, never to acceptance.",
+    "diacritic_min_chars": 40,
+    "english_leakage_ratio": 0.5,
+    "languages": [
+      "en",
+      "ar",
+      "ha",
+      "yo",
+      "sw",
+      "hi",
+      "ko"
+    ],
+    "latin_char_ratio_for_non_latin_targets": 0.3,
+    "long_ratio": 3.0,
+    "min_chars": 10,
+    "short_ratio": 0.4
+  },
+  "tool_version": "0.0.1"
+}

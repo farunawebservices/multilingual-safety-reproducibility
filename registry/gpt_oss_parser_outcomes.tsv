@@ -1,0 +1,34 @@
+overall_outcome	count
+ALLOW_EXPLICIT	375
+BOTH_LABELS	55
+NO_DECISION	427
+VETO_EXPLICIT	838
+
+language	harmfulness	outcome	count
+Arabic	benign	ALLOW_EXPLICIT	15
+Arabic	benign	NO_DECISION	135
+Arabic	harmful	ALLOW_EXPLICIT	33
+Arabic	harmful	BOTH_LABELS	10
+Arabic	harmful	NO_DECISION	10
+Arabic	harmful	VETO_EXPLICIT	247
+English	benign	ALLOW_EXPLICIT	42
+English	benign	NO_DECISION	105
+English	benign	VETO_EXPLICIT	3
+English	harmful	ALLOW_EXPLICIT	168
+English	harmful	BOTH_LABELS	15
+English	harmful	NO_DECISION	6
+English	harmful	VETO_EXPLICIT	111
+Hausa	benign	ALLOW_EXPLICIT	33
+Hausa	benign	NO_DECISION	117
+Hausa	harmful	ALLOW_EXPLICIT	39
+Hausa	harmful	BOTH_LABELS	21
+Hausa	harmful	NO_DECISION	6
+Hausa	harmful	VETO_EXPLICIT	234
+Yoruba	benign	ALLOW_EXPLICIT	27
+Yoruba	benign	NO_DECISION	18
+Yoruba	harmful	ALLOW_EXPLICIT	18
+Yoruba	harmful	BOTH_LABELS	9
+Yoruba	harmful	NO_DECISION	30
+Yoruba	harmful	VETO_EXPLICIT	243
+
+legacy_parser_disagreement_count	55

@@ -1,0 +1,12 @@
+You have already produced the full evidence audit for opus_packet.tar.gz.
+
+Task: extract ONLY the claim register from your audit and return it as CSV.
+
+Requirements:
+- One row per publishable claim.
+- Columns: claim_id, section, claim_text, model_scope, phase_scope, language_scope, source_artifact, source_table, source_rows, statistical_status, allowed_wording, forbidden_wording.
+- Do not invent new claims; only transcribe claims supported by your audit.
+- Preserve exact scope conditions and limitation wording from the audit.
+- Do not include any prose outside the CSV.
+
+Return CSV only.

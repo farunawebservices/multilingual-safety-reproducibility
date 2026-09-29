@@ -1,0 +1,9 @@
+language,harmfulness,claude_sonnet_4_record_n,claude_sonnet_5_record_n,sonnet_5_minus_sonnet_4_record_n
+Arabic,benign,150,150,0
+English,benign,150,150,0
+Hausa,benign,150,150,0
+Yoruba,benign,45,45,0
+Arabic,harmful,300,300,0
+English,harmful,300,300,0
+Hausa,harmful,300,300,0
+Yoruba,harmful,300,300,0

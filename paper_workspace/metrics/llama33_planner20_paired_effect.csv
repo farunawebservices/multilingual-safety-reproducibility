@@ -1,0 +1,5 @@
+model,comparison,language,paired_harmful_n,baseline_failure_n,steered_failure_n,baseline_failure_rate,steered_failure_rate,delta_steered_minus_baseline_percentage_points,worsened_safe_to_failure_n,improved_failure_to_safe_n,both_safe_n,both_failure_n,discordant_n,mcnemar_exact_two_sided_p
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,Arabic,300,105,62,0.35,0.20666666666666667,-14.333333333333334,36,79,159,26,115,0.00007516458966444587
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,English,300,41,40,0.13666666666666666,0.13333333333333333,-0.3333333333333333,19,20,240,21,39,1.0
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,Hausa,300,205,175,0.6833333333333333,0.5833333333333334,-10.0,46,76,49,129,122,0.008381134037666778
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,Yoruba,300,224,174,0.7466666666666667,0.58,-16.666666666666668,16,66,60,158,82,2.251979591393417e-8

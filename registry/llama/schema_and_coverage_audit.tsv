@@ -1,0 +1,114 @@
+
+FILE	artifacts/prior_llama33_phase2/results/agents_experiment_results_log.jsonl
+VALID_ROWS	565
+INVALID_JSON_ROWS	0
+NONOBJECT_ROWS	0
+FIELDS	base_id,critic_response,harmfulness,is_allowed,is_vetoed,language,planner_response,prompt_type,raw_prompt,team_safety_violation,tool_caller_response
+CELLS: config	strength_or_alpha	language	harmfulness	count
+<missing>	<missing>	Arabic	benign	50
+<missing>	<missing>	Arabic	harmful	100
+<missing>	<missing>	English	benign	50
+<missing>	<missing>	English	harmful	100
+<missing>	<missing>	Hausa	benign	50
+<missing>	<missing>	Hausa	harmful	100
+<missing>	<missing>	Yoruba	benign	15
+<missing>	<missing>	Yoruba	harmful	100
+
+FILE	artifacts/prior_llama33_phase2/results/baseline_completed_backup (1).jsonl
+VALID_ROWS	8154
+INVALID_JSON_ROWS	0
+NONOBJECT_ROWS	0
+FIELDS	config,critic_response,false_positive_refusal,harmfulness,id,is_vetoed,language,planner_response,strength,true_positive_refusal
+CELLS: config	strength_or_alpha	language	harmfulness	count
+both	0.0	Arabic	benign	150
+both	0.0	Arabic	harmful	300
+both	0.0	English	benign	150
+both	0.0	English	harmful	300
+both	0.0	Hausa	benign	150
+both	0.0	Hausa	harmful	300
+both	0.0	Yoruba	benign	45
+both	0.0	Yoruba	harmful	300
+critic_only	0.0	Arabic	benign	150
+critic_only	0.0	Arabic	harmful	300
+critic_only	0.0	English	benign	150
+critic_only	0.0	English	harmful	300
+critic_only	0.0	Hausa	benign	150
+critic_only	0.0	Hausa	harmful	300
+critic_only	0.0	Yoruba	benign	45
+critic_only	0.0	Yoruba	harmful	300
+critic_only	20.0	Arabic	benign	150
+critic_only	20.0	Arabic	harmful	300
+critic_only	20.0	English	benign	150
+critic_only	20.0	English	harmful	300
+critic_only	20.0	Hausa	benign	150
+critic_only	20.0	Hausa	harmful	300
+critic_only	20.0	Yoruba	benign	24
+planner_only	0.0	Arabic	benign	150
+planner_only	0.0	Arabic	harmful	300
+planner_only	0.0	English	benign	150
+planner_only	0.0	English	harmful	300
+planner_only	0.0	Hausa	benign	150
+planner_only	0.0	Hausa	harmful	300
+planner_only	0.0	Yoruba	benign	45
+planner_only	0.0	Yoruba	harmful	300
+planner_only	20.0	Arabic	benign	150
+planner_only	20.0	Arabic	harmful	300
+planner_only	20.0	English	benign	150
+planner_only	20.0	English	harmful	300
+planner_only	20.0	Hausa	benign	150
+planner_only	20.0	Hausa	harmful	300
+planner_only	20.0	Yoruba	benign	45
+planner_only	20.0	Yoruba	harmful	300
+
+FILE	artifacts/prior_llama33_phase2/results/single_agent_baseline_log (1).jsonl
+VALID_ROWS	565
+INVALID_JSON_ROWS	0
+NONOBJECT_ROWS	0
+FIELDS	base_id,harmfulness,language,model_response,raw_prompt
+CELLS: config	strength_or_alpha	language	harmfulness	count
+<missing>	<missing>	Arabic	benign	50
+<missing>	<missing>	Arabic	harmful	100
+<missing>	<missing>	English	benign	50
+<missing>	<missing>	English	harmful	100
+<missing>	<missing>	Hausa	benign	50
+<missing>	<missing>	Hausa	harmful	100
+<missing>	<missing>	Yoruba	benign	15
+<missing>	<missing>	Yoruba	harmful	100
+
+FILE	artifacts/prior_llama33_phase2/results/turbo_steering_results_phase2.jsonl
+VALID_ROWS	3600
+INVALID_JSON_ROWS	0
+NONOBJECT_ROWS	0
+FIELDS	config,critic_response,harmfulness,id,is_vetoed,language,strength
+CELLS: config	strength_or_alpha	language	harmfulness	count
+both	20.0	Hausa	harmful	300
+both	20.0	Yoruba	harmful	300
+both	30.0	Hausa	harmful	300
+both	30.0	Yoruba	harmful	300
+critic_only	20.0	Hausa	harmful	300
+critic_only	20.0	Yoruba	harmful	300
+critic_only	30.0	Hausa	harmful	300
+critic_only	30.0	Yoruba	harmful	300
+planner_only	20.0	Hausa	harmful	300
+planner_only	20.0	Yoruba	harmful	300
+planner_only	30.0	Hausa	harmful	300
+planner_only	30.0	Yoruba	harmful	300
+
+FILE	artifacts/prior_llama33_phase2/results/phase2_sae_steering_sweep_log (1).jsonl
+VALID_ROWS	24
+INVALID_JSON_ROWS	0
+NONOBJECT_ROWS	0
+FIELDS	config,id,lang,strength,vetoed,violation
+CELLS: config	strength_or_alpha	language	harmfulness	count
+both	10.0	<missing>	<missing>	2
+both	20.0	<missing>	<missing>	2
+both	40.0	<missing>	<missing>	2
+both	5.0	<missing>	<missing>	2
+critic_only	10.0	<missing>	<missing>	2
+critic_only	20.0	<missing>	<missing>	2
+critic_only	40.0	<missing>	<missing>	2
+critic_only	5.0	<missing>	<missing>	2
+planner_only	10.0	<missing>	<missing>	2
+planner_only	20.0	<missing>	<missing>	2
+planner_only	40.0	<missing>	<missing>	2
+planner_only	5.0	<missing>	<missing>	2

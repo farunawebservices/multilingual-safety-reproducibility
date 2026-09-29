@@ -1,0 +1,392 @@
+```latex
+\section{Additional analyses}
+
+The analyses in this section are \emph{exploratory} and \emph{secondary} to the
+pre-declared primary families reported in Sections~4 and~5. None of them reuses
+any primary claim identifier (\texttt{LL-A}, \texttt{LL-B}, \texttt{LL-C},
+\texttt{QW-A}, \texttt{QW-B}, \texttt{QW-C}, \texttt{GM-A}, \texttt{G5-A},
+\texttt{CS-A}, \texttt{GO-A}), and none of them belongs to, extends, or is
+corrected within the pre-declared Holm families for Llama, Qwen, Gemma, or
+GPT-OSS (\texttt{turbo\_alpha30\_role\_strength\_6\_tests},
+\texttt{qwen25\_72b\_primary\_33\_steered\_cells},
+\texttt{gemma\_phase1\_three\_cell\_family}, the four-comparison GPT-OSS harmful
+family, and the two four-comparison Llama harmful and benign families). No new
+correction family is declared here, no hypothesis test result reported in this
+section is treated as confirmatory, and no quantity from this section is pooled
+with, averaged over, or used to rank the model entries of Sections~4 and~5. The
+six subsections below are therefore descriptive or hypothesis-generating: they
+document what the shipped Addition artifacts contain, and they are intended to
+motivate future pre-registered designs rather than to support conclusions.
+Where the packet does not contain the artifacts a subsection would require, we
+say so and keep the subsection at a high level rather than reporting numbers
+from an unavailable source.
+
+\subsection{Cross-model comparison}
+
+The exploratory question here is whether the Addition analyses, taken one at a
+time, show the same qualitative picture in more than one model entry. The
+available coverage is uneven and asymmetric, so the answer is limited to a
+description of that coverage. Addition~1 covers
+\texttt{meta-llama/llama-3.3-70b-instruct} only, in Hausa, as an endpoint audit
+of an activation-patching artifact
+(\texttt{opus\_packet/metrics/addition1\_llama33\_hausa\_patching\_v3\_audit.csv};
+\texttt{opus\_packet/tables/addition1\_llama33\_hausa\_patching\_v3\_table.tex};
+\texttt{opus\_packet/handoffs/addition1\_llama33\_hausa\_patching\_v3\_OPUS\_HANDOFF.md};
+\texttt{opus\_packet/manifests/addition1\_llama33\_hausa\_patching\_v3\_artifact\_manifest.json}).
+That artifact contains 11 canonical rows with 11 unique base IDs, drawn from 1
+source path with 1 source SHA-256 value. The endpoint decision counts are: clean
+1 ALLOW and 10 VETO; corrupted 0 ALLOW and 11 VETO; patched 0 ALLOW and 11
+VETO. Recovery is defined only where the clean and corrupted endpoint decisions
+differ, which holds for exactly 1 of the 11 rows
+(\texttt{evaluable\_clean\_ne\_corrupted} $=1$); of that single evaluable row, 0
+recovered at the patched endpoint (\texttt{recovered\_patched\_eq\_clean} $=0$),
+giving \texttt{recovery\_rate\_among\_evaluable} $=0.0$, i.e.\ $0/1$. We report
+this as an observed endpoint outcome in this artifact with an explicit
+denominator of one; it is not a population recovery rate and it is not evidence
+of broad patching failure.
+
+Addition~3 is the only Addition artifact that touches two model entries. As
+documented in
+\texttt{opus\_packet/evidence/additions\_2\_3\_claim\_boundary\_audit.md}, it
+covers Hindi, Korean, and Swahili with 50 harmful and 50 benign prompts per
+language and 300 paired rows per model, storing a baseline and a steered
+decision for each row. The documented outcome is the harmful VETO rate, which is
+a \emph{different estimand} from the operational-failure and refusal outcomes of
+Sections~4 and~5 and is not comparable to them. For Llama the documented harmful
+VETO rates are Hindi 100.0\% baseline and 100.0\% steered, Korean 88.0\% and
+90.0\%, Swahili 94.0\% and 94.0\%, and overall 94.0\% and 94.7\%; for Qwen they
+are Hindi 86.0\% and 86.0\%, Korean 94.0\% and 92.0\%, Swahili 66.0\% and
+68.0\%, and overall 82.0\% and 82.0\%. On these three languages the changes are
+small and heterogeneous, with Llama near a harmful-VETO ceiling in this set and
+Qwen showing mixed language-specific changes. The remaining Additions add no
+cross-model contrast: Addition~5 is Llama-only and English-only, Addition~4 is
+an annotation-agreement study rather than a measure of model behaviour, and the
+Addition~6 artifacts record no model identifier anywhere, so Addition~6 cannot
+be attributed to a model entry here.
+
+The limitations are binding and jointly decisive. There is no correction family
+for any of these comparisons; Addition~3 provides no paired inferential test, no
+confidence interval, and no multiple-testing correction; the outcome definitions
+differ across Additions (endpoint ALLOW/VETO decisions, harmful VETO rate,
+jailbreak success, annotation agreement), so the artifacts are not on a common
+scale; Addition~3's Qwen arm has documented malformed outputs, especially in
+Swahili, whose counts are not provided, so its missing-label denominators are
+not established; and the raw Addition~3 result files are not shipped in the
+packet, so only the documented rates above can be quoted. Accordingly this
+subsection is descriptive and hypothesis-generating. We make no claim of
+cross-lingual improvement, no claim of recovery, no pooling across models, and
+no ranking of models.
+
+\subsection{Role specificity}
+
+The exploratory question is whether outcome patterns differed when the same
+historical steering direction was applied to different agent roles. Two sources
+speak to this, and both are limited. First, Addition~2 is retained as a
+\emph{retrospective} role-specificity analysis rather than a completed
+matched-control experiment
+(\texttt{opus\_packet/evidence/additions\_2\_3\_claim\_boundary\_audit.md};
+\texttt{paper\_artifacts/metrics/addition\_2\_status.md}). Its implementation
+aggregates archived Llama~3.3 Phase~2 Turbo results by configuration, strength,
+and language and prints Hausa veto rates for planner-only, critic-only, and
+both-role steering. Its intended derived output
+(\texttt{results/addition\_2\_matched\_controls/analysis.json}) and its
+historical input file are \emph{not} in the packet: there is no metrics CSV, no
+table, and no manifest for it, so Addition~2 contributes \emph{no citable
+number} here and this part of the subsection is necessarily kept at a high
+level. The most that the evidence supports is the recorded qualitative
+statement: retrospective analyses of the same steering direction across roles
+showed role-dependent outcome patterns, which is consistent with role
+sensitivity and supports treating intervention location as an empirical design
+variable.
+
+Second, the archived cross-phase display artifact
+(\texttt{opus\_packet/tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex})
+records six configuration $\times$ language cells (\texttt{planner\_only},
+\texttt{critic\_only}, \texttt{both} $\times$ Hausa, Yoruba), each with a matched
+$n$ of 300. The direction of the recorded change in harmful
+operational-failure rate is not the same in every configuration label: the
+\texttt{planner\_only} cells record $-37.7$~pp (Hausa) and $-19.3$~pp (Yoruba),
+the \texttt{critic\_only} cells record $+6.3$~pp and $+13.0$~pp, and the
+\texttt{both} cells record $-19.0$~pp and $+10.0$~pp. We report these as the
+change values printed for the configuration-labelled cells of an archived
+artifact and nothing more. In particular, we do not attach a role-specificity or
+mechanistic interpretation to this artifact: the comparison varies configuration
+label jointly with run phase and steering strength, so configuration is
+confounded with phase, and record-ID matching does not establish non-prompt
+run-condition equivalence. We also do not restate the baseline and Alpha-30
+percentage columns of that artifact, whose printed values are on an inconsistent
+scale (e.g.\ ``6633.3'' and ``4733.3'' in a column labelled per cent); only the
+change, interval, and matched-$n$ columns are quoted here, and the properly
+scoped version of this comparison, with its own pre-declared family, is the one
+described in Section~3 and is not re-asserted in this section. The key
+limitation is therefore twofold: the retrospective analysis has no shipped
+numeric artifact, and the cross-phase artifact cannot separate role from phase.
+This subsection is hypothesis-generating only; it is not confirmatory evidence
+of role specificity.
+
+\subsection{Vector specificity}
+
+The exploratory question is whether any of the observed outcome patterns can be
+attributed to the specific steering direction used, as opposed to generic
+perturbation of the activations. The packet does not contain artifacts that can
+answer this, and we state that plainly rather than reporting a proxy. The
+Addition~2 implementation loads a single historical refusal feature and
+aggregates archived outcomes; per
+\texttt{opus\_packet/evidence/additions\_2\_3\_claim\_boundary\_audit.md} it does
+\emph{not} generate a random direction, does \emph{not} run a same-session
+matched random-vector control, and does \emph{not} compare a real-vector
+intervention against a matched random-vector intervention. It therefore neither
+identifies nor rules out the generic-perturbation null. We accordingly make no
+claim that matched random-vector controls were run, no claim that generic
+perturbation was excluded, and no claim that the retrospective result
+demonstrates vector specificity. For the archived cross-phase artifact, the
+original steering-vector file is declared unavailable, so no direction-level
+comparison is possible there either.
+
+The one artifact in the packet that uses a random direction is Addition~5
+(\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_metrics.csv};
+\texttt{opus\_packet/tables/addition5\_adversarial\_robustness.tex};
+\texttt{opus\_packet/handoffs/addition5\_adversarial\_robustness\_OPUS\_HANDOFF.md}),
+but it is not a matched control for vector specificity: it applies a random
+steering vector (layer 52, strength 20) on a 50-prompt English jailbreak set
+with a different outcome (jailbreak success), records 0 of 50 successes in both
+the baseline and the steered condition, and contains no real-vector arm on the
+same prompts. Because there is no matched real-versus-random contrast anywhere
+in the packet, vector specificity is \emph{not established} by any analysis in
+this paper. The key limitation is the absence of the required artifact, not an
+inconclusive test. This subsection is hypothesis-generating: it identifies a
+same-session matched random-vector control on the same prompts and outcome
+definition as the design that would be needed, and it makes no confirmatory
+claim.
+
+\subsection{Combined versus individual interventions}
+
+The exploratory question is how cells labelled with the combined configuration
+compare with the two single-configuration cells in the same language. The only
+artifact in the packet that contains all three configuration labels is the
+archived cross-phase display artifact
+(\texttt{opus\_packet/tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex}),
+covering Hausa and Yoruba harmful prompts with a matched $n$ of 300 in each of
+its six cells. Taking the printed change column only, in Hausa the recorded
+changes are $-37.7$~pp for \texttt{planner\_only}, $+6.3$~pp for
+\texttt{critic\_only}, and $-19.0$~pp for \texttt{both}; in Yoruba they are
+$-19.3$~pp, $+13.0$~pp, and $+10.0$~pp respectively. In each of the two
+languages the \texttt{both} value lies numerically between the two
+single-configuration values. We report that as an arithmetic description of the
+printed numbers and draw no additivity, interaction, or dose-response inference
+from it: no interaction test was pre-declared or performed, the printed
+per-cell intervals are not intervals for differences between configurations, and
+no comparison across the three configuration labels was corrected in any
+family. The remaining Addition artifacts contribute no combined-versus-individual
+contrast: Addition~5 has a single random-vector condition
+(\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_metrics.csv})
+and Addition~4 is an annotation-agreement study
+(\texttt{opus\_packet/metrics/addition4\_judge\_calibration\_metrics.csv}), so
+neither contains a combined intervention arm.
+
+The key limitations are cross-phase confounding and scope. The configuration
+labels are compared across a phase boundary and at a single strength, so
+configuration, strength, and run phase vary together; the comparison covers two
+languages, one model entry, and harmful prompts only; no correction family
+covers the between-configuration contrast; and the percentage-level columns of
+the display artifact are on an inconsistent scale and are not quoted. This
+subsection is descriptive and hypothesis-generating, not confirmatory, and it
+supports no claim that combining interventions is better or worse than applying
+either one alone.
+
+\subsection{Cross-phase comparison}
+
+The exploratory question is what the archived Phase~1 versus Phase~2 ``Turbo''
+display artifact records. The data are Llama~3.3 harmful prompts in Hausa and
+Yoruba only, contrasting the Phase~1 main baseline against Phase~2 Turbo at
+$\alpha30$ under three configuration labels, with a matched $n$ of 300 in each
+of the six cells
+(\texttt{opus\_packet/tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex}).
+The printed changes in harmful operational-failure rate, with the printed 95\%
+intervals in percentage points, are: \texttt{both} Hausa $-19.0$
+$[-26.0, -12.0]$; \texttt{both} Yoruba $+10.0$ $[4.7, 15.3]$;
+\texttt{critic\_only} Hausa $+6.3$ $[0.7, 12.0]$; \texttt{critic\_only} Yoruba
+$+13.0$ $[8.7, 17.3]$; \texttt{planner\_only} Hausa $-37.7$ $[-44.3, -31.0]$;
+and \texttt{planner\_only} Yoruba $-19.3$ $[-24.7, -14.0]$. The artifact's
+``Reject?'' column reads ``Yes'' for all six cells; that column reflects the
+six-test correction family declared for the underlying analysis described in
+Section~3, and we neither re-declare it here nor treat any cell in this section
+as a confirmatory rejection. Two further display caveats apply: the baseline and
+Alpha-30 percentage columns of this artifact are printed on an inconsistent
+scale and are therefore not reported, and the harmful failure outcome used in
+this comparison folds undecided records into the failure numerator, as recorded
+in Section~3, so it is not interchangeable with the Phase~1 outcomes of
+Section~4.1.
+
+The key limitation is cross-phase confounding. Baseline and steered records come
+from two different run phases, and matching by record ID does not establish that
+non-prompt run conditions were equivalent between the phases; strength and
+configuration also differ from the Phase~1 primary contrast, and only two
+languages and one prompt class are covered. Consequently the differences above
+are associational descriptions of two archived record sets and cannot be read as
+effects of steering. This subsection is descriptive and hypothesis-generating;
+no causal, mechanistic, or deployment claim follows from it, and no primary
+claim identifier is asserted through it.
+
+\subsection{Secondary outcomes}
+
+Three Addition artifacts report outcomes that are secondary to the decision
+outcomes of Sections~4 and~5: annotation agreement (Addition~4), jailbreak
+success under a random steering vector (Addition~5), and a three-condition
+baseline comparison of harmful veto rate and benign false positives
+(Addition~6). Each is reported on its own terms, with its own denominators, and
+none is combined with any other.
+
+Addition~4 asks how consistently two independent annotators applied the binary
+compliance label. The data are 98 prompts, 14 per language in Arabic, English,
+Hausa, Hindi, Korean, Swahili, and Yoruba, each labelled by both annotators as
+YES (should comply) or NO (should refuse)
+(\texttt{opus\_packet/metrics/addition4\_judge\_calibration\_metrics.csv};
+\texttt{opus\_packet/metrics/addition4\_calibration\_paper\_table.csv};
+\texttt{opus\_packet/tables/addition4\_calibration\_agreement.tex};
+\texttt{opus\_packet/handoffs/addition4\_calibration\_OPUS\_HANDOFF.md}).
+Six of the seven languages---Arabic, English, Hausa, Hindi, Korean, and
+Swahili---record observed agreement of $1.0$ with Cohen's $\kappa = 1.0$ and a
+95\% interval of $[1.00, 1.00]$. Yoruba records observed agreement of $0.9286$
+(13 of 14) with $\kappa = 0.857$ and a 95\% interval of $[0.533, 1.00]$.
+Overall, observed agreement is $0.9898$ (97 of 98 prompts, i.e.\ a single
+disagreement) with $\kappa = 0.980$ and a 95\% interval of $[0.937, 1.00]$;
+annotator marginals are 46 YES and 52 NO for the first annotator and 47 YES and
+51 NO for the second, and every language meets the $\kappa \ge 0.60$ target. The
+single disagreement was resolved by blinded adjudication, with the adjudicator
+seeing only disagreement cases. We report $\kappa$ intervals in $\kappa$ units
+from the metrics CSV; the paper-table CSV and LaTeX display the same intervals
+multiplied by 100 without a unit label, and that display convention should not
+be read as a percentage. The key limitations are that the annotators were
+\emph{not} blinded to the original labels, which may have inflated agreement,
+and that the calibration set is small (98 prompts). This is a descriptive
+inter-rater reliability study: it measures annotation consistency, not model
+performance, it is not an intervention, and it does not generalise beyond these
+98 prompts.
+
+Addition~5 asks whether applying a steering vector was accompanied by any
+increase in jailbreak success on a bounded English attack set. The data are 50
+English jailbreak prompts for Llama-3.3-70B-Instruct across six attack families
+---\texttt{dan} ($n=8$), \texttt{developer} ($n=8$), \texttt{instruction}
+($n=8$), \texttt{other} ($n=10$), \texttt{roleplay} ($n=8$), and
+\texttt{translation} ($n=8$)---compared between a baseline condition and a
+\emph{random} steering vector at layer 52, strength 20
+(\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_metrics.csv};
+\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_table.csv};
+\texttt{opus\_packet/tables/addition5\_adversarial\_robustness.tex};
+\texttt{opus\_packet/handoffs/addition5\_adversarial\_robustness\_OPUS\_HANDOFF.md}).
+Every family, and the overall row, records 0 baseline jailbreaks and 0 steered
+jailbreaks: baseline rate $0.0$, steered rate $0.0$, rate difference $0.0$, and
+0 discordant pairs, so the McNemar entry is recorded as not applicable. All 50
+prompts were evaluated as NEITHER. No evidence of increased vulnerability was
+detected on this set. The key limitations are that the outcome has zero events
+in both conditions, so no test is defined and the check has no power to detect
+small changes; that the steering vector was random rather than a refusal
+direction; and that all prompts are English. Accordingly this is a bounded
+descriptive check: it does not show that steering is safe, does not generalise
+beyond these 50 prompts or to untested attacks or to an actual refusal
+direction, and provides no multilingual robustness claim.
+
+Addition~6 asks how a prompt-filter baseline and a steering condition compare on
+one evaluation set, under one implementation and protocol. The data are 460
+prompts (400 harmful, 60 benign) across four languages, evaluated under three
+conditions---\texttt{no\_intervention}, \texttt{prompt\_filter}, and
+\texttt{planner\_steering\_l50\_s20\_historical\_all\_steps}
+(\texttt{opus\_packet/metrics/addition6\_prompt\_filter\_baseline\_metrics.csv};
+\texttt{opus\_packet/metrics/addition6\_prompt\_filter\_baseline\_table.csv};
+\texttt{opus\_packet/tables/addition6\_prompt\_filter\_baseline.tex};
+\texttt{opus\_packet/handoffs/addition6\_prompt\_filter\_baseline\_OPUS\_HANDOFF.md};
+\texttt{opus\_packet/manifests/addition6\_prompt\_filter\_baseline\_artifact\_manifest.json}).
+The recorded harmful veto rates are 210 of 400 ($52.5\%$) with no intervention,
+214 of 400 ($53.5\%$) under the prompt filter, and 230 of 400 ($57.5\%$) under
+steering; the recorded benign veto (false-positive) rates are 0 of 60 ($0.0\%$),
+0 of 60 ($0.0\%$), and 3 of 60 ($5.0\%$) respectively; the recorded missing-label
+counts are 4, 5, and 25. The steering condition thus records a harmful veto rate
+$5.0$~pp above the no-intervention condition and $4.0$~pp above the
+prompt-filter condition, together with three benign false positives and a
+substantially larger missing-label count. Both parts of that trade-off are
+reported here. The key limitations are that no test, interval, or
+multiple-testing correction is defined for this three-condition comparison; that
+the missing-label counts differ markedly across conditions (4, 5, and 25), so the
+condition denominators are not label-complete and the differences above are not
+adjusted for that asymmetry; that the outcome is a harmful veto rate rather than
+the operational-failure outcomes of Section~4 and is not comparable to them; and
+that the artifacts record no model identifier, so this comparison is not
+attributed to any model entry in this paper. It evaluates outcomes for this
+prompt set, this prompt-filter implementation, this steering configuration, and
+this evaluation protocol only, and it does not establish that steering is
+superior to prompt filtering in other models, languages, datasets, prompt
+distributions, or deployment settings. This subsection is descriptive and
+hypothesis-generating, not confirmatory.
+
+% ---------------- SOURCE MAP ----------------
+% All six subsections (6 — additional analyses): exploratory, not covered by
+% primary claim_ids (LL-A/B/C, QW-A/B/C, GM-A, G5-A, CS-A, GO-A), no Holm
+% family claimed across these comparisons.
+%
+% 6.0 intro paragraph — exploratory/secondary status; no primary claim_ids
+%   reused; no membership in the pre-declared Llama, Qwen, Gemma, or GPT-OSS
+%   Holm families; no new correction family; no pooling or ranking.
+% 6.1 Cross-model comparison — Addition 1:
+%   opus_packet/metrics/addition1_llama33_hausa_patching_v3_audit.csv,
+%   opus_packet/tables/addition1_llama33_hausa_patching_v3_table.tex,
+%   opus_packet/handoffs/addition1_llama33_hausa_patching_v3_OPUS_HANDOFF.md,
+%   opus_packet/manifests/addition1_llama33_hausa_patching_v3_artifact_manifest.json
+%   (11 canonical rows, 11 unique base IDs, 1 source path, 1 source SHA-256;
+%   clean 1 ALLOW / 10 VETO; corrupted 0/11; patched 0/11; evaluable = 1;
+%   recovered = 0; recovery rate among evaluable = 0.0);
+%   Addition 3: opus_packet/evidence/additions_2_3_claim_boundary_audit.md
+%   (Hindi/Korean/Swahili, 50 harmful + 50 benign per language, 300 paired rows
+%   per model, documented harmful VETO rates for Llama and Qwen); Addition 5 and
+%   Addition 6 coverage statements (Llama/English-only; no model identifier).
+%   Limitations: no correction family, no tests/CIs for Addition 3,
+%   outcome-definition heterogeneity, Qwen malformed outputs (counts not
+%   provided), raw Addition 3 result files not shipped.
+% 6.2 Role specificity — Addition 2:
+%   opus_packet/evidence/additions_2_3_claim_boundary_audit.md,
+%   paper_artifacts/metrics/addition_2_status.md (no citable number; intended
+%   analysis.json not in packet); archived cross-phase display artifact
+%   opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+%   (6 cells, matched n = 300, printed change column only). No role-specificity
+%   or mechanistic claim attached to the cross-phase artifact; inconsistent-scale
+%   percentage columns not quoted.
+% 6.3 Vector specificity — no supporting artifact in the packet; negative
+%   findings from opus_packet/evidence/additions_2_3_claim_boundary_audit.md
+%   (no random direction generated, no same-session matched random-vector
+%   control, generic-perturbation null neither identified nor ruled out) and
+%   Addition 5 artifacts (random vector, English-only, zero events) as an
+%   explicitly inadequate substitute; subsection kept at a high level.
+% 6.4 Combined versus individual interventions —
+%   opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+%   (Hausa: -37.7 / +6.3 / -19.0 pp; Yoruba: -19.3 / +13.0 / +10.0 pp; matched
+%   n = 300 per cell); Addition 4 and Addition 5 metrics cited only to record
+%   that they contain no combined intervention arm. Limitations: cross-phase
+%   confounding, joint variation of configuration/strength/phase, no interaction
+%   test, no correction family.
+% 6.5 Cross-phase comparison —
+%   opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+%   (six cells, matched n = 300, printed changes and 95% intervals in pp,
+%   "Reject?" column noted as belonging to the family declared in Section 3 and
+%   not re-declared here; baseline and Alpha-30 percentage columns on an
+%   inconsistent scale and therefore not reported). Limitation: cross-phase
+%   confounding; associational only.
+% 6.6 Secondary outcomes — Addition 4:
+%   opus_packet/metrics/addition4_judge_calibration_metrics.csv,
+%   opus_packet/metrics/addition4_calibration_paper_table.csv,
+%   opus_packet/tables/addition4_calibration_agreement.tex,
+%   opus_packet/handoffs/addition4_calibration_OPUS_HANDOFF.md;
+%   Addition 5: opus_packet/metrics/addition5_adversarial_robustness_metrics.csv,
+%   opus_packet/metrics/addition5_adversarial_robustness_table.csv,
+%   opus_packet/tables/addition5_adversarial_robustness.tex,
+%   opus_packet/handoffs/addition5_adversarial_robustness_OPUS_HANDOFF.md;
+%   Addition 6: opus_packet/metrics/addition6_prompt_filter_baseline_metrics.csv,
+%   opus_packet/metrics/addition6_prompt_filter_baseline_table.csv,
+%   opus_packet/tables/addition6_prompt_filter_baseline.tex,
+%   opus_packet/handoffs/addition6_prompt_filter_baseline_OPUS_HANDOFF.md,
+%   opus_packet/manifests/addition6_prompt_filter_baseline_artifact_manifest.json.
+%   Limitations: annotators not blinded to original labels and small calibration
+%   set (Addition 4); zero-event outcome with no defined test, random vector, and
+%   English-only prompts (Addition 5); no test/correction, asymmetric
+%   missing-label counts (4/5/25), non-comparable outcome, and no model
+%   identifier (Addition 6).
+```

@@ -1,0 +1,12 @@
+package,canonical_parquet_ready,adapter_ready,metric_csv_n,latex_table_n,figure_n,manifest_n,handoff_n,verifier_script_n,strict_chain_complete
+qwen25_72b_primary,True,True,13,1,2,1,1,1,True
+gpt_oss_20b_phase1,True,True,7,1,2,1,1,1,True
+gemma_4_31b_phase1,True,True,8,1,2,1,1,1,True
+gpt_5_frontier_baseline,False,False,2,1,2,1,1,1,False
+claude_sonnet_4_vs_5,False,False,4,1,2,1,1,1,False
+llama33_phase1_main,True,True,8,1,2,1,1,1,True
+llama33_phase2_turbo,True,True,6,0,0,0,0,0,False
+addition_1_causal_patching,False,False,0,0,0,0,0,0,False
+addition_4_calibration,False,False,0,0,0,0,0,0,False
+addition_5_adversarial_robustness,False,False,0,0,0,0,0,0,False
+addition_6_prompt_filter_baseline,False,False,0,0,0,0,0,0,False

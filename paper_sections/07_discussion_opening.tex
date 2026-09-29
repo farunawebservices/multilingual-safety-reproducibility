@@ -1,0 +1,127 @@
+```latex
+\section{Discussion}
+
+Across the four open-weight model entries evaluated here, planner-targeted
+steering is associated with changes in multilingual decision outcomes whose
+magnitude and direction depend jointly on the model, the language, and the
+outcome definition. In \texttt{meta-llama/Llama-3.3-70B-Instruct} (Phase~1,
+planner-only $\alpha20$ vs.\ $\alpha0$), harmful operational failure is
+substantially lower under steering in Arabic, Hausa, and Yoruba, with all three
+reductions surviving Holm correction inside the pre-declared four-comparison
+harmful family, while English---the language with the lowest baseline failure
+rate---is essentially unchanged. In Qwen~2.5~72B (baseline vs.\ planner-only
+$\alpha1.0$), the two Holm-significant cells of the primary display are both
+harmful cells, Arabic and English, with the largest observed reduction in
+English harmful; the Hausa and Yoruba harmful point reductions do not survive
+correction inside the pre-declared 33-cell family, and no benign cell is
+Holm-significant at any role or strength. In GPT-OSS~20B the pattern is
+mixed in direction rather than uniformly favourable: English improved
+significantly, Hausa \emph{worsened} significantly, Arabic showed a point
+reduction that did not survive Holm correction, and Yoruba showed no marginal
+change at all despite prompt-level disagreements in both directions. In the three
+Gemma cells for which paired records exist, all point estimates move in the
+direction of \emph{more} non-veto failure under steering, but no cell is
+Holm-significant inside the three-cell family, so the consistent direction is an
+observed pattern in point estimates and intervals rather than a family-corrected
+finding. On the utility side, the Llama benign refusal family shows no
+Holm-significant change, with refusal at or near the floor in every language;
+this is consistent with, but does not establish, an absence of utility cost.
+
+The closed-model analyses play a purely contextual role and should not be read as
+evidence about steering. The \texttt{openai/gpt-5} analysis is a single-condition
+descriptive baseline at strength $0.0$ with no intervention arm: it records how a
+frontier system behaves on the same multilingual prompt set, with veto rates that
+are near-zero on benign prompts and substantially higher, and language-varying,
+on harmful prompts. Because there is no second arm, it supports no within-model
+effect estimate, and we do not contrast it with the steered open-weight arms or
+use it to rank systems. The Claude Sonnet~4 vs.~5 analysis is likewise
+descriptive: it is prompt-matched across shared Phase~1 prompt IDs, but the
+contrast is between two model \emph{versions} rather than two conditions of one
+model, carries no test or correction family, and identifies nothing about what
+produced the observed differences. Its main value here is to record that
+outcome-relevant behaviour can shift across closed-model versions on identical
+prompts---a background source of variation that any steering evaluation
+conducted against closed baselines inherits.
+
+Two structural features of the evidence constrain how much can be concluded from
+the pattern above. First, each open-weight model carries its own disjoint
+correction family---Llama harmful, Llama benign, the Qwen pre-declared 33-cell
+family, the Gemma three-cell family, and the four-comparison GPT-OSS harmful
+family---and these families are never merged, pooled, or averaged. Every
+statement of significance is therefore internal to one model entry, one outcome,
+and one family; there is no family-corrected cross-model contrast in this paper,
+and the apparent similarity between, say, the Llama and Qwen reductions is a
+juxtaposition of separate analyses rather than a joint estimate. Second, the
+additional analyses of Section~6 (Additions~1--6) are exploratory and secondary:
+they declare no correction family, reuse no primary claim identifier, and are
+reported to document what the shipped artifacts contain and to motivate future
+pre-registered designs, not to support conclusions. In several of them the
+required artifact is simply absent---most consequentially, no matched
+random-vector control on the same prompts and outcome definition exists anywhere
+in the evidence base, so generic perturbation is neither identified nor ruled
+out, and vector specificity is not established by any analysis reported here.
+
+For steering design, the most defensible reading is a conditional one. Within the
+configurations we evaluated, planner-only steering was associated with large
+reductions in harmful operational failure in some model$\times$language cells,
+including cells with high baseline failure rates in lower-resource languages
+(Hausa and Yoruba for Llama), and with essentially no movement where baseline
+failure was already low. This is consistent with treating the intervention
+\emph{location} within an agentic pipeline as a design variable worth measuring
+rather than assuming. At the same time, the effects are not uniform and are not
+guaranteed to be beneficial: the same nominal intervention type worsened harmful
+outcomes in one language of one model (Hausa in GPT-OSS), produced only
+uncorrected point reductions elsewhere, and was associated with point-estimate
+increases in non-veto failure in all available Gemma cells. Any deployment-facing
+use of planner-targeted steering therefore requires per-model, per-language
+measurement with its own pre-declared correction family and its own benign-side
+outcome; a favourable result in one language or model entry provides no warrant
+for another. We also emphasise that none of the comparisons reported here is
+causal or mechanistic: they contrast conditions on matched prompts within single
+model entries, and they license no claim about why outcomes moved, nor about
+behaviour under other prompt distributions, deployment settings, or outcome
+definitions.
+
+\subsection{Limitations}
+
+Several limitations bound every claim above. Outcome definitions are
+heterogeneous across model entries---harmful operational failure, non-veto
+operational failure, veto rate, benign refusal rate, and various
+Addition-specific outcomes such as endpoint ALLOW/VETO decisions, harmful VETO
+rate, jailbreak success, and annotation agreement---so the rates are not on a
+common scale and are not comparable across models even when they carry similar
+labels; relatedly, for several models the decision-semantics and parser audits
+that define the outcome are not shipped in the evidence base, so the composition
+of ``failure'' or ``refusal'' cannot be independently verified here, and
+missing-label, parse-failure, and non-termination counts are unavailable
+(readers should treat those outcome labels as declared rather than checked).
+Coverage is partial in several cells and must be read against the exact recorded
+denominators rather than nominal targets: the Yoruba benign arm is small
+throughout, the Gemma analysis exists for only three cells with one
+reduced-coverage cell and no recorded total, the Qwen family contains three
+truncated steered cells, the GPT-5 harmful cells fall short of the nominal
+denominator, and Addition~6 records markedly asymmetric missing-label counts
+across its three conditions so that its condition denominators are not
+label-complete and its differences are unadjusted for that asymmetry. No dated
+vendor snapshot is recorded for any model entry, and some entries carry no vendor
+identifier at all, which limits both reproducibility and temporal
+generalisation: the reported rates describe the records collected under the given
+model labels rather than any particular revision of the underlying systems, and
+the Claude cross-version comparison illustrates directly that behaviour on
+identical prompts can shift across versions. Additions~1--6 are exploratory, have
+no correction families, report no confirmatory tests, and in some cases lack the
+numeric artifacts their intended analysis would require; cross-phase comparisons
+are further confounded because run phase, steering strength, and configuration
+label vary together and record-ID matching does not establish non-prompt
+run-condition equivalence. Finally, and most importantly, the analyses support
+model-specific, language-specific, and condition-specific descriptions only. They
+do not license broad claims about ``steering'' as a technique, about safety in
+languages or prompt classes we did not evaluate, or about deployment settings,
+model revisions, and outcome definitions outside those recorded here; absence of
+a Holm-significant effect in any family is likewise not evidence of absence,
+particularly in the small, floor-valued benign arms.
+
+% ---------------- SOURCE MAP ----------------
+% Discussion opening and limitations: interpretive synthesis of Sections 3–6;
+% no new analysis, no new numbers, no primary claim_ids asserted.
+```

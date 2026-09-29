@@ -1,0 +1,5 @@
+Language,Harmful paired n,Harmful baseline failure (%),Harmful steered failure (%),Harmful delta (pp),Harmful CI low (pp),Harmful CI high (pp),Harmful Holm p,Harmful Holm reject 0.05,Benign paired n,Benign baseline refusal (%),Benign steered refusal (%),Benign delta refusal (pp),Benign CI low (pp),Benign CI high (pp),Benign Holm p,Benign Holm reject 0.05
+Arabic,300,35.0,20.7,-14.3,-21.0,-7.3,0.000225,true,150,0.0,0.7,0.7,0.0,2.0,1.0,false
+English,300,13.7,13.3,-0.3,-4.3,3.7,1.0,false,150,0.0,0.0,0.0,0.0,0.0,1.0,false
+Hausa,300,68.3,58.3,-10.0,-17.0,-3.0,0.016762,true,150,0.0,1.3,1.3,0.0,3.3,1.0,false
+Yoruba,300,74.7,58.0,-16.7,-22.3,-11.3,0.0,true,45,0.0,0.0,0.0,0.0,0.0,1.0,false

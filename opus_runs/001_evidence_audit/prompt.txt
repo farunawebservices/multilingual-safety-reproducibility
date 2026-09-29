@@ -1,0 +1,55 @@
+You are auditing an empirical multilingual AI safety paper.
+
+The attached evidence packet is opus_packet.tar.gz. Read all files before answering.
+
+Produce:
+
+1. A model-by-model evidence inventory for:
+   - Llama 3.3 70B
+   - Qwen2.5 72B
+   - Gemma 4 31B
+   - GPT-5
+   - Claude Sonnet 4
+   - Claude Sonnet 5
+   - GPT-OSS 20B
+
+2. For each analysis, report:
+   - exact model name;
+   - phase and condition;
+   - languages;
+   - prompt counts and denominators;
+   - outcome definition;
+   - intervention;
+   - missing-label handling;
+   - pairing status;
+   - statistical test;
+   - multiple-testing correction;
+   - whether the result is descriptive or inferential.
+
+3. Audit Additions 1 through 6 separately.
+
+4. Identify every available LaTeX table and the exact claims it supports.
+
+5. Create a claim register with:
+   - claim ID;
+   - proposed claim;
+   - exact artifact path;
+   - table or row;
+   - scope;
+   - allowed wording;
+   - forbidden overclaim.
+
+6. Identify contradictions, missing artifacts, stale manifests, and unsupported
+   cross-model comparisons.
+
+Rules:
+- Never invent a number.
+- Never infer a number from a figure if a table or CSV exists.
+- Never combine models, phases, languages, or estimands without explicit support.
+- Preserve denominators and missing-label counts.
+- Preserve descriptive-versus-inferential distinctions.
+- Treat handoff limitations as binding.
+- Treat "not established" as a hard boundary.
+- Do not draft the paper.
+
+Return Markdown plus CSV-formatted claim-register rows.

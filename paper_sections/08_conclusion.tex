@@ -1,0 +1,48 @@
+```latex
+\section{Conclusion}
+
+Planner-targeted activation steering changed multilingual decision outcomes in
+the open-weight model entries we evaluated, but the changes were large,
+uneven, and not uniformly favourable. Within their own pre-declared correction
+families, Llama~3.3~70B showed Holm-significant reductions in harmful
+operational failure in Arabic, Hausa, and Yoruba with English essentially
+unchanged, and Qwen~2.5~72B showed Holm-significant reductions confined to the
+Arabic and English harmful cells, with the Hausa and Yoruba point reductions not
+surviving correction inside the 33-cell family. GPT-OSS~20B was
+mixed in direction rather than uniformly beneficial: English improved
+significantly, Hausa \emph{worsened} significantly, Arabic did not survive Holm
+correction, and Yoruba showed no marginal change. All available Gemma cells moved
+toward more non-veto failure in point estimates without any family-corrected
+rejection, and the Llama benign refusal family was null at or near the floor in
+every language---consistent with, but not establishing, an absence of utility
+cost. The closed-model analyses are purely descriptive: GPT-5 is a
+single-condition frontier baseline with no intervention arm, and Claude
+Sonnet~4 vs~5 is a prompt-matched cross-version record carrying no test,
+interval, or correction family. Because every family is disjoint and never
+pooled, no statement here is a cross-model estimate, and none of the comparisons
+is causal or mechanistic.
+
+The practical implication is that multilingual steering claims should be
+evaluated the way we have tried to report them: pre-registered, per-model and
+per-language, with disjoint correction families, a benign-side outcome measured
+alongside the harmful-side one, and exact recorded denominators rather than
+nominal targets. A favourable result in one language or one model entry provides
+no warrant for another, and heterogeneity across languages---especially
+lower-resource ones---is the phenomenon to be measured rather than averaged
+away. Four directions follow directly from the gaps identified above. First,
+same-session matched random-vector controls on the same prompts and outcome
+definition, which no artifact in our evidence base provides, are required before
+any claim of vector specificity can be made. Second, cross-version and
+cross-snapshot audits are needed, since dated vendor snapshots are unrecorded
+here and closed-model behaviour on identical prompts demonstrably shifts across
+versions. Third, language coverage should be expanded beyond the four primary
+languages, with sufficient benign-arm power to detect small increases in false
+refusals. Fourth, deployment-focused robustness checks---multilingual
+adversarial sets with non-zero event rates, shipped decision-semantics and
+parser audits, and complete missing-label accounting---are needed before
+planner-targeted steering is treated as a safety mechanism rather than an
+empirical design variable under study.
+
+% ---------------- SOURCE MAP ----------------
+% Conclusion: restatement of Sections 4–6 and the Discussion; no new analysis, no new numbers, no primary claim_ids asserted.
+```

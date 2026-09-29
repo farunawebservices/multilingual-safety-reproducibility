@@ -1,0 +1,135 @@
+# Registry of third-party data sources.
+#
+# Every source must be registered here with ALL fields resolved BEFORE it is
+# fetched. Third-party dataset terms are authoritative; see
+# THIRD_PARTY_DATASETS.md. If `redistribution_allowed` is `unknown`, treat it
+# as `false`.
+#
+# This file holds metadata only: no prompt text, no credentials.
+#
+# Acquired at Stage 0. Both sources happen to be MIT-licensed, so
+# `redistribution_allowed: true` is accurate as a matter of LICENSE. That is
+# separate from `commit_to_repo`, which is a REPOSITORY POLICY decision and is
+# false for harmful prompt text regardless of what the license permits.
+#
+# The two sources are NOT merged. See `overlap_warning` on jailbreakbench.
+
+schema_version: 1
+
+sources:
+  - id: jailbreakbench
+    name: JailbreakBench/JBB-Behaviors
+    version: "2024-09-26"
+    revision: 886acc352a31533ffbcf4ef22c744658688086fc
+    url: https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors
+    license: MIT
+    license_url: https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors/blob/main/LICENSE
+    redistribution_allowed: true
+    commit_to_repo: false
+    requires_agreement: false
+    agreement_accepted: true
+    commercial_use: true
+    attribution_required: true
+    contains_harmful_text: true
+    arm: both               # 100 harmful + 100 benign
+    languages: [en]
+    citation: chao2024jailbreakbench
+    paper: https://arxiv.org/abs/2404.01318
+    access_notes: >
+      Public Hugging Face dataset; no token required. Acquired with
+      huggingface_hub.hf_hub_download at the pinned revision above.
+    local_path: data/raw/jailbreakbench
+    # VERIFIED, not assumed: ONE config `behaviors` with `harmful`/`benign`
+    # SPLITS -- not separate configs by those names.
+    hf_config: behaviors
+    hf_splits: [harmful, benign]
+    hf_configs_not_acquired: [judge_comparison]
+    expected_sha256:
+      harmful-behaviors.csv: 4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1
+      benign-behaviors.csv: 3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468
+    overlap_warning: >
+      27 of the 100 harmful behaviors carry Source='TDC/HarmBench' and 18 carry
+      Source='AdvBench'. Concatenating this with the HarmBench source below
+      would double-count behaviors. Do not merge without semantic deduplication.
+
+  - id: harmbench
+    name: HarmBench text behaviors
+    version: "2024-02-27"
+    revision: c0423b952435fcc8467108d8f25962dbae5b7de2
+    url: https://github.com/centerforaisafety/HarmBench
+    license: MIT
+    license_url: https://github.com/centerforaisafety/HarmBench/blob/main/LICENSE
+    redistribution_allowed: true
+    commit_to_repo: false
+    requires_agreement: false
+    agreement_accepted: true
+    commercial_use: true
+    attribution_required: true
+    contains_harmful_text: true
+    arm: harmful            # no benign arm; JBB supplies that
+    languages: [en]
+    citation: mazeika2024harmbench
+    paper: https://arxiv.org/abs/2402.04249
+    access_notes: >
+      Public GitHub repository; fetched over HTTPS from raw.githubusercontent.com
+      at the pinned commit above. No credential required.
+    local_path: data/raw/harmbench
+    expected_sha256:
+      harmbench_behaviors_text_all.csv: 8d81accedd38eaaf8b760618622bb888417d1fd0c86eba65c427a16f1cbb4afc
+      harmbench_behaviors_text_val.csv: 7bfaaa5e2b9b95002c89e2d33c019f58e9e8496e2fc65d368f1eeb8179e69534
+      harmbench_behaviors_text_test.csv: 75d257b3e7428c52eb7b0154318f455af3e01b09a3794b5e2f3d36054f3c0e29
+    # VERIFIED: the official partition is FILE-LEVEL. No split column exists.
+    official_partition:
+      mechanism: separate_files
+      val_file: harmbench_behaviors_text_val.csv    # 80 rows
+      test_file: harmbench_behaviors_text_test.csv  # 320 rows
+      split_column: null
+    composition_warning: >
+      text_all is the text (non-multimodal) set but is not uniformly
+      self-contained: standard=200, contextual=100 (require ContextString),
+      copyright=100 (hash-checked generation requests). Only the 200 `standard`
+      rows are stand-alone text behaviors.
+
+# ---------------------------------------------------------------------------
+# Template — copy into `sources:` and fill in every field. Do not fetch a
+# source with an unresolved license field.
+# ---------------------------------------------------------------------------
+# - id: example_source              # stable local id, used in behavior IDs
+#   name: "Upstream Dataset Name"
+#   version: "1.2.0"                # pinned; never "latest"
+#   revision: "<git sha / hf revision>"
+#   url: "https://example.org/dataset"
+#   license: "CC-BY-NC-4.0"         # SPDX id or exact license name
+#   license_url: "https://example.org/dataset/LICENSE"
+#   redistribution_allowed: false   # true | false | unknown (default unknown)
+#   requires_agreement: true
+#   commercial_use: false
+#   attribution_required: true
+#   contains_harmful_text: true
+#   arm: harmful                    # harmful | benign
+#   languages: [en]                 # languages present upstream
+#   citation: "author2025dataset"   # BibTeX key, resolved in reports/
+#   access_notes: >
+#     How a collaborator obtains this themselves. Describe the process only —
+#     NEVER a token, key, cookie, or signed URL.
+#   local_path: data/raw/example_source   # git-ignored materialisation target
+#   expected_sha256: null           # filled by scripts/fetch_sources.py
+
+# ---------------------------------------------------------------------------
+# Translation provenance. Translated records are DERIVATIVE WORKS and inherit
+# upstream terms. Record how each non-pivot rendering was produced.
+# ---------------------------------------------------------------------------
+translation:
+  policy: >
+    Every non-pivot rendering records its method, the model or translator used,
+    and its human review status. Unreviewed machine translation is a named
+    confound in every cross-lingual comparison (CLAUDE.md §6) and must be
+    reported, not assumed away.
+  methods_allowed: [human, professional_service, machine_reviewed, machine_unreviewed]
+  default_method: null
+  review_status_values: [none, spot_checked, fully_reviewed]
+  # Back-translation check into the pivot language, for measuring drift.
+  backtranslation_check:
+    enabled: true
+    target: en
+    record_similarity: true

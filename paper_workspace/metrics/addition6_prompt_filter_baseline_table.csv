@@ -1,0 +1,4 @@
+Condition,Harmful n,Harmful vetoes,Harmful veto rate (%),Benign n,Benign vetoes,Benign FPR (%),Missing labels
+no_intervention,400,210,52.5,60,0,0.0,4
+prompt_filter,400,214,53.5,60,0,0.0,5
+planner_steering_l50_s20_historical_all_steps,400,230,57.5,60,3,5.0,25

@@ -1,0 +1,62 @@
+You are drafting Section 4.4 (GPT-OSS 20B harmful) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.4 only)
+- Existing sections:
+  - paper_sections/03_experimental_setup.tex
+  - paper_sections/04_1_llama_primary.tex
+  - paper_sections/04_2_qwen_primary.tex
+  - paper_sections/04_3_gemma_primary.tex
+  - paper_sections/05_1_gpt5_baseline.tex
+  - paper_sections/05_2_claude_baseline.tex
+  Use these for consistency of style, terminology, and level of statistical detail.
+
+Task:
+Write Section 4.4 prose only, following the outline bullets for 4.4.
+
+Requirements:
+- Use only claim_id GO-A. Note that GO-B is NOT WRITABLE pending the truncated allowed_wording field and must not be cited.
+- Cite exact artifacts and table labels from the outline:
+  - metrics/gpt_oss_20b_planner_alpha1_paired_effect_holm.csv (4 rows, authoritative for inference).
+  - metrics/gpt_oss_20b_planner_alpha1_paired_effect.csv.
+  - metrics/gpt_oss_20b_planner_alpha1_primary_canonical_audit.csv.
+  - tables/gpt_oss_20b_planner_alpha1_primary_harmful_results.tex.
+  - handoffs/gpt_oss_20b_planner_alpha1_primary_harmful_opus_handoff.md.
+  - manifests/gpt_oss_20b_planner_alpha1_primary_harmful_artifact_manifest.json.
+- Preserve all denominators, effect sizes, discordance counts, raw p-values, Holm p-values, and "must not claim" constraints.
+- Explicitly report:
+  - Model: openai/gpt-oss-20b.
+  - Phase / condition: Phase 1; baseline (no steering, α0) vs planner-only steering α1.0.
+  - Languages: Arabic, English, Hausa, Yoruba (harmful only).
+  - Denominators: 300 matched harmful prompts per language; 1,200 paired; 0 partial-coverage rows.
+  - Canonical audit: baseline 1,695 rows (1,200 harmful + 495 benign), planner_only_alpha1 1,695 rows, paired harmful subset 1,200, duplicate record IDs 0.
+  - Outcome definition: operational failure per the registered GPT-OSS decision-semantics and parser-outcome audits (registry/gpt_oss_decision_semantics_audit.json, registry/gpt_oss_parser_outcomes.json — not shipped), so the composition is not independently verifiable in this packet.
+  - Intervention: planner-only steering α1.0.
+  - Missing-label handling: governed by the two registry audits; no counts available in the packet.
+  - Pairing: paired, with full discordance tables (both_safe / worsened / improved / both_failure / discordant per row).
+  - Test: exact paired McNemar; paired bootstrap intervals retained in a separate artifact (not shipped).
+  - Correction: Holm, family = four language-specific harmful comparisons, size 4.
+  - Descriptive vs inferential: inferential, non-causal, mixed-direction result required in interpretation.
+  - Values:
+    - Arabic: 43/300 (14.33%) → 30/300 (10.00%), Δ −4.33 pp, discordant 33 (10 worsened / 23 improved), raw p = 0.03508, Holm p = 0.070164, not significant.
+    - English: 174/300 (58.00%) → 141/300 (47.00%), Δ −11.0 pp, discordant 105 (36 worsened / 69 improved), raw p = 0.0016590, Holm p = 0.004977, significant.
+    - Hausa: 45/300 (15.00%) → 66/300 (22.00%), Δ +7.0 pp (worsening), discordant 27 (24 worsened / 3 improved), raw p = 4.92334e-5, Holm p = 0.00019693, significant.
+    - Yoruba: 48/300 (16.00%) → 48/300 (16.00%), Δ 0.0, discordant 36 (18 worsened / 18 improved), raw p = 1.0.
+  - The mixed-direction pattern must be stated in the interpretation (English improved, Hausa worsened, Arabic not significant after Holm, Yoruba null).
+- Do not draft any other section. Do not invent numbers. Do not pool across models. Do not present as causal.
+- Return LaTeX only (a single .tex snippet for Section 4.4), plus a short source map listing which claim_ids support each paragraph.
+
+Structure:
+\subsection{GPT-OSS 20B harmful}
+
+Suggested paragraph plan (you may adjust as needed, but keep claims explicit):
+1. Research question and design summary (within-model, prompt-matched, outcome definition caveat, 4 languages × 300, Holm family size 4, artifacts).
+2. Per-language results (Arabic, English, Hausa, Yoruba): baseline/steered counts, rates, Δ, discordance, raw p, Holm p; emphasize which are significant and which are not.
+3. Interpretation and limits: mixed-direction pattern, non-causal, outcome composition not independently verifiable, no missing-label counts, no pooling with GO-B, no vendor snapshot.
+
+After the LaTeX, append a short source map in comments, e.g.:
+% Paragraph 1 (4.4, p1 — research question & design): GO-A
+% Paragraph 2 (4.4, p2 — per-language results): GO-A
+% Paragraph 3 (4.4, p3 — interpretation & limits): GO-A

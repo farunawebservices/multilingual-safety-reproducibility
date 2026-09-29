@@ -1,0 +1,140 @@
+```latex
+\subsection{Qwen 2.5 72B primary and 33-cell family}
+
+The second within-model question is whether planner-targeted steering changes
+multilingual decision outcomes in Qwen 2.5 72B (\texttt{qwen25\_72b}), and how
+that picture looks once the wider role $\times$ strength grid is corrected as a
+single pre-declared family. The primary contrast is the unsteered baseline
+($\alpha0$) against planner-only steering at $\alpha1.0$, on prompt-matched
+records, with the outcome defined by the audited Qwen decision semantics: an
+explicit veto counts as safe, and a non-veto unresolved record counts as an
+operational failure. Non-veto records are \emph{not} assumed to be explicit
+ALLOW. The primary display covers 8 language$\times$class cells (Arabic,
+English, Hausa, and Yoruba crossed with benign and harmful), with benign
+denominators 150/150/150/45 and harmful denominators 300/300/300/300, giving
+1{,}695 paired prompts and 0 partial-coverage rows; the displayed values are
+those printed in
+\texttt{tables/qwen25\_72b\_planner\_alpha1\_primary\_results.tex} (table
+\texttt{qwen25\_72b\_planner\_alpha1\_primary\_results}), with provenance in
+\texttt{handoffs/qwen25\_72b\_planner\_alpha1\_primary\_opus\_handoff.md} and
+\texttt{manifests/qwen25\_72b\_planner\_alpha1\_primary\_artifact\_manifest.json}.
+Beyond the primary display, the full pre-declared grid contrasts the baseline
+against \texttt{planner\_only}, \texttt{critic\_only}, and \texttt{both} at
+$\alpha1.0$ and $\alpha2.0$, comprising 33 steered cells recorded in
+\texttt{metrics/qwen25\_72b\_primary\_paired\_inference.csv},
+\texttt{metrics/qwen25\_72b\_primary\_paired\_inference\_holm.csv}, and
+\texttt{metrics/qwen25\_72b\_primary\_unified\_results.csv} (33 rows each). All
+cells are tested with the exact paired two-sided McNemar test with a paired
+bootstrap 95\% interval over matched prompt IDs (10{,}000 replicates, seed
+20260908), and \emph{every} Holm decision reported below---including those for
+the 8 primary cells---is taken inside the single pre-declared family
+\texttt{qwen25\_72b\_primary\_33\_steered\_cells} of size 33 at family-wise
+$\alpha = 0.05$. A third artifact,
+\texttt{metrics/qwen25\_72b\_primary\_canonical\_audit.csv} (41 rows), documents
+decision composition descriptively. The manifest additionally lists a non-shipped
+metric CSV, \texttt{qwen25\_72b\_planner\_alpha1\_primary\_paper\_table.csv},
+which is not cited as evidence here.
+
+In the primary planner-only $\alpha1.0$ table, planner-targeted steering is
+associated with lower non-veto operational failure in the Arabic and English
+harmful cells and with no Holm-significant change in any benign cell or in the
+Hausa and Yoruba harmful cells; exactly two of the eight cells are
+Holm-significant, and both are harmful cells. Arabic harmful falls from 48 of
+300 (16.0) to 9 of 300 (3.0), a change of $\Delta = -13.0$ with 95\% interval
+$[-17.3, -9.0]$ and Holm $p = 2.5965\times10^{-8}$; English harmful falls from
+117 of 300 (39.0) to 48 of 300 (16.0), $\Delta = -23.0$, interval
+$[-29.0, -17.0]$, Holm $p = 2.6313\times10^{-11}$. The two remaining harmful
+cells show smaller point reductions that do not survive correction: Hausa
+harmful moves from 165 of 300 (55.0) to 147 of 300 (49.0), $\Delta = -6.0$,
+interval $[-12.3, 0.3]$, Holm $p = 1.0$; Yoruba harmful moves from 153 of 300
+(51.0) to 132 of 300 (44.0), $\Delta = -7.0$, interval $[-12.7, -1.3]$, Holm
+$p = 0.6414$. The Yoruba harmful interval excludes zero while the Holm decision
+does not reject, and we report the two jointly rather than treating the interval
+as a rejection. None of the four benign cells is Holm-significant, so this
+display provides no family-corrected evidence of reduced failure---equivalently,
+of increased safety---in benign prompts at any language: Arabic benign
+is unchanged at 100.0 to 100.0 ($\Delta = +0.0$), English benign moves from
+100.0 to 98.0 ($\Delta = -2.0$, over 150 records baseline and 147 steered
+non-veto), Hausa benign is unchanged ($\Delta = +0.0$), and Yoruba benign, with
+$n = 45$, is unchanged ($\Delta = +0.0$). The two Holm-significant harmful cells
+are therefore the only cells in this display for which the family-corrected
+decision rejects, and the largest observed reduction is in English harmful.
+
+Across the full 33-cell family---\texttt{planner\_only}, \texttt{critic\_only},
+and \texttt{both} at $\alpha1.0$ and $\alpha2.0$---exactly 4 cells are
+Holm-significant: Arabic harmful at $\alpha1.0$ and at $\alpha2.0$, and English
+harmful at $\alpha1.0$ and at $\alpha2.0$. The wider grid therefore adds two
+family-corrected rejections to the two already visible in the primary display,
+and no Hausa or Yoruba cell and no benign cell is Holm-significant at any role
+or strength. Three cells in the family have reduced coverage, and their
+denominators are reported exactly as recorded rather than rounded or dropped:
+\texttt{critic\_only} Arabic benign at $\alpha1.0$ has a steered $n = 6$ against
+a baseline of 150 (\texttt{partial\_baseline\_coverage = true});
+\texttt{both} Yoruba harmful at $\alpha2.0$ has a paired $n = 160$ (baseline
+300, with 140 baseline-only records); and \texttt{planner\_only} Yoruba harmful
+at $\alpha2.0$ has a paired $n = 173$ (127 baseline-only records). The canonical
+audit corroborates the two truncated steered Yoruba cells at record counts of
+160 and 173 respectively. Interval-based and Holm-based conclusions diverge in
+several further cells, and we do not conflate them. Specifically,
+\texttt{critic\_only} Hausa benign at $\alpha1.0$, \texttt{both} Hausa harmful
+at $\alpha2.0$, \texttt{critic\_only} Yoruba harmful at $\alpha1.0$ and
+$\alpha2.0$, \texttt{planner\_only} Hausa harmful at $\alpha2.0$, and
+\texttt{planner\_only} Yoruba harmful at $\alpha1.0$ all have intervals
+excluding zero while remaining Holm-non-significant inside the 33-cell family.
+These cells are reported as non-significant.
+
+The decision-semantics audit
+(\texttt{metrics/qwen25\_72b\_primary\_canonical\_audit.csv}) is descriptive and
+carries no inferential content. It spans 41 cells across the \texttt{baseline},
+\texttt{planner\_steered}, and \texttt{critic\_and\_both\_steered} source groups
+and reports, per cell, the veto/non-veto composition, critic allow-token counts,
+record-ID uniqueness, and definition-validity flags. Its role here is to justify
+the outcome definition used above: because the critic allow-token counts fall
+below the record counts in several cells, a non-veto record cannot be identified
+with an explicit ALLOW, and the outcome is accordingly labelled a non-veto
+unresolved operational failure. No hypothesis test, confidence interval, or
+multiple-testing statement is attached to this audit, and none of its 41 rows is
+counted in the 33-cell Holm family. We also report no parse-failure or
+missing-record counts for Qwen: no such column exists in the shipped CSVs, so
+missing-label handling for this model is not established in the evidence base.
+
+Read together, the Qwen results describe a prompt-matched, within-model
+association between planner-targeted steering and lower non-veto operational
+failure that is concentrated in Arabic and English harmful prompts and that
+survives correction in only 4 of the 33 pre-declared cells. Several limits bind
+this reading. The comparison is non-causal: it contrasts conditions on the same
+prompts within one model entry and licenses no mechanistic claim and no claim
+about behaviour under other deployment conditions. Holm significance is defined
+only relative to the pre-declared 33-cell family, and we do not report Qwen
+significance under any other family or claim significance for cells outside it;
+equally, an interval excluding zero is not reported as a rejection. The Hausa
+and Yoruba harmful reductions observed at $\alpha1.0$ are point estimates that
+the family-corrected test does not distinguish from no change, and the three
+partial-coverage cells ($n = 6$, $160$, and $173$) are correspondingly weaker
+evidence than the fully paired cells; they are reported with their exact
+denominators rather than aggregated. Finally, these numbers describe Qwen 2.5
+72B only. They are not pooled with, averaged over, or compared inferentially
+against any other model entry in this paper, and the model string carries no
+vendor path or snapshot identifier in the evidence base.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.2, p1 — research question, design, outcome definition, denominators,
+%   8-cell primary display, 33-cell family and its Holm scope, 41-cell audit,
+%   non-shipped CSV not cited): QW-A, QW-B, QW-C
+% Paragraph 2 (4.2, p2 — primary 8-cell planner-only alpha1.0 results: opening summary
+%   sentence stating the association with lower non-veto operational failure in Arabic
+%   and English harmful and no Holm-significant change in any benign cell or in
+%   Hausa/Yoruba harmful, with exactly 2 of 8 cells Holm-significant, both harmful;
+%   per-cell counts, rates, deltas, intervals, Holm p-values; joint reporting of Yoruba
+%   harmful CI vs Holm; explicit statement that no family-corrected evidence of reduced
+%   failure / increased safety exists in benign prompts at any language): QW-A
+% Paragraph 3 (4.2, p3 — full 33-cell family: 4 Holm-significant cells, exact
+%   partial-coverage denominators n = 6, 160, 173, and the enumerated
+%   CI-excludes-zero-but-Holm-non-significant cells, now stated in two sentences
+%   (divergence statement, then enumeration)): QW-B
+% Paragraph 4 (4.2, p4 — descriptive 41-cell canonical audit; no test/CI/correction;
+%   non-veto is not explicit ALLOW; missing-label handling not established): QW-C, QW-A
+% Paragraph 5 (4.2, p5 — interpretation and binding limits: non-causal, within-model,
+%   Holm only within the 33-cell family, CI/Holm separation, partial-coverage weakness,
+%   no pooling across models, no vendor snapshot): QW-A, QW-B, QW-C
+```

@@ -1,0 +1,239 @@
+# =============================================================================
+# DATASET REBUILD PROTOCOL -- dataset v2
+#
+# Why this file exists: the private processed artifacts of dataset v1 were lost.
+# This is the plan for regenerating an equivalent corpus. It is a PLAN, not a
+# record -- `status: planned`, and no v2 translation has been run.
+#
+# -----------------------------------------------------------------------------
+# v1 IS UNTOUCHED, AND STAYS UNTOUCHED
+# -----------------------------------------------------------------------------
+# This file creates a NEW dataset version. It does not amend, supersede, or
+# reinterpret v1. Nothing carried out under this protocol may modify:
+#
+#   configs/experiment_preregistration_v1.yaml   frozen 2026-08-17, binding
+#   data/processed/                              v1 frozen dataset + splits
+#   data/interim/full/                           request set, READ-ONLY here
+#   results/full_request_set_inventory.json      stage-2.0 record
+#   any other frozen or historical v1 artifact, source file, or translation output
+#
+# The v1 pre-registration remains the authoritative account of v1. If v1's
+# frozen artifacts are ever recovered, this protocol does not retroactively
+# describe them, and v2 results are not merged with v1 results.
+#
+# -----------------------------------------------------------------------------
+# v2 GETS A NEW SPLIT HASH. THIS IS NOT OPTIONAL, AND IT WILL NOT HAPPEN BY ITSELF
+# -----------------------------------------------------------------------------
+# v1's split hash is
+#   9cc1a7b87cc6f83c7bd66b92f2111f968497d00e7e464b481f9abc1cc4cdb90e
+# It must not be reused or reproduced. Reusing it would let v2 results be
+# compared against -- or mistaken for -- v1 results computed over a corpus that
+# no longer exists and can no longer be re-verified.
+#
+# Note the mechanism, because doing nothing produces the wrong outcome:
+# multilingual_safety.splits.build_stratified_splits ranks behaviors by
+# sha256("<salt>:<behavior_id>"), and v2's behavior IDs derive from
+# (source_id, source_item_id, arm). The request set has been regenerated
+# byte-identically (see `materialization_precondition`), so those IDs are
+# IDENTICAL to v1's. Reusing the v1 salt `mls-splits-v1` would reproduce v1's
+# assignment exactly and yield the same split_hash. `split.salt` is therefore a
+# NEW value, `mls-v2-splits-20260818`, resolved and recorded below.
+#
+# METADATA ONLY. No prompt text, no translated text, no credentials, no keys.
+# =============================================================================
+
+schema_version: dataset-rebuild.v2
+artifact_type: dataset_rebuild_protocol
+status: planned
+created_at: "2026-08-18"
+
+relationship_to_v1:
+  type: new_dataset_version_after_private_artifact_loss
+  v1_preregistration_unchanged: true
+  v1_split_hash_not_reused: true
+  v1_processed_files_recovered: false
+  note: >
+    This dataset is regenerated after loss of the original private processed
+    artifacts. It must not be called v1 and must receive a new split hash.
+
+# -----------------------------------------------------------------------------
+# Source
+#
+# JailbreakBench only. HarmBench is excluded from the primary set: 27 of the 100
+# JBB harmful behaviors carry TDC/HarmBench provenance, so combining the two
+# would double-count behaviors and inflate any rate computed over the union
+# (results/source_inventory.json, cross_file_checks.jbb_harmbench_provenance_overlap).
+#
+# Both inventories below are TRACKED records carrying IDs, hashes and counts
+# only. The source acquisition and request build were rerun on this branch and
+# the regenerated records are what these paths now point at.
+# -----------------------------------------------------------------------------
+source:
+  primary_source: jailbreakbench
+  harmbench_included: false
+  n_behaviors: 200
+  n_benign: 100
+  n_harmful: 100
+  n_categories: 10
+  source_inventory: results/source_inventory.json
+  request_inventory: results/full_request_set_inventory.json
+
+# -----------------------------------------------------------------------------
+# Materialization precondition
+#
+# VERIFIED SATISFIED on 2026-08-18, before this file was written: both files are
+# present under data/interim/full/ (git-ignored) and both sha256 values below
+# match byte-for-byte. The regenerated request set therefore reproduces the one
+# recorded at stage 2.0 exactly -- same 200 behaviors, same behavior IDs, same
+# 1,200 translation requests.
+#
+# The two required files are READ-ONLY inputs here and are never rewritten by
+# this protocol. The rule below stays in force as a standing gate: it must be
+# re-checked immediately before translation begins, not just once at authoring
+# time, because a corpus that drifts between authoring and execution invalidates
+# every downstream hash.
+# -----------------------------------------------------------------------------
+materialization_precondition:
+  required_before_translation: true
+  required_files:
+    - data/interim/full/full_selection.jsonl
+    - data/interim/full/full_translation_requests.jsonl
+  required_sha256:
+    full_selection_jsonl: 0c42fc094012f6d5e19f1c780bf98c491961a43c56ad837350407dc9bdb842cc
+    full_translation_requests_jsonl: b502b06817da0b957679f782943a838fd8593a889cff2332b117fd216fa057e4
+  rule: >
+    Translation cannot begin until both files exist and match these hashes
+    byte-for-byte. A mismatch requires protocol review before translation.
+
+languages:
+  codes: [en, ar, ha, yo, sw, hi, ko]
+  rows_per_language: 200
+  pivot_language: en
+
+# -----------------------------------------------------------------------------
+# Translation
+#
+# `revision` is PINNED to a commit sha, never a moving ref: `main` would
+# silently change the corpus between runs and every result would then describe
+# an unknown model. v2 reuses v1's pin, f8d333a098d19b4fd9a8b18f94170487ad3f821d,
+# which is what keeps v2 translations comparable to v1's.
+#
+# Nothing has been translated on this branch: all 1,200 non-English rows are
+# PENDING_TRANSLATION with a null translated_text.
+# -----------------------------------------------------------------------------
+translation:
+  model_id: facebook/nllb-200-distilled-600M
+  revision: f8d333a098d19b4fd9a8b18f94170487ad3f821d
+  source_code: eng_Latn
+  target_codes:
+    ar: arb_Arab
+    ha: hau_Latn
+    yo: yor_Latn
+    sw: swh_Latn
+    hi: hin_Deva
+    ko: kor_Hang
+  deterministic: true
+  do_sample: false
+  num_beams: 4
+  max_new_tokens: 256
+  seed: 20260818
+  errors_are_fatal: true
+  # CLAUDE.md §2. Failed and missing translations are data -- they concentrate
+  # in ha/yo/sw, which is precisely the effect this project measures.
+  missing_translations_are_not_silently_dropped: true
+
+# -----------------------------------------------------------------------------
+# Semantic validation -- required before freeze
+#
+# This is the layer v1 could not evidence. v1's pre-registration records manual
+# review and external native-speaker checking that were never captured
+# row-by-row, so `claims_permitted.row_level_native_speaker_validation` is false
+# there. Two annotators per priority language, an adjudicator for disagreements,
+# and a recorded kappa are what would let v2 make a row-level claim v1 cannot.
+#
+# `machine_or_llm_fallback: false` is load-bearing: a machine or LLM stand-in
+# would reproduce exactly the gap it is meant to close, and the models under
+# evaluation may never judge their own evaluation inputs.
+#
+# OPEN GAP, to be resolved before annotation begins: no per-language sample size
+# is fixed here, so which of `min_preserved_fraction` and
+# `min_preserved_rows_per_arm` binds is currently undetermined.
+# -----------------------------------------------------------------------------
+semantic_validation:
+  required_before_freeze: true
+  priority_languages: [ha, yo, sw]
+  annotators_per_language: 2
+  adjudicator_required_for_disagreement: true
+  min_kappa: 0.60
+  gating_labels:
+    - meaning_preservation
+    - safety_label_preservation
+    - qualifier_preservation
+  allowed_values: [PRESERVED, NOT_PRESERVED, UNRESOLVED]
+  machine_or_llm_fallback: false
+  min_preserved_fraction: 0.80
+  min_preserved_rows_per_arm: 40
+
+# -----------------------------------------------------------------------------
+# Split
+#
+# `salt` -- see the header. A new salt is the only thing that makes v2's split
+# hash differ from v1's, because the behavior IDs are identical.
+# holdout_per_stratum 3 x 20 strata (2 arms x 10 categories) => 60 held out,
+# 140 dev, matching expected_behavior_counts below.
+#
+# `final_test_readable_before_freeze: false` -- CLAUDE.md §1. All development,
+# prompt iteration, threshold tuning and intervention-strength selection happen
+# on dev. The runtime guard is
+# multilingual_safety.splits.load_split(allow_test=True).
+# -----------------------------------------------------------------------------
+split:
+  version: v2
+  salt: mls-v2-splits-20260818
+  unit: behavior_id
+  stratified_by: [harm_label, category]
+  holdout_per_stratum: 3
+  expected_behavior_counts:
+    dev: 140
+    final_test: 60
+  final_test_readable_before_freeze: false
+
+# -----------------------------------------------------------------------------
+# Outputs
+#
+# Storage policy, enforced in .gitignore and asserted in
+# tests/test_repo_hygiene.py (via `git check-ignore`, so the tests check git's
+# real behavior rather than the text of a rule):
+#
+#   data/v2/interim/**        ignored   translation outputs, provenance, review
+#   data/v2/cache/**          ignored   model/tokenizer scratch
+#   data/v2/tmp/**            ignored   scratch
+#   data/v2/raw_downloads/**  ignored   re-acquired upstream payload
+#   data/v2/credentials/**    ignored   never a negation here, not even .gitkeep
+#   data/v2/manifests/        TRACKED   IDs, hashes and metadata only
+#   data/v2/processed/frozen_dataset_v2.jsonl  TRACKED via Git LFS (.gitattributes)
+#
+# NOTE, unresolved: the frozen v2 dataset carries translated prompt text for all
+# 1,400 rows, and LFS tracking commits it. v1's equivalent lived under a
+# git-ignored data/processed/. JailbreakBench is MIT so redistribution is
+# permitted, but README §7 and THIRD_PARTY_DATASETS.md keep corpus text out of
+# git on harm-surface grounds independent of licence. Flagged for a decision.
+#
+# `request_set` refers to the existing files under data/interim/full/. They are
+# READ-ONLY inputs to this protocol and are never rewritten; their presence and
+# hashes are gated by `materialization_precondition` above.
+# -----------------------------------------------------------------------------
+outputs:
+  request_set:
+    - data/interim/full/full_selection.jsonl
+    - data/interim/full/full_translation_requests.jsonl
+  translation_outputs:
+    - data/v2/interim/full_translation_outputs_v2.jsonl
+    - data/v2/interim/full_translation_provenance_v2.jsonl
+    - data/v2/interim/full_manifest_v2.json
+  review:
+    private: data/v2/interim/translation_validation/
+    tracked_manifests: data/v2/manifests/
+  frozen:
+    dataset: data/v2/processed/frozen_dataset_v2.jsonl
+    splits: data/v2/processed/splits_v2.json

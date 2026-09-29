@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T16:58:42.520004+00:00",
+  "run_id": "addition6_llama_pilot_historical_all_steps_v1__planner_steering_l50_s20_historical_all_steps",
+  "condition": "planner_steering_l50_s20_historical_all_steps",
+  "manifest_path": "addition_6_prompt_filter_baseline/prompts/addition6_pilot_manifest_v1.jsonl",
+  "manifest_sha256": "406d162f846f72d3120515efa82a7e8a5bd4de36f0f3d3adbc9e8289823cdf1d",
+  "n_prompt_level_cases": 16,
+  "n_expected_role_generations": 48,
+  "model": {
+    "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+    "dtype": "torch.bfloat16",
+    "device_map": "auto",
+    "low_cpu_mem_usage": true
+  },
+  "decoding": {
+    "do_sample": false,
+    "max_new_tokens": 512
+  },
+  "historical_prompt_module": "artifacts/prior_llama33_phase2/scripts/prompts_system.py",
+  "historical_prompt_module_sha256": "2e4aa6e67882c53a914574c1e75935015942d250ed7f5141d38e659e94ed7e7a",
+  "historical_template_sha256": {
+    "planner": "f3e15740c58e76ffda110ec8c59cd8b4053a651c3d624255143345cb8cbd3cbf",
+    "tool_caller": "d981a6bbf4c94c59de78a51b3b29bf46d93b656ebc159c79d4dff16384acba1a",
+    "critic": "49349484bdb6bed0749de54b4093d867912ef87cc715aba4379351e5e9fccfd7"
+  },
+  "historical_steering_script": "artifacts/prior_llama33_phase2/scripts/run_phase2_sae_steering.py",
+  "historical_steering_script_sha256": "2531517cacb062d378c51cc830b1169ae912d078a4a5e122f689e49a1a1bee3e",
+  "steering_spec": {
+    "layer": 50,
+    "strength": 20.0,
+    "vector_path": "artifacts/prior_llama33_phase2/vectors/sae_refusal_feature.pt",
+    "vector_sha256": "144cafef6a6985dde9415fd2c5562b49a04aef827c470bf3530c0f34e20756f3",
+    "vector_shape": [
+      8192
+    ],
+    "vector_dtype": "torch.bfloat16",
+    "vector_norm": 1.0,
+    "target_role": "planner_only"
+  },
+  "planner_filter_suffix_sha256": "bd9f75aad552ad1908192fb6b7f898373272b516b472f3f6a0fa2526cefc8a63",
+  "critic_parse_status_counts": {
+    "exact_label": 16
+  },
+  "scope_note": "Sixteen-case Addition 6 historical-all-steps steering replication. It compares matched no-intervention, planner prompt-filter, and authentic historical Llama planner-only SAE steering conditions. It is not final statistical evidence."
+}

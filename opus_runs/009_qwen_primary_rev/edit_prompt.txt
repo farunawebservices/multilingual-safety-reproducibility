@@ -1,0 +1,20 @@
+You are revising Section 4.2 (Qwen 2.5 72B primary and 33-cell family) of an ICLR paper.
+
+Input:
+- Current draft: opus_runs/008_qwen_primary/qwen_primary_draft.tex
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.2 only)
+
+Task:
+Produce a revised version of Section 4.2 that:
+1. Preserves all existing content, numbers, denominators, correction families, and "must not claim" constraints.
+2. In the first sentence of the primary-results paragraph, clarifies that planner-targeted steering is associated with lower non-veto operational failure in Arabic and English harmful prompts, and with no Holm-significant change in any benign cell or in Hausa/Yoruba harmful; exactly two of the eight cells are Holm-significant, both harmful. Keep the detailed per-cell numbers unchanged.
+3. After the sentence "None of the four benign cells is Holm-significant", adds a short phrase stating that there is no family-corrected evidence of reduced failure (or increased safety) in benign prompts at any language.
+4. Optionally splits the long CI-vs-Holm divergence sentence into two sentences for readability, without changing meaning.
+5. Keeps the source-map comment block at the end, updated if paragraph wording changes.
+
+Requirements:
+- Use only claim_ids QW-A, QW-B, QW-C.
+- Do not change any numbers, denominators, correction-family names, or artifact paths.
+- Return LaTeX only: a complete revised Section 4.2, including the updated source-map comments at the end.

@@ -1,0 +1,192 @@
+```latex
+\section{Related Work}
+
+\subsection{Steering and activation engineering}
+
+Activation-level control of language models has developed from a small set of
+recipes: extracting latent steering vectors by optimisation
+(Subramani et al., 2022), adding contrastive activation differences at inference
+time (Turner et al., 2023; Rimsky et al., 2024), intervening on
+probe-identified directions to change truthfulness behaviour
+(Li et al., 2023), and reading and controlling higher-level concepts through
+representation engineering (Zou et al., 2023). A parallel line treats weight-
+and task-space edits as the control surface (Ilharco et al., 2023), and a third
+identifies interpretable directions with sparse autoencoders
+(Cunningham et al., 2023; Bricken et al., 2023; Templeton et al., 2024). Most
+directly relevant to safety, Arditi et al.\ (2024) report that refusal in
+several open-weight chat models is well described by a single mediating
+direction, and Marks and Tegmark (2024) and von R\"utte et al.\ (2024) study
+the geometry of related concept directions.
+
+Three features of this literature bound its evidential reach, and they define
+the space in which the present paper sits. First, evaluation is overwhelmingly
+English and single-turn: steering effects are measured on chat completions or
+instruction prompts, not on decisions taken inside a running system. Second,
+steering vectors generalise unevenly across prompt distributions and models;
+Tan et al.\ (2024) show that reliability varies substantially by behaviour and
+setting, which makes single-model demonstrations weak evidence for the technique
+as such. Third, mechanistic and behavioural claims are often reported together
+even when only the latter is measured. We deliberately stay on the behavioural
+side. This paper reports prompt-matched, within-model condition contrasts, and
+makes \emph{no} mechanistic or localisation claim: it does not replicate,
+confirm, or extend the refusal-direction results above, the historical steering
+direction used in the archived Phase~2 material is not available in our evidence
+base, and no matched random-vector control on the same prompts and outcome
+definition exists anywhere in it. Generic perturbation is therefore neither
+identified nor ruled out, and vector specificity is not established here. What
+is new relative to this literature is scope rather than mechanism: a
+multilingual, multi-model, agentic-pipeline evaluation of steering applied at a
+specific pipeline \emph{role}, with per-model correction families and explicit
+coverage accounting.
+
+\subsection{Agentic systems and tool use}
+
+Agentic LLM systems decompose a task across roles and tool calls: interleaved
+reasoning and acting (Yao et al., 2023), tool invocation
+(Schick et al., 2023), self-critique and revision
+(Madaan et al., 2023; Shinn et al., 2023), model-written critiques as an
+alignment mechanism (Bai et al., 2022), multi-agent debate
+(Du et al., 2023), and orchestration frameworks with explicit role assignment
+(Park et al., 2023; Wu et al., 2023; Hong et al., 2024). Safety evaluation for
+such systems has grown correspondingly: sandboxed risk elicitation
+(Ruan et al., 2024), prompt-injection and tool-abuse suites
+(Debenedetti et al., 2024), harmful-agent-behaviour benchmarks
+(Andriushchenko et al., 2025), and general agent capability benchmarks
+(Liu et al., 2024; Mialon et al., 2024).
+
+The gap this paper addresses is that safety interventions in agentic systems are
+almost always exogenous to the model's internals---system prompts, filters,
+guardrail classifiers, or critic passes---while activation-level interventions
+are almost always evaluated on monolithic single-turn chat. Where an agentic
+pipeline exposes distinct roles (here, a planner and a critic), the
+\emph{location} of an activation intervention is itself a design variable, and
+we treat it as one to be measured rather than assumed. Our primary comparisons
+target the planner role; the archived material that varies the role label
+(planner-only, critic-only, both) does so across a run-phase boundary and at a
+single strength, so configuration is confounded with phase and strength, and we
+report it as associational and exploratory only. We also include an exploratory
+prompt-filter baseline (Addition~6) precisely because a guardrail-style
+intervention is the relevant point of comparison for deployment; that
+comparison, however, has asymmetric missing-label counts across conditions, a
+non-comparable outcome definition, no test and no correction, and no recorded
+model identifier, so it establishes nothing about the relative merits of the two
+intervention classes. What remains open is a clean, same-session, same-outcome
+factorial over intervention location, strength, and vector identity within one
+pipeline.
+
+\subsection{Multilingual safety and evaluation}
+
+Multilingual safety findings have consistently shown that alignment does not
+transfer uniformly across languages. Low-resource-language translation is an
+effective jailbreak channel (Yong et al., 2024); multilingual prompts raise
+unsafe-response rates relative to English (Deng et al., 2024); safety behaviour
+varies widely across languages on parallel test suites
+(Wang et al., 2024, XSafety); and safety-relevant failures track a broader
+``language barrier'' in instruction following (Shen et al., 2024). Structural
+causes are well documented: resource asymmetry across the world's languages
+(Joshi et al., 2020), tokenisation and cost disparities
+(Ahia et al., 2023), scarce evaluation data for African languages
+(Adelani et al., 2021; Adelani et al., 2024), and evidence that multilingual
+models route through anglocentric latent representations with partly
+language-specific components (Wendler et al., 2024; Tang et al., 2024). The
+over-refusal side of the trade-off is measured mostly in English
+(R\"ottger et al., 2024; Cui et al., 2024).
+
+Two gaps follow. First, this literature is dominated by descriptive
+baselining---attack success or refusal rates per language---rather than paired,
+per-language tests of an \emph{intervention}. Second, the utility side is rarely
+measured in the same languages as the harm side. This paper evaluates
+planner-targeted steering per language with matched prompts and a per-language
+inferential decision, in Arabic, English, Hausa, and Yoruba, and finds
+model-dependent and language-dependent directions of effect, including a
+significant \emph{worsening} in one language of one model. We keep the benign
+(utility) arm in a separate correction family from the harmful arm, and we do
+not read a null benign result as evidence of no utility cost: baseline refusal
+sits at the floor and the Yoruba benign cell contributes only 45 paired prompts,
+so power there is minimal. Our exploratory Hindi/Korean/Swahili material is
+descriptive, uses a different estimand (harmful veto rate), and has undocumented
+malformed-output counts, so it cannot be pooled with the main languages. Closed
+models enter only as descriptive context: a single-condition frontier baseline
+and a prompt-matched cross-version comparison. The latter is a reminder,
+consistent with reports of behavioural drift in commercial APIs
+(Chen et al., 2023), that closed-baseline comparisons inherit uncontrolled
+version variation; no vendor snapshot is recorded for any model entry here,
+which limits temporal generalisation for all of them.
+
+\subsection{Evaluation methodology and correction families}
+
+Our statistical apparatus is standard in isolation---the exact paired McNemar
+test for matched binary outcomes (McNemar, 1947), paired nonparametric bootstrap
+percentile intervals (Efron and Tibshirani, 1993), Holm's sequentially rejective
+correction (Holm, 1979) as an alternative to false-discovery control
+(Benjamini and Hochberg, 1995), and Cohen's $\kappa$ for annotator agreement
+(Cohen, 1960)---and the methodological literature on how to use it in NLP is
+mature: significance-testing practice (Dror et al., 2018), replicability across
+datasets (Dror et al., 2017), statistical power (Card et al., 2020), variance
+accounting in benchmarks (Bouthillier et al., 2021), holistic multi-metric
+reporting (Liang et al., 2023), and the reliability limits of model-based judges
+(Zheng et al., 2023). Safety-specific evaluation suites have likewise
+standardised attack sets and metrics (Zou et al., 2023, GCG;
+Mazeika et al., 2024; Chao et al., 2024; Shen et al., 2024, DAN prompts).
+
+In practice, however, steering papers rarely state a correction family at all,
+frequently pool cells across models, languages, and outcomes, and seldom
+distinguish an interval excluding zero from a family-corrected rejection. The
+methodological contribution here is procedural rather than technical. (i) Each
+model entry carries its own \emph{disjoint}, pre-declared Holm family---Llama
+harmful (4), Llama benign (4), Qwen (33 steered cells), Gemma (3), GPT-OSS
+(4)---and these are never merged, pooled, or averaged; every significance
+statement is internal to one model, one outcome, and one family, and we
+therefore report no family-corrected cross-model contrast. (ii) Where an
+interval excludes zero but Holm does not reject, both are reported jointly and
+the cell is described as non-significant; the cells where the two diverge are
+enumerated rather than summarised. (iii) Partial coverage is reported at exact
+recorded denominators (e.g.\ steered $n=6$, paired $n=160$ and $n=173$ in the
+Qwen family; 101 paired English benign records for Gemma; harmful denominators
+of 286--291 for the GPT-5 baseline) rather than rounded to nominal targets, and
+per-model totals are not synthesised where none is recorded. (iv) Missing labels
+are handled explicitly in the sense demanded by the missing-data literature
+(Rubin, 1976; Little and Rubin, 2019): complete-case policies are stated, no
+outcome is imputed, a duplicate record subset is not pooled with the analysed
+set, and---critically---where the decision-semantics and parser audits that
+define an outcome are not available, we state that the outcome composition is
+declared rather than independently verified and report no parse-failure or
+missing-label counts for that model. Our exploratory additions engage the
+methodological literature in the same spirit: the activation-patching audit
+(Addition~1) has exactly one evaluable row under its own recovery definition and
+is reported as such, in line with warnings that patching conclusions depend
+sharply on metric and denominator choices
+(Meng et al., 2022; Vig et al., 2020; Zhang and Nanda, 2024;
+Heimersheim and Nanda, 2024); the judge-calibration study (Addition~4) reports
+$\kappa$ in $\kappa$ units but notes that annotators were not blinded to the
+original labels and that 98 prompts cannot support generalisation; and the
+adversarial check (Addition~5) records zero jailbreak events in both conditions
+on 50 English prompts with a random vector, so no test is defined and the check
+has no power. None of Additions~1--6 declares a correction family or is treated
+as confirmatory.
+
+\subsection{Positioning and what remains open}
+
+Taken together, prior work establishes that activation steering can change model
+behaviour (mostly in English, mostly single-model, sometimes with mechanistic
+evidence), that agentic pipelines expose role structure that safety
+interventions could target (mostly evaluated with exogenous guardrails), and
+that multilingual safety is unevenly distributed (mostly documented
+descriptively). This paper contributes the intersection that is missing: a
+multilingual (four languages), multi-model (four open-weight entries plus two
+closed descriptive baselines), agentic evaluation of \emph{planner-targeted}
+steering, with disjoint per-model correction families, harmful and benign arms
+held separate, exact partial-coverage denominators, explicit missing-label
+provenance, and a set of clearly labelled exploratory additions. It does not
+contribute mechanism, causal identification, or cross-model inference. Four
+gaps remain open and are, in our view, the natural next targets: a same-session
+matched random-vector control to test vector specificity; a within-phase
+factorial over intervention role and strength so that role is not confounded
+with run phase; adequately powered benign arms in low-resource languages, where
+our own design is at the floor; and shipped decision-semantics and parser audits
+for every model entry, without which outcome definitions remain declared rather
+than verifiable.
+
+% ---------------- SOURCE MAP ----------------
+% Related Work: situates this paper in prior literature; no new empirical claims.
+```

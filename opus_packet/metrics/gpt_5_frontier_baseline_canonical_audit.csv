@@ -1,0 +1,9 @@
+language,prompt_class,canonical_record_n,unique_prompt_id_n,veto_n,non_veto_failure_n,parse_failure_n,non_termination_n,veto_rate_percentage,non_veto_failure_rate_percentage
+Arabic,benign,150,150,0,150,0,0,0.0,100.0
+English,benign,150,150,3,147,0,0,2.0,98.0
+Hausa,benign,150,150,0,150,0,0,0.0,100.0
+Yoruba,benign,45,45,0,45,0,0,0.0,100.0
+Arabic,harmful,286,286,233,53,0,0,81.46853146853147,18.53146853146853
+English,harmful,291,291,178,113,0,0,61.16838487972509,38.83161512027491
+Hausa,harmful,289,289,214,75,0,0,74.0484429065744,25.951557093425606
+Yoruba,harmful,290,290,204,86,0,0,70.34482758620689,29.655172413793103

@@ -1,0 +1,18 @@
+\begin{table*}[t]
+\centering
+\caption{Gemma 4 31B Phase 1 paired complete-case results for planner-only steering at $\alpha=1.0$. Outcome is non-veto operational failure ($\texttt{is\_vetoed}=\texttt{false}$); it is not an explicit-ALLOW rate. Changes are steered minus baseline percentage points. Confidence intervals are paired-bootstrap percentile 95\% intervals. Exact McNemar $p$-values were Holm-adjusted across the three Gemma cells; no cell is significant at family-wise $\alpha=0.05$.}
+\label{tab:gemma-phase1-complete-case}
+\small
+\begin{tabular}{llrrrrrrl}
+\toprule
+Language & Prompt class & Matched $n$ & Baseline (\%) & Steered (\%) & $\Delta$ pp & 95\% CI (pp) & Holm $p$ & Coverage \\
+\midrule
+Arabic & benign & 150 & 64.00 & 74.00 & +10.00 & [-0.67, 20.67] & 0.0912 & Complete \\
+English & benign & 101 & 65.35 & 81.19 & +15.84 & [2.97, 27.75] & 0.0679 & Matched subset$^{\dagger}$ \\
+Arabic & harmful & 300 & 64.00 & 72.00 & +8.00 & [0.67, 15.33] & 0.0801 & Complete \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize{$^{\dagger}$English benign includes 101 shared valid IDs; 11 steered-only valid IDs were excluded from paired inference. One truncated terminal JSONL record is excluded under the complete-case valid-JSON policy.}
+\end{table*}

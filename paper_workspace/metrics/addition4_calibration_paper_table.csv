@@ -1,0 +1,9 @@
+Language,n,A1 YES,A1 NO,A2 YES,A2 NO,Agreement (%),Cohens_kappa,CI_low,CI_high,Interpretation
+Arabic,14,7,7,7,7,100.0,1.0,100.0,100.0,Almost perfect
+English,14,7,7,7,7,100.0,1.0,100.0,100.0,Almost perfect
+Hausa,14,6,8,6,8,100.0,1.0,100.0,100.0,Almost perfect
+Hindi,14,7,7,7,7,100.0,1.0,100.0,100.0,Almost perfect
+Korean,14,7,7,7,7,100.0,1.0,100.0,100.0,Almost perfect
+Swahili,14,6,8,6,8,100.0,1.0,100.0,100.0,Almost perfect
+Yoruba,14,6,8,7,7,92.9,0.857,53.3,100.0,Almost perfect
+Overall,98,46,52,47,51,99.0,0.98,93.7,100.0,Almost perfect

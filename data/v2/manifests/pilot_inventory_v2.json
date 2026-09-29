@@ -1,0 +1,243 @@
+{
+  "backend": {
+    "allowed_providers": [
+      "azure_translator",
+      "deepl",
+      "google_translate",
+      "nllb_local"
+    ],
+    "backend_usable": true,
+    "configured_provider": null,
+    "credential_env_names_checked": [],
+    "credential_present": null,
+    "effective_provider": "nllb_local",
+    "llm_backend_enabled": false,
+    "probe": {
+      "checked_by": "probe (no weights loaded)",
+      "dependencies_available": true,
+      "model_id": "facebook/nllb-200-distilled-600M",
+      "model_revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+      "provider": "nllb_local",
+      "reason": "nllb_local: dependencies present; weights cached",
+      "usable": true,
+      "weights_cached": true
+    },
+    "provider_credentials_present_by_name": {
+      "AZURE_TRANSLATOR_KEY": false,
+      "DEEPL_API_KEY": false,
+      "GOOGLE_APPLICATION_CREDENTIALS": false
+    },
+    "provider_source": "cli_override",
+    "reason": "nllb_local: dependencies present; weights cached",
+    "unsupported_languages": [],
+    "usable": true
+  },
+  "config": {
+    "configured_provider": null,
+    "effective_provider": "nllb_local",
+    "languages": [
+      "en",
+      "ar",
+      "ha",
+      "yo",
+      "sw",
+      "hi",
+      "ko"
+    ]
+  },
+  "config_hash": "afd498a0f4ce449dddc19a3a4670392e5d455422b8ae487d09df999cbfccfa90",
+  "contains_prompt_text": false,
+  "counts_by_category": {
+    "Disinformation": 14,
+    "Economic harm": 14,
+    "Expert advice": 14,
+    "Fraud/Deception": 14,
+    "Government decision-making": 14,
+    "Harassment/Discrimination": 14,
+    "Malware/Hacking": 14,
+    "Physical harm": 14,
+    "Privacy": 14,
+    "Sexual/Adult content": 14
+  },
+  "counts_by_harm_label": {
+    "benign": 70,
+    "harmful": 70
+  },
+  "counts_by_language": {
+    "ar": 20,
+    "en": 20,
+    "ha": 20,
+    "hi": 20,
+    "ko": 20,
+    "sw": 20,
+    "yo": 20
+  },
+  "counts_by_language_and_label": {
+    "ar:benign": 10,
+    "ar:harmful": 10,
+    "en:benign": 10,
+    "en:harmful": 10,
+    "ha:benign": 10,
+    "ha:harmful": 10,
+    "hi:benign": 10,
+    "hi:harmful": 10,
+    "ko:benign": 10,
+    "ko:harmful": 10,
+    "sw:benign": 10,
+    "sw:harmful": 10,
+    "yo:benign": 10,
+    "yo:harmful": 10
+  },
+  "counts_by_method": {
+    "machine_unreviewed": 120,
+    "original": 20
+  },
+  "counts_by_status": {
+    "CANONICAL_SOURCE": 20,
+    "MACHINE_TRANSLATED_UNCHECKED": 120
+  },
+  "deterministic_digest": "aaad8b0502a4f64c266b46aad2eb518865d06861bba315f09757253bd8b5f398",
+  "generated_at": "2026-08-19T08:52:05.128771+00:00",
+  "git_branch": "dataset-v2-rebuild",
+  "git_commit": "951308b5085c2cc14f506dec40a901f7978c8aa0",
+  "git_dirty": true,
+  "group_violations": {},
+  "languages": [
+    "en",
+    "ar",
+    "ha",
+    "yo",
+    "sw",
+    "hi",
+    "ko"
+  ],
+  "n_behaviors": 20,
+  "n_pending": 0,
+  "n_requests": 120,
+  "n_review_required": 120,
+  "n_rows": 140,
+  "n_translated": 140,
+  "native_speaker_reviewed_rows": 0,
+  "notes": [
+    "English rows are canonical source text, not translations.",
+    "Every non-English row is review_required=true; no machine can clear it.",
+    "split_placeholder is a sentinel. Splits are assigned later at behavior level so no behavior can appear in both development and final evaluation."
+  ],
+  "pilot_subset": {
+    "behavior_ids": [
+      "beh_03433781e3aa",
+      "beh_04bf1788c1aa",
+      "beh_070f8d97027f",
+      "beh_0cb6fe1fcdac",
+      "beh_0f4a1eff5468",
+      "beh_16a608f45d2e",
+      "beh_2085696094d9",
+      "beh_396c1816ee5c",
+      "beh_66925697e389",
+      "beh_679dbbf44d76",
+      "beh_6c23590e0b0c",
+      "beh_72e4cee2cc80",
+      "beh_7b8a918374ca",
+      "beh_91a0f589c181",
+      "beh_95932dd7307f",
+      "beh_a3309b0a68c5",
+      "beh_a39a4c7d178f",
+      "beh_a4b41137a713",
+      "beh_b117279f5262",
+      "beh_b2d4a02cc6fa"
+    ],
+    "behaviors_per_language": 20,
+    "full_selection_covered": true,
+    "languages": [
+      "ar",
+      "ha",
+      "hi",
+      "ko",
+      "sw",
+      "yo"
+    ],
+    "limit_source": "cli",
+    "n_behaviors_in_selection": 20,
+    "n_behaviors_in_subset": 20,
+    "n_behaviors_untranslated": 0,
+    "n_non_pivot_languages": 6,
+    "n_rows": 120,
+    "n_subset_rows": 120,
+    "require_full_selection": false
+  },
+  "response_log": {
+    "attempts_by_status": {
+      "ERROR": 0,
+      "OK": 120,
+      "SKIPPED": 0
+    },
+    "audit_log_is_append_only": true,
+    "effective_by_status": {
+      "ERROR": 0,
+      "OK": 120,
+      "SKIPPED": 0
+    },
+    "max_attempts_for_one_request": 1,
+    "n_effective": 120,
+    "n_records_total": 120,
+    "n_request_ids": 120,
+    "n_request_ids_with_retries": 0,
+    "n_superseded_records": 0,
+    "note": "Every attempt is retained. `effective` selects the latest successful attempt per request_id (else the latest attempt); superseded records remain in the log and are never deleted or collapsed.",
+    "unresolved_request_ids": []
+  },
+  "run_id": "run_20260819T085205Z_95a89336",
+  "split_placeholder": "UNASSIGNED",
+  "stage": "stage1.1_translate_pilot",
+  "tool_version": "0.0.1",
+  "translation": {
+    "attempted": true,
+    "correlation": {
+      "fully_correlated": true,
+      "missing_responses": [],
+      "n_requests": 120,
+      "n_responses": 120,
+      "orphan_responses": [],
+      "source_hash_mismatches": []
+    },
+    "n_attempted": 120,
+    "n_error": 0,
+    "n_ok": 120,
+    "n_requests": 120,
+    "n_responses": 120,
+    "n_skipped_already_done": 0,
+    "network_translation_api_called": false,
+    "provider": "nllb_local",
+    "provider_metadata": {
+      "api_key_env": null,
+      "device": "cuda",
+      "dtype": "float32",
+      "generate_kwargs": {
+        "do_sample": false,
+        "max_new_tokens": 256,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 4
+      },
+      "generation_config": {
+        "do_sample": false,
+        "max_new_tokens": 256,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 4,
+        "seed": 20260816
+      },
+      "length_control": "max_new_tokens",
+      "license": "CC-BY-NC-4.0",
+      "license_note": "research use; output requires human review",
+      "local_files_only": false,
+      "model_default_length_controls_removed": {
+        "max_length": 200
+      },
+      "model_id": "facebook/nllb-200-distilled-600M",
+      "model_revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+      "network_translation_api_called": false,
+      "provider": "nllb_local",
+      "tokenizer_id": "facebook/nllb-200-distilled-600M"
+    },
+    "response_log": "data/v2/interim/pilot_responses_v2.jsonl"
+  }
+}

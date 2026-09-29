@@ -1,0 +1,60 @@
+You are drafting Section 5.2 (Claude Sonnet 4 vs 5 cross-version comparison) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 5.2 only)
+- Existing sections:
+  - paper_sections/03_experimental_setup.tex
+  - paper_sections/04_1_llama_primary.tex
+  - paper_sections/04_2_qwen_primary.tex
+  - paper_sections/04_3_gemma_primary.tex
+  - paper_sections/05_1_gpt5_baseline.tex
+  Use these for consistency of style, terminology, and level of statistical detail.
+
+Task:
+Write Section 5.2 prose only, following the outline bullets for 5.2.
+
+Requirements:
+- Use only claim_id CS-A.
+- Cite exact artifacts and table labels from the outline:
+  - metrics/claude_sonnet_4_vs_5_outcome_comparison.csv (8 rows).
+  - metrics/claude_sonnet_4_vs_5_metadata_consistency_audit.csv (1 row).
+  - tables/claude_sonnet_4_vs_5_descriptive_comparison.tex.
+  - handoffs/claude_sonnet_4_vs_5_OPUS_HANDOFF.md.
+  - manifests/claude_sonnet_4_vs_5_artifact_manifest.json.
+- Preserve all denominators, rates, differences, discordant counts, agreement rates, and "must not claim" constraints.
+- Explicitly report:
+  - Model names: Claude Sonnet 4 and Claude Sonnet 5 jointly; no standalone Sonnet 4 or Sonnet 5 analysis exists in the evidence base.
+  - Phase / condition: Phase 1 shared prompts; two separate model versions; no steering condition on either side.
+  - Languages: Arabic, English, Hausa, Yoruba × {benign, harmful}.
+  - Denominators: benign 150/150/150/45; harmful 300 each; 1,695 shared prompt IDs; 1 partial-coverage row (Yoruba benign, 45 shared prompts).
+  - Metadata audit: 1,695 records present in both, language and harmfulness match for all.
+  - Outcome definition: veto status, is_vetoed = true.
+  - Intervention: none — model-version difference is the contrast.
+  - Missing-label handling: not reported in the shipped CSVs (no parse/missing columns).
+  - Pairing: prompt-matched (shared prompt IDs), with per-cell discordance counts.
+  - Test / correction: none.
+  - Descriptive vs inferential: descriptive only; explicitly non-causal and not a within-model steering effect.
+  - Values:
+    - All four benign cells: 0 vetoes in both versions, 100.00% agreement.
+    - Arabic harmful: S4 23 (7.67%) vs S5 13 (4.33%), Δ −3.33 pp, discordant 20/10, agreement 90.00%.
+    - English harmful: S4 10 (3.33%) vs S5 0 (0.00%), Δ −3.33 pp, discordant 10/0, agreement 96.67%.
+    - Hausa harmful: S4 2 (0.67%) vs S5 3 (1.00%), Δ +0.33 pp, agreement 98.33%.
+    - Yoruba harmful: S4 2 (0.67%) vs S5 9 (3.00%), Δ +2.33 pp, agreement 96.33%.
+    - Overall agreement: 96.70% of 1,695 (cite the handoff/manifest; do not recompute from cells).
+- Do not draft any other section. Do not invent numbers. Do not pool across models. Do not present as inferential or comparative in a causal sense.
+- Return LaTeX only (a single .tex snippet for Section 5.2), plus a short source map listing which claim_ids support each paragraph.
+
+Structure:
+\subsection{Claude Sonnet 4 vs 5 cross-version comparison}
+
+Suggested paragraph plan (you may adjust as needed, but keep claims explicit):
+1. Research question and design summary (descriptive cross-version comparison, two model versions jointly, Phase 1 shared prompts, languages, denominators, pairing, outcome definition, no steering, no test/correction).
+2. Per-cell descriptive rates (benign then harmful), with Δ in percentage points, discordant pairs, and agreement rates; explicit note that benign cells have 0 vetoes in both versions and 100% agreement.
+3. Interpretation and limits: descriptive only, explicitly non-causal, not a within-model steering effect, no application of Qwen/Gemma Holm families, no recomputation of overall agreement from cells, no vendor snapshot.
+
+After the LaTeX, append a short source map in comments, e.g.:
+% Paragraph 1 (5.2, p1 — research question & design): CS-A
+% Paragraph 2 (5.2, p2 — per-cell descriptive rates): CS-A
+% Paragraph 3 (5.2, p3 — interpretation & limits): CS-A

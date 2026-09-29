@@ -1,0 +1,97 @@
+{
+  "artifact_set": "claude_sonnet_4_vs_5_phase1_descriptive_comparison",
+  "artifacts": [
+    {
+      "bytes": 1900,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/closed_model_source_inventory.csv",
+      "row_count": 11,
+      "sha256": "10237b0962f1cc421bf124e8be0f69c0e4f83a055ebe3d1eec071a5666639aca"
+    },
+    {
+      "bytes": 46388,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/closed_model_schema_inventory.csv",
+      "row_count": 11,
+      "sha256": "9a0309a555a9e898e6ea43e8970397c637309b9dd54c17e1d7791a37796bddf3"
+    },
+    {
+      "bytes": 445,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/claude_sonnet_4_phase1_schema_profile.csv",
+      "row_count": 5,
+      "sha256": "f1def937861fb3712bfa1ce2c9be6cf514a8aa9e26d7b8812e40dd3f197000f6"
+    },
+    {
+      "bytes": 601,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/claude_sonnet_4_phase1_baseline_audit.csv",
+      "row_count": 8,
+      "sha256": "53b6785fac8dc140a7178f12996010e3a3b9630365bc60b4ef8e889074d4af24"
+    },
+    {
+      "bytes": 298,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/claude_sonnet_4_vs_5_prompt_coverage_audit.csv",
+      "row_count": 8,
+      "sha256": "21b08521e73f9707b9b64e8c0c10c8f3bc95e3a8a6a115b0b2e22a8334eea269"
+    },
+    {
+      "bytes": 111,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/claude_sonnet_4_vs_5_metadata_consistency_audit.csv",
+      "row_count": 1,
+      "sha256": "bd246d340959defe2d3e501c2010653cf4265fb2128ffd1fb4d2e7dd7359c52c"
+    },
+    {
+      "bytes": 862,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/claude_sonnet_4_vs_5_outcome_comparison.csv",
+      "row_count": 8,
+      "sha256": "788cb5a48899aafad806be6b711b75f6f4dfaa791872b2e07cde528c8f763d8f"
+    },
+    {
+      "bytes": 963,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/claude_sonnet_4_vs_5_paper_table.csv",
+      "row_count": 8,
+      "sha256": "a657226e6660d853039b7c4e1ba2cb20997a000d09e172adf0cfc44d8e7cf422"
+    },
+    {
+      "bytes": 1384,
+      "kind": "latex_table",
+      "path": "paper_artifacts/tables/claude_sonnet_4_vs_5_descriptive_comparison.tex",
+      "sha256": "1b393eccfc533b9bbdfb52b50f95de3f0f266e9a5d77abd62315199d31e7b3b8"
+    },
+    {
+      "bytes": 18781,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/claude_sonnet_4_vs_5_veto_rate_comparison.pdf",
+      "sha256": "9bf499e140a0062d2e6a40ffe0069d243b9653dbacaefa49e325b902ea135e9c"
+    },
+    {
+      "bytes": 147933,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/claude_sonnet_4_vs_5_veto_rate_comparison.png",
+      "sha256": "5eba0df0d0ca1d96c7845a1ef51168b6ac6cd9a7e5c5fe92458a590da44fce93"
+    }
+  ],
+  "authoritative_figure_pdf": "paper_artifacts/figures/claude_sonnet_4_vs_5_veto_rate_comparison.pdf",
+  "authoritative_latex_table": "paper_artifacts/tables/claude_sonnet_4_vs_5_descriptive_comparison.tex",
+  "authoritative_paper_table": "paper_artifacts/metrics/claude_sonnet_4_vs_5_paper_table.csv",
+  "comparison_type": "Prompt-matched descriptive comparison of separate model versions.",
+  "coverage": {
+    "matched_prompt_n": 1695,
+    "paper_table_rows": 8,
+    "partial_coverage_rows": 1
+  },
+  "created_utc": "2026-09-08T18:57:58.588235+00:00",
+  "interpretation_constraints": [
+    "Do not describe this as a within-model steering effect.",
+    "Do not make a causal claim from this cross-model comparison.",
+    "Do not apply or report the Qwen/Gemma Holm families here.",
+    "Yoruba benign has partial coverage: 45 shared prompts.",
+    "All 1695 IDs have matching language and harmfulness metadata."
+  ],
+  "outcome": "Veto status, defined by is_vetoed=true."
+}

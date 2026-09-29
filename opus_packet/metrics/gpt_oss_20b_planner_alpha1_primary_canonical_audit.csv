@@ -1,0 +1,4 @@
+condition,rows,unique_record_ids,duplicate_record_ids,models,configs,intervention_targets,alphas,harmful_rows,benign_rows
+baseline,1695,1695,0,openai/gpt-oss-20b,baseline,none,0.0,1200,495
+planner_only_alpha1,1695,1695,0,openai/gpt-oss-20b,planner_only,planner,1.0,1200,495
+paired_harmful_primary_subset,1200,1200,0,openai/gpt-oss-20b,baseline_vs_planner_only_alpha1,planner_only,1.0,1200,0

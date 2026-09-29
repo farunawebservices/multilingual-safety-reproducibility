@@ -1,0 +1,126 @@
+```latex
+\section{Introduction}
+
+Safety behaviour in language models is usually evaluated as a property of a
+single model answering a single English prompt. Deployed systems increasingly
+depart from both assumptions. Agentic pipelines decompose a task across roles---a
+planner that proposes actions, a critic that reviews them, tools that execute
+them---so that the decision which matters for safety is taken inside a running
+system rather than in a one-shot chat completion. At the same time, these systems
+are used multilingually, and multilingual safety is known to be unevenly
+distributed: alignment does not transfer uniformly across languages, and
+lower-resource languages are both less well covered by evaluation data and more
+exposed to failure. Activation steering is an attractive candidate intervention
+in this setting precisely because it is endogenous to the model and can be
+applied at a chosen point in the pipeline: where a pipeline exposes distinct
+roles, the \emph{location} of the intervention becomes a design variable rather
+than an implementation detail. Whether steering at a particular role changes
+multilingual decision outcomes---and in which direction---is an empirical
+question that has largely not been asked.
+
+The existing evidence base is not well positioned to answer it. Steering and
+refusal-direction work is overwhelmingly English-only, single-turn, and often
+single-model, which makes a favourable demonstration weak evidence for the
+technique as such; reliability is known to vary substantially across behaviours
+and prompt distributions. Agentic safety evaluation, conversely, is dominated by
+exogenous interventions---system prompts, filters, guardrail classifiers, critic
+passes---rather than activation-level ones. Multilingual safety work is largely
+descriptive baselining of attack success or refusal rates per language, rather
+than paired per-language tests of an intervention, and the utility (over-refusal)
+side is rarely measured in the same languages as the harm side. Finally,
+reporting practice in this area is loose in ways that matter for safety claims:
+correction families are frequently unstated, cells are pooled across models,
+languages, and outcomes, partial coverage is rounded to nominal denominators, and
+an interval excluding zero is often not distinguished from a family-corrected
+rejection.
+
+We report a multilingual, multi-model evaluation of planner-targeted activation
+steering on a shared prompt set in Arabic, English, Hausa, and Yoruba. Four
+open-weight model entries carry the primary comparisons
+(\texttt{meta-llama/Llama-3.3-70B-Instruct}, Qwen~2.5~72B, \texttt{gemma\_4\_31b},
+and \texttt{openai/gpt-oss-20b}), each as a prompt-matched, within-model contrast
+between an unsteered baseline and a planner-only steered condition, tested with
+the exact paired McNemar test and corrected with Holm inside a \emph{pre-declared
+and disjoint} family per model entry and outcome: Llama harmful (size~4), Llama
+benign (size~4), the Qwen 33-cell role$\times$strength family, the Gemma
+three-cell complete-case family, and the GPT-OSS four-comparison harmful family.
+These families are never merged, pooled, or averaged, so every significance
+statement is internal to one model, one outcome, and one family, and we report no
+family-corrected cross-model contrast. Two closed models enter only as
+descriptive context: a single-condition frontier baseline
+(\texttt{openai/gpt-5}, no intervention arm) and a prompt-matched cross-version
+comparison of Claude Sonnet~4 against Sonnet~5, neither of which carries a test
+or a correction family. Throughout, partial coverage is reported at exact
+recorded denominators rather than nominal targets, harmful and benign arms are
+kept in separate families, and missing-label provenance is stated explicitly,
+including where the decision-semantics and parser audits that define an outcome
+are unavailable and the outcome label is therefore declared rather than
+independently verified. Six clearly labelled exploratory additions
+(Additions~1--6: an activation-patching endpoint audit, retrospective role
+material, a Hindi/Korean/Swahili descriptive replication, judge calibration, an
+adversarial robustness check, and a prompt-filter baseline) are reported
+separately, declare no correction family, and are treated as
+hypothesis-generating rather than confirmatory.
+
+The resulting picture is conditional rather than uniform. For Llama, harmful
+operational failure is substantially lower under planner-only steering in
+Arabic, Hausa, and Yoruba, with all three reductions surviving Holm correction
+inside the harmful family, while English---the language with the lowest baseline
+failure rate---is essentially unchanged. For Qwen, the Holm-significant cells are
+harmful cells in Arabic and English, with the largest observed reduction in
+English harmful; the Hausa and Yoruba harmful point reductions do not survive
+correction, and no benign cell is significant at any role or strength. GPT-OSS is
+mixed in direction: English improved significantly, Hausa \emph{worsened}
+significantly, Arabic showed a point reduction that did not survive Holm
+correction, and Yoruba showed no marginal change despite prompt-level
+disagreements in both directions. In the three Gemma cells for which paired
+records exist, all point estimates move toward more non-veto failure under
+steering, but no cell is Holm-significant. On the utility side, the Llama benign
+refusal family shows no Holm-significant change with refusal at or near the floor
+in every language; because that arm is small and floor-valued, we read this as
+consistent with, but not establishing, an absence of utility cost. The two
+closed-model analyses are descriptive only, and the cross-version comparison
+records that outcome-relevant behaviour can shift across closed-model versions on
+identical prompts---background variation that any evaluation conducted against
+closed baselines inherits. None of these comparisons is causal or mechanistic:
+they contrast conditions on matched prompts within single model entries and
+license no claim about why outcomes moved.
+
+Our contributions are the following.
+
+\begin{itemize}
+  \item \textbf{A multilingual, multi-model evaluation of role-targeted
+    steering.} We evaluate planner-targeted activation steering across four
+    open-weight model entries and four languages (Arabic, English, Hausa,
+    Yoruba), with harmful and benign arms measured in the same languages, plus
+    two closed models as descriptive baselines---an intersection of scope
+    (multilingual $\times$ multi-model $\times$ agentic role) that prior
+    steering work does not cover.
+  \item \textbf{A reporting protocol built for safety claims.} Each model entry
+    and outcome carries its own pre-declared, disjoint Holm family; harmful and
+    benign arms are never combined; intervals that exclude zero without a Holm
+    rejection are reported jointly and described as non-significant, with the
+    diverging cells enumerated; partial coverage is reported at exact recorded
+    denominators; and missing-label handling and outcome-composition provenance
+    are stated per model, including where they are unavailable.
+  \item \textbf{A model- and language-dependent empirical result, including a
+    negative direction.} We show that the same nominal intervention type is
+    associated with large family-corrected reductions in harmful operational
+    failure in some model$\times$language cells, with no detectable movement
+    where baseline failure is already low, and with a significant
+    \emph{worsening} in one language of one model---so that per-model,
+    per-language measurement with its own correction family, rather than
+    extrapolation from a single favourable cell, is required.
+  \item \textbf{An explicit account of what the evidence cannot support.} We
+    report six exploratory additions without correction families or confirmatory
+    tests, and we state the gaps they leave open: no matched random-vector
+    control on the same prompts and outcome definition exists, so generic
+    perturbation is neither identified nor ruled out and vector specificity is
+    not established; role varies jointly with run phase and strength in the
+    archived cross-phase material; and benign arms in low-resource languages are
+    at the floor and underpowered.
+\end{itemize}
+
+% ---------------- SOURCE MAP ----------------
+% Introduction: motivates the work and previews contributions; no new empirical claims.
+```

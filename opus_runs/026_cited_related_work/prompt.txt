@@ -1,0 +1,29 @@
+You are revising Section 2 (Related Work) to add proper in-text citations.
+
+Inputs:
+- Current Related Work: paper_sections/02_related_work.tex
+- Bibliography: paper.bib
+- Introduction: paper_sections/01_introduction.tex (for context only)
+
+Task:
+Rewrite paper_sections/02_related_work.tex so that every claim that references
+prior work uses \citep{...} or \citet{...} with keys that exactly match entries
+in paper.bib.
+
+Requirements:
+- Use \citep{...} for parenthetical citations (e.g. "prior work (Smith, 2020)").
+- Use \citet{...} for narrative citations (e.g. "Smith (2020) show that...").
+- Do not invent new citations; only cite papers that are in paper.bib.
+- Keep the existing structure and wording as much as possible; only add citations
+  and minimal connective text where needed.
+- Ensure every subsection has at least 3–5 citations.
+- Return LaTeX only: the full revised \section{Related Work} with citations,
+  plus a one-line source map at the end.
+
+Structure:
+\section{Related Work}
+
+% existing subsections, now with \citep{...} / \citet{...}
+
+% ---------------- SOURCE MAP ----------------
+% Related Work with citations: no new empirical claims.

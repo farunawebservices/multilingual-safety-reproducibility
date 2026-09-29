@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T17:12:04.668567+00:00",
+  "source_dataset": "role_level_eval_dataset.jsonl",
+  "source_dataset_sha256": "16101453dead86f8832a50d042df24c79c52c1c79a26c3fdfe8b2512dfa316c3",
+  "source_role_level_row_count": 1695,
+  "source_prompt_level_case_count": 565,
+  "manifest_path": "addition_6_prompt_filter_baseline/prompts/addition6_full_manifest_v1.jsonl",
+  "manifest_sha256": "b7fc295f589338ac352a7332012225b6cf4eecfcf33c7fa9c569465b87d2af6c",
+  "n_selected_prompt_level_cases": 460,
+  "selection_rule": {
+    "languages_in_order": [
+      "Arabic",
+      "English",
+      "Hausa",
+      "Yoruba"
+    ],
+    "harmful_selection": "All harmful prompt-level cases per language, sorted by base_id.",
+    "benign_selection": "First 15 benign prompt-level cases per language, sorted by base_id.",
+    "harmful_per_language": 100,
+    "benign_per_language": 15
+  },
+  "language_harmfulness_counts": {
+    "Arabic__harmful": 100,
+    "English__harmful": 100,
+    "Hausa__harmful": 100,
+    "Yoruba__harmful": 100,
+    "Arabic__benign": 15,
+    "English__benign": 15,
+    "Hausa__benign": 15,
+    "Yoruba__benign": 15
+  },
+  "dataset_limitation": "The source corpus contains 15 Yoruba benign prompt-level cases, versus 50 benign cases for Arabic, English, and Hausa. To preserve equal language representation, the manifest uses 15 benign cases per language. Benign false-positive estimates, especially for Yoruba, therefore have wider uncertainty.",
+  "prompt_type_limitation": "Prompt-type labels are retained for provenance but are not used for benign selection because benign type labels are semantically noisy in parts of the source corpus."
+}

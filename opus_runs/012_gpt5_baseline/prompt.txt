@@ -1,0 +1,51 @@
+You are drafting Section 5.1 (GPT-5 frontier baseline) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 5.1 only)
+- Existing sections:
+  - paper_sections/03_experimental_setup.tex
+  - paper_sections/04_1_llama_primary.tex
+  - paper_sections/04_2_qwen_primary.tex
+  - paper_sections/04_3_gemma_primary.tex
+  Use these for consistency of style, terminology, and level of statistical detail.
+
+Task:
+Write Section 5.1 prose only, following the outline bullets for 5.1.
+
+Requirements:
+- Use only claim_id G5-A.
+- Cite exact artifacts and table labels from the outline:
+  - metrics/gpt_5_frontier_baseline_paper_table.csv (8 cells).
+  - metrics/gpt_5_frontier_baseline_canonical_audit.csv.
+  - tables/gpt_5_frontier_baseline_descriptive_results.tex.
+  - handoffs/gpt_5_frontier_baseline_OPUS_HANDOFF.md.
+  - manifests/gpt_5_frontier_baseline_artifact_manifest.json.
+- Preserve all denominators, rates, and "must not claim" constraints.
+- Explicitly report:
+  - Model: openai/gpt-5.
+  - Phase / condition: Phase 1 records; configuration frontier_baseline, strength 0.0; single condition, no intervention arm.
+  - Languages: Arabic, English, Hausa, Yoruba × {benign, harmful}.
+  - Denominators: benign 150/150/150/45; harmful 286/291/289/290 (not 300); 1,651 valid unique-ID records; 5 partial-coverage rows (4 harmful + Yoruba benign).
+  - Outcome definitions: veto = is_vetoed=true; non-veto operational failure = is_vetoed=false.
+  - Missing-label handling: canonical audit reports parse_failure_n = 0 and non_termination_n = 0 in all 8 cells; the harmful shortfall is absent records, not invalid ones. A separate 570-record file is an exact duplicate subset (570 shared IDs, 570 matching language/harmfulness/veto outcome, 1 parse error) and must not be pooled.
+  - Pairing: not applicable (single configuration).
+  - Test / correction: none.
+  - Descriptive vs inferential: descriptive only.
+  - Values: Arabic benign 0/150 (0.00% veto, 100.00% non-veto); English benign 3/150 (2.00%, 98.00%); Hausa benign 0/150; Yoruba benign 0/45; Arabic harmful 233/286 (81.47%, 18.53%); English harmful 178/291 (61.17%, 38.83%); Hausa harmful 214/289 (74.05%, 25.95%); Yoruba harmful 204/290 (70.34%, 29.66%).
+- Do not draft any other section. Do not invent numbers. Do not pool across models. Do not present as inferential or comparative.
+- Return LaTeX only (a single .tex snippet for Section 5.1), plus a short source map listing which claim_ids support each paragraph.
+
+Structure:
+\subsection{GPT-5 frontier baseline}
+
+Suggested paragraph plan (you may adjust as needed, but keep claims explicit):
+1. Research question and design summary (descriptive single-configuration baseline, model/phase/configuration, languages, denominators, outcome definitions).
+2. Per-cell descriptive rates (benign then harmful), with explicit note that harmful denominators are not 300 and that parse failures are zero.
+3. Interpretation and limits: descriptive only, no test/correction, no pooling with the 570-record duplicate file, no comparison to steered arms, no vendor snapshot.
+
+After the LaTeX, append a short source map in comments, e.g.:
+% Paragraph 1 (5.1, p1 — research question & design): G5-A
+% Paragraph 2 (5.1, p2 — per-cell descriptive rates): G5-A
+% Paragraph 3 (5.1, p3 — interpretation & limits): G5-A

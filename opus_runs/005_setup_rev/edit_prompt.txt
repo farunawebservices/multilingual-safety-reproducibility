@@ -1,0 +1,27 @@
+You are revising Section 3 (Experimental setup) of an ICLR paper.
+
+Input:
+- Current draft: opus_runs/004_setup/setup_draft.tex
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (sections 3.1–3.5)
+
+Task:
+Produce a revised version of Section 3 that:
+1. Preserves all existing content, numbers, denominators, correction families, and "must not claim" constraints.
+2. Adds a short overview paragraph at the very beginning of Section 3 (before 3.1) that:
+   - States that all analyses are defined at the level of individual prompts evaluated under two or more conditions for a fixed model.
+   - States that the primary estimand in each steering analysis is the change in a binary decision outcome (operational failure or refusal) between a steered condition and an unsteered baseline, measured on the same prompts.
+   - States that all open-weight model comparisons are within-model and prompt-matched; the Llama cross-phase role/strength analysis is additionally record-ID-matched but explicitly associational; and the Claude comparison is a descriptive cross-version contrast with no steering arm.
+   - States explicitly: "No result in this paper pools outcomes across different models."
+3. Tightens the sentence about Llama Phase 1 planner-only outcome definition to read (or very close to):
+   "For the Llama Phase 1 planner-only analysis, the outcome is the harmful operational failure rate reported in the audited metric CSV and LaTeX table; however, the token-level composition of that outcome—which decision tokens constitute failure—is not documented in the evidence base, so we make no statement about it."
+4. Adds one clarifying sentence at the end of subsection 3.5 along the lines of:
+   "Accordingly, all reported effects should be interpreted as descriptive or associational differences between conditions on the same prompts, not as evidence that steering causes changes in behaviour under arbitrary deployment conditions."
+5. Optionally splits the longest sentences in 3.2 and 3.4 for readability, without changing any numbers or claims.
+6. Keeps the existing source-map comment block at the end, updated if paragraph numbering changes.
+
+Requirements:
+- Use only claim_ids LL-A, LL-B, LL-C, QW-A, QW-B, QW-C, GM-A, G5-A, CS-A, GO-A, GO-B.
+- Do not change any numbers, denominators, correction-family names, or artifact paths.
+- Return LaTeX only: a complete revised Section 3, starting from \section{Experimental setup}, including the updated source-map comments at the end.

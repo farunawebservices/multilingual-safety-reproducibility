@@ -1,0 +1,132 @@
+{
+  "config": {
+    "outputs": "data/v2/interim/full/full_translation_outputs_v2.jsonl"
+  },
+  "config_hash": "2b9f2b6bf3f9583edef83febbb5f1b1de106ff9cccba2a2ea776c7dbd402a9a7",
+  "contains_prompt_text": false,
+  "correlation": {
+    "duplicates": 0,
+    "empty_responses": 0,
+    "fully_correlated": true,
+    "hash_mismatches": 0,
+    "keys": [
+      "request_id",
+      "source_text_sha256"
+    ],
+    "missing": 0,
+    "orphaned": 0
+  },
+  "counts_by_arm": {
+    "benign": 700,
+    "harmful": 700
+  },
+  "counts_by_language": {
+    "ar": 200,
+    "en": 200,
+    "ha": 200,
+    "hi": 200,
+    "ko": 200,
+    "sw": 200,
+    "yo": 200
+  },
+  "counts_by_language_and_status": {
+    "ar:CANONICAL_SOURCE": 0,
+    "ar:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "en:CANONICAL_SOURCE": 200,
+    "en:MACHINE_TRANSLATED_UNCHECKED": 0,
+    "ha:CANONICAL_SOURCE": 0,
+    "ha:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "hi:CANONICAL_SOURCE": 0,
+    "hi:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "ko:CANONICAL_SOURCE": 0,
+    "ko:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "sw:CANONICAL_SOURCE": 0,
+    "sw:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "yo:CANONICAL_SOURCE": 0,
+    "yo:MACHINE_TRANSLATED_UNCHECKED": 200
+  },
+  "counts_by_status": {
+    "CANONICAL_SOURCE": 200,
+    "MACHINE_TRANSLATED_UNCHECKED": 1200
+  },
+  "deterministic_digest": "f65b88c85cb04435952ab066669fca9e1065fda2d374ad9806d3d84617ac46dd",
+  "generated_at": "2026-08-19T11:54:49.217446+00:00",
+  "git_branch": "dataset-v2-rebuild",
+  "git_commit": "62a5e3c36a68381f3bff2e454f2f7ebaef214575",
+  "git_dirty": true,
+  "n_applied": 1200,
+  "n_canonical_source_untouched": 200,
+  "n_human_reviewed": 0,
+  "n_left_pending": 0,
+  "n_review_required": 1200,
+  "n_rows": 1400,
+  "n_translated": 1400,
+  "notes": [
+    "Correlated on request_id AND source_text_sha256; a response generated from different source text is not applied.",
+    "English rows are passed through byte-identically.",
+    "review_required stays true on every non-English row; no row is HUMAN_REVIEWED.",
+    "Device/dtype/generation provenance lives in the git-ignored sidecar, not in the row schema and not in any tracked report."
+  ],
+  "pilot_artifact_hashes": {},
+  "pilot_artifacts_unchanged": true,
+  "provenance": {
+    "devices": {
+      "cuda": 1200
+    },
+    "dtypes": {
+      "float32": 1200
+    },
+    "fields": [
+      "request_id",
+      "behavior_id",
+      "source_language",
+      "target_language",
+      "provider",
+      "model_id",
+      "model_revision",
+      "tokenizer_id",
+      "device",
+      "dtype",
+      "generation_config",
+      "response_sha256",
+      "source_text_sha256",
+      "timestamp",
+      "latency_seconds",
+      "status",
+      "run_id"
+    ],
+    "generation_configs": [
+      {
+        "do_sample": false,
+        "max_new_tokens": 256,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 4,
+        "seed": 20260818
+      }
+    ],
+    "model_ids": [
+      "facebook/nllb-200-distilled-600M"
+    ],
+    "model_revisions": [
+      "f8d333a098d19b4fd9a8b18f94170487ad3f821d"
+    ],
+    "n_records": 1200,
+    "providers": {
+      "nllb_local": 1200
+    },
+    "run_ids": {
+      "run_20260819T113153Z_2cecf15a": 1200
+    },
+    "sidecar": "data/v2/interim/full/full_translation_provenance_v2.jsonl"
+  },
+  "run_id": "run_20260819T115449Z_eaafde27",
+  "source_hashes": {
+    "outputs_jsonl": "05b5abb311a3aa973b0b5dbc3bc96637be8039e99d4f42bd18ef86f608c44fb2",
+    "provenance_jsonl": "e2c19456d9b53b0aedf41ba78e16b5e1adbb5d323626f2e9a7c6acf4754083ce",
+    "responses_jsonl": "67a7b5724ffcad8d12d4cceb5abe28f0848838d082dbfb3ecf40411705e096c8"
+  },
+  "split_placeholder": "UNASSIGNED",
+  "splits_assigned": false,
+  "stage": "stage2.3_apply_full_responses",
+  "tool_version": "0.0.1"
+}

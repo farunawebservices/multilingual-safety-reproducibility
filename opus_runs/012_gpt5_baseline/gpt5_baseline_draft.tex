@@ -1,0 +1,88 @@
+```latex
+\subsection{GPT-5 frontier baseline}
+
+Having reported the four within-model steering comparisons, we turn to the
+closed-model baselines, whose role in this paper is descriptive only: they
+record how a frontier system behaves on the same multilingual prompt set, with
+no intervention arm of any kind. The question asked here is therefore not
+whether steering changes outcomes, but simply what the per-cell veto and
+non-veto rates of \texttt{openai/gpt-5} are. The analysis uses Phase~1 records
+under a single configuration, \texttt{frontier\_baseline} at strength 0.0; there
+is no steered arm, no second condition, and consequently pairing is not
+applicable. The cells are Arabic, English, Hausa, and Yoruba crossed with benign
+and harmful prompt classes. Two outcomes are recorded per cell: the veto rate,
+defined as \texttt{is\_vetoed = true}, and the non-veto operational failure
+rate, defined as \texttt{is\_vetoed = false}. Benign denominators are
+150/150/150/45 and harmful denominators are 286/291/289/290, over 1{,}651 valid
+unique-ID records, with 5 partial-coverage rows (the 4 harmful cells plus Yoruba
+benign). The harmful denominators are \emph{not} 300, and we report them exactly
+as recorded rather than as a nominal target. All displayed values are those
+printed in \texttt{metrics/gpt\_5\_frontier\_baseline\_paper\_table.csv} (table
+\texttt{gpt\_5\_frontier\_baseline\_paper\_table}, 8 cells) and
+\texttt{tables/gpt\_5\_frontier\_baseline\_descriptive\_results.tex}, with
+decision composition in
+\texttt{metrics/gpt\_5\_frontier\_baseline\_canonical\_audit.csv} (whose
+filename differs from the manifest-listed
+\texttt{gpt\_5\_clean\_frontier\_baseline\_audit.csv}) and provenance in
+\texttt{handoffs/gpt\_5\_frontier\_baseline\_OPUS\_HANDOFF.md} and
+\texttt{manifests/gpt\_5\_frontier\_baseline\_artifact\_manifest.json}. Because
+there is a single condition, no test, no confidence interval, and no
+multiple-testing correction is defined for or applied to any cell in this
+subsection.
+
+In the four benign cells, vetoes are essentially absent. Arabic benign records
+0 of 150 vetoes (0.00\% veto, 100.00\% non-veto), Hausa benign 0 of 150, and
+Yoruba benign 0 of 45; English benign records 3 of 150 (2.00\% veto, 98.00\%
+non-veto). In the four harmful cells, veto rates are substantially higher and
+vary by language: Arabic harmful 233 of 286 (81.47\% veto, 18.53\% non-veto),
+English harmful 178 of 291 (61.17\%, 38.83\%), Hausa harmful 214 of 289
+(74.05\%, 25.95\%), and Yoruba harmful 204 of 290 (70.34\%, 29.66\%). Each rate
+is stated against its own denominator, and the harmful denominators are 286,
+291, 289, and 290 respectively rather than 300; the shortfall relative to 300 is
+not a parsing or termination artefact. The canonical audit reports
+\texttt{parse\_failure\_n = 0} and \texttt{non\_termination\_n = 0} in all 8
+cells, so the harmful shortfall consists of absent records, not invalid ones,
+and no record is dropped here on validity grounds. We therefore report no
+missing-label imputation and no parse-failure count other than zero, and we do
+not rescale any cell to a 300-prompt denominator.
+
+The interpretation of these eight cells is bounded in several ways. They are
+descriptive: no hypothesis test, interval, or correction family is attached to
+them, and no statement in this subsection may be read as inferential. They are
+also non-comparative. In particular, the GPT-5 rates are not contrasted with the
+steered open-weight arms of Section~4, are not pooled with any other model
+entry, and are not used to rank models; the single \texttt{frontier\_baseline}
+condition at strength 0.0 supports no within-model effect estimate because there
+is no second arm to compare it against, and the between-language differences
+among the harmful cells are reported as observed rates only. A further data-hygiene
+constraint is binding: a separate 570-record file exists for this model, and it
+is an exact duplicate subset of the analysed records---570 shared IDs, 570
+matching language, harmfulness, and veto outcomes, and 1 parse error. That file
+is not pooled with, appended to, or used to supplement the 1{,}651 valid
+unique-ID records reported above, and none of its counts enters any denominator
+here. Finally, the analysis identifies the model only by the string
+\texttt{openai/gpt-5}; no vendor snapshot or dated model version is recorded in
+the evidence base, so these rates describe the records collected under that
+configuration and are not claimed to characterise any particular vendor snapshot
+or any later or earlier revision of the system.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (5.1, p1 — research question and design: openai/gpt-5, Phase 1 records,
+%   configuration frontier_baseline at strength 0.0, single condition with no intervention
+%   arm, pairing not applicable, languages x {benign, harmful}, benign 150/150/150/45 and
+%   harmful 286/291/289/290 (not 300), 1,651 valid unique-ID records, 5 partial-coverage
+%   rows (4 harmful + Yoruba benign), outcome definitions veto = is_vetoed=true and
+%   non-veto operational failure = is_vetoed=false, cited artifacts and table label,
+%   canonical audit filename discrepancy, handoff and manifest, and the explicit statement
+%   that no test / CI / correction is defined or applied): G5-A
+% Paragraph 2 (5.1, p2 — per-cell descriptive rates, benign then harmful, each against its
+%   own denominator; explicit restatement that harmful denominators are 286/291/289/290 and
+%   not 300; canonical audit parse_failure_n = 0 and non_termination_n = 0 in all 8 cells;
+%   the harmful shortfall is absent records, not invalid ones; no imputation and no
+%   rescaling to 300): G5-A
+% Paragraph 3 (5.1, p3 — interpretation and limits: descriptive only, not inferential, not
+%   comparative, no pooling across models, no comparison to steered arms, no ranking, no
+%   within-model effect estimate from a single condition, the separate 570-record file as an
+%   exact duplicate subset (570 shared IDs, 570 matching language/harmfulness/veto outcome,
+%   1 parse error) that must not be pooled, and no vendor snapshot claim): G5-A
+```

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-03T10:21:26.733691+00:00",
+  "dataset_path": "role_level_eval_dataset.jsonl",
+  "dataset_sha256": "e1246ff12347c92c28c78aecb11106fbde163b4cf95f3dd371789a154022de3f",
+  "selection_rule": "Lexicographically first base IDs within each stratum: language in [Arabic, English, Hausa, Yoruba], harmfulness in [harmful, benign], two prompt-level base cases per stratum.",
+  "languages": [
+    "Arabic",
+    "English",
+    "Hausa",
+    "Yoruba"
+  ],
+  "arms": [
+    "harmful",
+    "benign"
+  ],
+  "cases_per_language_arm": 2,
+  "n_prompt_level_cases": 16,
+  "n_agent_generations_per_condition": 48,
+  "source_role_rows_required": [
+    "critic",
+    "planner",
+    "tool-caller"
+  ],
+  "manifest_file": "addition_6_prompt_filter_baseline/prompts/legacy_smoke_manifest_v1.jsonl",
+  "selection_counts": {
+    "Arabic__harmful": 2,
+    "Arabic__benign": 2,
+    "English__harmful": 2,
+    "English__benign": 2,
+    "Hausa__harmful": 2,
+    "Hausa__benign": 2,
+    "Yoruba__harmful": 2,
+    "Yoruba__benign": 2
+  },
+  "status": "pre_inference_manifest",
+  "note": "Engineering smoke-test manifest only. It is not a final statistical sample and must not be changed after model outputs are inspected."
+}

@@ -1,0 +1,5 @@
+model,comparison,outcome_definition,language,alpha,paired_harmful_n,baseline_failure_n,steered_failure_n,baseline_failure_rate,steered_failure_rate,delta_steered_minus_baseline_percentage_points,worsened_safe_to_failure_n,improved_failure_to_safe_n,both_safe_n,both_failure_n,discordant_n,mcnemar_exact_two_sided_p
+meta-llama/llama-3.3-70b-instruct,both_alpha0_vs_turbo_alpha,legacy_operational_failure,Hausa,20.0,300,199,183,0.6633333333333333,0.61,-5.333333333333333,53,69,48,130,122,0.17420540549297178
+meta-llama/llama-3.3-70b-instruct,both_alpha0_vs_turbo_alpha,legacy_operational_failure,Yoruba,20.0,300,230,281,0.7666666666666667,0.9366666666666666,17.0,61,10,9,220,71,4.6446053760977124e-10
+meta-llama/llama-3.3-70b-instruct,both_alpha0_vs_turbo_alpha,legacy_operational_failure,Hausa,30.0,300,199,142,0.6633333333333333,0.47333333333333333,-19.0,34,91,67,108,125,3.4738008828470623e-7
+meta-llama/llama-3.3-70b-instruct,both_alpha0_vs_turbo_alpha,legacy_operational_failure,Yoruba,30.0,300,230,260,0.7666666666666667,0.8666666666666667,10.0,50,20,20,210,70,0.00044028500651396835

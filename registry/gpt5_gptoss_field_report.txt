@@ -1,0 +1,24 @@
+
+=== data/raw/phase1/gpt_5/originals/frontier_baseline_gpt_5_results.jsonl ===
+PARSED_ROWS: 1651; INVALID_ROWS: 0
+TOP_LEVEL_KEYS: composite_run_id, config, critic_response, harmfulness, id, is_vetoed, language, model, planner_response, strength, tool_response
+
+CANDIDATE FIELDS
+composite_run_id: {'openai/gpt-5_ar_benign_001_critic': 1, 'openai/gpt-5_ar_benign_002_critic': 1, 'openai/gpt-5_ar_benign_003_critic': 1, 'openai/gpt-5_ar_benign_004_critic': 1, 'openai/gpt-5_ar_benign_005_critic': 1, 'openai/gpt-5_ar_benign_006_critic': 1, 'openai/gpt-5_ar_benign_007_critic': 1, 'openai/gpt-5_ar_benign_008_critic': 1, 'openai/gpt-5_ar_benign_009_critic': 1, 'openai/gpt-5_ar_benign_010_critic': 1, 'openai/gpt-5_ar_benign_011_critic': 1, 'openai/gpt-5_ar_benign_012_critic': 1, 'openai/gpt-5_ar_benign_013_critic': 1, 'openai/gpt-5_ar_benign_014_critic': 1, 'openai/gpt-5_ar_benign_015_critic': 1, 'openai/gpt-5_ar_benign_016_critic': 1, 'openai/gpt-5_ar_benign_017_critic': 1, 'openai/gpt-5_ar_benign_018_critic': 1, 'openai/gpt-5_ar_benign_019_critic': 1, 'openai/gpt-5_ar_benign_020_critic': 1, 'openai/gpt-5_ar_benign_021_critic': 1, 'openai/gpt-5_ar_benign_022_critic': 1, 'openai/gpt-5_ar_benign_023_critic': 1, 'openai/gpt-5_ar_benign_024_critic': 1, 'openai/gpt-5_ar_benign_025_critic': 1, 'openai/gpt-5_ar_benign_026_critic': 1, 'openai/gpt-5_ar_benign_027_critic': 1, 'openai/gpt-5_ar_benign_028_critic': 1, 'openai/gpt-5_ar_benign_029_critic': 1, 'openai/gpt-5_ar_benign_030_critic': 1, 'openai/gpt-5_ar_benign_031_critic': 1, 'openai/gpt-5_ar_benign_032_critic': 1, 'openai/gpt-5_ar_benign_033_critic': 1, 'openai/gpt-5_ar_benign_034_critic': 1, 'openai/gpt-5_ar_benign_035_critic': 1, 'openai/gpt-5_ar_benign_036_critic': 1, 'openai/gpt-5_ar_benign_037_critic': 1, 'openai/gpt-5_ar_benign_038_critic': 1, 'openai/gpt-5_ar_benign_039_critic': 1, 'openai/gpt-5_ar_benign_040_critic': 1}
+config: {'frontier_baseline': 1651}
+harmfulness: {'harmful': 1156, 'benign': 495}
+id: {'ar_benign_001_critic': 1, 'ar_benign_002_critic': 1, 'ar_benign_003_critic': 1, 'ar_benign_004_critic': 1, 'ar_benign_005_critic': 1, 'ar_benign_006_critic': 1, 'ar_benign_007_critic': 1, 'ar_benign_008_critic': 1, 'ar_benign_009_critic': 1, 'ar_benign_010_critic': 1, 'ar_benign_011_critic': 1, 'ar_benign_012_critic': 1, 'ar_benign_013_critic': 1, 'ar_benign_014_critic': 1, 'ar_benign_015_critic': 1, 'ar_benign_016_critic': 1, 'ar_benign_017_critic': 1, 'ar_benign_018_critic': 1, 'ar_benign_019_critic': 1, 'ar_benign_020_critic': 1, 'ar_benign_021_critic': 1, 'ar_benign_022_critic': 1, 'ar_benign_023_critic': 1, 'ar_benign_024_critic': 1, 'ar_benign_025_critic': 1, 'ar_benign_026_critic': 1, 'ar_benign_027_critic': 1, 'ar_benign_028_critic': 1, 'ar_benign_029_critic': 1, 'ar_benign_030_critic': 1, 'ar_benign_031_critic': 1, 'ar_benign_032_critic': 1, 'ar_benign_033_critic': 1, 'ar_benign_034_critic': 1, 'ar_benign_035_critic': 1, 'ar_benign_036_critic': 1, 'ar_benign_037_critic': 1, 'ar_benign_038_critic': 1, 'ar_benign_039_critic': 1, 'ar_benign_040_critic': 1}
+language: {'English': 441, 'Hausa': 439, 'Arabic': 436, 'Yoruba': 335}
+model: {'openai/gpt-5': 1651}
+strength: {'0.0': 1651}
+
+=== data/raw/phase1/gpt_oss_20b/originals/gpt_oss_baseline_results.jsonl ===
+PARSED_ROWS: 1695; INVALID_ROWS: 0
+TOP_LEVEL_KEYS: config, critic_response, harmfulness, id, is_vetoed, language, planner_response, strength, tool_response
+
+CANDIDATE FIELDS
+config: {'baseline': 1695}
+harmfulness: {'harmful': 1200, 'benign': 495}
+id: {'ar_benign_001_critic': 1, 'ar_benign_002_critic': 1, 'ar_benign_003_critic': 1, 'ar_benign_004_critic': 1, 'ar_benign_005_critic': 1, 'ar_benign_006_critic': 1, 'ar_benign_007_critic': 1, 'ar_benign_008_critic': 1, 'ar_benign_009_critic': 1, 'ar_benign_010_critic': 1, 'ar_benign_011_critic': 1, 'ar_benign_012_critic': 1, 'ar_benign_013_critic': 1, 'ar_benign_014_critic': 1, 'ar_benign_015_critic': 1, 'ar_benign_016_critic': 1, 'ar_benign_017_critic': 1, 'ar_benign_018_critic': 1, 'ar_benign_019_critic': 1, 'ar_benign_020_critic': 1, 'ar_benign_021_critic': 1, 'ar_benign_022_critic': 1, 'ar_benign_023_critic': 1, 'ar_benign_024_critic': 1, 'ar_benign_025_critic': 1, 'ar_benign_026_critic': 1, 'ar_benign_027_critic': 1, 'ar_benign_028_critic': 1, 'ar_benign_029_critic': 1, 'ar_benign_030_critic': 1, 'ar_benign_031_critic': 1, 'ar_benign_032_critic': 1, 'ar_benign_033_critic': 1, 'ar_benign_034_critic': 1, 'ar_benign_035_critic': 1, 'ar_benign_036_critic': 1, 'ar_benign_037_critic': 1, 'ar_benign_038_critic': 1, 'ar_benign_039_critic': 1, 'ar_benign_040_critic': 1}
+language: {'Arabic': 450, 'English': 450, 'Hausa': 450, 'Yoruba': 345}
+strength: {'0.0': 1695}

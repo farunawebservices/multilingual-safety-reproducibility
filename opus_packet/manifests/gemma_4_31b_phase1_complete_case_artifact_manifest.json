@@ -1,0 +1,77 @@
+{
+  "analysis_population": "complete-case valid JSON records, with paired inference on shared record IDs",
+  "artifact_set": "gemma_4_31b_phase1_complete_case",
+  "artifacts": [
+    {
+      "bytes": 1548,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gemma_4_31b_phase1_complete_case_paired_inference.csv",
+      "row_count": 3,
+      "sha256": "c1ad878df1c45d42a5d364a9493406051a54cb6f7fb753fabd70315864a9cb55"
+    },
+    {
+      "bytes": 1852,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gemma_4_31b_phase1_complete_case_paired_inference_holm.csv",
+      "row_count": 3,
+      "sha256": "aa01feeafbbb68bf61845f55f581ea36f45a226c2b6f0575a51c87e85df12ca2"
+    },
+    {
+      "bytes": 732,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gemma_4_31b_phase1_complete_case_decision_semantics_audit.csv",
+      "row_count": 6,
+      "sha256": "cd1589675c6fa22d0b1535ffc0277298b3748058bf28873f04668ffaa37adf10"
+    },
+    {
+      "bytes": 2801,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gemma_4_31b_phase1_complete_case_unified_results.csv",
+      "row_count": 3,
+      "sha256": "00c7aa4eef6aebc8f6e816e15af3c1958b79ddfd6b4006a18e7407087443e438"
+    },
+    {
+      "bytes": 1075,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gemma_4_31b_phase1_complete_case_paper_table.csv",
+      "row_count": 3,
+      "sha256": "f6784b1b199948dcd27502a79f9a3b6aaaad42bf8593695887ac759ec1325c0d"
+    },
+    {
+      "bytes": 1267,
+      "kind": "latex_table",
+      "path": "paper_artifacts/tables/gemma_4_31b_phase1_complete_case_results.tex",
+      "sha256": "5d3e52bba9fe620b10e17da958cd5237e244e17a1b0199b93db702d2628f8d86"
+    },
+    {
+      "bytes": 19222,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/gemma_4_31b_phase1_complete_case_effects.pdf",
+      "sha256": "5cbe43c72be0457b405f8f58803fcd9e6da578e5a67693e90e09ff7d1dfb1c52"
+    },
+    {
+      "bytes": 105725,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/gemma_4_31b_phase1_complete_case_effects.png",
+      "sha256": "ddcf4972ac3bd45e659cc20efbedd61732f2e17b3988a7605794e7677809d059"
+    }
+  ],
+  "authoritative_figure_pdf": "paper_artifacts/figures/gemma_4_31b_phase1_complete_case_effects.pdf",
+  "authoritative_latex_table": "paper_artifacts/tables/gemma_4_31b_phase1_complete_case_results.tex",
+  "authoritative_paper_table": "paper_artifacts/metrics/gemma_4_31b_phase1_complete_case_paper_table.csv",
+  "coverage": {
+    "paper_table_rows": 3,
+    "partial_coverage_detail": "English benign uses 101 shared valid IDs; 11 steered-only valid IDs are excluded from paired inference.",
+    "partial_coverage_rows": 1
+  },
+  "created_utc": "2026-09-08T18:36:08.288259+00:00",
+  "inference": {
+    "familywise_alpha": 0.05,
+    "holm_significant_rows": 0,
+    "multiple_testing": "Holm correction across the 3 Gemma Phase 1 cells",
+    "paired_test": "Exact two-sided McNemar test",
+    "uncertainty": "10,000-replicate paired bootstrap percentile 95% CI"
+  },
+  "primary_outcome": "Non-veto operational failure: is_vetoed=false. This must not be interpreted as explicit ALLOW.",
+  "source_caveat": "One truncated terminal JSONL record is documented; analyses use complete-case valid JSON records only."
+}

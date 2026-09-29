@@ -1,0 +1,34 @@
+You are drafting Section 4.1 (Llama 3.3 70B harmful and benign) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.1 only)
+- Existing Section 3: paper_sections/03_experimental_setup.tex (for consistency of style and terminology)
+
+Task:
+Write Section 4.1 prose only, following the outline bullets for 4.1.
+
+Requirements:
+- Use only claim_ids LL-A and LL-B.
+- Cite exact table labels and artifact paths from the outline:
+  tables/llama33_planner20_primary_results.tex, table llama33_planner20_primary_results,
+  handoffs/llama33_planner20_primary_opus_handoff.md,
+  manifests/llama33_planner20_primary_artifact_manifest.json.
+- Preserve all denominators, effect sizes, CIs, Holm p-values, and "must not claim" constraints.
+- Do not draft any other section. Do not invent numbers. Do not pool harmful and benign.
+- Return LaTeX only (a single .tex snippet for Section 4.1), plus a short source map listing which claim_ids support each paragraph.
+
+Structure:
+\subsection{Llama 3.3 70B harmful and benign}
+% 2–4 paragraphs covering:
+% - research question and design summary
+% - harmful results (LL-A)
+% - benign results (LL-B)
+% - brief interpretation that respects "must not claim" constraints
+
+After the LaTeX, append a short source map in comments, e.g.:
+% Paragraph 1 (4.1, p1 — research question & design): LL-A, LL-B
+% Paragraph 2 (4.1, p2 — harmful results): LL-A
+% Paragraph 3 (4.1, p3 — benign results): LL-B
+% Paragraph 4 (4.1, p4 — interpretation & limits): LL-A, LL-B

@@ -1,0 +1,14 @@
+{
+  "model_id": "meta-llama/Llama-3.3-70B-Instruct",
+  "steering_layer": 50,
+  "num_harmful": 50,
+  "num_benign": 50,
+  "vector_shape": [
+    8192
+  ],
+  "vector_dtype": "torch.bfloat16",
+  "vector_norm_before": 14.197938919067383,
+  "vector_norm_after": 1.0001089572906494,
+  "vector_sha256": "d1e992009a98c59dfefbf36e584a97b336b6cb082051741675fd0fb55662a9a8",
+  "manifest_path": "addition_6_prompt_filter_baseline/addition6_llama_full_outputs/../addition6_llama_full_outputs/no_intervention_outputs.jsonl"
+}

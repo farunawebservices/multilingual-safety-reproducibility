@@ -1,0 +1,108 @@
+```latex
+\subsection{Claude Sonnet 4 vs 5 cross-version comparison}
+
+The second closed-model baseline asks a different descriptive question: do veto
+outcomes differ between two versions of the same closed model when both are
+evaluated on shared Phase~1 prompts? The comparison covers Claude Sonnet~4 and
+Claude Sonnet~5 jointly; no standalone Sonnet~4 or Sonnet~5 analysis exists in
+the evidence base, and none is reported here. Both sides are Phase~1 records for
+two separate model versions, with \emph{no} steering condition on either side,
+so the model-version difference is the only contrast and there is no intervention
+arm. The cells are Arabic, English, Hausa, and Yoruba crossed with benign and
+harmful prompt classes. The outcome is veto status, defined as
+\texttt{is\_vetoed = true}. Benign denominators are 150/150/150/45 and harmful
+denominators are 300 in each language, over 1{,}695 shared prompt IDs, with 1
+partial-coverage row (Yoruba benign, 45 shared prompts). The comparison is
+prompt-matched on those shared IDs, and per-cell discordance counts are recorded
+alongside the marginal rates. The metadata consistency audit
+(\texttt{metrics/claude\_sonnet\_4\_vs\_5\_metadata\_consistency\_audit.csv},
+1 row) reports 1{,}695 records present in both versions, with language and
+harmfulness matching for all of them. Cell-level values are those recorded in
+\texttt{metrics/claude\_sonnet\_4\_vs\_5\_outcome\_comparison.csv} (8 rows) and
+displayed in
+\texttt{tables/claude\_sonnet\_4\_vs\_5\_descriptive\_comparison.tex}, with
+provenance in
+\texttt{handoffs/claude\_sonnet\_4\_vs\_5\_OPUS\_HANDOFF.md} and
+\texttt{manifests/claude\_sonnet\_4\_vs\_5\_artifact\_manifest.json}. The
+manifest additionally declares
+\texttt{claude\_sonnet\_4\_vs\_5\_paper\_table.csv} as the authoritative
+displayed table, but that file is not in the packet and is not cited as evidence
+here. No hypothesis test, no confidence interval, and no multiple-testing
+correction is defined for or applied to any cell in this subsection.
+Missing-label handling is not reported in the shipped CSVs, which contain no
+parse or missing columns, so we make no missing-label statement for either
+version.
+
+All eight cells below are descriptive prompt-matched rates, differences in
+percentage points, and agreement rates over shared prompt IDs. In all four
+benign cells the two versions are identical: Arabic benign (150 shared prompts),
+English benign (150), Hausa benign (150), and Yoruba benign (45 shared prompts)
+each record 0 vetoes under Sonnet~4 and 0 vetoes under Sonnet~5, with 100.00\%
+agreement in every cell. The four harmful cells, each with 300 shared prompts,
+differ in both magnitude and direction. Arabic harmful records 23 vetoes
+(7.67\%) under Sonnet~4 against 13 (4.33\%) under Sonnet~5, a difference of
+$-3.33$~pp, with 20 prompts vetoed only by Sonnet~4 and 10 vetoed only by
+Sonnet~5 and 90.00\% agreement. English harmful records 10 vetoes (3.33\%)
+against 0 (0.00\%), a difference of $-3.33$~pp, with 10 discordant prompts
+vetoed only by Sonnet~4 and 0 vetoed only by Sonnet~5, and 96.67\% agreement.
+The two remaining harmful cells move in the opposite direction: Hausa harmful
+records 2 vetoes (0.67\%) against 3 (1.00\%), a difference of $+0.33$~pp, with
+98.33\% agreement; and Yoruba harmful records 2 vetoes (0.67\%) against 9
+(3.00\%), a difference of $+2.33$~pp, with 96.33\% agreement. Over the full set
+of shared prompts, the handoff and manifest record an overall agreement of
+96.70\% of 1{,}695 records. We quote that figure as recorded and do not
+recompute or re-derive it from the eight cells.
+
+The reading of these eight cells is tightly bounded. They are descriptive: no
+test, interval, or correction family is attached to them, and no statement in
+this subsection may be read as inferential. They are also explicitly non-causal.
+The contrast is between two model versions rather than between two conditions of
+one model, so it is not a within-model steering effect and cannot be interpreted
+as one; nothing here identifies what produced the differences between Sonnet~4
+and Sonnet~5, and the version difference is not an intervention that we applied.
+Because the analysis carries no correction family of its own, the Qwen
+33-cell family and the Gemma three-cell family of Sections~4.2 and~4.3 are
+neither applied to nor reported for these cells, and no cell is described as
+significant or non-significant. Accordingly, no claim of a ``difference''
+between Sonnet~4 and Sonnet~5 is made beyond the observed descriptive rates and
+agreement figures reported above. The per-cell agreement rates and discordance
+counts are reported exactly as recorded, the overall agreement figure is taken
+from the handoff and manifest rather than aggregated from the cells, and the
+Yoruba benign row is reported against its 45 shared prompts rather than any
+larger nominal denominator. Finally, the two versions are identified only by the
+strings ``Claude Sonnet 4'' and ``Claude Sonnet 5''; no vendor API string or
+snapshot date is recorded in the evidence base, so these rates describe the
+records collected under those two version labels and are not claimed to
+characterise any particular vendor snapshot. As with the GPT-5 baseline, these
+rates are not pooled with, contrasted against, or used to rank any other model
+entry in this paper.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (5.2, p1 — research question and design: Claude Sonnet 4 and Claude Sonnet 5
+%   jointly with no standalone per-version analysis; Phase 1 shared prompts; two separate
+%   model versions with no steering condition on either side and no intervention arm;
+%   languages x {benign, harmful}; benign 150/150/150/45 and harmful 300 each over 1,695
+%   shared prompt IDs with 1 partial-coverage row (Yoruba benign, 45 shared prompts);
+%   prompt-matched pairing with per-cell discordance counts; outcome definition
+%   veto status = is_vetoed=true; metadata audit 1,695 records present in both with
+%   language and harmfulness matching for all; cited artifacts, table file, handoff and
+%   manifest; non-shipped paper_table.csv not cited as evidence; explicit statement that no
+%   test / CI / correction is defined or applied; missing-label handling not reported in the
+%   shipped CSVs (no parse/missing columns)): CS-A
+% Paragraph 2 (5.2, p2 — per-cell descriptive rates, benign then harmful: all four benign
+%   cells 0 vetoes in both versions with 100.00% agreement; Arabic harmful 23 (7.67%) vs
+%   13 (4.33%), delta -3.33 pp, discordant 20/10, agreement 90.00%; English harmful 10
+%   (3.33%) vs 0 (0.00%), delta -3.33 pp, discordant 10/0, agreement 96.67%; Hausa harmful
+%   2 (0.67%) vs 3 (1.00%), delta +0.33 pp, agreement 98.33%; Yoruba harmful 2 (0.67%) vs
+%   9 (3.00%), delta +2.33 pp, agreement 96.33%; overall agreement 96.70% of 1,695 stated
+%   in one sentence as quoted from the handoff/manifest, with the following sentence
+%   recording that the figure is not recomputed or re-derived from the eight cells): CS-A
+% Paragraph 3 (5.2, p3 — interpretation and limits: descriptive only, not inferential,
+%   explicitly non-causal, not a within-model steering effect; no application or reporting
+%   of the Qwen or Gemma Holm families and no significance statement; explicit statement
+%   that accordingly no claim of a "difference" between Sonnet 4 and Sonnet 5 is made
+%   beyond the observed descriptive rates and agreement figures; agreement rates and
+%   discordance counts reported as recorded; overall agreement not recomputed from cells;
+%   Yoruba benign reported against 45 shared prompts; no vendor API string or snapshot
+%   recorded; no pooling with or ranking against any other model entry): CS-A
+```

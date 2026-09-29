@@ -1,0 +1,40 @@
+You are drafting the Abstract and proposing a title for an ICLR paper.
+
+Inputs:
+- Introduction: paper_sections/01_introduction.tex
+- Related Work: paper_sections/02_related_work.tex
+- Methods: paper_sections/03_experimental_setup.tex
+- Results + Additional analyses: paper_sections/assembled/results_chapter_inlined.tex
+- Discussion + Limitations: paper_sections/07_discussion_opening.tex
+- Conclusion: paper_sections/08_conclusion.tex
+
+Task:
+1. Propose 3 candidate titles (concise, descriptive, no hype).
+2. Write a 150–200 word abstract that:
+   - Motivates the problem (multilingual safety in agentic systems).
+   - States the gap (English-only, single-model, loose correction families).
+   - Summarizes the approach (four open-weight models, two closed baselines,
+     disjoint Holm families, partial-coverage handling, Additions 1–6).
+   - Previews the main findings (large harmful reductions in Llama/Qwen,
+     mixed-direction in GPT-OSS, null benign, descriptive closed baselines).
+   - Ends with one sentence on implications (per-model, per-language
+     measurement required; no broad “steering” claims).
+
+Requirements:
+- No new numbers beyond what’s in the paper.
+- No causal overclaim; keep everything consistent with §§1–8.
+- Return LaTeX only: three \title{} suggestions and an \begin{abstract}...\end{abstract}
+  block, plus a one-line source map.
+
+Structure:
+% Candidate titles
+% \title{...}
+% \title{...}
+% \title{...}
+
+\begin{abstract}
+...
+\end{abstract}
+
+% ---------------- SOURCE MAP ----------------
+% Abstract + title: synthesis of §§1–8; no new empirical claims.

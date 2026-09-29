@@ -1,0 +1,131 @@
+{
+  "competence_clears_review_required": false,
+  "competence_rationale": "machine_assisted is NOT sufficient to clear review_required: it does not establish that meaning was preserved, so the decision is recorded as a separate review layer and review_required stays true",
+  "competences_present": [
+    "machine_assisted"
+  ],
+  "competences_that_can_clear_review": [
+    "native_speaker",
+    "professional_translator"
+  ],
+  "config": {
+    "competence": "machine_assisted",
+    "reviewer_id": "Faruna_Godwin"
+  },
+  "config_hash": "702c55fcc139cbc4993df620e4cd2b24f618a300250044d09b17d6ccaa738fa9",
+  "contains_prompt_text": false,
+  "counts_by_competence": {
+    "machine_assisted": 18
+  },
+  "counts_by_decision": {
+    "ACCEPT": 18,
+    "PENDING": 0,
+    "REJECT": 0,
+    "REVISE": 0
+  },
+  "counts_by_language": {
+    "ar": {
+      "ACCEPT": 3,
+      "PENDING": 0,
+      "REJECT": 0,
+      "REVISE": 0
+    },
+    "ha": {
+      "ACCEPT": 3,
+      "PENDING": 0,
+      "REJECT": 0,
+      "REVISE": 0
+    },
+    "hi": {
+      "ACCEPT": 3,
+      "PENDING": 0,
+      "REJECT": 0,
+      "REVISE": 0
+    },
+    "ko": {
+      "ACCEPT": 3,
+      "PENDING": 0,
+      "REJECT": 0,
+      "REVISE": 0
+    },
+    "sw": {
+      "ACCEPT": 3,
+      "PENDING": 0,
+      "REJECT": 0,
+      "REVISE": 0
+    },
+    "yo": {
+      "ACCEPT": 3,
+      "PENDING": 0,
+      "REJECT": 0,
+      "REVISE": 0
+    }
+  },
+  "counts_by_language_and_decision": {
+    "ar:ACCEPT": 3,
+    "ha:ACCEPT": 3,
+    "hi:ACCEPT": 3,
+    "ko:ACCEPT": 3,
+    "sw:ACCEPT": 3,
+    "yo:ACCEPT": 3
+  },
+  "decision_layer": "separate",
+  "decision_layer_note": "ACCEPT decisions are recorded as a distinct review layer. They do NOT set HUMAN_REVIEWED and do NOT clear review_required, because machine_assisted competence does not establish that meaning was preserved. A reviewer with native_speaker or professional_translator competence is still required.",
+  "decisions_file": "data/review/pilot_review_decisions.jsonl",
+  "decisions_file_git_ignored": true,
+  "deterministic_digest": "54927dc3263d7ce87346e08609a1c303802ad50522187d2e75c57d719ada13a5",
+  "generated_at": "2026-08-16T22:51:02.555250+00:00",
+  "git_branch": "main",
+  "git_commit": "04cc848677549c65e1d7394096fb0bf9fe0aebc2",
+  "git_dirty": true,
+  "human_reviewed_rows_written": 0,
+  "inputs": {
+    "decisions_tsv": "data/review/pilot_decisions.tsv",
+    "responses_jsonl": "data/interim/translation_pilot_responses.jsonl",
+    "review_sheet_tsv": "data/review/pilot_review.tsv"
+  },
+  "n_clearing_review_required": 0,
+  "n_decisions": 18,
+  "n_hash_unverified": 0,
+  "n_hash_verified": 18,
+  "n_review_required_retained": 18,
+  "native_speaker_validation_claimed": false,
+  "response_log": {
+    "attempts_by_status": {
+      "ERROR": 18,
+      "OK": 18,
+      "SKIPPED": 0
+    },
+    "audit_log_is_append_only": true,
+    "effective_by_status": {
+      "ERROR": 0,
+      "OK": 18,
+      "SKIPPED": 0
+    },
+    "max_attempts_for_one_request": 2,
+    "n_effective": 18,
+    "n_records_total": 36,
+    "n_request_ids": 18,
+    "n_request_ids_with_retries": 18,
+    "n_superseded_records": 18,
+    "note": "Every attempt is retained. `effective` selects the latest successful attempt per request_id (else the latest attempt); superseded records remain in the log and are never deleted or collapsed.",
+    "unresolved_request_ids": []
+  },
+  "review_required_cleared": 0,
+  "reviewer_id": "Faruna_Godwin",
+  "reviewer_language_competence": "machine_assisted",
+  "reviewers": [
+    "Faruna_Godwin"
+  ],
+  "run_id": "run_20260816T225102Z_675f3234",
+  "source_hashes": {
+    "decisions_tsv": "e09f3ca49804af3d854104ca629bfdbb036b7e7098eaa89df2128f7ec336462c",
+    "outputs_jsonl": "2664c90f9a02ce780863a7405d9972ccc31a221dfffd467f650c4cb3d447c7d5",
+    "responses_jsonl": "e5eba3f78ec0686221adbc49771acac3fa2baff8a4f178e6a772f51cd487faca",
+    "review_sheet_tsv": "a1e8e310c5e3743dff09dc97202fedb3c4363f7b8cb7eca9f390dab965a807a6"
+  },
+  "stage": "stage1.5_import_review_decisions",
+  "tool_version": "0.0.1",
+  "translation_statuses_modified": 0,
+  "unverified_review_ids": []
+}

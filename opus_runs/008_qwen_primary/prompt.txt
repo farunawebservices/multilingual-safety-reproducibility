@@ -1,0 +1,52 @@
+You are drafting Section 4.2 (Qwen 2.5 72B primary and 33-cell family) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.2 only)
+- Existing sections:
+  - paper_sections/03_experimental_setup.tex
+  - paper_sections/04_1_llama_primary.tex
+  Use these for consistency of style, terminology, and level of statistical detail.
+
+Task:
+Write Section 4.2 prose only, following the outline bullets for 4.2.
+
+Requirements:
+- Use only claim_ids QW-A, QW-B, QW-C.
+- Cite exact artifacts and table labels from the outline:
+  - tables/qwen25_72b_planner_alpha1_primary_results.tex,
+    table qwen25_72b_planner_alpha1_primary_results (8 cells).
+  - metrics/qwen25_72b_primary_paired_inference.csv (33 rows).
+  - metrics/qwen25_72b_primary_paired_inference_holm.csv (33 rows).
+  - metrics/qwen25_72b_primary_unified_results.csv (33 rows).
+  - metrics/qwen25_72b_primary_canonical_audit.csv (41 rows).
+  - handoffs/qwen25_72b_planner_alpha1_primary_opus_handoff.md.
+  - manifests/qwen25_72b_planner_alpha1_primary_artifact_manifest.json.
+- Preserve all denominators, effect sizes, CIs, Holm p-values, and "must not claim" constraints.
+- Explicitly report:
+  - The 8-cell primary planner-only α1.0 results (Arabic/English/Hausa/Yoruba × benign/harmful),
+    including which cells are Holm-significant (Arabic & English harmful) and which are not.
+  - The full 33-cell family (planner_only / critic_only / both at α1.0 and α2.0),
+    the fact that 4 cells are Holm-significant (Arabic harmful α1.0 & α2.0; English harmful α1.0 & α2.0),
+    and the three partial-coverage cells with exact denominators (n = 6, 160, 173).
+  - The descriptive 41-cell canonical audit (QW-C) and that it carries no test/CI/correction.
+- Do not draft any other section. Do not invent numbers. Do not pool across models.
+- Return LaTeX only (a single .tex snippet for Section 4.2), plus a short source map listing which claim_ids support each paragraph.
+
+Structure:
+\subsection{Qwen 2.5 72B primary and 33-cell family}
+
+Suggested paragraph plan (you may adjust as needed, but keep claims explicit):
+1. Research question and design summary (within-model, prompt-matched, outcome definition, 8-cell primary table, 33-cell family, 41-cell audit).
+2. Primary 8-cell planner-only α1.0 results (QW-A): per-cell denominators, effects, CIs, Holm significance; emphasize 2 Holm-significant harmful cells.
+3. Full 33-cell family (QW-B): configurations and strengths, 4 Holm-significant cells, partial-coverage denominators (n = 6, 160, 173), CI-vs-Holm divergence examples.
+4. Decision-semantics audit (QW-C): descriptive nature, what it reports, and that it carries no inferential claims.
+5. Interpretation and limits: non-causal, within-model, no pooling, no overgeneralization beyond the 33-cell family, and any relevant "must not claim" constraints.
+
+After the LaTeX, append a short source map in comments, e.g.:
+% Paragraph 1 (4.2, p1 — research question & design): QW-A, QW-B, QW-C
+% Paragraph 2 (4.2, p2 — primary 8-cell results): QW-A
+% Paragraph 3 (4.2, p3 — 33-cell family & partial coverage): QW-B
+% Paragraph 4 (4.2, p4 — canonical audit): QW-C
+% Paragraph 5 (4.2, p5 — interpretation & limits): QW-A, QW-B, QW-C

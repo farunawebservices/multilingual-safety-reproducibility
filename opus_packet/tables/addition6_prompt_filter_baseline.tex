@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{Addition 6: Prompt filter baseline vs SAE steering. Three conditions compared on 460 prompts (400 harmful, 60 benign) across 4 languages.}
+\label{tab:addition6_baseline}
+\begin{tabular}{lrrrrrrr}
+\toprule
+Condition & Harmful $n$ & Vetoes & Rate (\%) & Benign $n$ & FPR (\%) & Missing \\
+\midrule
+No intervention & 400 & 210 & 52.5 & 60 & 0.0 & 4 \\
+Prompt filter & 400 & 214 & 53.5 & 60 & 0.0 & 5 \\
+SAE steering & 400 & 230 & 57.5 & 60 & 5.0 & 25 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: SAE steering increased harmful veto rate (+5.0 pp vs baseline) but introduced 3 benign false positives and 25 missing labels.
+\end{tablenotes}
+\end{table}

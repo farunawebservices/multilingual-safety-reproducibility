@@ -1,0 +1,182 @@
+# Translation backend configuration for the pilot.
+#
+# CURRENT STATE: no provider is configured. `provider: null` means
+# scripts/04_translate_pilot.py emits translation REQUESTS and a manual-review
+# queue, and produces NO translated text. It will not invent translations.
+#
+# Credentials are referenced by ENVIRONMENT VARIABLE NAME only (CLAUDE.md §7).
+
+schema_version: 1
+
+# null | deepl | google_translate | azure_translator | nllb_local | llm
+#
+# Must be selected EXPLICITLY. There is no fallback: if the selected provider is
+# unavailable the run fails rather than quietly switching to another one, which
+# would silently change the provenance of the corpus.
+provider: null
+
+# Local backend settings. Used only when provider == nllb_local.
+nllb_local_settings:
+  model_id: facebook/nllb-200-distilled-600M
+  # Pinned from the first successful preflight (2026-08-16) and asserted on
+  # every later run. Never track a moving ref.
+  revision: f8d333a098d19b4fd9a8b18f94170487ad3f821d
+  local_files_only: false      # set true once cached, to forbid network access
+  # EXPLICIT, not "auto". `auto` silently falls back to CPU when CUDA is
+  # unavailable, which would change latency and numerics without changing any
+  # recorded field. `cuda` makes the provider raise instead.
+  device: cuda                 # auto | cpu | cuda
+  # float32 on GPU too: fp16 would change numerics relative to the CPU-generated
+  # pilot rows, and beam search here is not throughput-bound.
+  dtype: float32
+  generation:
+    num_beams: 4
+    do_sample: false           # greedy/beam only -- sampling is not reproducible
+    # PROJECT POLICY: max_new_tokens is the SINGLE length control.
+    #
+    # The model ships `max_length: 200` in its own generation_config.json at the
+    # pinned revision. `max_length` caps the TOTAL sequence while
+    # `max_new_tokens` budgets NEW tokens, so leaving both set means two
+    # different semantics are live and which one binds depends on prompt length.
+    # The provider clears the model's `max_length` at preflight and records what
+    # it removed. Do NOT add `max_length` or `min_length` here -- the provider
+    # rejects them outright (assert_single_length_control).
+    max_new_tokens: 256
+    no_repeat_ngram_size: 0
+    # Recorded for provenance; applied via torch.manual_seed, never passed to
+    # generate(), which rejects unknown model_kwargs.
+    seed: 20260816
+
+# Pilot limiting. The first translation run is deliberately tiny.
+pilot:
+  behaviors_per_language: 3    # 3 behaviors x 6 non-English languages = 18 rows
+  translate_english: false     # English is canonical source; never translated
+
+# Providers usable without an explicit opt-in. Dedicated machine-translation
+# services: their output is still machine translation requiring human review,
+# but they are not the systems under evaluation.
+allowed_providers: [deepl, google_translate, azure_translator, nllb_local]
+
+# An LLM may only be used as a translator with an explicit, recorded opt-in,
+# and never if it is among the models being evaluated. Using a model under
+# evaluation to produce or judge its own evaluation inputs would confound
+# every result computed from them.
+llm_backend:
+  enabled: false
+  require_explicit_optin: true
+  must_not_be_under_evaluation: true
+  # Models that may NEVER translate or judge, because they ARE evaluation
+  # targets in this project (configs/experiment_preregistration_v1.yaml).
+  excluded_models: [llama-3.3-70b-instruct, qwen-2.5-72b-instruct]
+  note: >
+    The host environment exposes ANTHROPIC_API_KEY and OPENROUTER_API_KEY, but
+    these are the session's own credentials, not a project-configured
+    translation backend. They are deliberately not used here.
+
+# ---------------------------------------------------------------------------
+# Provider language coverage.
+#
+# `supported_languages` is the CONSERVATIVE set the code acts on. Anything the
+# upstream documentation claims but that has not been confirmed against a live
+# API response goes in `documented_not_yet_confirmed` and is NOT acted on.
+#
+# The previous values in this file were written from memory and were wrong in
+# two places (DeepL omitted sw/ha; Azure omitted yo). Every entry below now
+# carries the URL it came from and the date it was read. Do not edit these
+# lists from memory -- re-read the source and update `verified_on`.
+# ---------------------------------------------------------------------------
+providers:
+  deepl:
+    api_key_env: DEEPL_API_KEY
+    endpoint: https://api-free.deepl.com/v2/translate
+    # Conservative: only these two are enabled without a live /v3/languages check.
+    supported_languages: [ar, ko]
+    documented_not_yet_confirmed: [hi, sw, ha]
+    unsupported: [yo]                       # absent from the upstream table
+    verification:
+      source_url: https://developers.deepl.com/docs/getting-started/supported-languages
+      verified_on: 2026-08-16
+      method: documentation_read
+      confirm_with: "GET /v3/languages?type=target before enabling hi/sw/ha"
+      note: >
+        Docs list AR, KO, HI, SW, HA as target languages; Yoruba does not appear.
+        Only ar/ko are enabled here pending a live endpoint check.
+
+  azure_translator:
+    api_key_env: AZURE_TRANSLATOR_KEY
+    region_env: AZURE_TRANSLATOR_REGION
+    supported_languages: [ar, ha, sw, hi, ko]
+    documented_not_yet_confirmed: [yo]
+    verification:
+      source_url: https://learn.microsoft.com/en-us/azure/ai-services/translator/language-support
+      verified_on: 2026-08-16
+      method: documentation_read
+      confirm_with: "GET /languages?api-version=3.0&scope=translation before enabling yo"
+      note: >
+        Yoruba (`yo`) IS listed with a checkmark for Cloud text translation, so
+        it is documented but held back for separate confirmation as instructed.
+        Separately: Swahili has NO auto-language-detection support upstream, so
+        one provider-side sanity signal is unavailable for sw.
+
+  google_translate:
+    credentials_env: GOOGLE_APPLICATION_CREDENTIALS
+    supported_languages: [ar, ha, yo, sw, hi, ko]
+    verification:
+      source_url: https://docs.cloud.google.com/translate/docs/languages
+      verified_on: 2026-08-16
+      method: documentation_read
+      note: >
+        All six confirmed for the NMT model. Caveat: on the separate
+        Translation-LLM tier Hausa is "experimental" and Yoruba is absent, and
+        neither ha nor yo appears in AutoML custom pairs -- expect lower quality
+        for exactly those two.
+
+  nllb_local:
+    model: facebook/nllb-200-distilled-600M
+    api_key_env: null                       # local weights; no credential
+    supported_languages: [ar, ha, yo, sw, hi, ko]
+    # FLORES-200 codes, resolved from the downloaded tokenizer at runtime and
+    # asserted against this table -- never trusted from memory.
+    flores_codes:
+      ar: arb_Arab
+      ha: hau_Latn
+      hi: hin_Deva
+      ko: kor_Hang
+      sw: swh_Latn
+      yo: yor_Latn
+    verification:
+      source_url: https://huggingface.co/facebook/nllb-200-distilled-600M
+      verified_on: 2026-08-16
+      method: documentation_read_plus_runtime_tokenizer_assertion
+      license: CC-BY-NC-4.0
+      note: >
+        Non-commercial research licence; upstream states it is "a research model
+        and is not released for production deployment", is intended for
+        single-sentence translation, and must not be used as certified
+        translation. Derived translations inherit these restrictions.
+        See THIRD_PARTY_DATASETS.md.
+
+# Constraints attached to every translation request. These are instructions to
+# the translator (human or machine), and they are recorded in the request file
+# so the brief is auditable.
+request_constraints:
+  preserve_meaning: true
+  preserve_register: true
+  # The single most important constraint: a translation must not become more
+  # actionable than its source.
+  do_not_add_operational_detail: true
+  do_not_elaborate: true
+  do_not_refuse_or_editorialise: true
+  do_not_sanitise_or_soften: true
+  preserve_orthography: true               # tone marks, hooked letters, diacritics
+  output_unicode_normalization: NFC
+  return_translation_only: true
+
+# Review policy.
+review:
+  # Every non-English row starts as review_required=true and can only be
+  # cleared by a named human reviewer.
+  all_non_english_rows_require_review: true
+  machine_heuristics_can_clear_review: false
+  native_speaker_claim_requires_named_reviewer: true
+  reviewers: {}      # e.g. ha: {name: null, native_speaker: null}

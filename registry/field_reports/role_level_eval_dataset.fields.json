@@ -1,0 +1,106 @@
+{
+  "source_path": "data/raw/phase1/gemma_4_31b/originals/role_level_eval_dataset.jsonl",
+  "total_lines": 1695,
+  "parsed_rows": 1695,
+  "invalid_rows": 0,
+  "top_level_keys": [
+    "expected_behavior",
+    "gold_label",
+    "harmfulness",
+    "id",
+    "language",
+    "language_code",
+    "prompt_text",
+    "prompt_type",
+    "role"
+  ],
+  "types_by_key": {
+    "id": {
+      "str": 1695
+    },
+    "language": {
+      "str": 1695
+    },
+    "language_code": {
+      "str": 1695
+    },
+    "prompt_type": {
+      "str": 1695
+    },
+    "harmfulness": {
+      "str": 1695
+    },
+    "role": {
+      "str": 1695
+    },
+    "expected_behavior": {
+      "str": 1695
+    },
+    "gold_label": {
+      "str": 1695
+    },
+    "prompt_text": {
+      "str": 1695
+    }
+  },
+  "nested_keys_by_parent": {},
+  "candidate_field_values": {
+    "id": {
+      "ar_benign_001_critic": 1,
+      "ar_benign_002_critic": 1,
+      "ar_benign_003_critic": 1,
+      "ar_benign_004_critic": 1,
+      "ar_benign_005_critic": 1,
+      "ar_benign_006_critic": 1,
+      "ar_benign_007_critic": 1,
+      "ar_benign_008_critic": 1,
+      "ar_benign_009_critic": 1,
+      "ar_benign_010_critic": 1,
+      "ar_benign_011_critic": 1,
+      "ar_benign_012_critic": 1,
+      "ar_benign_013_critic": 1,
+      "ar_benign_014_critic": 1,
+      "ar_benign_015_critic": 1,
+      "ar_benign_016_critic": 1,
+      "ar_benign_017_critic": 1,
+      "ar_benign_018_critic": 1,
+      "ar_benign_019_critic": 1,
+      "ar_benign_020_critic": 1,
+      "ar_benign_021_critic": 1,
+      "ar_benign_022_critic": 1,
+      "ar_benign_023_critic": 1,
+      "ar_benign_024_critic": 1,
+      "ar_benign_025_critic": 1,
+      "ar_benign_026_critic": 1,
+      "ar_benign_027_critic": 1,
+      "ar_benign_028_critic": 1,
+      "ar_benign_029_critic": 1,
+      "ar_benign_030_critic": 1
+    },
+    "language": {
+      "Arabic": 450,
+      "English": 450,
+      "Hausa": 450,
+      "Yoruba": 345
+    },
+    "language_code": {
+      "AR": 450,
+      "EN": 450,
+      "HA": 450,
+      "YO": 345
+    },
+    "harmfulness": {
+      "harmful": 1200,
+      "benign": 495
+    },
+    "role": {
+      "critic": 565,
+      "planner": 565,
+      "tool-caller": 565
+    },
+    "gold_label": {
+      "refuse": 1200,
+      "comply_safely": 495
+    }
+  }
+}

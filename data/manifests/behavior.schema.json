@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/farunawebservices/multilingual-multiagent-safety/behavior.schema.json",
+  "title": "Behavior manifest row",
+  "description": "One behavior rendered in one language. METADATA ONLY: this schema forbids prompt text, model outputs, and credentials, so that manifests can be tracked in git while the corpus stays in git-ignored data/. See THIRD_PARTY_DATASETS.md.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "record_id",
+    "behavior_id",
+    "language",
+    "arm",
+    "behavior_family",
+    "source_id",
+    "source_item_id",
+    "content_sha256"
+  ],
+  "properties": {
+    "record_id": {
+      "type": "string",
+      "pattern": "^rec_(en|ar|ha|yo|sw|hi|ko)_[0-9a-f]{12}$",
+      "description": "Stable ID for this behavior in this language and variant."
+    },
+    "behavior_id": {
+      "type": "string",
+      "pattern": "^beh_[0-9a-f]{12}$",
+      "description": "Shared by all seven language renderings of the same behavior."
+    },
+    "language": {
+      "type": "string",
+      "enum": ["en", "ar", "ha", "yo", "sw", "hi", "ko"]
+    },
+    "arm": {
+      "type": "string",
+      "enum": ["harmful", "benign"],
+      "description": "Both arms are mandatory; a harmful-only evaluation is trivially gamed by a pipeline that vetoes everything."
+    },
+    "behavior_family": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Topic/domain grouping used to match the benign arm to the harmful arm family-by-family."
+    },
+    "source_id": { "type": "string", "minLength": 1 },
+    "source_item_id": { "type": "string", "minLength": 1 },
+    "content_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$",
+      "description": "SHA-256 of the Unicode-normalised text. Lets collaborators verify an identical corpus build without exchanging the text."
+    },
+    "normalization": {
+      "type": "string",
+      "enum": ["NFC", "NFD"],
+      "default": "NFC",
+      "description": "NFKC/NFKD are excluded: compatibility folding rewrites the orthographic distinctions under study."
+    },
+    "variant": {
+      "type": "string",
+      "default": "base",
+      "description": "Alternative rendering (e.g. retranslation). Variants are new records, never in-place edits."
+    },
+    "translation_method": {
+      "type": "string",
+      "enum": ["original", "human", "professional_service", "machine_reviewed", "machine_unreviewed"],
+      "description": "Non-pivot languages must not declare 'original'. Unreviewed MT is a named confound, not an assumption."
+    },
+    "translation_model": { "type": ["string", "null"] },
+    "review_status": {
+      "type": "string",
+      "enum": ["none", "spot_checked", "fully_reviewed"],
+      "default": "none"
+    },
+    "backtranslation_similarity": {
+      "type": ["number", "null"],
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Similarity of a back-translation to the pivot rendering; measures translation drift."
+    },
+    "char_length": { "type": ["integer", "null"], "minimum": 0 },
+    "orthography": {
+      "type": "object",
+      "description": "Text-free fingerprint (counts and Unicode category profile). Distinguishes 'the model failed in Yoruba' from 'preprocessing stripped the diacritics'.",
+      "properties": {
+        "n_chars_nfc": { "type": "integer" },
+        "n_chars_nfd": { "type": "integer" },
+        "n_combining_marks": { "type": "integer" },
+        "is_nfc_stable": { "type": "boolean" },
+        "n_non_ascii": { "type": "integer" },
+        "unicode_category_counts": { "type": "object" }
+      }
+    },
+    "license_id": {
+      "type": ["string", "null"],
+      "description": "Upstream license. NOT MIT. Third-party terms are authoritative."
+    },
+    "redistribution_allowed": {
+      "type": ["boolean", "null"],
+      "description": "null/unknown is treated as false."
+    },
+    "notes": { "type": "string" }
+  },
+  "not": {
+    "anyOf": [
+      { "required": ["prompt"] },
+      { "required": ["text"] },
+      { "required": ["prompt_text"] },
+      { "required": ["content"] },
+      { "required": ["completion"] },
+      { "required": ["response"] },
+      { "required": ["output"] },
+      { "required": ["transcript"] },
+      { "required": ["plan"] },
+      { "required": ["rationale"] },
+      { "required": ["api_key"] },
+      { "required": ["token"] },
+      { "required": ["secret"] }
+    ]
+  }
+}

@@ -1,0 +1,41 @@
+%% Results chapter (assembled from individual subsections)
+%% Order: bridge → 4.1–4.5 (open-weight) → 5.1–5.2 (closed-model baselines)
+
+\section{Results}
+
+% ---- Bridge paragraph (Methods → Results) ----
+We evaluate planner-targeted steering across four open-weight models
+(\texttt{meta-llama/Llama-3.3-70B-Instruct}, \texttt{Qwen2.5-72B-Instruct},
+\texttt{gemma\_4\_31b}, and \texttt{openai/gpt-oss-20b}) and two closed-model
+baselines (\texttt{openai/gpt-5} and Claude Sonnet~4 vs~5) on the same
+multilingual prompt set. Each open-weight model has its own disjoint Holm
+family: Llama harmful (size 4), Llama benign (size 4), Qwen primary (size 33),
+Gemma complete-case (size 3), and GPT-OSS harmful (size 4). Across these
+families, we observe large, Holm-significant reductions in harmful operational
+failure for Llama and Qwen in several languages, a mixed-direction pattern for
+GPT-OSS (English improved, Hausa worsened, Arabic not significant after Holm,
+Yoruba null), and no Holm-significant change in Llama benign refusal. The
+closed-model analyses are purely descriptive: GPT-5 provides a frontier baseline
+with no intervention arm, and Claude Sonnet~4 vs~5 reports prompt-matched
+cross-version differences without inferential claims.
+
+% ---- 4.1 Llama harmful ----
+\input{04_1_llama_primary}
+
+% ---- 4.2 Qwen primary ----
+\input{04_2_qwen_primary}
+
+% ---- 4.3 Gemma complete-case ----
+\input{04_3_gemma_primary}
+
+% ---- 4.4 GPT-OSS 20B harmful ----
+\input{04_4_gptoss_primary}
+
+% ---- 4.5 Llama benign ----
+\input{04_5_llama_benign}
+
+% ---- 5.1 GPT-5 baseline ----
+\input{05_1_gpt5_baseline}
+
+% ---- 5.2 Claude baseline ----
+\input{05_2_claude_baseline}

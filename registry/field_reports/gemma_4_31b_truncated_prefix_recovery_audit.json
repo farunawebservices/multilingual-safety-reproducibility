@@ -1,0 +1,48 @@
+[
+  {
+    "source_path": "data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl",
+    "truncated_line_number": 552,
+    "truncated_line_sha256": "4f56dc618ff904d6ba3c6f06c8dc71ac3bab6a704afdc72d296f377915ec3d46",
+    "truncated_line_bytes": 1946,
+    "scalar_field_status": {
+      "strength": "parsed",
+      "config": "parsed",
+      "id": "parsed",
+      "language": "parsed",
+      "harmfulness": "parsed",
+      "is_vetoed": "not_found_before_truncation"
+    },
+    "recovered_scalar_fields": {
+      "strength": 0.0,
+      "config": "baseline",
+      "id": "en_benign_046_planner",
+      "language": "English",
+      "harmfulness": "benign"
+    },
+    "all_required_analysis_fields_recovered": false,
+    "recovery_policy": "No source is modified. This report does not create a repaired JSONL or infer omitted fields. A truncated row is usable only if every required analysis scalar is present before truncation."
+  },
+  {
+    "source_path": "data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl",
+    "truncated_line_number": 563,
+    "truncated_line_sha256": "c8caf8d1a7ab47fc6ee116c009a2a3e295e835ea9168e95f4b455a0e38b10f29",
+    "truncated_line_bytes": 4878,
+    "scalar_field_status": {
+      "strength": "parsed",
+      "config": "parsed",
+      "id": "parsed",
+      "language": "parsed",
+      "harmfulness": "parsed",
+      "is_vetoed": "not_found_before_truncation"
+    },
+    "recovered_scalar_fields": {
+      "strength": 1.0,
+      "config": "planner_only",
+      "id": "en_benign_010_tool-caller",
+      "language": "English",
+      "harmfulness": "benign"
+    },
+    "all_required_analysis_fields_recovered": false,
+    "recovery_policy": "No source is modified. This report does not create a repaired JSONL or infer omitted fields. A truncated row is usable only if every required analysis scalar is present before truncation."
+  }
+]

@@ -1,0 +1,18 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Role and language change the direction of the Llama alpha-30 contrast.} Values are cross-phase, record-ID-matched harmful operational-failure rates for $n=300$ prompts per cell. $\Delta$ is steered minus baseline in percentage points; negative values indicate fewer failures. Holm correction covers the six displayed tests.}
+\label{tab:role_strength}
+\small
+\begin{tabular}{llrrrrr}
+\toprule
+Role & Language & Baseline & Steered & $\Delta$ & 95\% CI & Holm $p$\\
+\midrule
+Planner-only & Hausa & 68.3 & 30.7 & $-37.7$ & [$-44.3,-31.0$] & $2.37\times10^{-22}$\\
+Planner-only & Yoruba & 74.7 & 55.3 & $-19.3$ & [$-24.7,-14.0$] & $2.05\times10^{-10}$\\
+Critic-only & Hausa & 68.0 & 74.3 & $+6.3$ & [$+0.7,+12.0$] & 0.0395\\
+Critic-only & Yoruba & 76.0 & 89.0 & $+13.0$ & [$+8.7,+17.3$] & $3.04\times10^{-8}$\\
+Both & Hausa & 66.3 & 47.3 & $-19.0$ & [$-26.0,-12.0$] & $1.04\times10^{-6}$\\
+Both & Yoruba & 76.7 & 86.7 & $+10.0$ & [$+4.7,+15.3$] & 0.00088\\
+\bottomrule
+\end{tabular}
+\end{table}

@@ -1,0 +1,4 @@
+steered_config,language,prompt_class,alpha,baseline_valid_record_n,steered_valid_record_n,matched_valid_record_n,baseline_only_valid_record_n,steered_only_valid_record_n,all_steered_ids_match_baseline,all_baseline_ids_match_steered,exact_complete_case_pairing,source_truncation_caveat
+planner_only,Arabic,benign,1.0,150,150,150,0,0,true,true,true,One invalid terminal JSONL record excluded from each source; outcomes unavailable and not imputed.
+planner_only,English,benign,1.0,101,112,101,0,11,false,true,false,One invalid terminal JSONL record excluded from each source; outcomes unavailable and not imputed.
+planner_only,Arabic,harmful,1.0,300,300,300,0,0,true,true,true,One invalid terminal JSONL record excluded from each source; outcomes unavailable and not imputed.

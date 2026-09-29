@@ -1,0 +1,124 @@
+```latex
+\subsection{Llama benign}
+
+The final within-model question in this section is the benign counterpart to the
+harmful comparisons reported above: does planner-targeted steering change how
+often \texttt{meta-llama/Llama-3.3-70B-Instruct} refuses prompts that should be
+answered? The contrast is the Phase~1 unsteered baseline (no steering,
+$\alpha0$) against planner-only steering at $\alpha20$, on prompt-matched benign
+records only, in Arabic, English, Hausa, and Yoruba. The outcome is the benign
+refusal rate, for which a positive $\Delta$ means \emph{more} false refusals;
+its composition is defined by the registered Llama decision-semantics and
+parser-outcome audits
+(\texttt{registry/llama\_decision\_semantics\_audit.json} and
+\texttt{registry/llama\_parser\_outcomes.json}). Those two registry audits are
+not shipped in this packet, so the composition of the refusal outcome is not
+independently verifiable here, and the missing-label handling that they govern
+yields no counts we can report. Benign denominators are 150 (Arabic), 150
+(English), 150 (Hausa), and 45 (Yoruba), giving 495 paired benign prompts with 1
+partial benign-coverage row (Yoruba, 45 prompts). The canonical audit
+(\texttt{metrics/llama3\_3\_70b\_planner\_alpha1\_benign\_canonical\_audit.csv})
+records 1{,}695 baseline rows (1{,}200 harmful plus 495 benign), 1{,}695
+\texttt{planner\_only\_alpha1} rows, a paired benign subset of 495, and 0
+duplicate record IDs. Each language cell is tested with the exact paired
+two-sided McNemar test on the matched records, with full discordance tables
+recorded per row (\texttt{both\_safe}, \texttt{worsened}, \texttt{improved},
+\texttt{both\_failure}, and \texttt{discordant}); paired bootstrap intervals are
+retained in a separate artifact that is not shipped, so no confidence intervals
+are reported for these cells. Holm correction is applied inside a family of four
+language-specific \emph{benign} comparisons (size 4) that is disjoint from the
+harmful family, so benign denominators, rates, $p$-values, and correction
+decisions are never combined with harmful ones. The authoritative source for
+inference is
+\texttt{metrics/llama3\_3\_70b\_planner\_alpha1\_paired\_effect\_benign\_holm.csv}
+(4 rows), with effect and discordance quantities in
+\texttt{metrics/llama3\_3\_70b\_planner\_alpha1\_paired\_effect\_benign.csv},
+the display in
+\texttt{tables/llama3\_3\_70b\_planner\_alpha1\_benign\_results.tex}, and
+provenance in
+\texttt{handoffs/llama3\_3\_70b\_planner\_alpha1\_benign\_opus\_handoff.md} and
+\texttt{manifests/llama3\_3\_70b\_planner\_alpha1\_benign\_artifact\_manifest.json}.
+
+Benign refusal is at or near zero in every cell, and no cell changes
+detectably under correction: benign refusal showed \emph{no} Holm-significant
+change under planner-only $\alpha20$, with 0 Holm-significant rows in the
+four-comparison benign family. Arabic moves from 0.0\% at baseline to 0.7\%
+under steering over 150 paired prompts, $\Delta = +0.7$~pp, and is
+Holm-non-significant. English is unchanged, 0.0\% to 0.0\% over 150 paired
+prompts, $\Delta = 0.0$~pp, Holm-non-significant. Hausa moves from 0.0\% to
+1.3\% over 150 paired prompts, $\Delta = +1.3$~pp---the largest observed
+increase in false refusals in this family---and is likewise
+Holm-non-significant. Yoruba is unchanged, 0.0\% to 0.0\% over its 45 paired
+prompts, $\Delta = 0.0$~pp, Holm-non-significant. The two non-zero differences
+are both positive, i.e.\ in the direction of more false refusals, but neither
+raw nor Holm-corrected $p$-values recorded in the authoritative
+\texttt{..\_paired\_effect\_benign\_holm.csv} reject at family-wise
+$\alpha = 0.05$; the per-row discordance tables
+(\texttt{both\_safe}/\texttt{worsened}/\texttt{improved}/\texttt{both\_failure}/\texttt{discordant})
+in the accompanying effect CSV are the record of prompt-level movement behind
+these marginal rates.
+
+Several limits bind the reading of this benign family. The comparison is
+non-causal: it contrasts two conditions on the same benign prompts within a
+single Phase~1 model entry and licenses no mechanistic claim and no claim about
+behaviour under other deployment conditions, prompt distributions, or outcome
+definitions. Because the two registry audits that define the refusal outcome are
+not shipped, the composition of ``benign refusal'' cannot be checked against the
+underlying decision tokens in this packet, and no missing-label, parse-failure,
+or non-termination count is available for either condition; readers should treat
+the outcome label as declared rather than independently verified.
+Most importantly, the absence of a Holm-significant benign effect is not
+evidence that planner-only $\alpha20$ steering carries no utility cost: the
+benign family is small (495 paired prompts in total), baseline refusal is at the
+floor of 0.0\% in all four languages, and the Yoruba cell contributes only 45
+paired prompts and is flagged as the single partial benign-coverage row, so this
+design has limited power to detect small increases in false refusals, especially
+for Yoruba. We therefore do not claim an absence of utility cost, and in
+particular not for Yoruba. These four comparisons are also reported strictly on
+their own terms: their denominators, rates, $p$-values, and Holm family are
+disjoint from the Llama harmful family and from every other family in this
+paper, and they are not pooled with, averaged over, or compared inferentially
+against the harmful results or against any other model entry. Finally, the
+analysis identifies the model only by the string
+\texttt{meta-llama/Llama-3.3-70B-Instruct}; no dated vendor snapshot is recorded
+in the evidence base, so these rates describe the records collected under that
+model label rather than any particular revision of the system.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.5, p1 — research question and design: meta-llama/Llama-3.3-70B-Instruct;
+%   Phase 1 baseline (no steering, alpha0) vs planner-only steering alpha20; Arabic,
+%   English, Hausa, Yoruba, benign only; denominators 150/150/150/45 = 495 paired benign
+%   prompts with 1 partial benign-coverage row (Yoruba, 45); canonical audit (baseline
+%   1,695 rows = 1,200 harmful + 495 benign, planner_only_alpha1 1,695 rows, paired benign
+%   subset 495, 0 duplicate record IDs); outcome = benign refusal rate with positive delta
+%   = more false refusals, defined by registry/llama_decision_semantics_audit.json and
+%   registry/llama_parser_outcomes.json (not shipped, composition not independently
+%   verifiable, no missing-label counts); paired design with full discordance tables
+%   (both_safe / worsened / improved / both_failure / discordant per row); exact paired
+%   McNemar; paired bootstrap intervals retained in a separate non-shipped artifact so no
+%   CIs are reported; Holm family = four language-specific benign comparisons, size 4,
+%   disjoint from the harmful family; authoritative
+%   metrics/llama3_3_70b_planner_alpha1_paired_effect_benign_holm.csv (4 rows),
+%   metrics/llama3_3_70b_planner_alpha1_paired_effect_benign.csv,
+%   metrics/llama3_3_70b_planner_alpha1_benign_canonical_audit.csv,
+%   tables/llama3_3_70b_planner_alpha1_benign_results.tex,
+%   handoffs/llama3_3_70b_planner_alpha1_benign_opus_handoff.md,
+%   manifests/llama3_3_70b_planner_alpha1_benign_artifact_manifest.json): LL-C
+% Paragraph 2 (4.5, p2 — per-language results with denominators and deltas in pp: explicit
+%   statement that benign refusal showed no Holm-significant change under planner-only
+%   alpha20 and that there are 0 Holm-significant rows; Arabic 0.0% -> 0.7%, +0.7 pp,
+%   Holm-non-significant; English 0.0% -> 0.0%, 0.0 pp, Holm-non-significant; Hausa 0.0%
+%   -> 1.3%, +1.3 pp, Holm-non-significant; Yoruba 0.0% -> 0.0%, 0.0 pp over 45 paired
+%   prompts, Holm-non-significant; direction of the two non-zero deltas is toward more
+%   false refusals; raw and Holm p-values recorded in the authoritative holm CSV do not
+%   reject at family-wise alpha = 0.05; per-row discordance tables cited as the record of
+%   prompt-level movement): LL-C
+% Paragraph 3 (4.5, p3 — interpretation and binding limits: non-causal within-model
+%   condition contrast with no mechanistic or deployment claim; outcome composition not
+%   independently verifiable because the two registry audits are not shipped and no
+%   missing-label counts are available; absence of a Holm-significant benign effect is not
+%   proof of no utility cost, with floor baseline rates, 495 total paired prompts and the
+%   45-prompt partial-coverage Yoruba row limiting power, especially for Yoruba; benign
+%   family disjoint from the harmful family and from all other families, no pooling with
+%   harmful results or other models; no dated vendor snapshot recorded): LL-C
+```

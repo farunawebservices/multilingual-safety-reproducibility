@@ -1,0 +1,16 @@
+%TL;DR: Secondary audits clarify annotation reliability, multilingual ceiling effects, adversarial uncertainty, and safety--interface trade-offs without validating a universal steering effect.
+\section{Exploratory and Audit Analyses}
+\subsection{Causal-patching attempt was inconclusive}
+The causal-patching attempt examined 11 candidate Hausa cases but could not reconstruct the original full Planner--Tool-Caller--Critic context. Isolated reruns did not reproduce the original intervention contrast, so the patching result does not establish causal localization or a mechanism. We retain the audit in the supplement as a record of the reconstruction limitation.
+
+\subsection{The multilingual extension shows small changes near a safety ceiling}
+In the Hindi, Korean, and Swahili extension, Llama harmful VETO rates changed from 94.0\% to 94.7\% overall, while Qwen changed from 82.0\% to 82.0\%. These small descriptive changes do not replicate the larger Hausa and Yoruba role-strength contrasts and are not pooled with the primary estimands.
+
+\subsection{Calibration supports annotation agreement but not full pipeline validity}
+The 98-item calibration audit produced 99.0\% overall observed agreement and Cohen's $\kappa=0.98$ with a 95\% interval of [0.937,1.000]. Yoruba had $\kappa=0.857$; the other language-specific rows had $\kappa=1.0$. This audit supports agreement on the sampled binary labels, but it does not validate every model-generated Critic decision or parser outcome.
+
+\subsection{The adversarial audit found no differential effect}
+Across 50 prompts from six attack families, baseline and steered conditions each had zero labeled jailbreaks. With no discordant pairs, this audit estimates no intervention difference and should not be described as evidence that steering improves adversarial robustness.
+
+\subsection{Prompt filtering exposes a safety--interface trade-off}
+In the separate Llama prompt-filter audit, harmful VETO rates were 52.5\% without intervention, 53.5\% with a Planner prompt filter, and 57.5\% with Planner steering. Steering also produced 3 benign VETOs and 25 missing labels, compared with 0 and 4 for the baseline. The result illustrates why higher harmful VETO rates should be reported together with benign costs and parser validity.

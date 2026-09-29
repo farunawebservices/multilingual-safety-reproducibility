@@ -1,0 +1,140 @@
+# setuptools rather than hatchling: it is the reference implementation, is
+# already present or cached in most environments, and needs no third-party
+# build backend to be fetched before an editable install can even start.
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multilingual-safety"
+version = "0.0.1"
+description = "Cross-lingual safety evaluation for Planner/Tool-Caller/Critic multi-agent systems"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { file = "LICENSE" }
+authors = [{ name = "Faruna Godwin" }]
+keywords = ["ai-safety", "multilingual", "multi-agent", "evaluation", "red-teaming"]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+# Deliberately minimal. Model/inference clients are NOT dependencies yet:
+# no model is run at this stage. Add them under the [project.optional-dependencies]
+# `models` extra when the inference stage begins.
+dependencies = [
+  "pyyaml>=6.0",
+  "jsonschema>=4.20",
+]
+
+[project.optional-dependencies]
+# Stage 0: source acquisition and inspection. No inference libraries here.
+data = [
+  "datasets>=3.0",
+  "huggingface_hub>=0.25",
+  "pandas>=2.2",
+  "requests>=2.32",
+]
+# Stage 1 local translation pilot. Local models only -- no commercial MT SDK is
+# listed here, deliberately: harmful prompt text stays on this machine.
+# torch is installed from the CPU index by default; a CUDA build also works.
+translate = [
+  "torch>=2.2",
+  "transformers>=4.40",
+  "sentencepiece>=0.2",
+  "fasttext-wheel>=0.9",        # GlotLID language identification
+  "huggingface_hub>=0.25",
+]
+dev = [
+  "pytest>=8.0",
+  "pytest-cov>=5.0",
+  "ruff>=0.6",
+  "mypy>=1.10",
+  "types-PyYAML>=6.0",
+]
+# Placeholder — intentionally empty until the inference stage.
+models = []
+# Placeholder — analysis stage.
+analysis = [
+  "pandas>=2.2",
+  "numpy>=1.26",
+]
+
+[project.urls]
+Repository = "https://github.com/farunawebservices/multilingual-multiagent-safety"
+
+[project.scripts]
+mls-new-run = "multilingual_safety.run_context:_cli"
+
+# ---------------------------------------------------------------------------
+# src-layout packaging.
+#
+# The package lives at src/multilingual_safety/, so `package-dir` maps the
+# distribution root onto src/. `packages.find` with `where = ["src"]` discovers
+# multilingual_safety AND its subpackages (multilingual_safety.agents), so new
+# subpackages are picked up without editing this file. Every subpackage needs
+# an __init__.py to be found -- both currently have one.
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["multilingual_safety*"]
+namespaces = false
+
+# ---------------------------------------------------------------------------
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+# Declarative src-layout resolution, applied by pytest itself from this file.
+# This is NOT a shell PYTHONPATH export: it is committed configuration, so a
+# fresh clone collects identically for everyone with no environment fiddling.
+# The editable install is still the supported path; this is the safety net that
+# keeps collection working (e.g. in CI before install, or in a stale venv)
+# instead of failing with ModuleNotFoundError.
+pythonpath = ["src"]
+# importlib mode keeps test modules out of sys.path and needs no __init__.py
+# in tests/, so a test file can never shadow a real package module.
+addopts = "-ra --strict-markers --strict-config --import-mode=importlib"
+markers = [
+  "slow: long-running tests",
+  "network: requires network access (deselected by default in CI)",
+]
+filterwarnings = ["error::DeprecationWarning"]
+
+# ---------------------------------------------------------------------------
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+src = ["src", "tests", "scripts"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "RUF", "T20"]
+ignore = [
+  "E501",    # line length handled by formatter
+]
+
+[tool.ruff.lint.per-file-ignores]
+# CLIs are allowed to print; that is their output channel.
+"scripts/*" = ["T20"]
+"src/multilingual_safety/run_context.py" = ["T20"]
+
+# ---------------------------------------------------------------------------
+[tool.mypy]
+python_version = "3.10"
+packages = ["multilingual_safety"]
+mypy_path = "src"
+warn_unused_configs = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+
+[tool.coverage.run]
+source = ["src/multilingual_safety"]
+branch = true

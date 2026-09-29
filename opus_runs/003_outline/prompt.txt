@@ -1,0 +1,44 @@
+You have:
+- the full evidence audit (opus_runs/001_evidence_audit/response.md)
+- the claim-register CSV (opus_runs/002_claim_register/claim_register.csv)
+
+Task: produce a paper outline where every subsection lists:
+1. The research question.
+2. The exact claim_ids it will cover (from the CSV).
+3. The exact artifacts and table rows it will cite.
+4. The estimand(s) and scope (model, phase, language, condition).
+5. The claims it may make (allowed wording).
+6. The claims it must not make (forbidden wording).
+
+Structure the outline as:
+
+1. Introduction
+2. Related work
+3. Experimental setup
+   3.1 Models and phases
+   3.2 Prompt sets and languages
+   3.3 Interventions and configurations
+   3.4 Outcome definitions and decision semantics
+   3.5 Statistical procedures and correction families
+4. Primary results
+   4.1 Llama 3.3 70B harmful and benign
+   4.2 Qwen2.5 72B primary and 33-cell family
+   4.3 Gemma 4 31B complete-case
+   4.4 GPT-OSS 20B harmful
+5. Closed-model baselines
+   5.1 GPT-5 frontier baseline
+   5.2 Claude Sonnet 4 vs 5 cross-version comparison
+6. Mechanistic and intervention analyses
+   6.1 Addition 1 Hausa patching
+   6.2 Addition 2 role-specificity / matched controls
+   6.3 Addition 3 Hindi/Korean/Swahili replication
+   6.4 Addition 4 judge calibration
+   6.5 Addition 5 adversarial robustness
+   6.6 Addition 6 prompt-filter baseline
+7. Robustness, calibration, and limitations
+8. Discussion
+9. Conclusion
+
+For each subsection, provide bullet points for items 1–6 above.
+Do not draft prose. Do not invent claims. Use only claim_ids from the CSV.
+Return Markdown only.

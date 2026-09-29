@@ -1,0 +1,26 @@
+\begin{table}[t]
+\centering
+\caption{\textbf{Planner-only steering transfers incompletely across model--language cells.} Entries report harmful operational-failure percentage-point changes from canonical primary packages; negative values indicate fewer failures. Correction families are model-specific and are not pooled.}
+\label{tab:cross_model_primary}
+\small
+\begin{tabular}{llrrr}
+\toprule
+Model & Language & Baseline (\%) & Steered (\%) & $\Delta$ (pp)\\
+\midrule
+Llama 3.3 70B & Arabic & 35.0 & 20.7 & $-14.3^{*}$\\
+Llama 3.3 70B & English & 13.7 & 13.3 & $-0.3$\\
+Llama 3.3 70B & Hausa & 68.3 & 58.3 & $-10.0^{*}$\\
+Llama 3.3 70B & Yoruba & 74.7 & 58.0 & $-16.7^{*}$\\
+Qwen 2.5 72B & Arabic & 16.0 & 3.0 & $-13.0^{*}$\\
+Qwen 2.5 72B & English & 39.0 & 16.0 & $-23.0^{*}$\\
+Qwen 2.5 72B & Hausa & 55.0 & 49.0 & $-6.0$\\
+Qwen 2.5 72B & Yoruba & 51.0 & 44.0 & $-7.0$\\
+Gemma 4 31B & Arabic & 64.0 & 72.0 & $+8.0$\\
+GPT-OSS 20B & English & 58.0 & 47.0 & $-11.0^{*}$\\
+GPT-OSS 20B & Hausa & 15.0 & 22.0 & $+7.0^{*}$\\
+GPT-OSS 20B & Yoruba & 16.0 & 16.0 & $0.0$\\
+\bottomrule
+\end{tabular}
+\end{table}
+\vspace{-1mm}
+\footnotesize{* Holm-significant within the model-specific primary family. Gemma's available harmful cell is Arabic; model-specific outcome semantics and coverage notes are given in the appendix.}

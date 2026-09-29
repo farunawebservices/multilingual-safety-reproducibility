@@ -1,0 +1,107 @@
+{
+  "analysis_type": "Descriptive single-configuration baseline summary.",
+  "artifact_set": "gpt_5_frontier_baseline_descriptive_results",
+  "artifacts": [
+    {
+      "bytes": 1900,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/closed_model_source_inventory.csv",
+      "row_count": 11,
+      "sha256": "10237b0962f1cc421bf124e8be0f69c0e4f83a055ebe3d1eec071a5666639aca"
+    },
+    {
+      "bytes": 46388,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/closed_model_schema_inventory.csv",
+      "row_count": 11,
+      "sha256": "9a0309a555a9e898e6ea43e8970397c637309b9dd54c17e1d7791a37796bddf3"
+    },
+    {
+      "bytes": 1636,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_5_source_reconciliation.csv",
+      "row_count": 7,
+      "sha256": "e35d5a49da32ca269fe4bf9465e8ba8f523fff75d08c451b8e962414db0fafe8"
+    },
+    {
+      "bytes": 2659,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_5_jsonl_compatibility_audit.csv",
+      "row_count": 11,
+      "sha256": "1aa6d289960c6f107688f91bf9b0f22482f472f4737d14606efcc5097890d7db"
+    },
+    {
+      "bytes": 568,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_5_clean_frontier_baseline_audit.csv",
+      "row_count": 8,
+      "sha256": "6b502e10724dd1dce0418ba4ad34531cfe1e06deeae350f8bbbcf4fea9413d37"
+    },
+    {
+      "bytes": 166,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_5_clean_vs_partial_overlap_audit.csv",
+      "row_count": 2,
+      "sha256": "f1c928b32446cea07d8222170a2d8a9acca9b0f676c859b176651b1f0ce3d48e"
+    },
+    {
+      "bytes": 738,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_5_frontier_baseline_paper_table.csv",
+      "row_count": 8,
+      "sha256": "9ce860c83a269e0a187ab6d967900d495cc3b9c40f28c32646a8941fd41a2a69"
+    },
+    {
+      "bytes": 1451,
+      "kind": "latex_table",
+      "path": "paper_artifacts/tables/gpt_5_frontier_baseline_descriptive_results.tex",
+      "sha256": "f78df835af2c47d10c046b81840782096dc66d39e6bc6438bc9459c126c8fa19"
+    },
+    {
+      "bytes": 19882,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/gpt_5_frontier_baseline_veto_rates.pdf",
+      "sha256": "6f1d192fae08364893fdcb3ef398b7f678f40adb6e3c1aee7a28d365477400f5"
+    },
+    {
+      "bytes": 146669,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/gpt_5_frontier_baseline_veto_rates.png",
+      "sha256": "688567dcb6b3f0046021597512abe032bfbebe62f64d1a2b01217c0c8e7b39ea"
+    }
+  ],
+  "authoritative_figure_pdf": "paper_artifacts/figures/gpt_5_frontier_baseline_veto_rates.pdf",
+  "authoritative_latex_table": "paper_artifacts/tables/gpt_5_frontier_baseline_descriptive_results.tex",
+  "authoritative_paper_table": "paper_artifacts/metrics/gpt_5_frontier_baseline_paper_table.csv",
+  "configuration": "frontier_baseline",
+  "coverage": {
+    "harmful_partial_coverage_rows": 4,
+    "paper_table_rows": 8,
+    "partial_coverage_rows": 5,
+    "valid_record_n": 1651
+  },
+  "created_utc": "2026-09-08T19:12:00.783071+00:00",
+  "interpretation_constraints": [
+    "Do not describe this baseline summary as a steering effect.",
+    "Do not make a causal or cross-condition comparison claim.",
+    "Do not pool in the separate 570-record duplicate subset.",
+    "The duplicate subset has one malformed terminal JSONL line.",
+    "Yoruba benign has 45 valid prompts.",
+    "Harmful cells have 286 to 291 valid prompts, rather than 300."
+  ],
+  "model_identifier": "openai/gpt-5",
+  "outcome": {
+    "non_veto_operational_failure": "is_vetoed=false",
+    "veto": "is_vetoed=true"
+  },
+  "source_reconciliation": {
+    "clean_source_valid_records": 1651,
+    "duplicate_subset_matching_harmfulness": 570,
+    "duplicate_subset_matching_language": 570,
+    "duplicate_subset_matching_veto_outcome": 570,
+    "duplicate_subset_parse_errors": 1,
+    "duplicate_subset_shared_ids": 570,
+    "duplicate_subset_valid_records": 570
+  },
+  "strength": 0.0
+}

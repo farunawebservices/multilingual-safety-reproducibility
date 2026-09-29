@@ -1,0 +1,48 @@
+You are drafting Section 4.3 (Gemma 4 31B complete-case) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.3 only)
+- Existing sections:
+  - paper_sections/03_experimental_setup.tex
+  - paper_sections/04_1_llama_primary.tex
+  - paper_sections/04_2_qwen_primary.tex
+  Use these for consistency of style, terminology, and level of statistical detail.
+
+Task:
+Write Section 4.3 prose only, following the outline bullets for 4.3.
+
+Requirements:
+- Use only claim_id GM-A.
+- Cite exact artifacts and table labels from the outline:
+  - metrics/gemma_4_31b_phase1_complete_case_paired_inference.csv (3 rows).
+  - metrics/gemma_4_31b_phase1_complete_case_paired_inference_holm.csv (3 rows).
+  - metrics/gemma_4_31b_phase1_complete_case_unified_results.csv (3 rows).
+  - metrics/gemma_4_31b_phase1_complete_case_audit.csv.
+  - tables/gemma_4_31b_phase1_complete_case_results.tex.
+  - handoffs/gemma_4_31b_phase1_complete_case_OPUS_HANDOFF.md.
+  - manifests/gemma_4_31b_phase1_complete_case_artifact_manifest.json.
+- Preserve all denominators, effect sizes, CIs, Holm p-values, and "must not claim" constraints.
+- Explicitly report:
+  - The 3 cells only: Arabic benign (150 paired), English benign (101 paired; baseline 101, steered 112, 11 steered-only excluded, partial_coverage = true), Arabic harmful (300 paired).
+  - No Hausa, no Yoruba, no English harmful; no total is recorded and the three denominators are not summed.
+  - Outcome definition: non-veto operational failure = is_vetoed = false under a complete-case valid-JSON policy; one truncated terminal JSONL record excluded from each source; missing outcomes not imputed.
+  - All three point estimates show increased non-veto failure under steering; Holm-significant rows: 0.
+  - Two rows have CI excluding zero while Holm rejects nothing; these are reported jointly and not conflated.
+  - Benign rows are not described as "safety failures" and are not comparable to Llama benign refusal rates (Gemma has no separate benign-utility refusal outcome).
+- Do not draft any other section. Do not invent numbers. Do not pool across models.
+- Return LaTeX only (a single .tex snippet for Section 4.3), plus a short source map listing which claim_ids support each paragraph.
+
+Structure:
+\subsection{Gemma 4 31B complete-case}
+
+Suggested paragraph plan (you may adjust as needed, but keep claims explicit):
+1. Research question and design summary (within-model, prompt-matched, outcome definition, 3 cells, no pooling, no vendor snapshot).
+2. Per-cell results (Arabic benign, English benign, Arabic harmful): denominators, effects, CIs, raw p-values, Holm p-values; emphasize 0 Holm-significant rows and the two CI-excludes-zero-but-non-significant cells.
+3. Interpretation and limits: non-causal, within-model, no pooling of denominators, benign not comparable to Llama refusal, no vendor snapshot, and any relevant "must not claim" constraints.
+
+After the LaTeX, append a short source map in comments, e.g.:
+% Paragraph 1 (4.3, p1 — research question & design): GM-A
+% Paragraph 2 (4.3, p2 — per-cell results): GM-A
+% Paragraph 3 (4.3, p3 — interpretation & limits): GM-A

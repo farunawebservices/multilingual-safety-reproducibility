@@ -1,0 +1,28 @@
+{
+  "artifact": "frozen_dataset_v2.jsonl",
+  "stage": "translated_applied_pre_split",
+  "rows": 1400,
+  "sha256": "05b5abb311a3aa973b0b5dbc3bc96637be8039e99d4f42bd18ef86f608c44fb2",
+  "source_request_hashes": {
+    "full_selection_jsonl": "0c42fc094012f6d5e19f1c780bf98c491961a43c56ad837350407dc9bdb842cc",
+    "full_translation_requests_jsonl": "b502b06817da0b957679f782943a838fd8593a889cff2332b117fd216fa057e4"
+  },
+  "translation": {
+    "model_id": "facebook/nllb-200-distilled-600M",
+    "revision": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+    "seed": 20260818,
+    "device": "cuda",
+    "dtype": "float32",
+    "n_translated": 1200,
+    "n_english_canonical": 200
+  },
+  "semantic_review": {
+    "pilot_two_person_reviewed": true,
+    "pilot_estimated_fidelity": 0.97,
+    "full_dataset_review_complete": false
+  },
+  "contains_prompt_text": true,
+  "storage": "private Git LFS",
+  "frozen": false,
+  "note": "Pre-split translated artifact; not formally frozen until v2 splits and final validation are complete."
+}

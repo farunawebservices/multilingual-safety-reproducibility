@@ -1,0 +1,17 @@
+%TL;DR: The experiments ask whether steering effects depend on role, language, model, and decision-interface validity.
+\section{Experimental Setup}
+We organized the experiments around four questions:
+\begin{enumerate}
+    \item Does Planner-only steering change multilingual harmful-prompt outcomes within a model?
+    \item Does intervention role change the direction and magnitude of the observed effect?
+    \item Do aggregate rates conceal shifts between explicit decisions and no-decision outputs?
+    \item Do the effects transfer across models and languages, and what do secondary audits establish?
+\end{enumerate}
+
+The primary analyses covered Arabic, English, Hausa, and Yoruba. Harmful cells generally contained 300 paired prompts per language; benign coverage depended on the model and recorded valid IDs. The primary open-weight model entries were Llama 3.3 70B, Qwen 2.5 72B, Gemma 4 31B, and GPT-OSS 20B. GPT-5 and Claude Sonnet comparisons were descriptive closed-model context and had no steering arm.
+
+For all analyses, the unit of pairing was the prompt record identifier. We retained the exact recorded denominator and excluded records that lacked valid paired outcomes according to the package-specific rules. We did not pool model-specific outcome definitions or combine harmful operational failure with benign refusal.
+
+The primary result packages were generated from canonical artifacts with exact paired McNemar tests, paired bootstrap percentile intervals, and Holm correction. The secondary Llama role-strength package used the same harmful prompt IDs across Phase 1 alpha-0 and Phase 2 Turbo conditions, but its cross-phase design prevents a pure role or strength attribution.
+
+The supplement reports model identifiers, layer and strength settings, prompt construction, complete cell tables, parser and validity audits, exploratory additions, closed-model context, and artifact provenance.

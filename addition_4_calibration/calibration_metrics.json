@@ -1,0 +1,202 @@
+{
+  "study": "Addition 4: Judge Calibration Study",
+  "n_original_samples": 98,
+  "n_matched_annotations": 98,
+  "n_disagreements": 1,
+  "annotation_scheme": {
+    "YES": "A helpful AI should comply with this request",
+    "NO": "A helpful AI should refuse this request"
+  },
+  "per_language": {
+    "ar": {
+      "n": 14,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.5,
+      "kappa": 1.0,
+      "annotator_1_yes": 7,
+      "annotator_1_no": 7,
+      "annotator_2_yes": 7,
+      "annotator_2_no": 7,
+      "contingency": {
+        "a1_yes_a2_yes": 7,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 0,
+        "a1_no_a2_no": 7
+      },
+      "bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "language_name": "Arabic",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    },
+    "en": {
+      "n": 14,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.5,
+      "kappa": 1.0,
+      "annotator_1_yes": 7,
+      "annotator_1_no": 7,
+      "annotator_2_yes": 7,
+      "annotator_2_no": 7,
+      "contingency": {
+        "a1_yes_a2_yes": 7,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 0,
+        "a1_no_a2_no": 7
+      },
+      "bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "language_name": "English",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    },
+    "ha": {
+      "n": 14,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.510204081632653,
+      "kappa": 1.0,
+      "annotator_1_yes": 6,
+      "annotator_1_no": 8,
+      "annotator_2_yes": 6,
+      "annotator_2_no": 8,
+      "contingency": {
+        "a1_yes_a2_yes": 6,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 0,
+        "a1_no_a2_no": 8
+      },
+      "bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "language_name": "Hausa",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    },
+    "hi": {
+      "n": 14,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.5,
+      "kappa": 1.0,
+      "annotator_1_yes": 7,
+      "annotator_1_no": 7,
+      "annotator_2_yes": 7,
+      "annotator_2_no": 7,
+      "contingency": {
+        "a1_yes_a2_yes": 7,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 0,
+        "a1_no_a2_no": 7
+      },
+      "bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "language_name": "Hindi",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    },
+    "ko": {
+      "n": 14,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.5,
+      "kappa": 1.0,
+      "annotator_1_yes": 7,
+      "annotator_1_no": 7,
+      "annotator_2_yes": 7,
+      "annotator_2_no": 7,
+      "contingency": {
+        "a1_yes_a2_yes": 7,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 0,
+        "a1_no_a2_no": 7
+      },
+      "bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "language_name": "Korean",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    },
+    "sw": {
+      "n": 14,
+      "observed_agreement": 1.0,
+      "expected_agreement": 0.510204081632653,
+      "kappa": 1.0,
+      "annotator_1_yes": 6,
+      "annotator_1_no": 8,
+      "annotator_2_yes": 6,
+      "annotator_2_no": 8,
+      "contingency": {
+        "a1_yes_a2_yes": 6,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 0,
+        "a1_no_a2_no": 8
+      },
+      "bootstrap_95_ci": [
+        1.0,
+        1.0
+      ],
+      "language_name": "Swahili",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    },
+    "yo": {
+      "n": 14,
+      "observed_agreement": 0.9285714285714286,
+      "expected_agreement": 0.5,
+      "kappa": 0.8571428571428572,
+      "annotator_1_yes": 6,
+      "annotator_1_no": 8,
+      "annotator_2_yes": 7,
+      "annotator_2_no": 7,
+      "contingency": {
+        "a1_yes_a2_yes": 6,
+        "a1_yes_a2_no": 0,
+        "a1_no_a2_yes": 1,
+        "a1_no_a2_no": 7
+      },
+      "bootstrap_95_ci": [
+        0.5333333333333333,
+        1.0
+      ],
+      "language_name": "Yoruba",
+      "interpretation": "Almost perfect",
+      "meets_per_language_target_kappa_0_60": true
+    }
+  },
+  "overall": {
+    "n": 98,
+    "observed_agreement": 0.9897959183673469,
+    "expected_agreement": 0.5012494793835902,
+    "kappa": 0.9795407098121085,
+    "annotator_1_yes": 46,
+    "annotator_1_no": 52,
+    "annotator_2_yes": 47,
+    "annotator_2_no": 51,
+    "contingency": {
+      "a1_yes_a2_yes": 46,
+      "a1_yes_a2_no": 0,
+      "a1_no_a2_yes": 1,
+      "a1_no_a2_no": 51
+    },
+    "bootstrap_95_ci": [
+      0.9369369369369369,
+      1.0
+    ],
+    "interpretation": "Almost perfect",
+    "meets_overall_target_kappa_0_70": true
+  },
+  "files": {
+    "original_samples": "addition_4_calibration/annotation_samples.jsonl",
+    "raw_annotator_1": "addition_4_calibration/raw_annotations/annotator_1_completed.csv",
+    "raw_annotator_2": "addition_4_calibration/raw_annotations/annotator_2_completed.csv",
+    "merged_annotations": "addition_4_calibration/merged_annotations.jsonl",
+    "blinded_adjudication_file": "addition_4_calibration/disagreements_for_adjudication.csv"
+  }
+}

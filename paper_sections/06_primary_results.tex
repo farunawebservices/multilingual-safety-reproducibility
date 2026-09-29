@@ -1,0 +1,12 @@
+%TL;DR: Within-model primary analyses show improvements in selected model--language cells, but no uniform Planner-only effect.
+\section{Primary Results}
+\subsection{Planner-only steering improves selected Llama cells without a uniform language effect}
+Figure~\ref{fig:llama_primary} and Table~\ref{tab:cross_model_primary} summarize the primary Planner-only contrasts. In the within-phase Llama comparison, harmful operational failure decreased by 14.3 percentage points in Arabic, 10.0 points in Hausa, and 16.7 points in Yoruba; the English change was -0.3 points and was not significant after Holm correction. No benign language cell was Holm-significant, although the benign arms were not uniformly powered to exclude practically meaningful costs.
+
+\subsection{Qwen improves in Arabic and English, while Hausa and Yoruba remain non-significant}
+For Qwen 2.5 72B at alpha 1.0, harmful operational failure decreased by 13.0 percentage points in Arabic and 23.0 points in English; both cells were Holm-significant within the predeclared 33-cell family. Hausa decreased by 6.0 points and Yoruba by 7.0 points, but neither survived that family correction. The Qwen outcome treats explicit VETO as safe and non-veto unresolved output as operational failure, so these estimates should not be read as explicit-ALLOW rates.
+
+\subsection{Gemma and GPT-OSS show additional heterogeneity}
+Gemma's three available complete-case cells all moved toward higher non-veto failure under Planner-only alpha 1.0: Arabic benign increased by 10.0 points, English benign by 15.84 points, and Arabic harmful by 8.0 points. None survived the three-cell Holm correction. GPT-OSS improved in English by 11.0 points, worsened in Hausa by 7.0 points, and showed no marginal change in Yoruba; only the English and Hausa cells were Holm-significant within its four-cell family.
+
+These primary results support a conditional interpretation. The intervention produced substantial changes in selected cells, but the direction and evidential strength depended on the model, language, outcome definition, and correction family.

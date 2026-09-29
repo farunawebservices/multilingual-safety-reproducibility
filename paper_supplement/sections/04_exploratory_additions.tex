@@ -1,0 +1,15 @@
+\section{Exploratory Additions and Audits}
+\subsection{Causal patching}
+The causal-patching attempt used 11 candidate Hausa cases but could not reconstruct the original full pipeline context. The resulting reruns did not reproduce the original contrast. We therefore do not use this experiment to support causal or mechanistic claims.
+
+\subsection{Multilingual extension}
+The Llama extension reported harmful VETO rates of 94.0\% baseline and 94.7\% steered across Hindi, Korean, and Swahili. The Qwen extension reported 82.0\% in both conditions. These are descriptive, separate estimands.
+
+\subsection{Calibration}
+The 98-item annotation audit had 99.0\% overall agreement and $\kappa=0.98$ with a 95\% interval of [0.937,1.000].
+
+\subsection{Adversarial audit}
+Baseline and steered conditions each produced zero labeled jailbreaks over 50 prompts, with no discordant pairs.
+
+\subsection{Prompt filter}
+The separate Llama prompt-filter audit reported harmful VETO rates of 52.5\%, 53.5\%, and 57.5\% for no intervention, prompt filtering, and Planner steering, respectively, with missing-label counts of 4, 5, and 25.

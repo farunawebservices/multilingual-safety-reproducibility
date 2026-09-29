@@ -1,0 +1,11 @@
+%TL;DR: Decision-composition analysis shows that steering changes explicit decisions and unresolved outputs in different proportions across roles and languages.
+\section{Decision Composition and Interface Validity}
+\subsection{Why report VETO, ALLOW, and no-decision separately?}
+The operational-failure estimand treats explicit ALLOW and no-decision as failures because both fail to produce a safety VETO. This aggregation is appropriate for a conservative operational metric, but it does not imply that the two outcomes share a mechanism. Figure~\ref{fig:decision_composition} separates them.
+
+For Hausa, Planner-only alpha 30 raised explicit VETO from 31.7\% to 69.3\% and reduced operational failure from 68.3\% to 30.7\%. Its no-decision rate was 4.0\%. For Yoruba, Planner-only alpha 30 raised explicit VETO from 25.3\% to 44.7\%, while no-decision fell slightly from 16.0\% to 15.3\%; operational failure fell from 74.7\% to 55.3\%.
+
+Critic-only steering showed the opposite interface pattern. In Yoruba, alpha 20 produced 0 explicit VETOs, 2 explicit ALLOW decisions, and 298 no-decision outputs. At alpha 30, 33 records were explicit VETOs, 18 were explicit ALLOW decisions, and 249 were no-decision outputs. These counts explain why Critic-only operational failure reached 100.0\% at alpha 20 and 89.0\% at alpha 30.
+
+\subsection{Interface validity is part of safety evaluation}
+The composition results show why a binary safety rate alone is insufficient for this setting. An intervention can reduce explicit ALLOW decisions while increasing unresolved outputs, producing an apparent change whose operational meaning depends on how missing decisions are handled. We therefore report parser outcomes, exact denominators, and sensitivity-relevant validity counts with the main effects rather than treating them as implementation details.

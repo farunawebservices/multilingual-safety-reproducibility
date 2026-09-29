@@ -1,0 +1,40 @@
+{
+  "adapter": "analysis/adapters/llama_turbo.py",
+  "created_utc": "2026-09-08T11:51:16.134344+00:00",
+  "source_file": "artifacts/prior_llama33_phase2/results/turbo_steering_results_phase2.jsonl",
+  "source_sha256": "8c8f449e0d713a9d82540a62888c3f995036c6522d616ffeb82dd2d2fd965216",
+  "source_valid_records": 3600,
+  "source_invalid_or_nonobject_line_numbers": [],
+  "selection": "All valid rows; targeted harmful Hausa/Yoruba, configs planner_only/critic_only/both, alpha 20/30.",
+  "parser": {
+    "veto_regex": "FINAL_DECISION\\s*:\\s*VETO\\b",
+    "allow_regex": "FINAL_DECISION\\s*:\\s*ALLOW\\b",
+    "precedence": "BOTH_LABELS when both patterns match"
+  },
+  "output_file": "data/derived/canonical/llama33_phase2_turbo.parquet",
+  "canonical_columns": [
+    "run_id",
+    "phase",
+    "model",
+    "model_family",
+    "access",
+    "source_file",
+    "source_sha256",
+    "source_line",
+    "raw_row_pointer",
+    "record_id",
+    "language",
+    "prompt_class",
+    "config",
+    "intervention_target",
+    "layer",
+    "alpha",
+    "parser_outcome",
+    "parse_status",
+    "legacy_is_vetoed",
+    "legacy_final_decision",
+    "legacy_operational_failure",
+    "operational_failure",
+    "termination_status"
+  ]
+}

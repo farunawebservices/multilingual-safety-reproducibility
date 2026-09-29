@@ -1,0 +1,9 @@
+data/raw/phase1/claude_sonnet_4/originals/frontier_baseline_claude4sonnest_results.jsonl	251528 bytes
+data/raw/phase1/claude_sonnet_5/originals/frontier_baseline_gpt_5_results.jsonl	2097152 bytes
+data/raw/phase1/claude_sonnet_5/originals/frontier_baseline_results_for_claude_sonnet_5.jsonl	236285 bytes
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl	3145728 bytes
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl	3145728 bytes
+data/raw/phase1/gemma_4_31b/originals/role_level_eval_dataset.jsonl	583263 bytes
+data/raw/phase1/gpt_5/originals/frontier_baseline_gpt_5_results.jsonl	4648543 bytes
+data/raw/phase1/gpt_oss_20b/originals/gpt_oss_baseline_results.jsonl	5045015 bytes
+data/raw/phase1/gpt_oss_20b/originals/gpt_oss_steered_results (2).jsonl	5242880 bytes

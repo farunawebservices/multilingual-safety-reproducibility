@@ -1,0 +1,13 @@
+%TL;DR: The evidence supports conditional behavioral conclusions but leaves causal, mechanistic, and generalization questions open.
+\section{Limitations}
+\paragraph{Cross-phase role comparison.} The strongest role-strength result matches prompts by identifier across Phase 1 and Phase 2, but phase and intervention condition change together. The six alpha-30 contrasts therefore do not isolate the causal effect of role or strength.
+
+\paragraph{No matched random-vector control.} The role comparisons do not rule out every generic perturbation explanation. Applying a vector at different roles provides a useful configuration contrast, but a norm-matched random-vector and orthogonal-direction control would be needed to test vector specificity directly.
+
+\paragraph{Outcome and parser dependence.} Operational failure combines explicit ALLOW with no-decision outputs. The composition tables show that these categories can move differently, especially under Critic steering. The results should not be interpreted as semantic safety judgments without considering output validity.
+
+\paragraph{Model-specific semantics and coverage.} The primary packages use model-specific decision semantics and do not place every model on a common outcome scale. Benign coverage is incomplete in some cells, and Gemma includes a reduced-coverage matched subset. Exact denominators and source caveats are reported rather than imputed.
+
+\paragraph{Exploratory additions.} The causal-patching attempt was inconclusive, the multilingual extension showed small or null effects in languages with high baseline VETO rates, the adversarial audit had zero jailbreaks in both conditions, and the prompt-filter comparison revealed both gains and validity costs. These additions are hypothesis-generating rather than confirmatory.
+
+\paragraph{Generalization.} The study uses one pipeline architecture, a limited language set, and a limited number of model entries. Closed models contribute descriptive context only because they cannot receive the same steering intervention.

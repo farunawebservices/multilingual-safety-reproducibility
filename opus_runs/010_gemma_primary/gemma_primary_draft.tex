@@ -1,0 +1,100 @@
+```latex
+\subsection{Gemma 4 31B complete-case}
+
+The third within-model question is whether planner-targeted steering changes
+decision outcomes in \texttt{gemma\_4\_31b} under a complete-case valid-JSON
+policy, in the three cells for which paired records exist. The contrast is the
+Phase~1 unsteered baseline ($\alpha0$) against planner-only steering at
+$\alpha1.0$, on records matched by shared record ID, with the outcome defined as
+non-veto operational failure, i.e.\ \texttt{is\_vetoed = false}. This is not an
+explicit-ALLOW rate: the decision audit shows, for example, an Arabic benign
+baseline non-veto count of 96 against a critic allow-token count of 48, so a
+non-veto record cannot be identified with an explicit ALLOW. Under the
+complete-case policy, one truncated terminal JSONL record is excluded from each
+source and missing outcomes are not imputed. Exactly three cells are available:
+Arabic benign (150 paired), English benign (101 paired; baseline 101, steered
+112, with 11 steered-only valid IDs excluded, \texttt{partial\_coverage = true}),
+and Arabic harmful (300 paired). There is no Hausa cell, no Yoruba cell, and no
+English harmful cell; no total is recorded in the source artifacts, and we do
+not sum the three denominators. All three cells are tested with the exact paired
+two-sided McNemar test with a 10{,}000-replicate paired bootstrap percentile
+95\% confidence interval (seed 20260908), and Holm correction is applied inside
+the pre-declared family \texttt{gemma\_phase1\_three\_cell\_family} of size 3 at
+family-wise $\alpha = 0.05$. The reported values are those recorded in
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_paired\_inference.csv},
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_paired\_inference\_holm.csv},
+and
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_unified\_results.csv}
+(3 rows each), with decision composition in
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_audit.csv} (whose
+filename differs from the manifest-listed
+\texttt{..\_decision\_semantics\_audit.csv}) and the display in
+\texttt{tables/gemma\_4\_31b\_phase1\_complete\_case\_results.tex}, with
+provenance in
+\texttt{handoffs/gemma\_4\_31b\_phase1\_complete\_case\_OPUS\_HANDOFF.md} and
+\texttt{manifests/gemma\_4\_31b\_phase1\_complete\_case\_artifact\_manifest.json}.
+The manifest additionally declares
+\texttt{gemma\_4\_31b\_phase1\_complete\_case\_paper\_table.csv} as the
+authoritative displayed table, but that file is not in the packet and is not
+cited as evidence here. This analysis is within-model only; it is not pooled
+with, averaged over, or compared inferentially against any other model entry.
+
+All three point estimates go in the same direction: non-veto operational failure
+is \emph{higher} under planner-only $\alpha1.0$ than at baseline, and no cell is
+Holm-significant inside the three-cell family (0 Holm-significant rows). Arabic
+benign moves from 64.00 to 74.00 over 150 paired records
+($\Delta = +10.00$, 95\% CI $[-0.67, 20.67]$, raw $p = 0.0912$, Holm
+$p = 0.0912$). English benign moves from 65.35 to 81.19 over 101 paired records
+($\Delta = +15.84$, CI $[2.97, 27.75]$, raw $p = 0.02263$, Holm
+$p = 0.06789$); this is the reduced-coverage cell, with a baseline of 101 and a
+steered condition of 112 valid records, from which 11 steered-only valid IDs are
+excluded by the pairing requirement (\texttt{partial\_coverage = true}). Arabic
+harmful moves from 64.00 to 72.00 over 300 paired records ($\Delta = +8.00$,
+CI $[0.67, 15.33]$, raw $p = 0.04004$, Holm $p = 0.08007$). Two of the three
+rows---English benign and Arabic harmful---have
+\texttt{ci\_excludes\_zero = true}, while the Holm procedure rejects nothing at
+family-wise $\alpha = 0.05$; we report the interval-based and Holm-based results
+jointly and do not conflate them, so neither of those two cells is described as
+significant. Equivalently, two of the three raw $p$-values fall below 0.05
+($0.02263$ and $0.04004$) but none survives correction within the pre-declared
+family of size 3.
+
+Several limits bind the reading of these three cells. The comparison is
+non-causal: it contrasts two conditions on the same records within a single
+Phase~1 model entry and licenses no mechanistic claim and no claim about
+behaviour under other deployment conditions. Because no cell is
+Holm-significant, the consistent positive direction of all three point estimates
+is reported as an observed pattern in the point estimates and intervals only,
+not as a family-corrected finding of increased failure; the analysis is
+correspondingly uninformative about Hausa, Yoruba, and English harmful prompts,
+for which no Gemma cell exists. The three denominators (150, 101, and 300) are
+reported exactly as recorded and are not summed, since no total is recorded, and
+the English benign cell is weaker evidence than the two fully paired cells
+because 11 steered-only valid IDs are excluded from it. The outcome is a
+non-veto rate, not an explicit-ALLOW rate, and the two benign rows are not
+described as safety failures: Gemma has no separate benign-utility refusal
+outcome in the evidence base, so the Gemma benign rows are not comparable to the
+Llama benign refusal rates of Section~4.1 and are not read as a utility-cost
+measurement. The only missing-data statement we make for this model is the
+complete-case policy itself---one truncated terminal JSONL record excluded per
+source, with no imputation of missing outcomes. Finally, the model string
+\texttt{gemma\_4\_31b} carries no vendor identifier or snapshot anywhere in the
+evidence base, and we make no claim that one exists.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.3, p1 — research question, design, outcome definition (is_vetoed = false,
+%   not explicit ALLOW), complete-case valid-JSON policy, the 3 cells and their exact
+%   denominators, no Hausa/Yoruba/English-harmful cells, no total and no summing, test /
+%   interval / Holm family of size 3, cited artifacts, table label, handoff and manifest,
+%   non-shipped paper_table.csv not cited, no cross-model pooling): GM-A
+% Paragraph 2 (4.3, p2 — per-cell results: all three point estimates show increased
+%   non-veto failure under steering; 0 Holm-significant rows; per-cell rates, deltas,
+%   bootstrap CIs, raw p-values and Holm p-values; English benign partial coverage
+%   restated; joint reporting of the two ci_excludes_zero rows against the absence of
+%   any Holm rejection): GM-A
+% Paragraph 3 (4.3, p3 — interpretation and binding limits: non-causal, within-model,
+%   direction reported as a point-estimate pattern only, no cell reported as significant,
+%   no summing of denominators, weaker English benign cell, not an explicit-ALLOW rate,
+%   benign rows not "safety failures" and not comparable to Llama benign refusal rates,
+%   complete-case missing-data statement, no vendor identifier or snapshot): GM-A
+```

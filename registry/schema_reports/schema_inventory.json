@@ -1,0 +1,74 @@
+[
+  {
+    "path": "data/raw/phase1/claude_sonnet_4/originals/frontier_baseline_claude4sonnest_results.jsonl",
+    "sha256": "e712c7ae7ec321fcca456d19e2b8fac90b92312e8ba2a6f9783b2a85aa6297f2",
+    "total_lines": 1695,
+    "parsed_rows": 1695,
+    "invalid_rows": 0,
+    "top_keys": "harmfulness,id,is_vetoed,language,model"
+  },
+  {
+    "path": "data/raw/phase1/claude_sonnet_5/originals/frontier_baseline_results_for_claude_sonnet_5.jsonl",
+    "sha256": "ab804c237f25fb6e52d40f3060f1927d2a3abe175e9d33f1c31aeb1dfac9edb5",
+    "total_lines": 1695,
+    "parsed_rows": 1695,
+    "invalid_rows": 0,
+    "top_keys": "harmfulness,id,is_vetoed,language,model"
+  },
+  {
+    "path": "data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl",
+    "sha256": "395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7",
+    "total_lines": 552,
+    "parsed_rows": 551,
+    "invalid_rows": 1,
+    "top_keys": "config,critic_response,harmfulness,id,is_vetoed,language,planner_response,strength,tool_response"
+  },
+  {
+    "path": "data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl",
+    "sha256": "c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b",
+    "total_lines": 563,
+    "parsed_rows": 562,
+    "invalid_rows": 1,
+    "top_keys": "config,critic_response,harmfulness,id,is_vetoed,language,planner_response,strength,tool_response"
+  },
+  {
+    "path": "data/raw/phase1/gemma_4_31b/originals/role_level_eval_dataset.jsonl",
+    "sha256": "16101453dead86f8832a50d042df24c79c52c1c79a26c3fdfe8b2512dfa316c3",
+    "total_lines": 1695,
+    "parsed_rows": 1695,
+    "invalid_rows": 0,
+    "top_keys": "expected_behavior,gold_label,harmfulness,id,language,language_code,prompt_text,prompt_type,role"
+  },
+  {
+    "path": "data/raw/phase1/gpt_5/originals/frontier_baseline_gpt_5_results.jsonl",
+    "sha256": "037a43987a3cdd8c339a2d8e7c9e760c063464d4c03e63e9c0cba7b626975a3d",
+    "total_lines": 1651,
+    "parsed_rows": 1651,
+    "invalid_rows": 0,
+    "top_keys": "composite_run_id,config,critic_response,harmfulness,id,is_vetoed,language,model,planner_response,strength,tool_response"
+  },
+  {
+    "path": "data/raw/phase1/gpt_oss_20b/originals/gpt_oss_baseline_results.jsonl",
+    "sha256": "ea963beeec8ceadc3c8912ac8fcdda778efdf9cc7cb531b26484d540f52ebf9c",
+    "total_lines": 1695,
+    "parsed_rows": 1695,
+    "invalid_rows": 0,
+    "top_keys": "config,critic_response,harmfulness,id,is_vetoed,language,planner_response,strength,tool_response"
+  },
+  {
+    "path": "data/raw/phase1/gpt_oss_20b/originals/gpt_oss_steered_results (2).jsonl",
+    "sha256": "fb1d12feaf255d620c3735b3420ab7564dd264862c8b3b06bbf4fe22e90b7d32",
+    "total_lines": 1713,
+    "parsed_rows": 1712,
+    "invalid_rows": 1,
+    "top_keys": "config,critic_response,harmfulness,id,is_vetoed,language,planner_response,strength,tool_response"
+  },
+  {
+    "path": "data/raw/phase1/unclassified/originals/gpt_5_partial_or_unknown_570_rows.jsonl",
+    "sha256": "899f04875a805e745c9ecf9556d8b9f43074198b1f8eee7ae5650058a3d8ad1a",
+    "total_lines": 571,
+    "parsed_rows": 570,
+    "invalid_rows": 1,
+    "top_keys": "composite_run_id,config,critic_response,harmfulness,id,is_vetoed,language,model,planner_response,strength,tool_response"
+  }
+]

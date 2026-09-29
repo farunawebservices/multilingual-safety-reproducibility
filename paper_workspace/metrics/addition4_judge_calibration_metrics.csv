@@ -1,0 +1,9 @@
+language_code,language_name,n_prompts,annotator_1_yes,annotator_1_no,annotator_2_yes,annotator_2_no,observed_agreement,cohens_kappa,ci95_low,ci95_high,interpretation,meets_target_kappa_0_60
+ar,Arabic,14,7,7,7,7,1.0,1.0,1.0,1.0,Almost perfect,true
+en,English,14,7,7,7,7,1.0,1.0,1.0,1.0,Almost perfect,true
+ha,Hausa,14,6,8,6,8,1.0,1.0,1.0,1.0,Almost perfect,true
+hi,Hindi,14,7,7,7,7,1.0,1.0,1.0,1.0,Almost perfect,true
+ko,Korean,14,7,7,7,7,1.0,1.0,1.0,1.0,Almost perfect,true
+sw,Swahili,14,6,8,6,8,1.0,1.0,1.0,1.0,Almost perfect,true
+yo,Yoruba,14,6,8,7,7,0.9285714285714286,0.8571428571428572,0.5333333333333333,1.0,Almost perfect,true
+overall,Overall,98,46,52,47,51,0.9897959183673469,0.9795407098121085,0.9369369369369369,1.0,Almost perfect,true

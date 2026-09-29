@@ -1,0 +1,86 @@
+# Target languages. Fixed for the duration of the project.
+# `en` is the pivot: every behavior exists in `en` plus all six others.
+#
+# `resource_tier` is a coarse, declared label used for pre-registered grouping
+# in analyses. It is a hypothesis input, NOT an explanation: differences between
+# tiers are confounded by translation quality, tokenisation, benchmark
+# provenance, and script effects. See CLAUDE.md §6.
+
+pivot: en
+
+languages:
+  - code: en
+    name: English
+    endonym: English
+    script: Latn
+    direction: ltr
+    resource_tier: high
+    unicode_normalization: NFC
+    notes: Reference/pivot language.
+
+  - code: ar
+    name: Arabic
+    endonym: العربية
+    script: Arab
+    direction: rtl
+    resource_tier: high
+    unicode_normalization: NFC
+    notes: >
+      RTL. Diacritics (tashkil) are optional in normal orthography; presence or
+      absence must be recorded, not normalised away. Watch for bidi control
+      characters surviving into prompts.
+
+  - code: ha
+    name: Hausa
+    endonym: Harshen Hausa
+    script: Latn
+    direction: ltr
+    resource_tier: low
+    unicode_normalization: NFC
+    notes: >
+      Hooked consonants (ɓ ɗ ƙ) and apostrophe-y ('y) are contrastive. If these
+      are stripped or ASCII-folded anywhere in the pipeline, the record is
+      corrupt and must not be silently used.
+
+  - code: yo
+    name: Yoruba
+    endonym: Èdè Yorùbá
+    script: Latn
+    direction: ltr
+    resource_tier: low
+    unicode_normalization: NFC
+    notes: >
+      Tone marks (à á) and sub-dot vowels/consonants (ẹ ọ ṣ) are contrastive.
+      NFC vs NFD matters: sub-dot + tone stacking decomposes differently.
+      Loss of diacritics is a preprocessing bug, not a language property.
+
+  - code: sw
+    name: Swahili
+    endonym: Kiswahili
+    script: Latn
+    direction: ltr
+    resource_tier: low
+    unicode_normalization: NFC
+    notes: Comparatively better resourced than ha/yo but still under-represented.
+
+  - code: hi
+    name: Hindi
+    endonym: हिन्दी
+    script: Deva
+    direction: ltr
+    resource_tier: medium
+    unicode_normalization: NFC
+    notes: >
+      Devanagari conjuncts and ZWJ/ZWNJ affect tokenisation; record the
+      normalisation form used.
+
+  - code: ko
+    name: Korean
+    endonym: 한국어
+    script: Hang
+    direction: ltr
+    resource_tier: medium
+    unicode_normalization: NFC
+    notes: >
+      Hangul precomposed (NFC) vs jamo-decomposed (NFD) forms tokenise very
+      differently. NFC is required.

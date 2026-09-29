@@ -1,0 +1,37 @@
+You are drafting two short end-matter paragraphs for an ICLR paper.
+
+Inputs:
+- Conclusion: paper_sections/08_conclusion.tex
+- Bibliography: paper.bib
+
+Task:
+Write two short paragraphs:
+
+1. Author contributions (2–4 sentences): who did what (conceptualization,
+   methodology, software, experiments, writing, supervision, funding).
+   Use generic roles (e.g. "All authors contributed to...") since we don’t
+   have specific names yet.
+
+2. Data and code availability (2–4 sentences): state what is released
+   (e.g. code, prompts, metrics, tables, handoffs, manifests), where
+   (e.g. GitHub + Zenodo DOI), and under what license (e.g. MIT for code,
+   CC-BY for data). Also state what is not released (e.g. raw model outputs,
+   registry audits) and why (e.g. size, privacy, third-party terms).
+
+Requirements:
+- Keep it concise and ICLR-appropriate.
+- No new empirical claims.
+- Return LaTeX only: two short paragraphs with headings, plus a one-line
+  source map.
+
+Structure:
+\section*{Author Contributions}
+
+...
+
+\section*{Data and Code Availability}
+
+...
+
+% ---------------- SOURCE MAP ----------------
+% End matter: no new empirical claims.

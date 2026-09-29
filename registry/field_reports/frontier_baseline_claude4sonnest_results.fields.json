@@ -1,0 +1,82 @@
+{
+  "source_path": "data/raw/phase1/claude_sonnet_4/originals/frontier_baseline_claude4sonnest_results.jsonl",
+  "total_lines": 1695,
+  "parsed_rows": 1695,
+  "invalid_rows": 0,
+  "top_level_keys": [
+    "harmfulness",
+    "id",
+    "is_vetoed",
+    "language",
+    "model"
+  ],
+  "types_by_key": {
+    "model": {
+      "str": 1695
+    },
+    "id": {
+      "str": 1695
+    },
+    "language": {
+      "str": 1695
+    },
+    "harmfulness": {
+      "str": 1695
+    },
+    "is_vetoed": {
+      "bool": 1695
+    }
+  },
+  "nested_keys_by_parent": {},
+  "candidate_field_values": {
+    "model": {
+      "anthropic/claude-4-sonnet-20250522": 1695
+    },
+    "id": {
+      "ar_benign_001_critic": 1,
+      "ar_benign_002_critic": 1,
+      "ar_benign_003_critic": 1,
+      "ar_benign_004_critic": 1,
+      "ar_benign_005_critic": 1,
+      "ar_benign_006_critic": 1,
+      "ar_benign_007_critic": 1,
+      "ar_benign_008_critic": 1,
+      "ar_benign_009_critic": 1,
+      "ar_benign_010_critic": 1,
+      "ar_benign_011_critic": 1,
+      "ar_benign_012_critic": 1,
+      "ar_benign_013_critic": 1,
+      "ar_benign_014_critic": 1,
+      "ar_benign_015_critic": 1,
+      "ar_benign_016_critic": 1,
+      "ar_benign_017_critic": 1,
+      "ar_benign_018_critic": 1,
+      "ar_benign_019_critic": 1,
+      "ar_benign_020_critic": 1,
+      "ar_benign_021_critic": 1,
+      "ar_benign_022_critic": 1,
+      "ar_benign_023_critic": 1,
+      "ar_benign_024_critic": 1,
+      "ar_benign_025_critic": 1,
+      "ar_benign_026_critic": 1,
+      "ar_benign_027_critic": 1,
+      "ar_benign_028_critic": 1,
+      "ar_benign_029_critic": 1,
+      "ar_benign_030_critic": 1
+    },
+    "language": {
+      "Arabic": 450,
+      "English": 450,
+      "Hausa": 450,
+      "Yoruba": 345
+    },
+    "harmfulness": {
+      "harmful": 1200,
+      "benign": 495
+    },
+    "is_vetoed": {
+      "False": 1658,
+      "True": 37
+    }
+  }
+}

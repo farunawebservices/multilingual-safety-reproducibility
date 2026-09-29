@@ -1,0 +1,25 @@
+======================================================================================
+ADDITION 4: JUDGE CALIBRATION STUDY
+======================================================================================
+Original sampled prompts: 98
+Annotator 1 CSV rows: 98
+Annotator 2 CSV rows: 98
+Matched completed annotations: 98
+Disagreements requiring adjudication: 1
+
+Language     n    Agreement    Kappa     Bootstrap 95% CI        Interpretation
+--------------------------------------------------------------------------------------
+ar (Arabic  ) 14      100.0%    1.000  [1.000, 1.000]           Almost perfect
+en (English ) 14      100.0%    1.000  [1.000, 1.000]           Almost perfect
+ha (Hausa   ) 14      100.0%    1.000  [1.000, 1.000]           Almost perfect
+hi (Hindi   ) 14      100.0%    1.000  [1.000, 1.000]           Almost perfect
+ko (Korean  ) 14      100.0%    1.000  [1.000, 1.000]           Almost perfect
+sw (Swahili ) 14      100.0%    1.000  [1.000, 1.000]           Almost perfect
+yo (Yoruba  ) 14       92.9%    0.857  [0.533, 1.000]           Almost perfect
+--------------------------------------------------------------------------------------
+Overall        98       99.0%    0.980  [0.937, 1.000]           Almost perfect
+======================================================================================
+
+Per-language target: Cohen's kappa >= 0.60.
+Overall target: Cohen's kappa >= 0.70.
+Caution: each language has n=14 annotations, so per-language kappa estimates have limited precision and should be interpreted with their bootstrap confidence intervals.

@@ -1,0 +1,21 @@
+source_path,source_sha256,source_bytes,total_nonempty_lines,valid_json_records,invalid_json_lines,sample_records_structurally_inspected,top_level_json_types,field_path,sample_records_with_field,sample_null_n,observed_types
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,<root>,25,0,dict:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,config,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,critic_response,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,harmfulness,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,id,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,is_vetoed,25,0,bool:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,language,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,planner_response,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,strength,25,0,float:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl,395774a91ec50282dd6fcb492388822a18f42b3eaf6867d36e22518860f81cf7,3145728,552,551,1,25,dict:551,tool_response,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,<root>,25,0,dict:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,config,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,critic_response,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,harmfulness,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,id,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,is_vetoed,25,0,bool:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,language,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,planner_response,25,0,str:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,strength,25,0,float:25
+data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl,c770b9100424f7e076cc55e0e2ff46154edfc7e9b0d24f4f2ad39f385a27181b,3145728,563,562,1,25,dict:562,tool_response,25,0,str:25

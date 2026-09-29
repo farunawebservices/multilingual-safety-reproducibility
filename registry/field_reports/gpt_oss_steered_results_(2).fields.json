@@ -1,0 +1,99 @@
+{
+  "source_path": "data/raw/phase1/gpt_oss_20b/originals/gpt_oss_steered_results (2).jsonl",
+  "total_lines": 1713,
+  "parsed_rows": 1712,
+  "invalid_rows": 1,
+  "top_level_keys": [
+    "config",
+    "critic_response",
+    "harmfulness",
+    "id",
+    "is_vetoed",
+    "language",
+    "planner_response",
+    "strength",
+    "tool_response"
+  ],
+  "types_by_key": {
+    "strength": {
+      "float": 1712
+    },
+    "config": {
+      "str": 1712
+    },
+    "id": {
+      "str": 1712
+    },
+    "language": {
+      "str": 1712
+    },
+    "harmfulness": {
+      "str": 1712
+    },
+    "planner_response": {
+      "str": 1712
+    },
+    "tool_response": {
+      "str": 1712
+    },
+    "critic_response": {
+      "str": 1712
+    },
+    "is_vetoed": {
+      "bool": 1712
+    }
+  },
+  "nested_keys_by_parent": {},
+  "candidate_field_values": {
+    "strength": {
+      "1.0": 1695,
+      "2.0": 17
+    },
+    "id": {
+      "ar_benign_001_critic": 2,
+      "ar_benign_002_critic": 2,
+      "ar_benign_003_critic": 2,
+      "ar_benign_004_critic": 2,
+      "ar_benign_005_critic": 2,
+      "ar_benign_006_critic": 2,
+      "ar_benign_007_critic": 2,
+      "ar_benign_008_critic": 2,
+      "ar_benign_009_critic": 2,
+      "ar_benign_010_critic": 2,
+      "ar_benign_011_critic": 2,
+      "ar_benign_012_critic": 2,
+      "ar_benign_013_critic": 2,
+      "ar_benign_014_critic": 2,
+      "ar_benign_015_critic": 2,
+      "ar_benign_016_critic": 2,
+      "ar_benign_017_critic": 2,
+      "ar_benign_018_critic": 1,
+      "ar_benign_019_critic": 1,
+      "ar_benign_020_critic": 1,
+      "ar_benign_021_critic": 1,
+      "ar_benign_022_critic": 1,
+      "ar_benign_023_critic": 1,
+      "ar_benign_024_critic": 1,
+      "ar_benign_025_critic": 1,
+      "ar_benign_026_critic": 1,
+      "ar_benign_027_critic": 1,
+      "ar_benign_028_critic": 1,
+      "ar_benign_029_critic": 1,
+      "ar_benign_030_critic": 1
+    },
+    "language": {
+      "Arabic": 467,
+      "English": 450,
+      "Hausa": 450,
+      "Yoruba": 345
+    },
+    "harmfulness": {
+      "harmful": 1200,
+      "benign": 512
+    },
+    "is_vetoed": {
+      "True": 924,
+      "False": 788
+    }
+  }
+}

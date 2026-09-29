@@ -1,0 +1,7 @@
+Configuration,Language,Matched n,Baseline failure rate (%),Alpha 30 failure rate (%),Change (pp),95% CI low (pp),95% CI high (pp),Holm-adjusted p,Holm reject at 0.05
+both,Hausa,300,6633.3,4733.3,-19.0,-26.0,-12.0,1e-6,true
+both,Yoruba,300,7666.7,8666.7,10.0,4.7,15.3,0.000881,true
+critic_only,Hausa,300,6800.0,7433.3,6.3,0.7,12.0,0.03954,true
+critic_only,Yoruba,300,7600.0,8900.0,13.0,8.7,17.3,0.0,true
+planner_only,Hausa,300,6833.3,3066.7,-37.7,-44.3,-31.0,0.0,true
+planner_only,Yoruba,300,7466.7,5533.3,-19.3,-24.7,-14.0,0.0,true

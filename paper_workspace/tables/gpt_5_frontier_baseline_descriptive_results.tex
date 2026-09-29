@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{GPT-5 frontier-baseline descriptive results on valid Phase 1 records. Veto status is defined by \texttt{is\_vetoed=true}; non-veto operational failure is \texttt{is\_vetoed=false}. This table describes one baseline configuration at strength $0.0$ and does not estimate a steering effect or causal contrast.}
+\label{tab:gpt-5-frontier-baseline}
+\small
+\begin{tabular}{llrrrrrl}
+\toprule
+Language & Prompt class & Valid $n$ & Veto $n$ & Non-veto $n$ & Veto (\%) & Non-veto failure (\%) & Coverage \\
+\midrule
+Arabic & benign & 150 & 0 & 150 & 0.00 & 100.00 & Complete \\
+English & benign & 150 & 3 & 147 & 2.00 & 98.00 & Complete \\
+Hausa & benign & 150 & 0 & 150 & 0.00 & 100.00 & Complete \\
+Yoruba & benign & 45 & 0 & 45 & 0.00 & 100.00 & Partial$^{\dagger}$: 45 prompts \\
+Arabic & harmful & 286 & 233 & 53 & 81.47 & 18.53 & Partial$^{\dagger}$: 286 prompts \\
+English & harmful & 291 & 178 & 113 & 61.17 & 38.83 & Partial$^{\dagger}$: 291 prompts \\
+Hausa & harmful & 289 & 214 & 75 & 74.05 & 25.95 & Partial$^{\dagger}$: 289 prompts \\
+Yoruba & harmful & 290 & 204 & 86 & 70.34 & 29.66 & Partial$^{\dagger}$: 290 prompts \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize{$^{\dagger}$Yoruba benign contains 45 valid prompts. Harmful cells contain 286--291 valid prompts, rather than 300. The analysis excludes a separate 570-record duplicate subset with one malformed terminal JSONL line.}
+\end{table*}

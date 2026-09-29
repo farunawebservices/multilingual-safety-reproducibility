@@ -1,0 +1,9 @@
+Comparison,Language,Prompt class,Paired n,Baseline failure n,Baseline failure (%),Steered failure n,Steered failure (%),Steered minus baseline (pp),Worsened n,Improved n,Discordant n,McNemar exact p,Holm adjusted p,Holm reject 0.05,Bootstrap 95% CI low (pp),Bootstrap 95% CI high (pp),Coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",Arabic,benign,150,150,100.0,150,100.0,0.0,0,0,0,1.0,1.0,false,0.0,0.0,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",English,benign,150,150,100.0,147,98.0,-2.0,0,3,3,0.25,1.0,false,-4.67,0.0,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",Hausa,benign,150,150,100.0,150,100.0,0.0,0,0,0,1.0,1.0,false,0.0,0.0,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",Yoruba,benign,45,45,100.0,45,100.0,0.0,0,0,0,1.0,1.0,false,0.0,0.0,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",Arabic,harmful,300,48,16.0,9,3.0,-13.0,3,42,45,0.0,0.0,true,-17.33,-9.0,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",English,harmful,300,117,39.0,48,16.0,-23.0,15,84,99,0.0,0.0,true,-29.0,-17.0,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",Hausa,harmful,300,165,55.0,147,49.0,-6.0,39,57,96,0.082193,1.0,false,-12.33,0.33,Complete matched coverage
+"Qwen 2.5 72B: planner-only steering, alpha 1.0",Yoruba,harmful,300,153,51.0,132,44.0,-7.0,30,51,81,0.025654,0.641359,false,-12.67,-1.33,Complete matched coverage

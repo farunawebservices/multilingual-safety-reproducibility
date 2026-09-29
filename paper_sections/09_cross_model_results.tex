@@ -1,0 +1,7 @@
+%TL;DR: The cross-model primary evidence supports disaggregation rather than a single pooled steering effect.
+\section{Cross-Model and Language Results}
+Table~\ref{tab:cross_model_primary} reports harmful-prompt Planner-only effects from the canonical primary packages. We do not pool these rows because the model entries use different decision semantics and correction families.
+
+Llama showed significant reductions in Arabic, Hausa, and Yoruba, with no detectable English change. Qwen showed significant reductions in Arabic and English, while its Hausa and Yoruba estimates were not Holm-significant. Gemma's available harmful cell moved toward higher non-veto failure without a family-corrected rejection. GPT-OSS improved in English and worsened in Hausa under the same nominal Planner-only intervention.
+
+This pattern rules out a simple model-independent interpretation of Planner-only steering. It instead motivates evaluation that preserves the model--language cell and reports the outcome semantics and multiplicity family alongside every effect.

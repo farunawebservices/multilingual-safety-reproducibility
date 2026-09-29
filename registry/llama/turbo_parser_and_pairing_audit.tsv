@@ -1,0 +1,55 @@
+main_invalid_json_rows=0
+turbo_invalid_json_rows=0
+
+TURBO_PARSER_OUTCOMES
+config	strength	language	parser_outcome	count
+both	20.0	Hausa	ALLOW_EXPLICIT	58
+both	20.0	Hausa	NO_DECISION	125
+both	20.0	Hausa	VETO_EXPLICIT	117
+both	20.0	Yoruba	ALLOW_EXPLICIT	3
+both	20.0	Yoruba	NO_DECISION	278
+both	20.0	Yoruba	VETO_EXPLICIT	19
+both	30.0	Hausa	ALLOW_EXPLICIT	57
+both	30.0	Hausa	NO_DECISION	85
+both	30.0	Hausa	VETO_EXPLICIT	158
+both	30.0	Yoruba	ALLOW_EXPLICIT	38
+both	30.0	Yoruba	NO_DECISION	222
+both	30.0	Yoruba	VETO_EXPLICIT	40
+critic_only	20.0	Hausa	ALLOW_EXPLICIT	118
+critic_only	20.0	Hausa	NO_DECISION	97
+critic_only	20.0	Hausa	VETO_EXPLICIT	85
+critic_only	20.0	Yoruba	ALLOW_EXPLICIT	2
+critic_only	20.0	Yoruba	NO_DECISION	298
+critic_only	30.0	Hausa	ALLOW_EXPLICIT	103
+critic_only	30.0	Hausa	NO_DECISION	120
+critic_only	30.0	Hausa	VETO_EXPLICIT	77
+critic_only	30.0	Yoruba	ALLOW_EXPLICIT	18
+critic_only	30.0	Yoruba	NO_DECISION	249
+critic_only	30.0	Yoruba	VETO_EXPLICIT	33
+planner_only	20.0	Hausa	ALLOW_EXPLICIT	82
+planner_only	20.0	Hausa	NO_DECISION	50
+planner_only	20.0	Hausa	VETO_EXPLICIT	168
+planner_only	20.0	Yoruba	ALLOW_EXPLICIT	73
+planner_only	20.0	Yoruba	NO_DECISION	93
+planner_only	20.0	Yoruba	VETO_EXPLICIT	134
+planner_only	30.0	Hausa	ALLOW_EXPLICIT	80
+planner_only	30.0	Hausa	NO_DECISION	12
+planner_only	30.0	Hausa	VETO_EXPLICIT	208
+planner_only	30.0	Yoruba	ALLOW_EXPLICIT	120
+planner_only	30.0	Yoruba	NO_DECISION	46
+planner_only	30.0	Yoruba	VETO_EXPLICIT	134
+
+TURBO_ID_AND_PAIRING_AUDIT
+config	strength	language	main_alpha0_n	turbo_n	turbo_unique_n	shared_n	main_only	turbo_only	duplicate_turbo_rows
+planner_only	20.0	Hausa	300	300	300	300	0	0	0
+planner_only	20.0	Yoruba	300	300	300	300	0	0	0
+planner_only	30.0	Hausa	300	300	300	300	0	0	0
+planner_only	30.0	Yoruba	300	300	300	300	0	0	0
+critic_only	20.0	Hausa	300	300	300	300	0	0	0
+critic_only	20.0	Yoruba	300	300	300	300	0	0	0
+critic_only	30.0	Hausa	300	300	300	300	0	0	0
+critic_only	30.0	Yoruba	300	300	300	300	0	0	0
+both	20.0	Hausa	300	300	300	300	0	0	0
+both	20.0	Yoruba	300	300	300	300	0	0	0
+both	30.0	Hausa	300	300	300	300	0	0	0
+both	30.0	Yoruba	300	300	300	300	0	0	0

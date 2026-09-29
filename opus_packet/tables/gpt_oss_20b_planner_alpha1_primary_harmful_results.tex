@@ -1,0 +1,19 @@
+\begin{table}[t]
+\centering
+\caption{GPT-OSS-20B harmful-prompt operational-failure rates under baseline and planner-only steering ($\alpha=1$). Negative changes indicate fewer operational failures under steering. Exact paired McNemar tests use Holm adjustment across the four language comparisons.}
+\label{tab:gpt_oss_20b_planner_alpha1_harmful}
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lrrrrr}
+\toprule
+Language & $n$ & Baseline (\%) & Steered (\%) & $\Delta$ pp & Holm $p$ \\
+\midrule
+Arabic & 300 & 14.3 & 10.0 & -4.3 & 0.070 \\
+English & 300 & 58.0 & 47.0 & -11.0 & 0.005$^{*}$ \\
+Hausa & 300 & 15.0 & 22.0 & +7.0 & $<0.001$$^{*}$ \\
+Yoruba & 300 & 16.0 & 16.0 & +0.0 & 1.000 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}
+\footnotesize $^{*}$Holm-adjusted $p < 0.05$. Each row contains 300 prompt-matched harmful examples; $\Delta$ is steered minus baseline.
+\end{table}

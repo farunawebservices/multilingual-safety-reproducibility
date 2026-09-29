@@ -1,0 +1,75 @@
+# Example experiment config -- DATASET v2. Copy, edit, and pass to a run script.
+# This file is a TEMPLATE and is not itself runnable: model ids are null and
+# `interventions.enabled` is false. No model is run at this stage.
+#
+# The resolved config is hashed into the run ID and copied verbatim into
+# results/<run_id>/config.resolved.yaml (README §6).
+#
+# Relationship to v1: this is a NEW dataset version, not an amendment.
+# configs/experiment_preregistration_v1.yaml stays the authoritative account of
+# v1 and is not edited. v2 results are never merged with v1 results, and v2's
+# split_hash deliberately differs from v1's -- see `data.split_hash` below.
+
+experiment:
+  name: example_cross_lingual_baseline
+  description: >
+    Baseline per-language decision rates for the Planner -> Tool-Caller ->
+    Critic pipeline, harmful and benign arms, dev split only.
+  # Pre-registered before the run. Post-hoc analyses are labelled post-hoc.
+  preregistered_analyses:
+    - per_language_veto_rate_harmful
+    - per_language_false_veto_rate_benign
+    - per_stage_failure_localisation
+    - six_category_decision_breakdown
+
+includes:
+  languages: configs/languages.yaml
+  agents: configs/agents.yaml
+  sources: configs/data_sources.yaml
+
+data:
+  dataset_version: v2
+  # The frozen v2 corpus and its split assignments. Both were verified against
+  # data/v2/manifests/frozen_dataset_v2_manifest.json (status: frozen) on
+  # 2026-08-19; the sha256 values below are what that manifest records and what
+  # the files actually hash to.
+  dataset: data/v2/processed/frozen_dataset_v2.jsonl     # 1,400 rows, private Git LFS
+  dataset_sha256: 05b5abb311a3aa973b0b5dbc3bc96637be8039e99d4f42bd18ef86f608c44fb2
+  manifest: data/v2/manifests/frozen_dataset_v2_manifest.json
+  splits: data/v2/processed/splits_v2.json
+  splits_sha256: 14535a2a32dbf2ed2cb7037ff5ea05001be96039709db00aba8b360c601640ac
+  # Every run must reference this hash. Salt mls-v2-splits-20260818; 140 dev and
+  # 60 final_test behaviors (70/70 and 30/30 by arm, 14/6 per category).
+  # It differs from v1's 9cc1a7b8... by construction: the behavior IDs are
+  # identical across versions, so only the new salt keeps the two assignments --
+  # and therefore the two sets of results -- from being confused.
+  split_hash: 01bbf0c609450e640197b6d4328573f378b6727459a2869ccfc7c05bff6703d6
+  split: dev                # dev ONLY during development (CLAUDE.md §1)
+  arms: [harmful, benign]   # both arms are mandatory (README §4)
+  languages: [en, ar, ha, yo, sw, hi, ko]
+
+holdout_policy:
+  # CLAUDE.md §1, made machine-checkable. Same rule v1 carries, restated for v2
+  # because it binds this dataset version's own holdout.
+  final_test_readable_before_freeze: false
+  enforced_by: multilingual_safety.splits.load_split(allow_test=True)
+  final_test_reads: []      # append one entry per read: {run_id, date, reason}
+
+sampling:
+  n_behaviors: null         # null = all behaviors in the split
+  trials_per_item: 3        # repeated trials measure nondeterminism
+  seeds: [20260816, 20260817, 20260818]
+  shuffle: true
+
+reporting:
+  # Every headline number is a harmful/benign pair. Reporting one alone is
+  # trivially gameable by a pipeline that vetoes everything.
+  paired_arms_required: true
+  report_all_six_categories: true
+  denominator: attempted    # NOT "parsed" — see CLAUDE.md §2
+  report_negative_results: true
+
+output:
+  results_dir: results      # actual path is results/<run_id>/
+  logs_dir: logs            # actual path is logs/<run_id>/
+  overwrite: false          # never overwrite a prior run

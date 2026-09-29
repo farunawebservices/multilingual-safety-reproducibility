@@ -1,0 +1,14 @@
+metric,value
+canonical_rows,11.0
+unique_base_ids,11.0
+source_paths,1.0
+source_sha256_values,1.0
+clean_allow,1.0
+clean_veto,10.0
+corrupted_allow,0.0
+corrupted_veto,11.0
+patched_allow,0.0
+patched_veto,11.0
+evaluable_clean_ne_corrupted,1.0
+recovered_patched_eq_clean,0.0
+recovery_rate_among_evaluable,0.0

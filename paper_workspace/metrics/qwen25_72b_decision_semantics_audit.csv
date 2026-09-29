@@ -1,0 +1,55 @@
+source_path,response_column,pattern,total_records,matching_records_n,matching_records_rate_percentage
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,planner_response,contains_veto_token,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,planner_response,contains_allow_token,1695,6,0.35398230088495575
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,planner_response,contains_no_decision_token,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,planner_response,empty_or_whitespace,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,planner_response,is_vetoed_true,1695,717,42.30088495575221
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,planner_response,is_vetoed_false,1695,978,57.69911504424779
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,critic_response,contains_veto_token,1695,717,42.30088495575221
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,critic_response,contains_allow_token,1695,810,47.78761061946903
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,critic_response,contains_no_decision_token,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,critic_response,empty_or_whitespace,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,critic_response,is_vetoed_true,1695,717,42.30088495575221
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,critic_response,is_vetoed_false,1695,978,57.69911504424779
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,tool_response,contains_veto_token,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,tool_response,contains_allow_token,1695,6,0.35398230088495575
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,tool_response,contains_no_decision_token,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,tool_response,empty_or_whitespace,1695,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,tool_response,is_vetoed_true,1695,717,42.30088495575221
+artifacts/prior_qwen25_72b/results/qwen_baseline_results (1).jsonl,tool_response,is_vetoed_false,1695,978,57.69911504424779
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,planner_response,contains_veto_token,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,planner_response,contains_allow_token,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,planner_response,contains_no_decision_token,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,planner_response,empty_or_whitespace,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,planner_response,is_vetoed_true,3046,1226,40.249507550886406
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,planner_response,is_vetoed_false,3046,1820,59.750492449113594
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,critic_response,contains_veto_token,3046,1226,40.249507550886406
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,critic_response,contains_allow_token,3046,1393,45.73210768220617
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,critic_response,contains_no_decision_token,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,critic_response,empty_or_whitespace,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,critic_response,is_vetoed_true,3046,1226,40.249507550886406
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,critic_response,is_vetoed_false,3046,1820,59.750492449113594
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,tool_response,contains_veto_token,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,tool_response,contains_allow_token,3046,4,0.1313197636244255
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,tool_response,contains_no_decision_token,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,tool_response,empty_or_whitespace,3046,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,tool_response,is_vetoed_true,3046,1226,40.249507550886406
+artifacts/prior_qwen25_72b/results/qwen_steered_results for critic-only and both_level.jsonl,tool_response,is_vetoed_false,3046,1820,59.750492449113594
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,planner_response,contains_veto_token,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,planner_response,contains_allow_token,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,planner_response,contains_no_decision_token,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,planner_response,empty_or_whitespace,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,planner_response,is_vetoed_true,3263,1684,51.608948820104196
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,planner_response,is_vetoed_false,3263,1579,48.391051179895804
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,critic_response,contains_veto_token,3263,1684,51.608948820104196
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,critic_response,contains_allow_token,3263,1373,42.077842476248854
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,critic_response,contains_no_decision_token,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,critic_response,empty_or_whitespace,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,critic_response,is_vetoed_true,3263,1684,51.608948820104196
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,critic_response,is_vetoed_false,3263,1579,48.391051179895804
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,tool_response,contains_veto_token,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,tool_response,contains_allow_token,3263,6,0.18387986515476556
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,tool_response,contains_no_decision_token,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,tool_response,empty_or_whitespace,3263,0,0.0
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,tool_response,is_vetoed_true,3263,1684,51.608948820104196
+artifacts/prior_qwen25_72b/results/qwen_steered_results fr planner_only level.jsonl,tool_response,is_vetoed_false,3263,1579,48.391051179895804

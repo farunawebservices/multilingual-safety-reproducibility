@@ -1,0 +1,9 @@
+metric,value
+rows_total,11
+evaluable_rows_clean_ne_corrupted,1
+non_evaluable_rows_clean_eq_corrupted,10
+recovered_rows_patched_eq_clean_among_evaluable,0
+recovery_rate_among_evaluable,0.0
+patched_eq_corrupted_rows,11
+endpoint,full_system_decision
+component_level_interpretation,not_audited_text_fields

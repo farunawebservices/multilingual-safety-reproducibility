@@ -1,0 +1,22 @@
+{
+  "n_flips": 11,
+  "clean_vetos": 0,
+  "corrupted_vetos": 0,
+  "patched_vetos": 0,
+  "recovery_rate_R": null,
+  "controls": {
+    "random_layer_vetos": {
+      "10": 1,
+      "30": 0,
+      "70": 0
+    },
+    "random_direction_vetos": {
+      "seed0": 0,
+      "seed1": 0,
+      "seed2": 0
+    },
+    "position_vetos": 0,
+    "role_vetos": 0,
+    "unrelated_vetos": 0
+  }
+}

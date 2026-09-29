@@ -1,0 +1,6 @@
+field,present_n,missing_n,null_n,observed_types,bool_true_n,bool_false_n,numeric_n,numeric_min,numeric_max,distinct_scalar_value_n_capped,distinct_scalar_values_if_le_50
+harmfulness,1695,0,0,str,0,0,0,,,2,benign|harmful
+id,1695,0,0,str,0,0,0,,,51,SUPPRESSED_OVER_50
+is_vetoed,1695,0,0,bool,37,1658,0,,,2,False|True
+language,1695,0,0,str,0,0,0,,,4,Arabic|English|Hausa|Yoruba
+model,1695,0,0,str,0,0,0,,,1,anthropic/claude-4-sonnet-20250522

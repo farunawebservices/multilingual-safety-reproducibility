@@ -1,0 +1,7 @@
+Append a source-map comment block at the end of the LaTeX file.
+For each paragraph in \section{Experimental setup}, add one line:
+
+% Paragraph N (subsection name, pN): claim_ids ...
+
+Use only claim_ids from the register: LL-A, LL-B, LL-C, QW-A, QW-B, QW-C, GM-A, G5-A, CS-A, GO-A, GO-B.
+Return only the appended comment block, not the full LaTeX.

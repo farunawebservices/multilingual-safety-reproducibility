@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Prompt-matched descriptive comparison of Claude Sonnet 4 and Claude Sonnet 5 on shared Phase 1 prompts. Values in the model columns are veto count (veto percentage). The difference is Sonnet 5 minus Sonnet 4 in veto-rate percentage points. This is a cross-model descriptive comparison, not a within-model steering effect or causal estimate.}
+\label{tab:claude-sonnet-4-vs-5}
+\small
+\begin{tabular}{llrrrrrl}
+\toprule
+Language & Prompt class & Matched $n$ & Sonnet 4 veto $n$ (\%) & Sonnet 5 veto $n$ (\%) & Difference (pp) & Agreement (\%) & Coverage \\
+\midrule
+Arabic & benign & 150 & 0 (0.00) & 0 (0.00) & +0.00 & 100.00 & Complete \\
+English & benign & 150 & 0 (0.00) & 0 (0.00) & +0.00 & 100.00 & Complete \\
+Hausa & benign & 150 & 0 (0.00) & 0 (0.00) & +0.00 & 100.00 & Complete \\
+Yoruba & benign & 45 & 0 (0.00) & 0 (0.00) & +0.00 & 100.00 & Partial$^{\dagger}$ \\
+Arabic & harmful & 300 & 23 (7.67) & 13 (4.33) & -3.33 & 90.00 & Complete \\
+English & harmful & 300 & 10 (3.33) & 0 (0.00) & -3.33 & 96.67 & Complete \\
+Hausa & harmful & 300 & 2 (0.67) & 3 (1.00) & +0.33 & 98.33 & Complete \\
+Yoruba & harmful & 300 & 2 (0.67) & 9 (3.00) & +2.33 & 96.33 & Complete \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize{$^{\dagger}$Yoruba benign contains 45 shared prompts; all other cells have complete matched coverage.}
+\end{table*}

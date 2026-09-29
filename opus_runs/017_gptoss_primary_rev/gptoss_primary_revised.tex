@@ -1,0 +1,129 @@
+```latex
+\subsection{GPT-OSS 20B harmful}
+
+The fourth and final within-model question is whether planner-targeted steering
+changes harmful decision outcomes in \texttt{openai/gpt-oss-20b}, and whether the
+direction of any such change is consistent across languages. The contrast is the
+Phase~1 unsteered baseline (no steering, $\alpha0$) against planner-only steering
+at $\alpha1.0$, on prompt-matched harmful records only, with the outcome defined
+as operational failure per the registered GPT-OSS decision-semantics and
+parser-outcome audits (\texttt{registry/gpt\_oss\_decision\_semantics\_audit.json}
+and \texttt{registry/gpt\_oss\_parser\_outcomes.json}). Those two registry audits
+are not shipped in the evidence base, so the composition of the failure
+outcome---which decision tokens compose it---is not independently verifiable
+here, and the missing-label handling that they govern yields no counts we can
+report. The analysis covers Arabic, English, Hausa, and Yoruba, harmful prompts
+only, with 300 matched harmful prompts per language, 1{,}200 paired prompts in
+total, and 0 partial-coverage rows. The canonical audit
+(\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_primary\_canonical\_audit.csv})
+records 1{,}695 baseline rows (1{,}200 harmful plus 495 benign), 1{,}695
+\texttt{planner\_only\_alpha1} rows, a paired harmful subset of 1{,}200, and 0
+duplicate record IDs; the 495 benign rows per condition are not analysed here and
+support no benign result. Each language cell is tested with the exact paired
+two-sided McNemar test, and Holm correction is applied inside a family of four
+language-specific harmful comparisons (size 4). Paired bootstrap intervals are
+retained in a separate artifact that is not shipped, so we report per-cell
+counts, rates, differences in percentage points, full discordance tables, raw
+$p$-values, and Holm $p$-values, but no confidence intervals. The authoritative
+source for inference is
+\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_paired\_effect\_holm.csv}
+(4 rows), with effect and discordance quantities in
+\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_paired\_effect.csv}, the display
+in
+\texttt{tables/gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_results.tex},
+and provenance in
+\texttt{handoffs/gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_opus\_handoff.md}
+and
+\texttt{manifests/gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_artifact\_manifest.json}.
+The manifest additionally references
+\texttt{gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_paper\_table.csv} and
+\texttt{gpt\_oss\_20b\_planner\_alpha1\_paired\_bootstrap\_ci.csv}, neither of
+which is in the packet; neither is cited as evidence here.
+
+The four language cells do not move in a common direction, and exactly two of
+them are Holm-significant inside the four-comparison family. Arabic falls from
+43 of 300 (14.33\%) to 30 of 300 (10.00\%), $\Delta = -4.33$~pp, with 33
+discordant prompts (10 worsened, 23 improved), raw $p = 0.03508$ and Holm
+$p = 0.070164$: the raw $p$-value falls below 0.05 while the family-corrected
+decision does not reject, and we report the two jointly, so Arabic is
+\emph{not} significant. English falls from 174 of 300 (58.00\%) to 141 of 300
+(47.00\%), $\Delta = -11.0$~pp, with 105 discordant prompts (36 worsened, 69
+improved), raw $p = 0.0016590$ and Holm $p = 0.004977$, and is significant.
+Hausa moves in the opposite direction, rising from 45 of 300 (15.00\%) to 66 of
+300 (22.00\%), $\Delta = +7.0$~pp---a \emph{worsening} of harmful operational
+failure under steering---with 27 discordant prompts distributed asymmetrically
+(24 worsened, 3 improved), raw $p = 4.92334\times10^{-5}$ and Holm
+$p = 0.00019693$, and is significant. Yoruba is exactly unchanged at 48 of 300
+(16.00\%) in both conditions, $\Delta = 0.0$, with 36 discordant prompts split
+evenly (18 worsened and 18 improved) and $p = 1.0$. Thus, the equal marginal
+rates coexist with matched prompt-level disagreements in both directions.
+Across the family, then, one language improves significantly, one worsens
+significantly, one shows a point reduction that does not survive Holm
+correction, and one shows no marginal change at all.
+
+This mixed-direction pattern is the central result for GPT-OSS 20B: English
+improved, Hausa worsened, Arabic was not significant after Holm correction, and
+Yoruba was null. Several limits bind its reading. The comparison estimates a
+condition-specific paired difference on the evaluated prompts: it contrasts two
+conditions on the same harmful prompts within a single Phase~1 model entry, and
+it does not establish a general causal effect across deployment settings, model
+revisions, prompt distributions, or outcome definitions. It licenses no
+mechanistic claim, no claim about behaviour under other deployment conditions,
+and no claim that planner-only steering produces an improvement in general. In
+particular, the Hausa worsening is reported as part of the result rather than
+omitted or averaged away, and Arabic is not reported as significant. Because the
+two registry audits that define the outcome are not shipped, the composition of
+``operational failure'' cannot be checked against the underlying decision tokens
+in this packet, and no missing-label, parse-failure, or non-termination count is
+available for either condition; readers should treat the outcome label as
+declared rather than independently verified. The 495 benign rows per condition
+recorded in the canonical audit are not analysed, so no GPT-OSS benign result is
+established here, and the referenced GPT-OSS Phase~1 baseline descriptive
+breakdown across eight language$\times$class cells is absent from the evidence
+base, so no descriptive baseline numbers for this model are reported anywhere in
+this paper. Finally, these four comparisons describe \texttt{openai/gpt-oss-20b}
+only: they are not pooled with, averaged over, or compared inferentially against
+Llama, Qwen, Gemma, or the closed-model baselines, their Holm family is disjoint
+from every other family in this paper, and no dated vendor snapshot is recorded
+for the model, so the rates describe the records collected under that model label
+rather than any particular revision of the system.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.4, p1 — research question and design: openai/gpt-oss-20b; Phase 1
+%   baseline (no steering, alpha0) vs planner-only steering alpha1.0; Arabic, English,
+%   Hausa, Yoruba, harmful only; 300 matched harmful prompts per language, 1,200 paired,
+%   0 partial-coverage rows; canonical audit (baseline 1,695 rows = 1,200 harmful + 495
+%   benign, planner_only_alpha1 1,695 rows, paired harmful subset 1,200, 0 duplicate
+%   record IDs); outcome defined by the registered GPT-OSS decision-semantics and
+%   parser-outcome audits (registry/gpt_oss_decision_semantics_audit.json,
+%   registry/gpt_oss_parser_outcomes.json, not shipped, composition not independently
+%   verifiable, no missing-label counts); exact paired McNemar; Holm family of four
+%   language-specific harmful comparisons, size 4; paired bootstrap intervals retained in
+%   a separate non-shipped artifact so no CIs are reported; authoritative
+%   paired_effect_holm.csv (4 rows), paired_effect.csv, canonical_audit.csv, the LaTeX
+%   table, handoff and manifest; non-shipped paper_table.csv and paired_bootstrap_ci.csv
+%   not cited as evidence): GO-A
+% Paragraph 2 (4.4, p2 — per-language results with baseline/steered counts, rates,
+%   deltas in pp, full discordance tables (worsened/improved), raw p-values and Holm
+%   p-values: Arabic 43/300 (14.33%) -> 30/300 (10.00%), -4.33 pp, discordant 33 (10/23),
+%   raw p = 0.03508, Holm p = 0.070164, not significant, with raw-vs-Holm reported
+%   jointly; English 174/300 (58.00%) -> 141/300 (47.00%), -11.0 pp, discordant 105
+%   (36/69), raw p = 0.0016590, Holm p = 0.004977, significant; Hausa 45/300 (15.00%) ->
+%   66/300 (22.00%), +7.0 pp worsening, discordant 27 (24/3), raw p = 4.92334e-5, Holm
+%   p = 0.00019693, significant; Yoruba 48/300 (16.00%) -> 48/300 (16.00%), delta 0.0,
+%   discordant 36 (18 worsened and 18 improved), p = 1.0, reported neutrally as equal
+%   marginal rates coexisting with matched prompt-level disagreements in both
+%   directions): GO-A
+% Paragraph 3 (4.4, p3 — interpretation and binding limits: mixed-direction pattern
+%   stated explicitly (English improved, Hausa worsened, Arabic not significant after
+%   Holm, Yoruba null); the comparison estimates a condition-specific paired difference
+%   on the evaluated prompts within a single Phase 1 model entry and does not establish a
+%   general causal effect across deployment settings, model revisions, prompt
+%   distributions, or outcome definitions, and licenses no mechanistic or deployment
+%   claim; Hausa worsening not omitted and Arabic not reported as significant; outcome
+%   composition not independently verifiable and no missing-label counts available; the
+%   495 benign rows per condition are not analysed so no benign result is established;
+%   the referenced GPT-OSS Phase 1 baseline descriptive cells are absent from the
+%   evidence base so no such numbers are reported (GO-B is not written or cited);
+%   disjoint Holm family, no cross-model pooling, no dated vendor snapshot): GO-A
+```

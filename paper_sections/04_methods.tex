@@ -1,0 +1,21 @@
+%TL;DR: We apply the same refusal vector at different pipeline roles and evaluate the resulting paired decision changes.
+\section{Methods}
+\subsection{Activation steering}
+For a hidden state $h$ at the selected intervention layer, steering adds a scaled direction $v$ during the configured prefill pass:
+\begin{equation}
+h'=h+\alpha v.
+\end{equation}
+The vector is a refusal-related direction extracted from contrastive model activations using the repository's model-specific extraction procedure. We study Planner-only, Critic-only, and joint configurations where the same nominal intervention is applied to the indicated role or roles. Model, layer, phase, and strength are recorded for every condition.
+
+\subsection{Primary and role-strength comparisons}
+The primary Llama comparison is within Phase 1: Planner-only alpha 0 versus Planner-only alpha 20 across Arabic, English, Hausa, and Yoruba. The primary Qwen comparison is baseline versus Planner-only alpha 1.0 across harmful and benign arms in the same four languages. Gemma and GPT-OSS primary packages use their recorded complete-case and Phase 1 comparisons, respectively.
+
+The role-strength analysis compares Phase 1 alpha-0 records with Phase 2 Turbo alpha-30 records for Planner-only, Critic-only, and Both configurations in Hausa and Yoruba. Records are paired by identifier and each cell contains 300 harmful prompts. Because phase and steering condition change together, these results are reported as cross-phase record-ID-matched contrasts rather than isolated causal effects of role or strength.
+
+\subsection{Inference}
+Each paired harmful comparison uses the exact two-sided McNemar test. We report paired percentile-bootstrap 95\% intervals based on 10,000 resamples of matched prompt records with seed 20260908. Holm correction is applied within each predeclared family. The Llama alpha-30 role-strength family contains six tests: three configurations by two languages. Primary Llama harmful and benign analyses use separate four-language families; Qwen uses its predeclared 33-cell family. An interval excluding zero is reported alongside, but does not replace, a family-corrected rejection.
+
+\subsection{Validity and provenance}
+The producing analyses verify unique record identifiers, complete matching within each displayed cell, and consistency between parser-outcome counts and the operational-failure definition where the canonical artifact provides that audit. We report exact denominators rather than nominal targets. Model-specific decision semantics, partial benign coverage, truncated records, missing labels, and incomplete artifact chains are stated with the corresponding result rather than silently imputed.
+
+The role-strength artifact package records the source phases, producer scripts, source inputs, correction family, bootstrap seed, and hashes for the generated metric files. The primary artifact packages provide analogous source maps for the within-phase Llama, Qwen, Gemma, and GPT-OSS analyses.

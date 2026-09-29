@@ -1,0 +1,8 @@
+model,path,file_type,bytes,sha256,location,record_n_if_json,parse_error_n_if_json,key_n,likely_id_field_present,likely_outcome_field_present,likely_config_field_present,role,eligible_for_schema_level_comparison
+gpt_5,data/raw/phase1/gpt_5/originals/frontier_baseline_gpt_5_results.jsonl,jsonl,4648543,037a43987a3cdd8c339a2d8e7c9e760c063464d4c03e63e9c0cba7b626975a3d,raw,1651,0,11,true,true,true,candidate_raw_source,true
+gpt_5,data/raw/phase1/gpt_5/originals/gpt5_summary (1).csv,csv,4202130,3eff2a2df8b9504a07483bda39522c9301e26ecc9165774e67f59ff720d8d69d,raw,,,,false,false,false,candidate_raw_source,false
+gpt_5,data/raw/phase1/unclassified/originals/gpt_5_partial_or_unknown_570_rows.jsonl,jsonl,2097152,899f04875a805e745c9ecf9556d8b9f43074198b1f8eee7ae5650058a3d8ad1a,raw,570,1,11,true,true,true,candidate_raw_source,false
+gpt_5,registry/field_reports/frontier_baseline_gpt_5_results.fields.json,json,3723,fe93661b15ca67612fbb580486e4ac8878fd82cbeadeb564b2fa150b29fafcdc,registry,1,0,107,true,true,true,metadata_only,false
+gpt_5,registry/field_reports/gpt_5_partial_or_unknown_570_rows.fields.json,json,3675,d6dff904c66b437b5f6b0d29cd5e62e1547dfc0c76bb990da6321a60cab09838,registry,1,0,105,true,true,true,metadata_only,false
+gpt_5,registry/schema_reports/frontier_baseline_gpt_5_results.schema.json,json,10870,944dae668bb63a718dc0ece1fc10a1accf8df96e2f86fce278276e54457ba217,registry,1,0,167,true,true,true,metadata_only,false
+gpt_5,registry/schema_reports/gpt_5_partial_or_unknown_570_rows.schema.json,json,11464,80c7f26d7fb45435fe93ddb45975e8b9e178ebbca94094a73610072d8df4fca0,registry,1,0,164,true,true,true,metadata_only,false

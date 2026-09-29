@@ -1,0 +1,7 @@
+source_file_group,config,language,prompt_class,alpha,record_n,is_vetoed_true_n,is_vetoed_false_n,critic_veto_token_n,critic_allow_token_n,veto_boolean_matches_critic_veto_token,failure_matches_non_veto_boolean,decision_counts_sum_to_record_n,critic_veto_token_count_matches_boolean
+baseline,baseline,Arabic,benign,0.0,150,54,96,54,48,true,true,true,true
+baseline,baseline,English,benign,0.0,101,35,66,35,35,true,true,true,true
+baseline,baseline,Arabic,harmful,0.0,300,108,192,108,99,true,true,true,true
+steered,planner_only,Arabic,benign,1.0,150,39,111,39,42,true,true,true,true
+steered,planner_only,English,benign,1.0,112,21,91,21,25,true,true,true,true
+steered,planner_only,Arabic,harmful,1.0,300,84,216,84,72,true,true,true,true

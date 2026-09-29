@@ -1,0 +1,114 @@
+# SMOKE TEST -- DATASET v2. NOT REPORTABLE.
+#
+# This config exists to prove the wiring works end to end: config -> hashes ->
+# selection -> prompts -> model -> six-category classification -> artifacts. It
+# is not an experiment and nothing computed from it may appear in a write-up.
+#
+# WHY IT IS NOT REPORTABLE, stated in the config rather than left implicit:
+#   * it uses a REDUCED DENOMINATOR (one behavior per arm, not 140);
+#   * it runs a single seed, so it cannot measure nondeterminism;
+#   * it uses the `smoke_en_scaffold` condition, in which all three roles read
+#     the ENGLISH instruction templates while the user prompt stays in its own
+#     language. That is a real pre-registered shape, but it is not the
+#     `multi_agent_full` condition and its numbers are not comparable to it.
+#
+# The production rule is NOT weakened to accommodate this: `paired_arms_required`
+# stays true below, and the runner satisfies it properly by selecting one
+# behavior FROM EACH ARM via --limit-per-arm. A single behavior can only belong
+# to one arm, so the previous `n_behaviors: 1` could never satisfy the rule it
+# declared.
+#
+# Run it with exactly the flags the runner honors:
+#
+#   python scripts/run_experiment_v2.py \
+#       --config configs/experiment_v2_smoke.yaml \
+#       --dry-run --limit-per-arm 1
+#
+#   python scripts/run_experiment_v2.py \
+#       --config configs/experiment_v2_smoke.yaml \
+#       --model qwen-2.5-72b-instruct --backend hf_local \
+#       --condition smoke_en_scaffold --limit-per-arm 1 --batch-size 1
+
+experiment:
+  name: smoke_test_v2
+  description: >
+    Minimal wiring check for the v2 dataset and the Planner -> Tool-Caller ->
+    Critic pipeline. One behavior per arm, all seven languages, dev split,
+    single seed, no interventions.
+  preregistration: configs/experiment_preregistration_v2.yaml
+  preregistered_analyses: []          # a smoke test pre-registers no analysis
+
+# ---------------------------------------------------------------------------
+# Non-reportable marker. `run_metadata.json` and every results table carry this
+# through, so a smoke artifact cannot be mistaken for a finding later.
+# ---------------------------------------------------------------------------
+run_class:
+  reportable: false
+  kind: smoke
+  reason: >
+    Reduced denominator (one behavior per arm of 140 in dev), one seed instead
+    of three, and English instruction scaffolding for all roles. Wiring
+    evidence only.
+  reduced_denominator: true
+
+includes:
+  languages: configs/languages.yaml
+  agents: configs/agents.yaml
+  sources: configs/data_sources.yaml
+  models: configs/models_v2.yaml
+
+data:
+  dataset_version: v2
+  dataset: data/v2/processed/frozen_dataset_v2.jsonl
+  dataset_sha256: 05b5abb311a3aa973b0b5dbc3bc96637be8039e99d4f42bd18ef86f608c44fb2
+  manifest: data/v2/manifests/frozen_dataset_v2_manifest.json
+  splits: data/v2/processed/splits_v2.json
+  splits_sha256: 14535a2a32dbf2ed2cb7037ff5ea05001be96039709db00aba8b360c601640ac
+  split_hash: 01bbf0c609450e640197b6d4328573f378b6727459a2869ccfc7c05bff6703d6
+  split: dev
+  arms: [harmful, benign]
+  # All seven. The smoke test exercises one row per language, which it can do
+  # only because both arms are represented (one behavior per arm x 7 languages
+  # = 14 rows). Restricting to [en] would trip the all-one-language stop
+  # condition and would not exercise the thing most likely to break.
+  languages: [en, ar, ha, yo, sw, hi, ko]
+
+holdout_policy:
+  final_test_readable_before_freeze: false
+  enforced_by: multilingual_safety.splits.load_split(allow_test=True)
+  final_test_reads: []
+
+# ---------------------------------------------------------------------------
+# Selection. Behavior-count limiting is a CLI concern, not a config one: the
+# runner honors --limit and --limit-per-arm and nothing else. The previous
+# `n_behaviors: 1` here was read by nothing at all, so it is null rather than
+# a number that looks load-bearing and is not.
+# ---------------------------------------------------------------------------
+sampling:
+  n_behaviors: null               # null = all in the split; use --limit-per-arm
+  limit_mechanism: cli            # --limit / --limit-per-arm; a reduced denominator
+  trials_per_item: 1              # one seed: cannot measure nondeterminism
+  seeds: [20260816]               # first of the v2 set [20260816, 20260817, 20260818]
+  shuffle: false
+
+execution:
+  condition: smoke_en_scaffold    # English scaffolding for all three roles
+  batch_size: 1                   # reference mode: bitwise-comparable to itself
+  capture_hidden_states: false
+
+interventions:
+  enabled: false
+  require_matched_control: true
+
+reporting:
+  # UNCHANGED from production. The smoke run satisfies this by selecting one
+  # behavior from each arm, not by relaxing the rule.
+  paired_arms_required: true
+  report_all_six_categories: true
+  denominator: attempted
+  report_negative_results: true
+
+output:
+  results_dir: results
+  logs_dir: logs
+  overwrite: false

@@ -1,0 +1,247 @@
+```latex
+\section{Experimental setup}
+
+All analyses in this paper are defined at the level of individual prompts
+evaluated under two or more conditions for a fixed model. In each steering
+analysis, the primary estimand is the change in a binary decision outcome---an
+operational failure or a refusal---between a steered condition and an unsteered
+baseline, measured on the same prompts. All open-weight model comparisons are
+within-model and prompt-matched; the Llama cross-phase role/strength analysis is
+additionally record-ID-matched but explicitly associational; and the Claude
+comparison is a descriptive cross-version contrast with no steering arm. No
+result in this paper pools outcomes across different models.
+
+\subsection{Models and phases}
+
+Six model entries define the analysis units, and every analysis is reported
+within a single model entry; no result is pooled across models. The open-weight
+entries are \texttt{meta-llama/llama-3.3-70b-instruct}, Qwen 2.5 72B
+(\texttt{qwen25\_72b}), \texttt{gemma\_4\_31b}, and
+\texttt{openai/gpt-oss-20b}; the closed-model baselines are
+\texttt{openai/gpt-5} and Claude Sonnet~4 together with Claude Sonnet~5.
+For Llama~3.3~70B, the primary harmful and benign analyses are Phase~1
+(``main'') only, and Phase~2 ``Turbo'' is explicitly excluded from them; the
+separate role/strength analysis contrasts Phase~1 main $\alpha0$ against
+Phase~2 Turbo $\alpha30$ and is labelled cross-phase throughout. Qwen 2.5 72B,
+\texttt{gemma\_4\_31b} (Phase~1 complete-case), \texttt{openai/gpt-oss-20b}
+(Phase~1), \texttt{openai/gpt-5} (Phase~1 records, configuration
+\texttt{frontier\_baseline}, strength 0.0), and the Claude Sonnet~4 versus
+Sonnet~5 comparison (Phase~1 shared prompts) are all single-phase. Phase and
+condition labels follow
+\texttt{handoffs/llama33\_planner20\_primary\_opus\_handoff.md},
+\texttt{handoffs/llama33\_turbo\_alpha30\_OPUS\_HANDOFF.md},
+\texttt{handoffs/qwen25\_72b\_planner\_alpha1\_primary\_opus\_handoff.md}, and
+the manifests
+\texttt{manifests/llama33\_planner20\_primary\_artifact\_manifest.json} and
+\texttt{manifests/qwen25\_72b\_planner\_alpha1\_primary\_artifact\_manifest.json}.
+
+Three qualifications on model identity and phase comparability are binding. The
+Qwen, Gemma, and Claude entries carry no vendor path or snapshot identifier in
+the evidence base: Qwen is recorded only as ``Qwen 2.5 72B''/\texttt{qwen25\_72b},
+\texttt{gemma\_4\_31b} has no vendor identifier or snapshot recorded anywhere,
+and the Claude entries are recorded only as ``Claude Sonnet 4'' and ``Claude
+Sonnet 5'' without vendor API strings or snapshot dates. Second, the Llama
+cross-phase analysis is record-ID-matched but pairing alone does not establish
+non-prompt run-condition equivalence, so we do not claim that Phase~1 and
+Phase~2 run conditions were equivalent, and we do not attribute the Phase~1
+planner-only results to Phase~2 Turbo. Third, the Claude analysis is a single
+joint cross-version comparison: no standalone Sonnet~4 or Sonnet~5 analysis
+exists in the evidence base, and none is reported here.
+
+\subsection{Prompt sets and languages}
+
+The prompt set spans Arabic, English, Hausa, and Yoruba, crossed with benign and
+harmful prompt classes. Yoruba benign has $n = 45$ in every analysis in which it
+appears, and harmful cells are 300 prompts per language wherever pairing is
+complete. Per-model denominators are reported exactly as printed in their source
+artifacts and are never summed across arms or models. For Llama~3.3~70B
+(\texttt{tables/llama33\_planner20\_primary\_results.tex}, table
+\texttt{llama33\_planner20\_primary\_results}), the harmful arm has 300
+prompt-matched prompts per language, 1{,}200 in total, with 0 partial
+harmful-coverage rows. The benign arm has denominators 150/150/150/45,
+495 in total, with 1 partial benign-coverage row. The harmful total of 1{,}200
+and the benign total of 495 must not be combined. The Llama cross-phase
+role/strength analysis
+(\texttt{metrics/llama33\_turbo\_alpha30\_role\_strength\_unified\_results.csv},
+6 rows) covers Hausa and Yoruba only, with 300 matched harmful prompts per cell
+and 1{,}800 in total.
+
+For Qwen 2.5 72B, the primary planner-only $\alpha1.0$ table has 8
+language$\times$class cells with benign 150/150/150/45 and harmful
+300/300/300/300, 1{,}695 paired prompts and 0 partial-coverage rows. The wider
+grid in \texttt{metrics/qwen25\_72b\_primary\_unified\_results.csv} (33 rows)
+contains three partial-coverage cells whose denominators are preserved verbatim:
+\texttt{critic\_only} Arabic benign $\alpha1.0$ with steered $n = 6$ against
+baseline 150 (\texttt{partial\_baseline\_coverage = true}); \texttt{both} Yoruba
+harmful $\alpha2.0$ with paired $n = 160$ (baseline 300, 140 baseline-only); and
+\texttt{planner\_only} Yoruba harmful $\alpha2.0$ with paired $n = 173$ (127
+baseline-only). These denominators are neither rounded up nor silently dropped.
+For \texttt{gemma\_4\_31b}
+(\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_unified\_results.csv},
+3 rows), only three cells exist: Arabic benign (150 paired), English benign
+(101 paired; baseline 101, steered 112, 11 steered-only valid IDs excluded,
+\texttt{partial\_coverage = true}), and Arabic harmful (300 paired). There
+are no Hausa, Yoruba, or English harmful cells, and no total is recorded, so the
+three denominators are not summed.
+
+For the closed-model baselines, \texttt{openai/gpt-5}
+(\texttt{metrics/gpt\_5\_frontier\_baseline\_paper\_table.csv}, 8 cells) has
+benign denominators 150/150/150/45 and harmful denominators 286/291/289/290 over
+1{,}651 valid unique-ID records, with 5 partial-coverage rows (4 harmful cells
+plus Yoruba benign); the harmful denominators are not 300. The canonical audit
+records \texttt{parse\_failure\_n = 0} and \texttt{non\_termination\_n = 0} in all
+8 cells, so the harmful shortfall consists of absent records rather than invalid
+ones. The Claude cross-version comparison
+(\texttt{metrics/claude\_sonnet\_4\_vs\_5\_outcome\_comparison.csv}, 8 rows,
+with \texttt{metrics/claude\_sonnet\_4\_vs\_5\_metadata\_consistency\_audit.csv},
+1 row) uses 1{,}695 shared prompt IDs, benign 150/150/150/45 and harmful 300 per
+language, with 1 partial-coverage row (Yoruba benign, 45 shared prompts); the
+metadata audit reports 1{,}695 records present in both versions with language and
+harmfulness matching for all. For \texttt{openai/gpt-oss-20b}, the harmful
+analysis uses 300 matched prompts per language, 1{,}200 paired, and 0
+partial-coverage rows. The canonical audit
+(\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_primary\_canonical\_audit.csv})
+records baseline 1{,}695 rows (1{,}200 harmful plus 495 benign),
+\texttt{planner\_only\_alpha1} 1{,}695 rows, a paired harmful subset of 1{,}200,
+and 0 duplicate record IDs. A GPT-OSS Phase~1 baseline descriptive breakdown
+across 8 language$\times$class cells is referenced in the evidence base but its
+artifacts are absent from the packet, so no numbers from it are reported
+anywhere in this paper.
+
+\subsection{Interventions and configurations}
+
+The intervention grid is recorded per model and is reported exactly as declared.
+For Llama~3.3~70B, the Phase~1 contrast is planner-only activation steering at
+$\alpha20$ against a planner-only $\alpha0$ baseline; the separate cross-phase
+contrast compares Phase~1 main $\alpha0$ against Phase~2 Turbo $\alpha30$ under
+three role configurations, \texttt{planner\_only}, \texttt{critic\_only}, and
+\texttt{both}, giving 3 configurations $\times$ 2 languages $=$ 6 cells in the
+authoritative
+\texttt{metrics/llama33\_turbo\_alpha30\_role\_strength\_unified\_results.csv}.
+For Qwen 2.5 72B, the baseline $\alpha0$ condition is compared against
+\texttt{planner\_only}, \texttt{critic\_only}, and \texttt{both} at $\alpha1.0$
+and $\alpha2.0$ (\texttt{metrics/qwen25\_72b\_primary\_paired\_inference.csv}),
+with planner-only $\alpha1.0$ as the primary displayed configuration. Gemma
+compares baseline $\alpha0$ against planner-only $\alpha1.0$
+(\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_paired\_inference.csv}),
+and GPT-OSS 20B compares an unsteered baseline ($\alpha0$) against planner-only
+$\alpha1.0$
+(\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_paired\_effect.csv}).
+
+The two closed-model analyses contain no intervention arm. GPT-5 is a single
+configuration, \texttt{frontier\_baseline} at strength 0.0
+(\texttt{tables/gpt\_5\_frontier\_baseline\_descriptive\_results.tex}), so
+pairing is not applicable. The Claude analysis contrasts two model versions with
+no steering condition on either side. Three limits on the intervention
+description are binding. No random-vector or matched-control condition was run
+in any analysis reported here, and none is claimed. The Llama cross-phase
+contrast varies role configuration and strength jointly with phase and therefore
+does not isolate role specificity or vector specificity; the original steering
+vector file is declared unavailable, and we make no claim to the contrary.
+Finally, the defective artifacts
+\texttt{metrics/llama33\_turbo\_alpha30\_paper\_table.csv} and
+\texttt{tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex} are not
+cited as evidence anywhere.
+
+\subsection{Outcome definitions and decision semantics}
+
+Outcome definitions are model-specific and are not interchangeable. For the
+Llama cross-phase analysis, harmful operational failure is defined as explicit
+ALLOW plus NO\_DECISION, with NO\_DECISION folded into the failure numerator, and
+no separate parse-failure or missing count is provided. For the Llama Phase~1
+planner-only analysis, the outcome is the harmful operational failure rate
+reported in the audited metric CSV and LaTeX table; however, the token-level
+composition of that outcome---which decision tokens constitute failure---is not
+documented in the evidence base, so we make no statement about it. The Llama
+Phase~1 benign outcome is a distinct refusal rate, for which a positive $\Delta$
+means more false refusals. For Qwen 2.5 72B, an explicit veto counts as safe and
+a non-veto unresolved record counts as operational failure; non-veto records are
+not assumed to be explicit ALLOW. For \texttt{gemma\_4\_31b}, non-veto
+operational failure is \texttt{is\_vetoed = false} under a complete-case
+valid-JSON policy in which one truncated terminal JSONL record is excluded from
+each source and missing outcomes are not imputed. This Gemma metric is not an
+explicit-ALLOW rate. The Gemma benign rows are not described as safety failures
+and are not comparable to the Llama benign refusal rates, since Gemma has no
+separate benign-utility refusal outcome. For \texttt{openai/gpt-5} and for
+the Claude cross-version comparison, the outcome is veto status
+(\texttt{is\_vetoed = true}), with the GPT-5 non-veto operational failure rate
+defined as \texttt{is\_vetoed = false}.
+
+Decision semantics are documented by per-model audits. The Qwen audit
+(\texttt{metrics/qwen25\_72b\_primary\_canonical\_audit.csv}, 41 rows across the
+\texttt{baseline}, \texttt{planner\_steered}, and
+\texttt{critic\_and\_both\_steered} source groups) is purely descriptive and
+reports veto/non-veto composition, critic token counts, record-ID uniqueness,
+and definition-validity flags; no hypothesis test, interval, or multiple-testing
+statement is attached to it. The corresponding Gemma audit is
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_audit.csv} (its filename
+differs from the manifest-listed
+\texttt{..\_decision\_semantics\_audit.csv}), and the GPT-5 audit is
+\texttt{metrics/gpt\_5\_frontier\_baseline\_canonical\_audit.csv} (filename
+differs from the manifest-listed
+\texttt{gpt\_5\_clean\_frontier\_baseline\_audit.csv}). For GPT-OSS 20B, the
+cell-level counts come from
+\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_primary\_canonical\_audit.csv},
+but the outcome composition depends on registry decision-semantics and
+parser-outcome audits that are not shipped. That composition is therefore not
+independently verifiable here, and no missing-label count is available.
+Missing-label handling is likewise not established for the Llama Phase~1 and
+cross-phase analyses, for Qwen, or for the Claude comparison, and we do not
+report one. The only positive missing-data statements we make are the Gemma
+complete-case exclusion policy and the GPT-5 audit's
+\texttt{parse\_failure\_n = 0} and \texttt{non\_termination\_n = 0} in all 8
+cells.
+
+\subsection{Statistical procedures and correction families}
+
+All inferential analyses use the exact paired two-sided McNemar test on
+prompt-matched or record-ID-matched pairs. Paired nonparametric bootstrap
+percentile 95\% confidence intervals with 10{,}000 replicates and seed 20260908
+accompany the Llama, Qwen, and Gemma analyses; for GPT-OSS 20B the paired
+bootstrap intervals are retained in a separate artifact that is not shipped, so
+GPT-OSS results are reported with McNemar $p$-values and discordance counts
+only. Multiple-testing correction is Holm within pre-declared, mutually disjoint
+per-model families, at family-wise $\alpha = 0.05$: Llama harmful, size 4;
+Llama benign, a \emph{separate} family of size 4; the Llama cross-phase family
+\texttt{turbo\_alpha30\_role\_strength\_6\_tests}, size 6
+(\texttt{metrics/llama33\_turbo\_alpha30\_role\_strength\_paired\_inference.csv});
+the Qwen pre-declared family \texttt{qwen25\_72b\_primary\_33\_steered\_cells},
+size 33
+(\texttt{metrics/qwen25\_72b\_primary\_paired\_inference\_holm.csv}, 33 rows);
+the Gemma family \texttt{gemma\_phase1\_three\_cell\_family}, size 3
+(\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_paired\_inference\_holm.csv},
+3 rows); and the GPT-OSS family of four language-specific harmful comparisons,
+size 4
+(\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_paired\_effect\_holm.csv},
+4 rows). The Llama harmful and benign families are never combined, and Holm
+significance for Qwen is reported only within the 33-cell family.
+
+Three analyses are descriptive and carry no test, interval, or correction: the
+GPT-5 frontier baseline, the Claude Sonnet~4 versus Sonnet~5 cross-version
+comparison, and the Qwen 41-cell canonical audit. In particular, the Qwen and
+Gemma Holm families are not applied to or reported for the Claude comparison,
+which is explicitly non-causal and is not a within-model steering effect. Where
+interval-based and Holm-based conclusions diverge, both are reported jointly and
+are not conflated: a confidence interval excluding zero is not reported as a
+Holm rejection. All inferential claims in this paper are non-causal
+prompt-matched comparisons; the Llama cross-phase role/strength analysis is
+additionally associational, since matching by record ID does not establish
+non-prompt run-condition equivalence between Phase~1 and Phase~2. Accordingly,
+all reported effects should be interpreted as descriptive or associational
+differences between conditions on the same prompts, not as evidence that
+steering causes changes in behaviour under arbitrary deployment conditions.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (Section 3 overview, before 3.1 — analysis unit, estimand, matching design, no cross-model pooling): LL-A, LL-B, LL-C, QW-A, QW-B, GM-A, G5-A, CS-A, GO-A
+% Paragraph 2 (3.1 Models and phases, p1): LL-A, LL-B, LL-C, QW-A, GM-A, G5-A, CS-A, GO-A
+% Paragraph 3 (3.1 Models and phases, p2 — identity/comparability caveats): QW-A, GM-A, CS-A, LL-C, LL-A, LL-B
+% Paragraph 4 (3.2 Prompt sets and languages, p1 — Llama harmful/benign + cross-phase denominators): LL-A, LL-B, LL-C
+% Paragraph 5 (3.2 Prompt sets and languages, p2 — Qwen and Gemma denominators/partial coverage): QW-A, QW-B, GM-A
+% Paragraph 6 (3.2 Prompt sets and languages, p3 — GPT-5, Claude, GPT-OSS denominators; GO-B absence): G5-A, CS-A, GO-A, GO-B
+% Paragraph 7 (3.3 Interventions and configurations, p1 — steering grid): LL-A, LL-B, LL-C, QW-A, QW-B, GM-A, GO-A
+% Paragraph 8 (3.3 Interventions and configurations, p2 — no-intervention arms and forbidden claims/artifacts): G5-A, CS-A, LL-C
+% Paragraph 9 (3.4 Outcome definitions, p1 — per-model outcome definitions): LL-C, LL-A, LL-B, QW-A, GM-A, G5-A, CS-A
+% Paragraph 10 (3.4 Outcome definitions, p2 — decision-semantics audits and missing-label status): QW-C, GM-A, G5-A, GO-A, LL-A, LL-B, LL-C, QW-A, CS-A
+% Paragraph 11 (3.5 Statistical procedures, p1 — tests, intervals, Holm families): LL-A, LL-B, LL-C, QW-A, QW-B, GM-A, GO-A
+% Paragraph 12 (3.5 Statistical procedures, p2 — descriptive analyses, CI/Holm separation, non-causality, interpretation limit): G5-A, CS-A, QW-C, GM-A, QW-B, LL-C, LL-A, LL-B, QW-A, GO-A
+```

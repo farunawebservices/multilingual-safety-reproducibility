@@ -1,0 +1,106 @@
+You are drafting Section 6 (Additional analyses) of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (focus on any bullets that mention cross-model, role/vector specificity, combined vs individual, cross-phase, or secondary outcomes).
+- Existing sections:
+  - paper_sections/03_experimental_setup.tex
+  - paper_sections/04_1_llama_primary.tex
+  - paper_sections/04_2_qwen_primary.tex
+  - paper_sections/04_3_gemma_primary.tex
+  - paper_sections/04_4_gptoss_primary.tex
+  - paper_sections/04_5_llama_benign.tex
+  - paper_sections/05_1_gpt5_baseline.tex
+  - paper_sections/05_2_claude_baseline.tex
+  Use these for consistency of style, terminology, and level of statistical detail.
+
+- Addition-specific artifacts (canonical paths in opus_packet/):
+  - Addition 1 (causal patching, Llama 3.3 70B Hausa):
+    - opus_packet/metrics/addition1_llama33_hausa_patching_v3_audit.csv
+    - opus_packet/tables/addition1_llama33_hausa_patching_v3_table.tex
+    - opus_packet/handoffs/addition1_llama33_hausa_patching_v3_OPUS_HANDOFF.md
+    - opus_packet/manifests/addition1_llama33_hausa_patching_v3_artifact_manifest.json
+  - Addition 2 (matched controls):
+    - opus_packet/evidence/additions_2_3_claim_boundary_audit.md
+    - paper_artifacts/metrics/addition_2_status.md
+  - Addition 3 (both GPUs / Hindi–Korean–Swahili):
+    - opus_packet/evidence/additions_2_3_claim_boundary_audit.md
+  - Addition 4 (calibration / judge agreement):
+    - opus_packet/metrics/addition4_judge_calibration_metrics.csv
+    - opus_packet/metrics/addition4_calibration_paper_table.csv
+    - opus_packet/tables/addition4_calibration_agreement.tex
+    - opus_packet/handoffs/addition4_calibration_OPUS_HANDOFF.md
+  - Addition 5 (adversarial robustness):
+    - opus_packet/metrics/addition5_adversarial_robustness_metrics.csv
+    - opus_packet/metrics/addition5_adversarial_robustness_table.csv
+    - opus_packet/tables/addition5_adversarial_robustness.tex
+    - opus_packet/handoffs/addition5_adversarial_robustness_OPUS_HANDOFF.md
+  - Addition 6 (prompt filter baseline):
+    - opus_packet/metrics/addition6_prompt_filter_baseline_metrics.csv
+    - opus_packet/metrics/addition6_prompt_filter_baseline_table.csv
+    - opus_packet/tables/addition6_prompt_filter_baseline.tex
+    - opus_packet/handoffs/addition6_prompt_filter_baseline_OPUS_HANDOFF.md
+    - opus_packet/manifests/addition6_prompt_filter_baseline_artifact_manifest.json
+  - Cross-phase comparison (Llama Turbo):
+    - opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+
+Task:
+Write Section 6 prose only, with six short subsections corresponding to
+Additions 1–6, plus a short cross-phase paragraph:
+
+1. Cross-model comparison
+2. Role specificity
+3. Vector specificity
+4. Combined versus individual interventions
+5. Cross-phase comparison
+6. Secondary outcomes
+
+Requirements:
+- Treat all six analyses as \emph{exploratory} and \emph{secondary} to the
+  pre-declared primary families in Sections 4 and 5.
+- Explicitly state that none of these analyses reuse the primary claim
+  identifiers (LL-A/B/C, QW-A/B/C, GM-A, G5-A, CS-A, GO-A) and that none are
+  part of the pre-declared Holm families for Llama, Qwen, Gemma, or GPT-OSS.
+- For each subsection:
+  - State the research question in one sentence.
+  - State the data used (which models, phases, configurations, languages, prompt classes).
+  - Cite the exact artifacts listed above that support that subsection.
+  - Extract and report key numbers (counts, rates, differences, agreement metrics, adversarial robustness metrics, calibration metrics, etc.) directly from those files.
+  - State the key limitation (e.g.\ no correction family, cross-phase confounding, outcome-definition heterogeneity).
+  - State that the analysis is descriptive or hypothesis-generating, not confirmatory.
+- Do not invent numbers. If a subsection would require artifacts that are not in
+  the packet, say so and keep the subsection at a high level.
+- Keep the tone cautious and ICLR-appropriate: no causal language, no ranking
+  claims, no pooling across models or families.
+- Return LaTeX only: a single \section{Additional analyses} with six
+  \subsection{} blocks, plus a short source map at the end indicating that all
+  six are exploratory and not covered by primary claim_ids.
+
+Structure:
+\section{Additional analyses}
+% short intro paragraph about exploratory status
+
+\subsection{Cross-model comparison}
+% Use Addition 1–6 results to illustrate cross-model heterogeneity descriptively.
+
+\subsection{Role specificity}
+% Use Llama Turbo grid (planner-only, critic-only, both) and any relevant Addition artifacts.
+
+\subsection{Vector specificity}
+% Same Turbo grid, focusing on vector direction rather than role.
+
+\subsection{Combined versus individual interventions}
+% Contrast both vs planner-only / critic-only using Turbo grid and any Addition 4/5 metrics.
+
+\subsection{Cross-phase comparison}
+% Use llama33_turbo_alpha30_cross_phase_comparison.tex and describe Phase 1 vs Phase 2 Turbo.
+
+\subsection{Secondary outcomes}
+% Use Addition 4 (calibration), Addition 5 (adversarial), Addition 6 (prompt filter) as secondary outcomes.
+
+% ---------------- SOURCE MAP ----------------
+% All six subsections (6 — additional analyses): exploratory, not covered by
+% primary claim_ids (LL-A/B/C, QW-A/B/C, GM-A, G5-A, CS-A, GO-A), no Holm
+% family claimed across these comparisons. Cite Addition-specific artifacts
+% explicitly in each subsection.

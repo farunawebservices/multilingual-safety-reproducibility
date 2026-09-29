@@ -1,0 +1,129 @@
+# ---------------------------------------------------------------------------
+# Secrets — never tracked, no exceptions.
+# ---------------------------------------------------------------------------
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+secrets/
+credentials.json
+service_account*.json
+.hf_token
+.openai_key
+.anthropic_key
+
+# ---------------------------------------------------------------------------
+# Data. Raw/interim/processed payloads stay OUT of git.
+# Only manifests (IDs, hashes, metadata) are tracked.
+# See THIRD_PARTY_DATASETS.md — external dataset terms are authoritative and
+# generally do not permit redistribution of prompt text from this repository.
+# ---------------------------------------------------------------------------
+data/raw/**
+!data/raw/.gitkeep
+!data/raw/README.md
+
+data/interim/**
+!data/interim/.gitkeep
+!data/interim/README.md
+
+data/processed/**
+!data/processed/.gitkeep
+!data/processed/README.md
+
+# Manual-review exports. These necessarily contain PROMPT TEXT in all seven
+# languages -- a wide CSV is the most copy-pasteable form the corpus takes, so
+# it must never be tracked. Nothing under data/review/ is committed.
+data/review/**
+!data/review/.gitkeep
+!data/review/README.md
+
+# Manifests ARE tracked, but never their payload sidecars.
+data/manifests/**/*.payload.*
+data/manifests/**/*_text.*
+data/manifests/**/*.raw.*
+
+# ---------------------------------------------------------------------------
+# Dataset v2 storage policy (configs/dataset_v2_rebuild.yaml, `outputs`).
+#
+# Everything below carries corpus payload, scratch state, or credentials and is
+# never committed. Two v2 paths are deliberately NOT listed and stay trackable:
+#   data/v2/manifests/                        IDs, hashes and metadata only
+#   data/v2/processed/frozen_dataset_v2.jsonl tracked via Git LFS (.gitattributes)
+#
+# data/v2/cache/ looked covered already because `*.bin` and `*.safetensors`
+# matched some of its contents. That is an extension match, not a directory
+# rule -- data/v2/cache/anything.json was trackable. Hence the explicit rules.
+# ---------------------------------------------------------------------------
+data/v2/interim/**
+data/v2/cache/**
+data/v2/tmp/**
+data/v2/raw_downloads/**
+# No negation belongs under credentials/ -- not even a .gitkeep.
+data/v2/credentials/**
+
+# ---------------------------------------------------------------------------
+# Run artifacts. Versioned by run ID on disk / DVC / object store, not in git.
+# ---------------------------------------------------------------------------
+results/**
+!results/.gitkeep
+!results/README.md
+# Stage 0 reports are metadata only -- column names, counts, category labels,
+# and hashes, with no prompt text and no credentials. Both properties are
+# asserted in tests/test_secrets.py, so these two are safe to track.
+!results/environment_report.json
+!results/source_inventory.json
+!results/translation_pilot_inventory.json
+!results/translation_pilot_validation.json
+!results/translation_pilot_review_summary.json
+!results/full_request_set_inventory.json
+!results/cpu_pilot_archive_report.json
+!results/full_apply_report.json
+!results/split_report.json
+
+logs/**
+!logs/.gitkeep
+!logs/README.md
+
+reports/**/*.pdf
+reports/**/figures/**
+!reports/.gitkeep
+!reports/README.md
+
+# Model weights / caches
+*.safetensors
+*.bin
+*.pt
+*.ckpt
+*.gguf
+.hf_home/
+.cache/
+
+# ---------------------------------------------------------------------------
+# Python
+# ---------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.python-version
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ---------------------------------------------------------------------------
+# Notebooks / editors / OS
+# ---------------------------------------------------------------------------
+.ipynb_checkpoints/
+*.ipynb_convert*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,19 @@
+You are revising Section 5.1 (GPT-5 frontier baseline) of an ICLR paper.
+
+Input:
+- Current draft: opus_runs/012_gpt5_baseline/gpt5_baseline_draft.tex
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 5.1 only)
+
+Task:
+Produce a revised version of Section 5.1 that:
+1. Preserves all existing content, numbers, denominators, and "must not claim" constraints.
+2. At the start of the results paragraph, adds a short phrase emphasizing that all eight cells are descriptive.
+3. Optionally splits the long 570-record file sentence into two sentences for readability, without changing meaning.
+4. Keeps the source-map comment block at the end, updated if paragraph wording changes.
+
+Requirements:
+- Use only claim_id G5-A.
+- Do not change any numbers, denominators, or artifact paths.
+- Return LaTeX only: a complete revised Section 5.1, including the updated source-map comments at the end.

@@ -1,0 +1,35 @@
+You are drafting the Introduction of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md
+- Assembled results + discussion:
+  - paper_sections/assembled/results_chapter_inlined.tex (Sections 4–6)
+  - paper_sections/07_discussion_opening.tex
+- Related work: paper_sections/02_related_work.tex
+
+Task:
+Write an Introduction (3–5 paragraphs) that:
+1. Motivates steering for safety in multilingual, multi-agent settings.
+2. States the gap: most prior work is English-only, single-model, or lacks
+   rigorous correction families.
+3. Summarizes our approach: four open-weight models, two closed baselines,
+   disjoint Holm families, partial-coverage handling, Additions 1–6.
+4. Previews the main findings (large harmful reductions in Llama/Qwen,
+   mixed-direction in GPT-OSS, null benign effects, descriptive closed baselines).
+5. Lists contributions (3–4 bullet points).
+
+Requirements:
+- No new numbers beyond what’s in Results/Discussion.
+- No causal overclaim; keep everything consistent with §§3–7.
+- Return LaTeX only: a \section{Introduction} with paragraphs and a contributions
+  bullet list, plus a one-line source map.
+
+Structure:
+\section{Introduction}
+
+% 3–5 paragraphs + contributions bullet list
+
+% ---------------- SOURCE MAP ----------------
+% Introduction: motivates the work and previews contributions; no new empirical claims.

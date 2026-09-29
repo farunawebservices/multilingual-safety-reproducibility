@@ -1,0 +1,52 @@
+You are drafting a BibTeX bibliography for an ICLR paper.
+
+Inputs:
+- Introduction: paper_sections/01_introduction.tex
+- Related Work: paper_sections/02_related_work.tex
+- Methods: paper_sections/03_experimental_setup.tex
+- Results + Additional analyses: paper_sections/assembled/results_chapter_inlined.tex
+- Discussion + Limitations: paper_sections/07_discussion_opening.tex
+- Conclusion: paper_sections/08_conclusion.tex
+
+Task:
+Produce a BibTeX file with 80–120 references that cover:
+1. Steering / activation engineering / representation engineering
+   (e.g. Subramani et al., 2022; Turner et al., 2023; Rimsky et al., 2024;
+   Li et al., 2023; Zou et al., 2023; Ilharco et al., 2023;
+   Cunningham et al., 2023; Bricken et al., 2023; Templeton et al., 2024;
+   Arditi et al., 2024; Marks & Tegmark, 2024; von R\"utte et al., 2024;
+   Tan et al., 2024).
+2. Agentic systems, tool use, multi-agent debate, orchestration
+   (e.g. Yao et al., 2023; Schick et al., 2023; Madaan et al., 2023;
+   Shinn et al., 2023; Bai et al., 2022; Du et al., 2023;
+   Park et al., 2023; Wu et al., 2023; Hong et al., 2024).
+3. Multilingual safety, jailbreaks, low-resource safety, anglocentrism
+   (e.g. Yong et al., 2024; Deng et al., 2024; Wang et al., 2024, XSafety;
+   Shen et al., 2024; Joshi et al., 2020; Ahia et al., 2023;
+   Adelani et al., 2021, 2024; Wendler et al., 2024; Tang et al., 2024;
+   R\"ottger et al., 2024; Cui et al., 2024; Chen et al., 2023).
+4. Evaluation methodology: McNemar, bootstrap, Holm, Benjamini–Hochberg,
+   Cohen's κ, missing data, multiple testing, NLP testing practice
+   (e.g. McNemar, 1947; Efron & Tibshirani, 1993; Holm, 1979;
+   Benjamini & Hochberg, 1995; Cohen, 1960; Rubin, 1976; Little & Rubin, 2019;
+   Dror et al., 2017, 2018; Card et al., 2020; Bouthillier et al., 2021;
+   Liang et al., 2023; Zheng et al., 2023).
+5. Safety benchmarks and attack suites (GCG, DAN, agent safety evals)
+   (e.g. Zou et al., 2023, GCG; Mazeika et al., 2024; Chao et al., 2024;
+   Ruan et al., 2024; Debenedetti et al., 2024; Andriushchenko et al., 2025;
+   Liu et al., 2024; Mialon et al., 2024).
+6. Mechanistic interpretability and patching
+   (e.g. Meng et al., 2022; Vig et al., 2020; Zhang & Nanda, 2024;
+   Heimersheim & Nanda, 2024).
+
+Requirements:
+- Use real, verifiable papers only (no invented citations).
+- Use consistent BibTeX keys (author-year-shorttitle).
+- Aim for 80–120 entries total; it’s fine to be slightly over 100.
+- Return BibTeX only (no commentary).
+
+Structure:
+@article{..., ...}
+@inproceedings{..., ...}
+@book{..., ...}
+...

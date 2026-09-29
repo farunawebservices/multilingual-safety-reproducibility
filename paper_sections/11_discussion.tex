@@ -1,0 +1,16 @@
+%TL;DR: The results support role- and language-specific evaluation, not a universal steering rule.
+\section{Discussion}
+\subsection{Steering effects are conditional on intervention role and language}
+The Llama role-strength analysis shows that the same nominal refusal-steering intervention is associated with opposite outcome directions across intervention roles. Planner-only steering improved both Hausa and Yoruba at alpha 30, Critic-only steering worsened both, and joint steering improved Hausa but worsened Yoruba. Because the comparison is cross-phase, this pattern is evidence for conditional configuration effects rather than causal role localization.
+
+\subsection{Primary cross-model analyses show incomplete transfer}
+The within-model primary packages reinforce the need for disaggregated evaluation. Llama Planner-only alpha 20 reduced harmful operational failure in Arabic, Hausa, and Yoruba after family correction, but not English. Qwen Planner-only alpha 1.0 produced Holm-significant reductions in Arabic and English, while Hausa and Yoruba point estimates did not survive the 33-cell correction. Gemma's three available cells moved toward higher non-veto failure without a family-corrected rejection, and GPT-OSS improved in English while worsening in Hausa.
+
+\subsection{Decision composition changes the interpretation}
+The large role-strength contrasts coincide with changes in explicit VETO, explicit ALLOW, and no-decision rates. In particular, the Critic-only Yoruba condition produced overwhelming no-decision rates. This pattern may reflect decoding or interface instability, semantic changes, or both; the current evidence does not distinguish these possibilities. Reporting composition is therefore necessary for interpreting safety interventions in structured-output pipelines.
+
+\subsection{Implications for evaluation and deployment}
+A deployment evaluation should test intervention location explicitly, preserve language-specific results, and treat invalid or unresolved decisions as measurable outcomes. Planner-only steering should not be deployed on the basis of a favourable aggregate result without checking benign behavior, parser validity, and language-specific regressions. Prompt filters and activation steering should be compared under matched prompt sets and common decision semantics rather than ranked by a single headline rate.
+
+\subsection{What the paper does not establish}
+The study does not establish a causal mechanism, a localized refusal circuit, vector specificity against matched random controls, or broad deployment safety. The causal-patching attempt could not reconstruct the original full pipeline context, and the cross-phase role-strength analysis changes phase and steering condition together. These limitations define the boundary of the conclusions rather than an absence of useful empirical evidence.

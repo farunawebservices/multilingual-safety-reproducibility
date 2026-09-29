@@ -1,0 +1,17 @@
+\begin{table}[t]
+\centering
+\caption{Archived cross-phase comparison of harmful operational-failure rates at Alpha 30.}
+\label{tab:llama33_turbo_alpha30_cross_phase}
+\begin{tabular}{llrrrrrrr}
+\toprule
+Configuration & Language & Matched $n$ & Baseline (\%) & Alpha 30 (\%) & Change (pp) & 95\% CI (pp) & Holm $p$ & Reject? \\
+\midrule
+both & Hausa & 300 & 6633.3 & 4733.3 & -19.0 & [-26.0, -12.0] & 0.000001 & Yes \\
+both & Yoruba & 300 & 7666.7 & 8666.7 & +10.0 & [4.7, 15.3] & 0.000881 & Yes \\
+critic_only & Hausa & 300 & 6800.0 & 7433.3 & +6.3 & [0.7, 12.0] & 0.039540 & Yes \\
+critic_only & Yoruba & 300 & 7600.0 & 8900.0 & +13.0 & [8.7, 17.3] & 0.000000 & Yes \\
+planner_only & Hausa & 300 & 6833.3 & 3066.7 & -37.7 & [-44.3, -31.0] & 0.000000 & Yes \\
+planner_only & Yoruba & 300 & 7466.7 & 5533.3 & -19.3 & [-24.7, -14.0] & 0.000000 & Yes \\
+\bottomrule
+\end{tabular}
+\end{table}

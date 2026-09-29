@@ -1,0 +1,1203 @@
+\section{Results}
+
+% ---- Bridge paragraph (Methods → Results) ----
+We evaluate planner-targeted steering across four open-weight models
+(\texttt{meta-llama/Llama-3.3-70B-Instruct}, \texttt{Qwen2.5-72B-Instruct},
+\texttt{gemma\_4\_31b}, and \texttt{openai/gpt-oss-20b}) and two closed-model
+baselines (\texttt{openai/gpt-5} and Claude Sonnet~4 vs~5) on the same
+multilingual prompt set. Each open-weight model has its own disjoint Holm
+family: Llama harmful (size 4), Llama benign (size 4), Qwen primary (size 33),
+Gemma complete-case (size 3), and GPT-OSS harmful (size 4). Across these
+families, we observe large, Holm-significant reductions in harmful operational
+failure for Llama and Qwen in several languages, a mixed-direction pattern for
+GPT-OSS (English improved, Hausa worsened, Arabic not significant after Holm,
+Yoruba null), and no Holm-significant change in Llama benign refusal. The
+closed-model analyses are purely descriptive: GPT-5 provides a frontier baseline
+with no intervention arm, and Claude Sonnet~4 vs~5 reports prompt-matched
+cross-version differences without inferential claims.
+
+% ---- 4.1 Llama harmful ----
+```latex
+\subsection{Llama 3.3 70B harmful and benign}
+
+The first question we ask is whether planner-targeted activation steering
+changes multilingual decision outcomes within a single open-weight model on
+matched prompts. For \texttt{meta-llama/llama-3.3-70b-instruct} we compare
+planner-only steering at $\alpha20$ against the planner-only $\alpha0$ baseline
+in Phase~1 (``main''), separately for two distinct outcomes: the harmful
+operational failure rate and the benign refusal rate. The harmful arm uses 300
+prompt-matched harmful prompts per language in Arabic, English, Hausa, and
+Yoruba (1{,}200 in total, with 0 partial harmful-coverage rows); the benign arm
+uses denominators 150/150/150/45 (495 in total, with 1 partial benign-coverage
+row). Both arms are tested with the exact paired two-sided McNemar test and are
+corrected with Holm at family-wise $\alpha = 0.05$ inside two \emph{separate}
+pre-declared families of size 4, so harmful and benign sample sizes, rates,
+$p$-values, and correction families are never combined. All displayed values are
+those printed in \texttt{tables/llama33\_planner20\_primary\_results.tex}
+(table \texttt{llama33\_planner20\_primary\_results}), with provenance recorded
+in \texttt{handoffs/llama33\_planner20\_primary\_opus\_handoff.md} and
+\texttt{manifests/llama33\_planner20\_primary\_artifact\_manifest.json}. These
+results describe Phase~1 only and are not attributed to Phase~2 ``Turbo''.
+
+In the harmful arm (harmful-arm columns of table
+\texttt{llama33\_planner20\_primary\_results}, 4 language rows), planner-only
+$\alpha20$ is associated with lower operational failure in Arabic, Hausa, and
+Yoruba, and with essentially no change in English; all three reductions are
+Holm-significant inside the harmful family of size 4 at family-wise
+$\alpha = 0.05$. Arabic moves from 35.0 to 20.7 ($\Delta = -14.3$, 95\% CI
+$[-21.0, -7.3]$, Holm $p = 0.000225$); Hausa moves from 68.3 to 58.3
+($\Delta = -10.0$, CI $[-17.0, -3.0]$, Holm $p = 0.016762$); and Yoruba moves
+from 74.7 to 58.0 ($\Delta = -16.7$, CI $[-22.3, -11.3]$, Holm $p < 0.001$).
+English is essentially unchanged, from 13.7 to 13.3 ($\Delta = -0.3$, CI
+$[-4.3, 3.7]$, Holm $p = 1.0$), and is not significant. The two largest
+reductions occur in the two languages with the highest baseline failure rates
+(Hausa 68.3 and Yoruba 74.7), while the language with the lowest baseline rate
+shows no detectable change; the reported effect sizes and intervals are the only
+quantities we attach to this pattern.
+
+The benign arm (benign-arm columns 6--9 of the same table, 4 language rows)
+records the benign refusal rate, for which a positive $\Delta$ means more false
+refusals. Refusal rates are at or near zero throughout: Arabic 0.0 to 0.7
+($\Delta = +0.7$, $p = 1.0$), English 0.0 to 0.0 ($\Delta = 0.0$, $p = 1.0$),
+Hausa 0.0 to 1.3 ($\Delta = +1.3$, $p = 1.0$), and Yoruba 0.0 to 0.0
+($\Delta = 0.0$, $p = 1.0$), with denominators 150, 150, 150, and 45
+respectively. No cell in the benign family of size 4 is Holm-significant
+(0 Holm-significant rows). These benign denominators, rates, and $p$-values
+belong to their own correction family and are not merged with the harmful arm at
+any point.
+
+Taken together, the two arms show a prompt-matched within-model association
+between planner-only $\alpha20$ steering and lower harmful operational failure
+in Arabic, Hausa, and Yoruba, with no detectable change in English, alongside no
+Holm-significant change in benign refusal rates. Several limits are binding on
+this reading. The comparison is non-causal: it contrasts conditions on the same
+prompts within one Phase~1 model entry and does not license claims about
+mechanism or about behaviour under other deployment conditions. The absence of a
+Holm-significant benign effect is not evidence that the intervention carries no
+utility cost; the benign arm is small, has one partial-coverage row, and has only
+45 Yoruba prompts, so it has limited power to detect small increases in false
+refusals, especially for Yoruba, and we explicitly do not claim an absence of
+cost for Yoruba. Finally, the token-level composition of the harmful failure
+outcome---which decision tokens constitute a failure---is not documented in the
+evidence base for this analysis, and missing-label handling is likewise not
+established for it; we therefore make no statement about either, and we report no
+parse-failure or missing-record counts for this model. The manifest additionally
+lists non-shipped metric CSVs: \texttt{..\_paired\_effect.csv},
+\texttt{..\_paired\_inference.csv}, \texttt{..\_primary\_paper\_table.csv}, and
+\texttt{..\_primary\_raw\_separation\_audit.csv}. None of these files is cited as
+evidence here.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.1, p1 — research question, design, denominators, tests/families, artifacts): LL-A, LL-B
+% Paragraph 2 (4.1, p2 — harmful results; opening sentence states direction per language
+%   (Arabic/Hausa/Yoruba lower, English essentially unchanged) and Holm significance of the
+%   three reductions at family-wise alpha = 0.05 within the harmful family of size 4): LL-A
+% Paragraph 3 (4.1, p3 — benign results): LL-B
+% Paragraph 4 (4.1, p4 — interpretation and binding limits, including limited power of the
+%   benign arm to detect small increases in false refusals, especially for Yoruba, and the
+%   two-sentence statement that the manifest's non-shipped metric CSVs are not cited as
+%   evidence): LL-A, LL-B
+```
+
+% ---- 4.2 Qwen primary ----
+```latex
+\subsection{Qwen 2.5 72B primary and 33-cell family}
+
+The second within-model question is whether planner-targeted steering changes
+multilingual decision outcomes in Qwen 2.5 72B (\texttt{qwen25\_72b}), and how
+that picture looks once the wider role $\times$ strength grid is corrected as a
+single pre-declared family. The primary contrast is the unsteered baseline
+($\alpha0$) against planner-only steering at $\alpha1.0$, on prompt-matched
+records, with the outcome defined by the audited Qwen decision semantics: an
+explicit veto counts as safe, and a non-veto unresolved record counts as an
+operational failure. Non-veto records are \emph{not} assumed to be explicit
+ALLOW. The primary display covers 8 language$\times$class cells (Arabic,
+English, Hausa, and Yoruba crossed with benign and harmful), with benign
+denominators 150/150/150/45 and harmful denominators 300/300/300/300, giving
+1{,}695 paired prompts and 0 partial-coverage rows; the displayed values are
+those printed in
+\texttt{tables/qwen25\_72b\_planner\_alpha1\_primary\_results.tex} (table
+\texttt{qwen25\_72b\_planner\_alpha1\_primary\_results}), with provenance in
+\texttt{handoffs/qwen25\_72b\_planner\_alpha1\_primary\_opus\_handoff.md} and
+\texttt{manifests/qwen25\_72b\_planner\_alpha1\_primary\_artifact\_manifest.json}.
+Beyond the primary display, the full pre-declared grid contrasts the baseline
+against \texttt{planner\_only}, \texttt{critic\_only}, and \texttt{both} at
+$\alpha1.0$ and $\alpha2.0$, comprising 33 steered cells recorded in
+\texttt{metrics/qwen25\_72b\_primary\_paired\_inference.csv},
+\texttt{metrics/qwen25\_72b\_primary\_paired\_inference\_holm.csv}, and
+\texttt{metrics/qwen25\_72b\_primary\_unified\_results.csv} (33 rows each). All
+cells are tested with the exact paired two-sided McNemar test with a paired
+bootstrap 95\% interval over matched prompt IDs (10{,}000 replicates, seed
+20260908), and \emph{every} Holm decision reported below---including those for
+the 8 primary cells---is taken inside the single pre-declared family
+\texttt{qwen25\_72b\_primary\_33\_steered\_cells} of size 33 at family-wise
+$\alpha = 0.05$. A third artifact,
+\texttt{metrics/qwen25\_72b\_primary\_canonical\_audit.csv} (41 rows), documents
+decision composition descriptively. The manifest additionally lists a non-shipped
+metric CSV, \texttt{qwen25\_72b\_planner\_alpha1\_primary\_paper\_table.csv},
+which is not cited as evidence here.
+
+In the primary planner-only $\alpha1.0$ table, planner-targeted steering is
+associated with lower non-veto operational failure in the Arabic and English
+harmful cells and with no Holm-significant change in any benign cell or in the
+Hausa and Yoruba harmful cells; exactly two of the eight cells are
+Holm-significant, and both are harmful cells. Arabic harmful falls from 48 of
+300 (16.0) to 9 of 300 (3.0), a change of $\Delta = -13.0$ with 95\% interval
+$[-17.3, -9.0]$ and Holm $p = 2.5965\times10^{-8}$; English harmful falls from
+117 of 300 (39.0) to 48 of 300 (16.0), $\Delta = -23.0$, interval
+$[-29.0, -17.0]$, Holm $p = 2.6313\times10^{-11}$. The two remaining harmful
+cells show smaller point reductions that do not survive correction: Hausa
+harmful moves from 165 of 300 (55.0) to 147 of 300 (49.0), $\Delta = -6.0$,
+interval $[-12.3, 0.3]$, Holm $p = 1.0$; Yoruba harmful moves from 153 of 300
+(51.0) to 132 of 300 (44.0), $\Delta = -7.0$, interval $[-12.7, -1.3]$, Holm
+$p = 0.6414$. The Yoruba harmful interval excludes zero while the Holm decision
+does not reject, and we report the two jointly rather than treating the interval
+as a rejection. None of the four benign cells is Holm-significant, so this
+display provides no family-corrected evidence of reduced failure---equivalently,
+of increased safety---in benign prompts at any language: Arabic benign
+is unchanged at 100.0 to 100.0 ($\Delta = +0.0$), English benign moves from
+100.0 to 98.0 ($\Delta = -2.0$, over 150 records baseline and 147 steered
+non-veto), Hausa benign is unchanged ($\Delta = +0.0$), and Yoruba benign, with
+$n = 45$, is unchanged ($\Delta = +0.0$). The two Holm-significant harmful cells
+are therefore the only cells in this display for which the family-corrected
+decision rejects, and the largest observed reduction is in English harmful.
+
+Across the full 33-cell family---\texttt{planner\_only}, \texttt{critic\_only},
+and \texttt{both} at $\alpha1.0$ and $\alpha2.0$---exactly 4 cells are
+Holm-significant: Arabic harmful at $\alpha1.0$ and at $\alpha2.0$, and English
+harmful at $\alpha1.0$ and at $\alpha2.0$. The wider grid therefore adds two
+family-corrected rejections to the two already visible in the primary display,
+and no Hausa or Yoruba cell and no benign cell is Holm-significant at any role
+or strength. Three cells in the family have reduced coverage, and their
+denominators are reported exactly as recorded rather than rounded or dropped:
+\texttt{critic\_only} Arabic benign at $\alpha1.0$ has a steered $n = 6$ against
+a baseline of 150 (\texttt{partial\_baseline\_coverage = true});
+\texttt{both} Yoruba harmful at $\alpha2.0$ has a paired $n = 160$ (baseline
+300, with 140 baseline-only records); and \texttt{planner\_only} Yoruba harmful
+at $\alpha2.0$ has a paired $n = 173$ (127 baseline-only records). The canonical
+audit corroborates the two truncated steered Yoruba cells at record counts of
+160 and 173 respectively. Interval-based and Holm-based conclusions diverge in
+several further cells, and we do not conflate them. Specifically,
+\texttt{critic\_only} Hausa benign at $\alpha1.0$, \texttt{both} Hausa harmful
+at $\alpha2.0$, \texttt{critic\_only} Yoruba harmful at $\alpha1.0$ and
+$\alpha2.0$, \texttt{planner\_only} Hausa harmful at $\alpha2.0$, and
+\texttt{planner\_only} Yoruba harmful at $\alpha1.0$ all have intervals
+excluding zero while remaining Holm-non-significant inside the 33-cell family.
+These cells are reported as non-significant.
+
+The decision-semantics audit
+(\texttt{metrics/qwen25\_72b\_primary\_canonical\_audit.csv}) is descriptive and
+carries no inferential content. It spans 41 cells across the \texttt{baseline},
+\texttt{planner\_steered}, and \texttt{critic\_and\_both\_steered} source groups
+and reports, per cell, the veto/non-veto composition, critic allow-token counts,
+record-ID uniqueness, and definition-validity flags. Its role here is to justify
+the outcome definition used above: because the critic allow-token counts fall
+below the record counts in several cells, a non-veto record cannot be identified
+with an explicit ALLOW, and the outcome is accordingly labelled a non-veto
+unresolved operational failure. No hypothesis test, confidence interval, or
+multiple-testing statement is attached to this audit, and none of its 41 rows is
+counted in the 33-cell Holm family. We also report no parse-failure or
+missing-record counts for Qwen: no such column exists in the shipped CSVs, so
+missing-label handling for this model is not established in the evidence base.
+
+Read together, the Qwen results describe a prompt-matched, within-model
+association between planner-targeted steering and lower non-veto operational
+failure that is concentrated in Arabic and English harmful prompts and that
+survives correction in only 4 of the 33 pre-declared cells. Several limits bind
+this reading. The comparison is non-causal: it contrasts conditions on the same
+prompts within one model entry and licenses no mechanistic claim and no claim
+about behaviour under other deployment conditions. Holm significance is defined
+only relative to the pre-declared 33-cell family, and we do not report Qwen
+significance under any other family or claim significance for cells outside it;
+equally, an interval excluding zero is not reported as a rejection. The Hausa
+and Yoruba harmful reductions observed at $\alpha1.0$ are point estimates that
+the family-corrected test does not distinguish from no change, and the three
+partial-coverage cells ($n = 6$, $160$, and $173$) are correspondingly weaker
+evidence than the fully paired cells; they are reported with their exact
+denominators rather than aggregated. Finally, these numbers describe Qwen 2.5
+72B only. They are not pooled with, averaged over, or compared inferentially
+against any other model entry in this paper, and the model string carries no
+vendor path or snapshot identifier in the evidence base.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.2, p1 — research question, design, outcome definition, denominators,
+%   8-cell primary display, 33-cell family and its Holm scope, 41-cell audit,
+%   non-shipped CSV not cited): QW-A, QW-B, QW-C
+% Paragraph 2 (4.2, p2 — primary 8-cell planner-only alpha1.0 results: opening summary
+%   sentence stating the association with lower non-veto operational failure in Arabic
+%   and English harmful and no Holm-significant change in any benign cell or in
+%   Hausa/Yoruba harmful, with exactly 2 of 8 cells Holm-significant, both harmful;
+%   per-cell counts, rates, deltas, intervals, Holm p-values; joint reporting of Yoruba
+%   harmful CI vs Holm; explicit statement that no family-corrected evidence of reduced
+%   failure / increased safety exists in benign prompts at any language): QW-A
+% Paragraph 3 (4.2, p3 — full 33-cell family: 4 Holm-significant cells, exact
+%   partial-coverage denominators n = 6, 160, 173, and the enumerated
+%   CI-excludes-zero-but-Holm-non-significant cells, now stated in two sentences
+%   (divergence statement, then enumeration)): QW-B
+% Paragraph 4 (4.2, p4 — descriptive 41-cell canonical audit; no test/CI/correction;
+%   non-veto is not explicit ALLOW; missing-label handling not established): QW-C, QW-A
+% Paragraph 5 (4.2, p5 — interpretation and binding limits: non-causal, within-model,
+%   Holm only within the 33-cell family, CI/Holm separation, partial-coverage weakness,
+%   no pooling across models, no vendor snapshot): QW-A, QW-B, QW-C
+```
+
+% ---- 4.3 Gemma complete-case ----
+```latex
+\subsection{Gemma 4 31B complete-case}
+
+The third within-model question is whether planner-targeted steering changes
+decision outcomes in \texttt{gemma\_4\_31b} under a complete-case valid-JSON
+policy, in the three cells for which paired records exist. The contrast is the
+Phase~1 unsteered baseline ($\alpha0$) against planner-only steering at
+$\alpha1.0$, on records matched by shared record ID, with the outcome defined as
+non-veto operational failure, i.e.\ \texttt{is\_vetoed = false}. This is not an
+explicit-ALLOW rate: the decision audit shows, for example, an Arabic benign
+baseline non-veto count of 96 against a critic allow-token count of 48, so a
+non-veto record cannot be identified with an explicit ALLOW. Under the
+complete-case policy, one truncated terminal JSONL record is excluded from each
+source and missing outcomes are not imputed. Exactly three cells are available:
+Arabic benign (150 paired), English benign (101 paired; baseline 101, steered
+112, with 11 steered-only valid IDs excluded, \texttt{partial\_coverage = true}),
+and Arabic harmful (300 paired). There is no Hausa cell, no Yoruba cell, and no
+English harmful cell; no total is recorded in the source artifacts, and we do
+not sum the three denominators. All three cells are tested with the exact paired
+two-sided McNemar test with a 10{,}000-replicate paired bootstrap percentile
+95\% confidence interval (seed 20260908), and Holm correction is applied inside
+the pre-declared family \texttt{gemma\_phase1\_three\_cell\_family} of size 3 at
+family-wise $\alpha = 0.05$. The reported values are those recorded in
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_paired\_inference.csv},
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_paired\_inference\_holm.csv},
+and
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_unified\_results.csv}
+(3 rows each), with decision composition in
+\texttt{metrics/gemma\_4\_31b\_phase1\_complete\_case\_audit.csv} (whose
+filename differs from the manifest-listed
+\texttt{..\_decision\_semantics\_audit.csv}) and the display in
+\texttt{tables/gemma\_4\_31b\_phase1\_complete\_case\_results.tex}, with
+provenance in
+\texttt{handoffs/gemma\_4\_31b\_phase1\_complete\_case\_OPUS\_HANDOFF.md} and
+\texttt{manifests/gemma\_4\_31b\_phase1\_complete\_case\_artifact\_manifest.json}.
+The manifest additionally declares
+\texttt{gemma\_4\_31b\_phase1\_complete\_case\_paper\_table.csv} as the
+authoritative displayed table, but that file is not in the packet and is not
+cited as evidence here. This analysis is within-model only; it is not pooled
+with, averaged over, or compared inferentially against any other model entry.
+
+All three point estimates go in the same direction: non-veto operational failure
+is \emph{higher} under planner-only $\alpha1.0$ than at baseline, and no cell is
+Holm-significant inside the three-cell family (0 Holm-significant rows).
+Accordingly, there is no family-corrected evidence of increased failure under
+steering for Gemma in the cells that exist. Arabic benign moves from 64.00 to
+74.00 over 150 paired records ($\Delta = +10.00$, 95\% CI $[-0.67, 20.67]$, raw
+$p = 0.0912$, Holm $p = 0.0912$). English benign moves from 65.35 to 81.19 over
+101 paired records ($\Delta = +15.84$, CI $[2.97, 27.75]$, raw $p = 0.02263$,
+Holm $p = 0.06789$); this is the reduced-coverage cell, with a baseline of 101
+and a steered condition of 112 valid records, from which 11 steered-only valid
+IDs are excluded by the pairing requirement
+(\texttt{partial\_coverage = true}). Arabic harmful moves from 64.00 to 72.00
+over 300 paired records ($\Delta = +8.00$, CI $[0.67, 15.33]$, raw
+$p = 0.04004$, Holm $p = 0.08007$). Two of the three rows---English benign and
+Arabic harmful---have \texttt{ci\_excludes\_zero = true}, while the Holm
+procedure rejects nothing at family-wise $\alpha = 0.05$. We report the
+interval-based and Holm-based results jointly and do not conflate them, so
+neither of those two cells is described as significant. Equivalently, two of the
+three raw $p$-values fall below 0.05 ($0.02263$ and $0.04004$) but none survives
+correction within the pre-declared family of size 3.
+
+Several limits bind the reading of these three cells. The comparison is
+non-causal: it contrasts two conditions on the same records within a single
+Phase~1 model entry and licenses no mechanistic claim and no claim about
+behaviour under other deployment conditions. Because no cell is
+Holm-significant, the consistent positive direction of all three point estimates
+is reported as an observed pattern in the point estimates and intervals only,
+not as a family-corrected finding of increased failure; the analysis is
+correspondingly uninformative about Hausa, Yoruba, and English harmful prompts,
+for which no Gemma cell exists. The three denominators (150, 101, and 300) are
+reported exactly as recorded and are not summed, since no total is recorded, and
+the English benign cell is weaker evidence than the two fully paired cells
+because 11 steered-only valid IDs are excluded from it. The outcome is a
+non-veto rate, not an explicit-ALLOW rate, and the two benign rows are not
+described as safety failures: Gemma has no separate benign-utility refusal
+outcome in the evidence base, so the Gemma benign rows are not comparable to the
+Llama benign refusal rates of Section~4.1 and are not read as a utility-cost
+measurement. The only missing-data statement we make for this model is the
+complete-case policy itself---one truncated terminal JSONL record excluded per
+source, with no imputation of missing outcomes. Finally, the model string
+\texttt{gemma\_4\_31b} carries no vendor identifier or snapshot anywhere in the
+evidence base, and we make no claim that one exists.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.3, p1 — research question, design, outcome definition (is_vetoed = false,
+%   not explicit ALLOW), complete-case valid-JSON policy, the 3 cells and their exact
+%   denominators, no Hausa/Yoruba/English-harmful cells, no total and no summing, test /
+%   interval / Holm family of size 3, cited artifacts, table label, handoff and manifest,
+%   non-shipped paper_table.csv not cited, no cross-model pooling): GM-A
+% Paragraph 2 (4.3, p2 — per-cell results: all three point estimates show increased
+%   non-veto failure under steering; 0 Holm-significant rows and the corresponding
+%   statement that there is accordingly no family-corrected evidence of increased failure
+%   in the cells that exist; per-cell rates, deltas, bootstrap CIs, raw p-values and Holm
+%   p-values; English benign partial coverage restated; joint reporting (now split across
+%   two sentences) of the two ci_excludes_zero rows against the absence of any Holm
+%   rejection, with neither cell described as significant): GM-A
+% Paragraph 3 (4.3, p3 — interpretation and binding limits: non-causal, within-model,
+%   direction reported as a point-estimate pattern only, no cell reported as significant,
+%   no summing of denominators, weaker English benign cell, not an explicit-ALLOW rate,
+%   benign rows not "safety failures" and not comparable to Llama benign refusal rates,
+%   complete-case missing-data statement, no vendor identifier or snapshot): GM-A
+```
+
+% ---- 4.4 GPT-OSS 20B harmful ----
+```latex
+\subsection{GPT-OSS 20B harmful}
+
+The fourth and final within-model question is whether planner-targeted steering
+changes harmful decision outcomes in \texttt{openai/gpt-oss-20b}, and whether the
+direction of any such change is consistent across languages. The contrast is the
+Phase~1 unsteered baseline (no steering, $\alpha0$) against planner-only steering
+at $\alpha1.0$, on prompt-matched harmful records only, with the outcome defined
+as operational failure per the registered GPT-OSS decision-semantics and
+parser-outcome audits (\texttt{registry/gpt\_oss\_decision\_semantics\_audit.json}
+and \texttt{registry/gpt\_oss\_parser\_outcomes.json}). Those two registry audits
+are not shipped in the evidence base, so the composition of the failure
+outcome---which decision tokens compose it---is not independently verifiable
+here, and the missing-label handling that they govern yields no counts we can
+report. The analysis covers Arabic, English, Hausa, and Yoruba, harmful prompts
+only, with 300 matched harmful prompts per language, 1{,}200 paired prompts in
+total, and 0 partial-coverage rows. The canonical audit
+(\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_primary\_canonical\_audit.csv})
+records 1{,}695 baseline rows (1{,}200 harmful plus 495 benign), 1{,}695
+\texttt{planner\_only\_alpha1} rows, a paired harmful subset of 1{,}200, and 0
+duplicate record IDs; the 495 benign rows per condition are not analysed here and
+support no benign result. Each language cell is tested with the exact paired
+two-sided McNemar test, and Holm correction is applied inside a family of four
+language-specific harmful comparisons (size 4). Paired bootstrap intervals are
+retained in a separate artifact that is not shipped, so we report per-cell
+counts, rates, differences in percentage points, full discordance tables, raw
+$p$-values, and Holm $p$-values, but no confidence intervals. The authoritative
+source for inference is
+\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_paired\_effect\_holm.csv}
+(4 rows), with effect and discordance quantities in
+\texttt{metrics/gpt\_oss\_20b\_planner\_alpha1\_paired\_effect.csv}, the display
+in
+\texttt{tables/gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_results.tex},
+and provenance in
+\texttt{handoffs/gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_opus\_handoff.md}
+and
+\texttt{manifests/gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_artifact\_manifest.json}.
+The manifest additionally references
+\texttt{gpt\_oss\_20b\_planner\_alpha1\_primary\_harmful\_paper\_table.csv} and
+\texttt{gpt\_oss\_20b\_planner\_alpha1\_paired\_bootstrap\_ci.csv}, neither of
+which is in the packet; neither is cited as evidence here.
+
+The four language cells do not move in a common direction, and exactly two of
+them are Holm-significant inside the four-comparison family. Arabic falls from
+43 of 300 (14.33\%) to 30 of 300 (10.00\%), $\Delta = -4.33$~pp, with 33
+discordant prompts (10 worsened, 23 improved), raw $p = 0.03508$ and Holm
+$p = 0.070164$: the raw $p$-value falls below 0.05 while the family-corrected
+decision does not reject, and we report the two jointly, so Arabic is
+\emph{not} significant. English falls from 174 of 300 (58.00\%) to 141 of 300
+(47.00\%), $\Delta = -11.0$~pp, with 105 discordant prompts (36 worsened, 69
+improved), raw $p = 0.0016590$ and Holm $p = 0.004977$, and is significant.
+Hausa moves in the opposite direction, rising from 45 of 300 (15.00\%) to 66 of
+300 (22.00\%), $\Delta = +7.0$~pp---a \emph{worsening} of harmful operational
+failure under steering---with 27 discordant prompts distributed asymmetrically
+(24 worsened, 3 improved), raw $p = 4.92334\times10^{-5}$ and Holm
+$p = 0.00019693$, and is significant. Yoruba is exactly unchanged at 48 of 300
+(16.00\%) in both conditions, $\Delta = 0.0$, with 36 discordant prompts split
+evenly (18 worsened and 18 improved) and $p = 1.0$. Thus, the equal marginal
+rates coexist with matched prompt-level disagreements in both directions.
+Across the family, then, one language improves significantly, one worsens
+significantly, one shows a point reduction that does not survive Holm
+correction, and one shows no marginal change at all.
+
+This mixed-direction pattern is the central result for GPT-OSS 20B: English
+improved, Hausa worsened, Arabic was not significant after Holm correction, and
+Yoruba was null. Several limits bind its reading. The comparison estimates a
+condition-specific paired difference on the evaluated prompts: it contrasts two
+conditions on the same harmful prompts within a single Phase~1 model entry, and
+it does not establish a general causal effect across deployment settings, model
+revisions, prompt distributions, or outcome definitions. It licenses no
+mechanistic claim, no claim about behaviour under other deployment conditions,
+and no claim that planner-only steering produces an improvement in general. In
+particular, the Hausa worsening is reported as part of the result rather than
+omitted or averaged away, and Arabic is not reported as significant. Because the
+two registry audits that define the outcome are not shipped, the composition of
+``operational failure'' cannot be checked against the underlying decision tokens
+in this packet, and no missing-label, parse-failure, or non-termination count is
+available for either condition; readers should treat the outcome label as
+declared rather than independently verified. The 495 benign rows per condition
+recorded in the canonical audit are not analysed, so no GPT-OSS benign result is
+established here, and the referenced GPT-OSS Phase~1 baseline descriptive
+breakdown across eight language$\times$class cells is absent from the evidence
+base, so no descriptive baseline numbers for this model are reported anywhere in
+this paper. Finally, these four comparisons describe \texttt{openai/gpt-oss-20b}
+only: they are not pooled with, averaged over, or compared inferentially against
+Llama, Qwen, Gemma, or the closed-model baselines, their Holm family is disjoint
+from every other family in this paper, and no dated vendor snapshot is recorded
+for the model, so the rates describe the records collected under that model label
+rather than any particular revision of the system.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.4, p1 — research question and design: openai/gpt-oss-20b; Phase 1
+%   baseline (no steering, alpha0) vs planner-only steering alpha1.0; Arabic, English,
+%   Hausa, Yoruba, harmful only; 300 matched harmful prompts per language, 1,200 paired,
+%   0 partial-coverage rows; canonical audit (baseline 1,695 rows = 1,200 harmful + 495
+%   benign, planner_only_alpha1 1,695 rows, paired harmful subset 1,200, 0 duplicate
+%   record IDs); outcome defined by the registered GPT-OSS decision-semantics and
+%   parser-outcome audits (registry/gpt_oss_decision_semantics_audit.json,
+%   registry/gpt_oss_parser_outcomes.json, not shipped, composition not independently
+%   verifiable, no missing-label counts); exact paired McNemar; Holm family of four
+%   language-specific harmful comparisons, size 4; paired bootstrap intervals retained in
+%   a separate non-shipped artifact so no CIs are reported; authoritative
+%   paired_effect_holm.csv (4 rows), paired_effect.csv, canonical_audit.csv, the LaTeX
+%   table, handoff and manifest; non-shipped paper_table.csv and paired_bootstrap_ci.csv
+%   not cited as evidence): GO-A
+% Paragraph 2 (4.4, p2 — per-language results with baseline/steered counts, rates,
+%   deltas in pp, full discordance tables (worsened/improved), raw p-values and Holm
+%   p-values: Arabic 43/300 (14.33%) -> 30/300 (10.00%), -4.33 pp, discordant 33 (10/23),
+%   raw p = 0.03508, Holm p = 0.070164, not significant, with raw-vs-Holm reported
+%   jointly; English 174/300 (58.00%) -> 141/300 (47.00%), -11.0 pp, discordant 105
+%   (36/69), raw p = 0.0016590, Holm p = 0.004977, significant; Hausa 45/300 (15.00%) ->
+%   66/300 (22.00%), +7.0 pp worsening, discordant 27 (24/3), raw p = 4.92334e-5, Holm
+%   p = 0.00019693, significant; Yoruba 48/300 (16.00%) -> 48/300 (16.00%), delta 0.0,
+%   discordant 36 (18 worsened and 18 improved), p = 1.0, reported neutrally as equal
+%   marginal rates coexisting with matched prompt-level disagreements in both
+%   directions): GO-A
+% Paragraph 3 (4.4, p3 — interpretation and binding limits: mixed-direction pattern
+%   stated explicitly (English improved, Hausa worsened, Arabic not significant after
+%   Holm, Yoruba null); the comparison estimates a condition-specific paired difference
+%   on the evaluated prompts within a single Phase 1 model entry and does not establish a
+%   general causal effect across deployment settings, model revisions, prompt
+%   distributions, or outcome definitions, and licenses no mechanistic or deployment
+%   claim; Hausa worsening not omitted and Arabic not reported as significant; outcome
+%   composition not independently verifiable and no missing-label counts available; the
+%   495 benign rows per condition are not analysed so no benign result is established;
+%   the referenced GPT-OSS Phase 1 baseline descriptive cells are absent from the
+%   evidence base so no such numbers are reported (GO-B is not written or cited);
+%   disjoint Holm family, no cross-model pooling, no dated vendor snapshot): GO-A
+```
+
+% ---- 4.5 Llama benign ----
+```latex
+\subsection{Llama benign}
+
+The final within-model question in this section is the benign counterpart to the
+harmful comparisons reported above: does planner-targeted steering change how
+often \texttt{meta-llama/Llama-3.3-70B-Instruct} refuses prompts that should be
+answered? The contrast is the Phase~1 unsteered baseline (no steering,
+$\alpha0$) against planner-only steering at $\alpha20$, on prompt-matched benign
+records only, in Arabic, English, Hausa, and Yoruba. The outcome is the benign
+refusal rate, for which a positive $\Delta$ means \emph{more} false refusals;
+its composition is defined by the registered Llama decision-semantics and
+parser-outcome audits
+(\texttt{registry/llama\_decision\_semantics\_audit.json} and
+\texttt{registry/llama\_parser\_outcomes.json}). Those two registry audits are
+not shipped in this packet, so the composition of the refusal outcome is not
+independently verifiable here, and the missing-label handling that they govern
+yields no counts we can report. Benign denominators are 150 (Arabic), 150
+(English), 150 (Hausa), and 45 (Yoruba), giving 495 paired benign prompts with 1
+partial benign-coverage row (Yoruba, 45 prompts). The canonical audit
+(\texttt{metrics/llama3\_3\_70b\_planner\_alpha1\_benign\_canonical\_audit.csv})
+records 1{,}695 baseline rows (1{,}200 harmful plus 495 benign), 1{,}695
+\texttt{planner\_only\_alpha1} rows, a paired benign subset of 495, and 0
+duplicate record IDs. Each language cell is tested with the exact paired
+two-sided McNemar test on the matched records, with full discordance tables
+recorded per row (\texttt{both\_safe}, \texttt{worsened}, \texttt{improved},
+\texttt{both\_failure}, and \texttt{discordant}); paired bootstrap intervals are
+retained in a separate artifact that is not shipped, so no confidence intervals
+are reported for these cells. Holm correction is applied inside a family of four
+language-specific \emph{benign} comparisons (size 4) that is disjoint from the
+harmful family, so benign denominators, rates, $p$-values, and correction
+decisions are never combined with harmful ones. The authoritative source for
+inference is
+\texttt{metrics/llama3\_3\_70b\_planner\_alpha1\_paired\_effect\_benign\_holm.csv}
+(4 rows), with effect and discordance quantities in
+\texttt{metrics/llama3\_3\_70b\_planner\_alpha1\_paired\_effect\_benign.csv},
+the display in
+\texttt{tables/llama3\_3\_70b\_planner\_alpha1\_benign\_results.tex}, and
+provenance in
+\texttt{handoffs/llama3\_3\_70b\_planner\_alpha1\_benign\_opus\_handoff.md} and
+\texttt{manifests/llama3\_3\_70b\_planner\_alpha1\_benign\_artifact\_manifest.json}.
+
+Benign refusal is at or near zero in every cell, and no cell changes
+detectably under correction: benign refusal showed \emph{no} Holm-significant
+change under planner-only $\alpha20$, with 0 Holm-significant rows in the
+four-comparison benign family. Arabic moves from 0.0\% at baseline to 0.7\%
+under steering over 150 paired prompts, $\Delta = +0.7$~pp, and is
+Holm-non-significant. English is unchanged, 0.0\% to 0.0\% over 150 paired
+prompts, $\Delta = 0.0$~pp, Holm-non-significant. Hausa moves from 0.0\% to
+1.3\% over 150 paired prompts, $\Delta = +1.3$~pp---the largest observed
+increase in false refusals in this family---and is likewise
+Holm-non-significant. Yoruba is unchanged, 0.0\% to 0.0\% over its 45 paired
+prompts, $\Delta = 0.0$~pp, Holm-non-significant. The two non-zero differences
+are both positive, i.e.\ in the direction of more false refusals, but neither
+raw nor Holm-corrected $p$-values recorded in the authoritative
+\texttt{..\_paired\_effect\_benign\_holm.csv} reject at family-wise
+$\alpha = 0.05$; the per-row discordance tables
+(\texttt{both\_safe}/\texttt{worsened}/\texttt{improved}/\texttt{both\_failure}/\texttt{discordant})
+in the accompanying effect CSV are the record of prompt-level movement behind
+these marginal rates.
+
+Several limits bind the reading of this benign family. The comparison is
+non-causal: it contrasts two conditions on the same benign prompts within a
+single Phase~1 model entry and licenses no mechanistic claim and no claim about
+behaviour under other deployment conditions, prompt distributions, or outcome
+definitions. Because the two registry audits that define the refusal outcome are
+not shipped, the composition of ``benign refusal'' cannot be checked against the
+underlying decision tokens in this packet, and no missing-label, parse-failure,
+or non-termination count is available for either condition; readers should treat
+the outcome label as declared rather than independently verified.
+Most importantly, the absence of a Holm-significant benign effect is not
+evidence that planner-only $\alpha20$ steering carries no utility cost: the
+benign family is small (495 paired prompts in total), baseline refusal is at the
+floor of 0.0\% in all four languages, and the Yoruba cell contributes only 45
+paired prompts and is flagged as the single partial benign-coverage row, so this
+design has limited power to detect small increases in false refusals, especially
+for Yoruba. We therefore do not claim an absence of utility cost, and in
+particular not for Yoruba. These four comparisons are also reported strictly on
+their own terms: their denominators, rates, $p$-values, and Holm family are
+disjoint from the Llama harmful family and from every other family in this
+paper, and they are not pooled with, averaged over, or compared inferentially
+against the harmful results or against any other model entry. Finally, the
+analysis identifies the model only by the string
+\texttt{meta-llama/Llama-3.3-70B-Instruct}; no dated vendor snapshot is recorded
+in the evidence base, so these rates describe the records collected under that
+model label rather than any particular revision of the system.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (4.5, p1 — research question and design: meta-llama/Llama-3.3-70B-Instruct;
+%   Phase 1 baseline (no steering, alpha0) vs planner-only steering alpha20; Arabic,
+%   English, Hausa, Yoruba, benign only; denominators 150/150/150/45 = 495 paired benign
+%   prompts with 1 partial benign-coverage row (Yoruba, 45); canonical audit (baseline
+%   1,695 rows = 1,200 harmful + 495 benign, planner_only_alpha1 1,695 rows, paired benign
+%   subset 495, 0 duplicate record IDs); outcome = benign refusal rate with positive delta
+%   = more false refusals, defined by registry/llama_decision_semantics_audit.json and
+%   registry/llama_parser_outcomes.json (not shipped, composition not independently
+%   verifiable, no missing-label counts); paired design with full discordance tables
+%   (both_safe / worsened / improved / both_failure / discordant per row); exact paired
+%   McNemar; paired bootstrap intervals retained in a separate non-shipped artifact so no
+%   CIs are reported; Holm family = four language-specific benign comparisons, size 4,
+%   disjoint from the harmful family; authoritative
+%   metrics/llama3_3_70b_planner_alpha1_paired_effect_benign_holm.csv (4 rows),
+%   metrics/llama3_3_70b_planner_alpha1_paired_effect_benign.csv,
+%   metrics/llama3_3_70b_planner_alpha1_benign_canonical_audit.csv,
+%   tables/llama3_3_70b_planner_alpha1_benign_results.tex,
+%   handoffs/llama3_3_70b_planner_alpha1_benign_opus_handoff.md,
+%   manifests/llama3_3_70b_planner_alpha1_benign_artifact_manifest.json): LL-C
+% Paragraph 2 (4.5, p2 — per-language results with denominators and deltas in pp: explicit
+%   statement that benign refusal showed no Holm-significant change under planner-only
+%   alpha20 and that there are 0 Holm-significant rows; Arabic 0.0% -> 0.7%, +0.7 pp,
+%   Holm-non-significant; English 0.0% -> 0.0%, 0.0 pp, Holm-non-significant; Hausa 0.0%
+%   -> 1.3%, +1.3 pp, Holm-non-significant; Yoruba 0.0% -> 0.0%, 0.0 pp over 45 paired
+%   prompts, Holm-non-significant; direction of the two non-zero deltas is toward more
+%   false refusals; raw and Holm p-values recorded in the authoritative holm CSV do not
+%   reject at family-wise alpha = 0.05; per-row discordance tables cited as the record of
+%   prompt-level movement): LL-C
+% Paragraph 3 (4.5, p3 — interpretation and binding limits: non-causal within-model
+%   condition contrast with no mechanistic or deployment claim; outcome composition not
+%   independently verifiable because the two registry audits are not shipped and no
+%   missing-label counts are available; absence of a Holm-significant benign effect is not
+%   proof of no utility cost, with floor baseline rates, 495 total paired prompts and the
+%   45-prompt partial-coverage Yoruba row limiting power, especially for Yoruba; benign
+%   family disjoint from the harmful family and from all other families, no pooling with
+%   harmful results or other models; no dated vendor snapshot recorded): LL-C
+```
+
+% ---- 5.1 GPT-5 baseline ----
+```latex
+\subsection{GPT-5 frontier baseline}
+
+Having reported the four within-model steering comparisons, we turn to the
+closed-model baselines, whose role in this paper is descriptive only: they
+record how a frontier system behaves on the same multilingual prompt set, with
+no intervention arm of any kind. The question asked here is therefore not
+whether steering changes outcomes, but simply what the per-cell veto and
+non-veto rates of \texttt{openai/gpt-5} are. The analysis uses Phase~1 records
+under a single configuration, \texttt{frontier\_baseline} at strength 0.0; there
+is no steered arm, no second condition, and consequently pairing is not
+applicable. The cells are Arabic, English, Hausa, and Yoruba crossed with benign
+and harmful prompt classes. Two outcomes are recorded per cell: the veto rate,
+defined as \texttt{is\_vetoed = true}, and the non-veto operational failure
+rate, defined as \texttt{is\_vetoed = false}. Benign denominators are
+150/150/150/45 and harmful denominators are 286/291/289/290, over 1{,}651 valid
+unique-ID records, with 5 partial-coverage rows (the 4 harmful cells plus Yoruba
+benign). The harmful denominators are \emph{not} 300, and we report them exactly
+as recorded rather than as a nominal target. All displayed values are those
+printed in \texttt{metrics/gpt\_5\_frontier\_baseline\_paper\_table.csv} (table
+\texttt{gpt\_5\_frontier\_baseline\_paper\_table}, 8 cells) and
+\texttt{tables/gpt\_5\_frontier\_baseline\_descriptive\_results.tex}, with
+decision composition in
+\texttt{metrics/gpt\_5\_frontier\_baseline\_canonical\_audit.csv} (whose
+filename differs from the manifest-listed
+\texttt{gpt\_5\_clean\_frontier\_baseline\_audit.csv}) and provenance in
+\texttt{handoffs/gpt\_5\_frontier\_baseline\_OPUS\_HANDOFF.md} and
+\texttt{manifests/gpt\_5\_frontier\_baseline\_artifact\_manifest.json}. Because
+there is a single condition, no test, no confidence interval, and no
+multiple-testing correction is defined for or applied to any cell in this
+subsection.
+
+All eight cells reported below are descriptive rates under the single
+\texttt{frontier\_baseline} condition at strength 0.0. In the four benign cells,
+vetoes are essentially absent. Arabic benign records
+0 of 150 vetoes (0.00\% veto, 100.00\% non-veto), Hausa benign 0 of 150, and
+Yoruba benign 0 of 45; English benign records 3 of 150 (2.00\% veto, 98.00\%
+non-veto). In the four harmful cells, veto rates are substantially higher and
+vary by language: Arabic harmful 233 of 286 (81.47\% veto, 18.53\% non-veto),
+English harmful 178 of 291 (61.17\%, 38.83\%), Hausa harmful 214 of 289
+(74.05\%, 25.95\%), and Yoruba harmful 204 of 290 (70.34\%, 29.66\%). Each rate
+is stated against its own denominator, and the harmful denominators are 286,
+291, 289, and 290 respectively rather than 300; the shortfall relative to 300 is
+not a parsing or termination artefact. The canonical audit reports
+\texttt{parse\_failure\_n = 0} and \texttt{non\_termination\_n = 0} in all 8
+cells, so the harmful shortfall consists of absent records, not invalid ones,
+and no record is dropped here on validity grounds. We therefore report no
+missing-label imputation and no parse-failure count other than zero, and we do
+not rescale any cell to a 300-prompt denominator.
+
+The interpretation of these eight cells is bounded in several ways. They are
+descriptive: no hypothesis test, interval, or correction family is attached to
+them, and no statement in this subsection may be read as inferential. They are
+also non-comparative. In particular, the GPT-5 rates are not contrasted with the
+steered open-weight arms of Section~4, are not pooled with any other model
+entry, and are not used to rank models; the single \texttt{frontier\_baseline}
+condition at strength 0.0 supports no within-model effect estimate because there
+is no second arm to compare it against, and the between-language differences
+among the harmful cells are reported as observed rates only. A further data-hygiene
+constraint is binding: a separate 570-record file exists for this model. That
+file is an exact duplicate subset of the analysed records---570 shared IDs, 570
+matching language, harmfulness, and veto outcomes, and 1 parse error. It
+is not pooled with, appended to, or used to supplement the 1{,}651 valid
+unique-ID records reported above, and none of its counts enters any denominator
+here. Finally, the analysis identifies the model only by the string
+\texttt{openai/gpt-5}; no vendor snapshot or dated model version is recorded in
+the evidence base, so these rates describe the records collected under that
+configuration and are not claimed to characterise any particular vendor snapshot
+or any later or earlier revision of the system.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (5.1, p1 — research question and design: openai/gpt-5, Phase 1 records,
+%   configuration frontier_baseline at strength 0.0, single condition with no intervention
+%   arm, pairing not applicable, languages x {benign, harmful}, benign 150/150/150/45 and
+%   harmful 286/291/289/290 (not 300), 1,651 valid unique-ID records, 5 partial-coverage
+%   rows (4 harmful + Yoruba benign), outcome definitions veto = is_vetoed=true and
+%   non-veto operational failure = is_vetoed=false, cited artifacts and table label,
+%   canonical audit filename discrepancy, handoff and manifest, and the explicit statement
+%   that no test / CI / correction is defined or applied): G5-A
+% Paragraph 2 (5.1, p2 — opens with the explicit framing that all 8 reported cells are
+%   descriptive rates under the single frontier_baseline condition at strength 0.0; then
+%   per-cell descriptive rates, benign then harmful, each against its own denominator;
+%   explicit restatement that harmful denominators are 286/291/289/290 and not 300;
+%   canonical audit parse_failure_n = 0 and non_termination_n = 0 in all 8 cells; the
+%   harmful shortfall is absent records, not invalid ones; no imputation and no rescaling
+%   to 300): G5-A
+% Paragraph 3 (5.1, p3 — interpretation and limits: descriptive only, not inferential, not
+%   comparative, no pooling across models, no comparison to steered arms, no ranking, no
+%   within-model effect estimate from a single condition; the separate 570-record file,
+%   stated across two sentences (existence, then its status as an exact duplicate subset
+%   with 570 shared IDs, 570 matching language/harmfulness/veto outcome, 1 parse error)
+%   and the no-pooling constraint on it; and no vendor snapshot claim): G5-A
+```
+
+% ---- 5.2 Claude baseline ----
+```latex
+\subsection{Claude Sonnet 4 vs 5 cross-version comparison}
+
+The second closed-model baseline asks a different descriptive question: do veto
+outcomes differ between two versions of the same closed model when both are
+evaluated on shared Phase~1 prompts? The comparison covers Claude Sonnet~4 and
+Claude Sonnet~5 jointly; no standalone Sonnet~4 or Sonnet~5 analysis exists in
+the evidence base, and none is reported here. Both sides are Phase~1 records for
+two separate model versions, with \emph{no} steering condition on either side,
+so the model-version difference is the only contrast and there is no intervention
+arm. The cells are Arabic, English, Hausa, and Yoruba crossed with benign and
+harmful prompt classes. The outcome is veto status, defined as
+\texttt{is\_vetoed = true}. Benign denominators are 150/150/150/45 and harmful
+denominators are 300 in each language, over 1{,}695 shared prompt IDs, with 1
+partial-coverage row (Yoruba benign, 45 shared prompts). The comparison is
+prompt-matched on those shared IDs, and per-cell discordance counts are recorded
+alongside the marginal rates. The metadata consistency audit
+(\texttt{metrics/claude\_sonnet\_4\_vs\_5\_metadata\_consistency\_audit.csv},
+1 row) reports 1{,}695 records present in both versions, with language and
+harmfulness matching for all of them. Cell-level values are those recorded in
+\texttt{metrics/claude\_sonnet\_4\_vs\_5\_outcome\_comparison.csv} (8 rows) and
+displayed in
+\texttt{tables/claude\_sonnet\_4\_vs\_5\_descriptive\_comparison.tex}, with
+provenance in
+\texttt{handoffs/claude\_sonnet\_4\_vs\_5\_OPUS\_HANDOFF.md} and
+\texttt{manifests/claude\_sonnet\_4\_vs\_5\_artifact\_manifest.json}. The
+manifest additionally declares
+\texttt{claude\_sonnet\_4\_vs\_5\_paper\_table.csv} as the authoritative
+displayed table, but that file is not in the packet and is not cited as evidence
+here. No hypothesis test, no confidence interval, and no multiple-testing
+correction is defined for or applied to any cell in this subsection.
+Missing-label handling is not reported in the shipped CSVs, which contain no
+parse or missing columns, so we make no missing-label statement for either
+version.
+
+All eight cells below are descriptive prompt-matched rates, differences in
+percentage points, and agreement rates over shared prompt IDs. In all four
+benign cells the two versions are identical: Arabic benign (150 shared prompts),
+English benign (150), Hausa benign (150), and Yoruba benign (45 shared prompts)
+each record 0 vetoes under Sonnet~4 and 0 vetoes under Sonnet~5, with 100.00\%
+agreement in every cell. The four harmful cells, each with 300 shared prompts,
+differ in both magnitude and direction. Arabic harmful records 23 vetoes
+(7.67\%) under Sonnet~4 against 13 (4.33\%) under Sonnet~5, a difference of
+$-3.33$~pp, with 20 prompts vetoed only by Sonnet~4 and 10 vetoed only by
+Sonnet~5 and 90.00\% agreement. English harmful records 10 vetoes (3.33\%)
+against 0 (0.00\%), a difference of $-3.33$~pp, with 10 discordant prompts
+vetoed only by Sonnet~4 and 0 vetoed only by Sonnet~5, and 96.67\% agreement.
+The two remaining harmful cells move in the opposite direction: Hausa harmful
+records 2 vetoes (0.67\%) against 3 (1.00\%), a difference of $+0.33$~pp, with
+98.33\% agreement; and Yoruba harmful records 2 vetoes (0.67\%) against 9
+(3.00\%), a difference of $+2.33$~pp, with 96.33\% agreement. Over the full set
+of shared prompts, the handoff and manifest record an overall agreement of
+96.70\% of 1{,}695 records. We quote that figure as recorded and do not
+recompute or re-derive it from the eight cells.
+
+The reading of these eight cells is tightly bounded. They are descriptive: no
+test, interval, or correction family is attached to them, and no statement in
+this subsection may be read as inferential. They are also explicitly non-causal.
+The contrast is between two model versions rather than between two conditions of
+one model, so it is not a within-model steering effect and cannot be interpreted
+as one; nothing here identifies what produced the differences between Sonnet~4
+and Sonnet~5, and the version difference is not an intervention that we applied.
+Because the analysis carries no correction family of its own, the Qwen
+33-cell family and the Gemma three-cell family of Sections~4.2 and~4.3 are
+neither applied to nor reported for these cells, and no cell is described as
+significant or non-significant. Accordingly, no claim of a ``difference''
+between Sonnet~4 and Sonnet~5 is made beyond the observed descriptive rates and
+agreement figures reported above. The per-cell agreement rates and discordance
+counts are reported exactly as recorded, the overall agreement figure is taken
+from the handoff and manifest rather than aggregated from the cells, and the
+Yoruba benign row is reported against its 45 shared prompts rather than any
+larger nominal denominator. Finally, the two versions are identified only by the
+strings ``Claude Sonnet 4'' and ``Claude Sonnet 5''; no vendor API string or
+snapshot date is recorded in the evidence base, so these rates describe the
+records collected under those two version labels and are not claimed to
+characterise any particular vendor snapshot. As with the GPT-5 baseline, these
+rates are not pooled with, contrasted against, or used to rank any other model
+entry in this paper.
+
+% ---------------- SOURCE MAP ----------------
+% Paragraph 1 (5.2, p1 — research question and design: Claude Sonnet 4 and Claude Sonnet 5
+%   jointly with no standalone per-version analysis; Phase 1 shared prompts; two separate
+%   model versions with no steering condition on either side and no intervention arm;
+%   languages x {benign, harmful}; benign 150/150/150/45 and harmful 300 each over 1,695
+%   shared prompt IDs with 1 partial-coverage row (Yoruba benign, 45 shared prompts);
+%   prompt-matched pairing with per-cell discordance counts; outcome definition
+%   veto status = is_vetoed=true; metadata audit 1,695 records present in both with
+%   language and harmfulness matching for all; cited artifacts, table file, handoff and
+%   manifest; non-shipped paper_table.csv not cited as evidence; explicit statement that no
+%   test / CI / correction is defined or applied; missing-label handling not reported in the
+%   shipped CSVs (no parse/missing columns)): CS-A
+% Paragraph 2 (5.2, p2 — per-cell descriptive rates, benign then harmful: all four benign
+%   cells 0 vetoes in both versions with 100.00% agreement; Arabic harmful 23 (7.67%) vs
+%   13 (4.33%), delta -3.33 pp, discordant 20/10, agreement 90.00%; English harmful 10
+%   (3.33%) vs 0 (0.00%), delta -3.33 pp, discordant 10/0, agreement 96.67%; Hausa harmful
+%   2 (0.67%) vs 3 (1.00%), delta +0.33 pp, agreement 98.33%; Yoruba harmful 2 (0.67%) vs
+%   9 (3.00%), delta +2.33 pp, agreement 96.33%; overall agreement 96.70% of 1,695 stated
+%   in one sentence as quoted from the handoff/manifest, with the following sentence
+%   recording that the figure is not recomputed or re-derived from the eight cells): CS-A
+% Paragraph 3 (5.2, p3 — interpretation and limits: descriptive only, not inferential,
+%   explicitly non-causal, not a within-model steering effect; no application or reporting
+%   of the Qwen or Gemma Holm families and no significance statement; explicit statement
+%   that accordingly no claim of a "difference" between Sonnet 4 and Sonnet 5 is made
+%   beyond the observed descriptive rates and agreement figures; agreement rates and
+%   discordance counts reported as recorded; overall agreement not recomputed from cells;
+%   Yoruba benign reported against 45 shared prompts; no vendor API string or snapshot
+%   recorded; no pooling with or ranking against any other model entry): CS-A
+```
+
+% ---- 6 Additional analyses ----
+```latex
+\section{Additional analyses}
+
+The analyses in this section are \emph{exploratory} and \emph{secondary} to the
+pre-declared primary families reported in Sections~4 and~5. None of them reuses
+any primary claim identifier (\texttt{LL-A}, \texttt{LL-B}, \texttt{LL-C},
+\texttt{QW-A}, \texttt{QW-B}, \texttt{QW-C}, \texttt{GM-A}, \texttt{G5-A},
+\texttt{CS-A}, \texttt{GO-A}), and none of them belongs to, extends, or is
+corrected within the pre-declared Holm families for Llama, Qwen, Gemma, or
+GPT-OSS (\texttt{turbo\_alpha30\_role\_strength\_6\_tests},
+\texttt{qwen25\_72b\_primary\_33\_steered\_cells},
+\texttt{gemma\_phase1\_three\_cell\_family}, the four-comparison GPT-OSS harmful
+family, and the two four-comparison Llama harmful and benign families). No new
+correction family is declared here, no hypothesis test result reported in this
+section is treated as confirmatory, and no quantity from this section is pooled
+with, averaged over, or used to rank the model entries of Sections~4 and~5. The
+six subsections below are therefore descriptive or hypothesis-generating: they
+document what the shipped Addition artifacts contain, and they are intended to
+motivate future pre-registered designs rather than to support conclusions.
+Where the packet does not contain the artifacts a subsection would require, we
+say so and keep the subsection at a high level rather than reporting numbers
+from an unavailable source.
+
+\subsection{Cross-model comparison}
+
+The exploratory question here is whether the Addition analyses, taken one at a
+time, show the same qualitative picture in more than one model entry. The
+available coverage is uneven and asymmetric, so the answer is limited to a
+description of that coverage. Addition~1 covers
+\texttt{meta-llama/llama-3.3-70b-instruct} only, in Hausa, as an endpoint audit
+of an activation-patching artifact
+(\texttt{opus\_packet/metrics/addition1\_llama33\_hausa\_patching\_v3\_audit.csv};
+\texttt{opus\_packet/tables/addition1\_llama33\_hausa\_patching\_v3\_table.tex};
+\texttt{opus\_packet/handoffs/addition1\_llama33\_hausa\_patching\_v3\_OPUS\_HANDOFF.md};
+\texttt{opus\_packet/manifests/addition1\_llama33\_hausa\_patching\_v3\_artifact\_manifest.json}).
+That artifact contains 11 canonical rows with 11 unique base IDs, drawn from 1
+source path with 1 source SHA-256 value. The endpoint decision counts are: clean
+1 ALLOW and 10 VETO; corrupted 0 ALLOW and 11 VETO; patched 0 ALLOW and 11
+VETO. Recovery is defined only where the clean and corrupted endpoint decisions
+differ, which holds for exactly 1 of the 11 rows
+(\texttt{evaluable\_clean\_ne\_corrupted} $=1$); of that single evaluable row, 0
+recovered at the patched endpoint (\texttt{recovered\_patched\_eq\_clean} $=0$),
+giving \texttt{recovery\_rate\_among\_evaluable} $=0.0$, i.e.\ $0/1$. We report
+this as an observed endpoint outcome in this artifact with an explicit
+denominator of one; it is not a population recovery rate and it is not evidence
+of broad patching failure.
+
+Addition~3 is the only Addition artifact that touches two model entries. As
+documented in
+\texttt{opus\_packet/evidence/additions\_2\_3\_claim\_boundary\_audit.md}, it
+covers Hindi, Korean, and Swahili with 50 harmful and 50 benign prompts per
+language and 300 paired rows per model, storing a baseline and a steered
+decision for each row. The documented outcome is the harmful VETO rate, which is
+a \emph{different estimand} from the operational-failure and refusal outcomes of
+Sections~4 and~5 and is not comparable to them. For Llama the documented harmful
+VETO rates are Hindi 100.0\% baseline and 100.0\% steered, Korean 88.0\% and
+90.0\%, Swahili 94.0\% and 94.0\%, and overall 94.0\% and 94.7\%; for Qwen they
+are Hindi 86.0\% and 86.0\%, Korean 94.0\% and 92.0\%, Swahili 66.0\% and
+68.0\%, and overall 82.0\% and 82.0\%. On these three languages the changes are
+small and heterogeneous, with Llama near a harmful-VETO ceiling in this set and
+Qwen showing mixed language-specific changes. The remaining Additions add no
+cross-model contrast: Addition~5 is Llama-only and English-only, Addition~4 is
+an annotation-agreement study rather than a measure of model behaviour, and the
+Addition~6 artifacts record no model identifier anywhere, so Addition~6 cannot
+be attributed to a model entry here.
+
+The limitations are binding and jointly decisive. There is no correction family
+for any of these comparisons; Addition~3 provides no paired inferential test, no
+confidence interval, and no multiple-testing correction; the outcome definitions
+differ across Additions (endpoint ALLOW/VETO decisions, harmful VETO rate,
+jailbreak success, annotation agreement), so the artifacts are not on a common
+scale; Addition~3's Qwen arm has documented malformed outputs, especially in
+Swahili, whose counts are not provided, so its missing-label denominators are
+not established; and the raw Addition~3 result files are not shipped in the
+packet, so only the documented rates above can be quoted. Accordingly this
+subsection is descriptive and hypothesis-generating. We make no claim of
+cross-lingual improvement, no claim of recovery, no pooling across models, and
+no ranking of models.
+
+\subsection{Role specificity}
+
+The exploratory question is whether outcome patterns differed when the same
+historical steering direction was applied to different agent roles. Two sources
+speak to this, and both are limited. First, Addition~2 is retained as a
+\emph{retrospective} role-specificity analysis rather than a completed
+matched-control experiment
+(\texttt{opus\_packet/evidence/additions\_2\_3\_claim\_boundary\_audit.md};
+\texttt{paper\_artifacts/metrics/addition\_2\_status.md}). Its implementation
+aggregates archived Llama~3.3 Phase~2 Turbo results by configuration, strength,
+and language and prints Hausa veto rates for planner-only, critic-only, and
+both-role steering. Its intended derived output
+(\texttt{results/addition\_2\_matched\_controls/analysis.json}) and its
+historical input file are \emph{not} in the packet: there is no metrics CSV, no
+table, and no manifest for it, so Addition~2 contributes \emph{no citable
+number} here and this part of the subsection is necessarily kept at a high
+level. The most that the evidence supports is the recorded qualitative
+statement: retrospective analyses of the same steering direction across roles
+showed role-dependent outcome patterns, which is consistent with role
+sensitivity and supports treating intervention location as an empirical design
+variable.
+
+Second, the archived cross-phase display artifact
+(\texttt{opus\_packet/tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex})
+records six configuration $\times$ language cells (\texttt{planner\_only},
+\texttt{critic\_only}, \texttt{both} $\times$ Hausa, Yoruba), each with a matched
+$n$ of 300. The direction of the recorded change in harmful
+operational-failure rate is not the same in every configuration label: the
+\texttt{planner\_only} cells record $-37.7$~pp (Hausa) and $-19.3$~pp (Yoruba),
+the \texttt{critic\_only} cells record $+6.3$~pp and $+13.0$~pp, and the
+\texttt{both} cells record $-19.0$~pp and $+10.0$~pp. We report these as the
+change values printed for the configuration-labelled cells of an archived
+artifact and nothing more. In particular, we do not attach a role-specificity or
+mechanistic interpretation to this artifact: the comparison varies configuration
+label jointly with run phase and steering strength, so configuration is
+confounded with phase, and record-ID matching does not establish non-prompt
+run-condition equivalence. We also do not restate the baseline and Alpha-30
+percentage columns of that artifact, whose printed values are on an inconsistent
+scale (e.g.\ ``6633.3'' and ``4733.3'' in a column labelled per cent); only the
+change, interval, and matched-$n$ columns are quoted here, and the properly
+scoped version of this comparison, with its own pre-declared family, is the one
+described in Section~3 and is not re-asserted in this section. The key
+limitation is therefore twofold: the retrospective analysis has no shipped
+numeric artifact, and the cross-phase artifact cannot separate role from phase.
+This subsection is hypothesis-generating only; it is not confirmatory evidence
+of role specificity.
+
+\subsection{Vector specificity}
+
+The exploratory question is whether any of the observed outcome patterns can be
+attributed to the specific steering direction used, as opposed to generic
+perturbation of the activations. The packet does not contain artifacts that can
+answer this, and we state that plainly rather than reporting a proxy. The
+Addition~2 implementation loads a single historical refusal feature and
+aggregates archived outcomes; per
+\texttt{opus\_packet/evidence/additions\_2\_3\_claim\_boundary\_audit.md} it does
+\emph{not} generate a random direction, does \emph{not} run a same-session
+matched random-vector control, and does \emph{not} compare a real-vector
+intervention against a matched random-vector intervention. It therefore neither
+identifies nor rules out the generic-perturbation null. We accordingly make no
+claim that matched random-vector controls were run, no claim that generic
+perturbation was excluded, and no claim that the retrospective result
+demonstrates vector specificity. For the archived cross-phase artifact, the
+original steering-vector file is declared unavailable, so no direction-level
+comparison is possible there either.
+
+The one artifact in the packet that uses a random direction is Addition~5
+(\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_metrics.csv};
+\texttt{opus\_packet/tables/addition5\_adversarial\_robustness.tex};
+\texttt{opus\_packet/handoffs/addition5\_adversarial\_robustness\_OPUS\_HANDOFF.md}),
+but it is not a matched control for vector specificity: it applies a random
+steering vector (layer 52, strength 20) on a 50-prompt English jailbreak set
+with a different outcome (jailbreak success), records 0 of 50 successes in both
+the baseline and the steered condition, and contains no real-vector arm on the
+same prompts. Because there is no matched real-versus-random contrast anywhere
+in the packet, vector specificity is \emph{not established} by any analysis in
+this paper. The key limitation is the absence of the required artifact, not an
+inconclusive test. This subsection is hypothesis-generating: it identifies a
+same-session matched random-vector control on the same prompts and outcome
+definition as the design that would be needed, and it makes no confirmatory
+claim.
+
+\subsection{Combined versus individual interventions}
+
+The exploratory question is how cells labelled with the combined configuration
+compare with the two single-configuration cells in the same language. The only
+artifact in the packet that contains all three configuration labels is the
+archived cross-phase display artifact
+(\texttt{opus\_packet/tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex}),
+covering Hausa and Yoruba harmful prompts with a matched $n$ of 300 in each of
+its six cells. Taking the printed change column only, in Hausa the recorded
+changes are $-37.7$~pp for \texttt{planner\_only}, $+6.3$~pp for
+\texttt{critic\_only}, and $-19.0$~pp for \texttt{both}; in Yoruba they are
+$-19.3$~pp, $+13.0$~pp, and $+10.0$~pp respectively. In each of the two
+languages the \texttt{both} value lies numerically between the two
+single-configuration values. We report that as an arithmetic description of the
+printed numbers and draw no additivity, interaction, or dose-response inference
+from it: no interaction test was pre-declared or performed, the printed
+per-cell intervals are not intervals for differences between configurations, and
+no comparison across the three configuration labels was corrected in any
+family. The remaining Addition artifacts contribute no combined-versus-individual
+contrast: Addition~5 has a single random-vector condition
+(\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_metrics.csv})
+and Addition~4 is an annotation-agreement study
+(\texttt{opus\_packet/metrics/addition4\_judge\_calibration\_metrics.csv}), so
+neither contains a combined intervention arm.
+
+The key limitations are cross-phase confounding and scope. The configuration
+labels are compared across a phase boundary and at a single strength, so
+configuration, strength, and run phase vary together; the comparison covers two
+languages, one model entry, and harmful prompts only; no correction family
+covers the between-configuration contrast; and the percentage-level columns of
+the display artifact are on an inconsistent scale and are not quoted. This
+subsection is descriptive and hypothesis-generating, not confirmatory, and it
+supports no claim that combining interventions is better or worse than applying
+either one alone.
+
+\subsection{Cross-phase comparison}
+
+The exploratory question is what the archived Phase~1 versus Phase~2 ``Turbo''
+display artifact records. The data are Llama~3.3 harmful prompts in Hausa and
+Yoruba only, contrasting the Phase~1 main baseline against Phase~2 Turbo at
+$\alpha30$ under three configuration labels, with a matched $n$ of 300 in each
+of the six cells
+(\texttt{opus\_packet/tables/llama33\_turbo\_alpha30\_cross\_phase\_comparison.tex}).
+The printed changes in harmful operational-failure rate, with the printed 95\%
+intervals in percentage points, are: \texttt{both} Hausa $-19.0$
+$[-26.0, -12.0]$; \texttt{both} Yoruba $+10.0$ $[4.7, 15.3]$;
+\texttt{critic\_only} Hausa $+6.3$ $[0.7, 12.0]$; \texttt{critic\_only} Yoruba
+$+13.0$ $[8.7, 17.3]$; \texttt{planner\_only} Hausa $-37.7$ $[-44.3, -31.0]$;
+and \texttt{planner\_only} Yoruba $-19.3$ $[-24.7, -14.0]$. The artifact's
+``Reject?'' column reads ``Yes'' for all six cells; that column reflects the
+six-test correction family declared for the underlying analysis described in
+Section~3, and we neither re-declare it here nor treat any cell in this section
+as a confirmatory rejection. Two further display caveats apply: the baseline and
+Alpha-30 percentage columns of this artifact are printed on an inconsistent
+scale and are therefore not reported, and the harmful failure outcome used in
+this comparison folds undecided records into the failure numerator, as recorded
+in Section~3, so it is not interchangeable with the Phase~1 outcomes of
+Section~4.1.
+
+The key limitation is cross-phase confounding. Baseline and steered records come
+from two different run phases, and matching by record ID does not establish that
+non-prompt run conditions were equivalent between the phases; strength and
+configuration also differ from the Phase~1 primary contrast, and only two
+languages and one prompt class are covered. Consequently the differences above
+are associational descriptions of two archived record sets and cannot be read as
+effects of steering. This subsection is descriptive and hypothesis-generating;
+no causal, mechanistic, or deployment claim follows from it, and no primary
+claim identifier is asserted through it.
+
+\subsection{Secondary outcomes}
+
+Three Addition artifacts report outcomes that are secondary to the decision
+outcomes of Sections~4 and~5: annotation agreement (Addition~4), jailbreak
+success under a random steering vector (Addition~5), and a three-condition
+baseline comparison of harmful veto rate and benign false positives
+(Addition~6). Each is reported on its own terms, with its own denominators, and
+none is combined with any other.
+
+Addition~4 asks how consistently two independent annotators applied the binary
+compliance label. The data are 98 prompts, 14 per language in Arabic, English,
+Hausa, Hindi, Korean, Swahili, and Yoruba, each labelled by both annotators as
+YES (should comply) or NO (should refuse)
+(\texttt{opus\_packet/metrics/addition4\_judge\_calibration\_metrics.csv};
+\texttt{opus\_packet/metrics/addition4\_calibration\_paper\_table.csv};
+\texttt{opus\_packet/tables/addition4\_calibration\_agreement.tex};
+\texttt{opus\_packet/handoffs/addition4\_calibration\_OPUS\_HANDOFF.md}).
+Six of the seven languages---Arabic, English, Hausa, Hindi, Korean, and
+Swahili---record observed agreement of $1.0$ with Cohen's $\kappa = 1.0$ and a
+95\% interval of $[1.00, 1.00]$. Yoruba records observed agreement of $0.9286$
+(13 of 14) with $\kappa = 0.857$ and a 95\% interval of $[0.533, 1.00]$.
+Overall, observed agreement is $0.9898$ (97 of 98 prompts, i.e.\ a single
+disagreement) with $\kappa = 0.980$ and a 95\% interval of $[0.937, 1.00]$;
+annotator marginals are 46 YES and 52 NO for the first annotator and 47 YES and
+51 NO for the second, and every language meets the $\kappa \ge 0.60$ target. The
+single disagreement was resolved by blinded adjudication, with the adjudicator
+seeing only disagreement cases. We report $\kappa$ intervals in $\kappa$ units
+from the metrics CSV; the paper-table CSV and LaTeX display the same intervals
+multiplied by 100 without a unit label, and that display convention should not
+be read as a percentage. The key limitations are that the annotators were
+\emph{not} blinded to the original labels, which may have inflated agreement,
+and that the calibration set is small (98 prompts). This is a descriptive
+inter-rater reliability study: it measures annotation consistency, not model
+performance, it is not an intervention, and it does not generalise beyond these
+98 prompts.
+
+Addition~5 asks whether applying a steering vector was accompanied by any
+increase in jailbreak success on a bounded English attack set. The data are 50
+English jailbreak prompts for Llama-3.3-70B-Instruct across six attack families
+---\texttt{dan} ($n=8$), \texttt{developer} ($n=8$), \texttt{instruction}
+($n=8$), \texttt{other} ($n=10$), \texttt{roleplay} ($n=8$), and
+\texttt{translation} ($n=8$)---compared between a baseline condition and a
+\emph{random} steering vector at layer 52, strength 20
+(\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_metrics.csv};
+\texttt{opus\_packet/metrics/addition5\_adversarial\_robustness\_table.csv};
+\texttt{opus\_packet/tables/addition5\_adversarial\_robustness.tex};
+\texttt{opus\_packet/handoffs/addition5\_adversarial\_robustness\_OPUS\_HANDOFF.md}).
+Every family, and the overall row, records 0 baseline jailbreaks and 0 steered
+jailbreaks: baseline rate $0.0$, steered rate $0.0$, rate difference $0.0$, and
+0 discordant pairs, so the McNemar entry is recorded as not applicable. All 50
+prompts were evaluated as NEITHER. No evidence of increased vulnerability was
+detected on this set. The key limitations are that the outcome has zero events
+in both conditions, so no test is defined and the check has no power to detect
+small changes; that the steering vector was random rather than a refusal
+direction; and that all prompts are English. Accordingly this is a bounded
+descriptive check: it does not show that steering is safe, does not generalise
+beyond these 50 prompts or to untested attacks or to an actual refusal
+direction, and provides no multilingual robustness claim.
+
+Addition~6 asks how a prompt-filter baseline and a steering condition compare on
+one evaluation set, under one implementation and protocol. The data are 460
+prompts (400 harmful, 60 benign) across four languages, evaluated under three
+conditions---\texttt{no\_intervention}, \texttt{prompt\_filter}, and
+\texttt{planner\_steering\_l50\_s20\_historical\_all\_steps}
+(\texttt{opus\_packet/metrics/addition6\_prompt\_filter\_baseline\_metrics.csv};
+\texttt{opus\_packet/metrics/addition6\_prompt\_filter\_baseline\_table.csv};
+\texttt{opus\_packet/tables/addition6\_prompt\_filter\_baseline.tex};
+\texttt{opus\_packet/handoffs/addition6\_prompt\_filter\_baseline\_OPUS\_HANDOFF.md};
+\texttt{opus\_packet/manifests/addition6\_prompt\_filter\_baseline\_artifact\_manifest.json}).
+The recorded harmful veto rates are 210 of 400 ($52.5\%$) with no intervention,
+214 of 400 ($53.5\%$) under the prompt filter, and 230 of 400 ($57.5\%$) under
+steering; the recorded benign veto (false-positive) rates are 0 of 60 ($0.0\%$),
+0 of 60 ($0.0\%$), and 3 of 60 ($5.0\%$) respectively; the recorded missing-label
+counts are 4, 5, and 25. The steering condition thus records a harmful veto rate
+$5.0$~pp above the no-intervention condition and $4.0$~pp above the
+prompt-filter condition, together with three benign false positives and a
+substantially larger missing-label count. Both parts of that trade-off are
+reported here. The key limitations are that no test, interval, or
+multiple-testing correction is defined for this three-condition comparison; that
+the missing-label counts differ markedly across conditions (4, 5, and 25), so the
+condition denominators are not label-complete and the differences above are not
+adjusted for that asymmetry; that the outcome is a harmful veto rate rather than
+the operational-failure outcomes of Section~4 and is not comparable to them; and
+that the artifacts record no model identifier, so this comparison is not
+attributed to any model entry in this paper. It evaluates outcomes for this
+prompt set, this prompt-filter implementation, this steering configuration, and
+this evaluation protocol only, and it does not establish that steering is
+superior to prompt filtering in other models, languages, datasets, prompt
+distributions, or deployment settings. This subsection is descriptive and
+hypothesis-generating, not confirmatory.
+
+% ---------------- SOURCE MAP ----------------
+% All six subsections (6 — additional analyses): exploratory, not covered by
+% primary claim_ids (LL-A/B/C, QW-A/B/C, GM-A, G5-A, CS-A, GO-A), no Holm
+% family claimed across these comparisons.
+%
+% 6.0 intro paragraph — exploratory/secondary status; no primary claim_ids
+%   reused; no membership in the pre-declared Llama, Qwen, Gemma, or GPT-OSS
+%   Holm families; no new correction family; no pooling or ranking.
+% 6.1 Cross-model comparison — Addition 1:
+%   opus_packet/metrics/addition1_llama33_hausa_patching_v3_audit.csv,
+%   opus_packet/tables/addition1_llama33_hausa_patching_v3_table.tex,
+%   opus_packet/handoffs/addition1_llama33_hausa_patching_v3_OPUS_HANDOFF.md,
+%   opus_packet/manifests/addition1_llama33_hausa_patching_v3_artifact_manifest.json
+%   (11 canonical rows, 11 unique base IDs, 1 source path, 1 source SHA-256;
+%   clean 1 ALLOW / 10 VETO; corrupted 0/11; patched 0/11; evaluable = 1;
+%   recovered = 0; recovery rate among evaluable = 0.0);
+%   Addition 3: opus_packet/evidence/additions_2_3_claim_boundary_audit.md
+%   (Hindi/Korean/Swahili, 50 harmful + 50 benign per language, 300 paired rows
+%   per model, documented harmful VETO rates for Llama and Qwen); Addition 5 and
+%   Addition 6 coverage statements (Llama/English-only; no model identifier).
+%   Limitations: no correction family, no tests/CIs for Addition 3,
+%   outcome-definition heterogeneity, Qwen malformed outputs (counts not
+%   provided), raw Addition 3 result files not shipped.
+% 6.2 Role specificity — Addition 2:
+%   opus_packet/evidence/additions_2_3_claim_boundary_audit.md,
+%   paper_artifacts/metrics/addition_2_status.md (no citable number; intended
+%   analysis.json not in packet); archived cross-phase display artifact
+%   opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+%   (6 cells, matched n = 300, printed change column only). No role-specificity
+%   or mechanistic claim attached to the cross-phase artifact; inconsistent-scale
+%   percentage columns not quoted.
+% 6.3 Vector specificity — no supporting artifact in the packet; negative
+%   findings from opus_packet/evidence/additions_2_3_claim_boundary_audit.md
+%   (no random direction generated, no same-session matched random-vector
+%   control, generic-perturbation null neither identified nor ruled out) and
+%   Addition 5 artifacts (random vector, English-only, zero events) as an
+%   explicitly inadequate substitute; subsection kept at a high level.
+% 6.4 Combined versus individual interventions —
+%   opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+%   (Hausa: -37.7 / +6.3 / -19.0 pp; Yoruba: -19.3 / +13.0 / +10.0 pp; matched
+%   n = 300 per cell); Addition 4 and Addition 5 metrics cited only to record
+%   that they contain no combined intervention arm. Limitations: cross-phase
+%   confounding, joint variation of configuration/strength/phase, no interaction
+%   test, no correction family.
+% 6.5 Cross-phase comparison —
+%   opus_packet/tables/llama33_turbo_alpha30_cross_phase_comparison.tex
+%   (six cells, matched n = 300, printed changes and 95% intervals in pp,
+%   "Reject?" column noted as belonging to the family declared in Section 3 and
+%   not re-declared here; baseline and Alpha-30 percentage columns on an
+%   inconsistent scale and therefore not reported). Limitation: cross-phase
+%   confounding; associational only.
+% 6.6 Secondary outcomes — Addition 4:
+%   opus_packet/metrics/addition4_judge_calibration_metrics.csv,
+%   opus_packet/metrics/addition4_calibration_paper_table.csv,
+%   opus_packet/tables/addition4_calibration_agreement.tex,
+%   opus_packet/handoffs/addition4_calibration_OPUS_HANDOFF.md;
+%   Addition 5: opus_packet/metrics/addition5_adversarial_robustness_metrics.csv,
+%   opus_packet/metrics/addition5_adversarial_robustness_table.csv,
+%   opus_packet/tables/addition5_adversarial_robustness.tex,
+%   opus_packet/handoffs/addition5_adversarial_robustness_OPUS_HANDOFF.md;
+%   Addition 6: opus_packet/metrics/addition6_prompt_filter_baseline_metrics.csv,
+%   opus_packet/metrics/addition6_prompt_filter_baseline_table.csv,
+%   opus_packet/tables/addition6_prompt_filter_baseline.tex,
+%   opus_packet/handoffs/addition6_prompt_filter_baseline_OPUS_HANDOFF.md,
+%   opus_packet/manifests/addition6_prompt_filter_baseline_artifact_manifest.json.
+%   Limitations: annotators not blinded to original labels and small calibration
+%   set (Addition 4); zero-event outcome with no defined test, random vector, and
+%   English-only prompts (Addition 5); no test/correction, asymmetric
+%   missing-label counts (4/5/25), non-comparable outcome, and no model
+%   identifier (Addition 6).
+```

@@ -1,0 +1,159 @@
+{
+  "artifact_set": "gpt_oss_20b_planner_alpha1_primary_harmful_paired_results",
+  "artifacts": [
+    {
+      "bytes": 5045015,
+      "kind": "raw_result_jsonl",
+      "path": "data/raw/phase1/gpt_oss_20b/originals/gpt_oss_baseline_results.jsonl",
+      "sha256": "ea963beeec8ceadc3c8912ac8fcdda778efdf9cc7cb531b26484d540f52ebf9c"
+    },
+    {
+      "bytes": 5242880,
+      "kind": "raw_result_jsonl",
+      "path": "data/raw/phase1/gpt_oss_20b/originals/gpt_oss_steered_results (2).jsonl",
+      "sha256": "fb1d12feaf255d620c3735b3420ab7564dd264862c8b3b06bbf4fe22e90b7d32"
+    },
+    {
+      "bytes": 22349,
+      "kind": "canonical_parquet",
+      "path": "data/derived/canonical/gpt_oss_20b_phase1_baseline.parquet",
+      "sha256": "5ab4fe5b826f14f6b8b83ff7d4af4d1e5c60aabd6681d91d905605ce27c2d500"
+    },
+    {
+      "bytes": 22616,
+      "kind": "canonical_parquet",
+      "path": "data/derived/canonical/gpt_oss_20b_phase1_planner_only_alpha1.parquet",
+      "sha256": "2d9ca6f6f48494ab5088350e5ed1bfe734666edb216e2df1f48f42e398d2c642"
+    },
+    {
+      "bytes": 1115,
+      "kind": "provenance_or_audit",
+      "path": "registry/manifests/gpt_oss_20b_phase1_baseline.json",
+      "sha256": "2fccd9a50cd28fec4e7b4f6356c2592585b4bd289151c8cdf5dcfd8bfe7965bf"
+    },
+    {
+      "bytes": 1258,
+      "kind": "provenance_or_audit",
+      "path": "registry/manifests/gpt_oss_20b_phase1_planner_only_alpha1.json",
+      "sha256": "f964b9332e360d3080fd2f8cf52215f9ed0450fe8d8cb15d24d39de7268d7f37"
+    },
+    {
+      "bytes": 4971,
+      "kind": "provenance_or_audit",
+      "path": "registry/gpt_oss_decision_semantics_audit.json",
+      "sha256": "de6c212c6f91d46be9d24a31020d6a38584d4d7309049ade0e162ba7ac6945eb"
+    },
+    {
+      "bytes": 14229,
+      "kind": "provenance_or_audit",
+      "path": "registry/gpt_oss_parser_outcomes.json",
+      "sha256": "f04b5f5ddc824d2ca46e8593dd624f6815697f6a3eacf60f26a7cf1474be9912"
+    },
+    {
+      "bytes": 1065,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_phase1_baseline_by_language.csv",
+      "row_count": 8,
+      "sha256": "fbb95c26fb971911d8f83c63ab8952266472d50ee707e0d63d8dcc41f9a2198c"
+    },
+    {
+      "bytes": 796,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_phase1_baseline_bootstrap_ci.csv",
+      "row_count": 4,
+      "sha256": "4089f93fd418e8a327d18c12e2d99579c347e46bb870aacc598e7b9d102837e2"
+    },
+    {
+      "bytes": 772,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_paired_effect.csv",
+      "row_count": 4,
+      "sha256": "ae6fc59359936b5d8eef5cb88a884701c685de8061b8531039549f85de0debdc"
+    },
+    {
+      "bytes": 1396,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_paired_bootstrap_ci.csv",
+      "row_count": 4,
+      "sha256": "5b0a2127ca684952c921719317d19252e0acb89717825021abe03bcfe2506e78"
+    },
+    {
+      "bytes": 917,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_paired_effect_holm.csv",
+      "row_count": 4,
+      "sha256": "bba7951f252f587ced7954f6544464ed7580d7e0b90c38b587544100e978f7e6"
+    },
+    {
+      "bytes": 391,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_primary_canonical_audit.csv",
+      "row_count": 3,
+      "sha256": "e9502fcc47c321952325b4a321a13c617c7ad7cf8a5b0aed1cebbc1662b83577"
+    },
+    {
+      "bytes": 492,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_primary_harmful_paper_table.csv",
+      "row_count": 4,
+      "sha256": "4a6bdbddb532963fa7c06462fccc558ae2aa856869945562c2b2ef2be0d8436f"
+    },
+    {
+      "bytes": 886,
+      "kind": "latex_table",
+      "path": "paper_artifacts/tables/gpt_oss_20b_planner_alpha1_primary_harmful_results.tex",
+      "sha256": "a4a3e2e014c88dd3d2c71bde1b7cf73cb888a1fc40db69d6751cfd824c2d33ef"
+    },
+    {
+      "bytes": 21868,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/gpt_oss_20b_planner_alpha1_primary_harmful_effects.pdf",
+      "sha256": "d493a882c82085912cad75c31f02fecc51eae9e5e295bb9224fe0419a02b0ee6"
+    },
+    {
+      "bytes": 120536,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/gpt_oss_20b_planner_alpha1_primary_harmful_effects.png",
+      "sha256": "6a5b732c62edc8e3bf1fba7e6f6d824053abae1e9efc79932ab17359f5bb937a"
+    },
+    {
+      "bytes": 4209,
+      "kind": "provenance_or_audit",
+      "path": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_primary_harmful_opus_handoff.md",
+      "sha256": "9e3aca2c88a4b87219735c3de7fb02ca7b832178e9bf922711215a03d5abe103"
+    }
+  ],
+  "authoritative_figure_pdf": "paper_artifacts/figures/gpt_oss_20b_planner_alpha1_primary_harmful_effects.pdf",
+  "authoritative_latex_table": "paper_artifacts/tables/gpt_oss_20b_planner_alpha1_primary_harmful_results.tex",
+  "authoritative_paper_table": "paper_artifacts/metrics/gpt_oss_20b_planner_alpha1_primary_harmful_paper_table.csv",
+  "comparison_type": "Within-model prompt-matched intervention comparison: baseline versus planner-only steering at alpha 1.0.",
+  "coverage": {
+    "holm_significant_rows": 2,
+    "improvement_rows_negative_pp": 2,
+    "paired_harmful_prompt_n": 1200,
+    "paired_harmful_prompt_n_per_language": 300,
+    "paper_table_rows": 4,
+    "partial_coverage_rows": 0,
+    "worsening_rows_positive_pp": 1
+  },
+  "created_utc": "2026-09-08T20:22:09.453614+00:00",
+  "inference": {
+    "bootstrap": "Paired bootstrap intervals are retained as a separate metric artifact.",
+    "correction_family": "four language-specific harmful comparisons",
+    "correction_family_size": 4,
+    "multiple_testing": "Holm adjustment",
+    "test": "Exact paired McNemar test"
+  },
+  "interpretation_constraints": [
+    "Primary table includes harmful prompts only.",
+    "Primary table includes planner-only steering at alpha 1.0 only.",
+    "All four displayed language rows have complete prompt-matched coverage.",
+    "Negative percentage-point differences indicate fewer operational failures under steering.",
+    "The result is mixed by language: improvements and worsening must both be reported.",
+    "Report Holm-adjusted inference for language-specific significance claims.",
+    "Describe this as a within-model prompt-matched intervention comparison; do not make an unsupported causal-identification claim."
+  ],
+  "model_identifier": "openai/gpt-oss-20b",
+  "outcome_definition": "Operational failure follows the registered GPT-OSS decision semantics and parser-outcome audits.",
+  "primary_scope": "Harmful prompts only: Arabic, English, Hausa, and Yoruba; 300 matched prompts per language."
+}

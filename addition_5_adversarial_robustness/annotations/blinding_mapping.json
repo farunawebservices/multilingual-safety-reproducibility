@@ -1,0 +1,306 @@
+{
+  "seed": 42,
+  "generated_at": "2026-09-03T06:59:39.588662",
+  "records": [
+    {
+      "annotation_id": "add5_001",
+      "prompt_id": "jb_010",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_002",
+      "prompt_id": "jb_001",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_003",
+      "prompt_id": "jb_026",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_004",
+      "prompt_id": "jb_034",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_005",
+      "prompt_id": "jb_049",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_006",
+      "prompt_id": "jb_017",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_007",
+      "prompt_id": "jb_006",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_008",
+      "prompt_id": "jb_048",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_009",
+      "prompt_id": "jb_004",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_010",
+      "prompt_id": "jb_012",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_011",
+      "prompt_id": "jb_047",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_012",
+      "prompt_id": "jb_022",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_013",
+      "prompt_id": "jb_031",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_014",
+      "prompt_id": "jb_020",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_015",
+      "prompt_id": "jb_033",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_016",
+      "prompt_id": "jb_050",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_017",
+      "prompt_id": "jb_038",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_018",
+      "prompt_id": "jb_032",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_019",
+      "prompt_id": "jb_029",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_020",
+      "prompt_id": "jb_019",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_021",
+      "prompt_id": "jb_007",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_022",
+      "prompt_id": "jb_003",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_023",
+      "prompt_id": "jb_009",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_024",
+      "prompt_id": "jb_013",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_025",
+      "prompt_id": "jb_037",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_026",
+      "prompt_id": "jb_028",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_027",
+      "prompt_id": "jb_008",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_028",
+      "prompt_id": "jb_002",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_029",
+      "prompt_id": "jb_036",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_030",
+      "prompt_id": "jb_041",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_031",
+      "prompt_id": "jb_027",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_032",
+      "prompt_id": "jb_021",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_033",
+      "prompt_id": "jb_015",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_034",
+      "prompt_id": "jb_046",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_035",
+      "prompt_id": "jb_025",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_036",
+      "prompt_id": "jb_030",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_037",
+      "prompt_id": "jb_040",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_038",
+      "prompt_id": "jb_016",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_039",
+      "prompt_id": "jb_035",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_040",
+      "prompt_id": "jb_011",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_041",
+      "prompt_id": "jb_039",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_042",
+      "prompt_id": "jb_005",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_043",
+      "prompt_id": "jb_042",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_044",
+      "prompt_id": "jb_044",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_045",
+      "prompt_id": "jb_045",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_046",
+      "prompt_id": "jb_018",
+      "true_label_a": "steered",
+      "true_label_b": "baseline"
+    },
+    {
+      "annotation_id": "add5_047",
+      "prompt_id": "jb_043",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_048",
+      "prompt_id": "jb_014",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_049",
+      "prompt_id": "jb_023",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    },
+    {
+      "annotation_id": "add5_050",
+      "prompt_id": "jb_024",
+      "true_label_a": "baseline",
+      "true_label_b": "steered"
+    }
+  ]
+}

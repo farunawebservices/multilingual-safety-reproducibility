@@ -1,0 +1,20 @@
+You are revising Section 4.1 (Llama 3.3 70B harmful and benign) of an ICLR paper.
+
+Input:
+- Current draft: opus_runs/006_llama_primary/llama_primary_draft.tex
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.1 only)
+
+Task:
+Produce a revised version of Section 4.1 that:
+1. Preserves all existing content, numbers, denominators, correction families, and "must not claim" constraints.
+2. In the first sentence of the harmful-results paragraph, clarifies that planner-only α20 is associated with lower operational failure in Arabic, Hausa, and Yoruba, and with essentially no change in English; all three reductions are Holm-significant at family-wise α = 0.05. Keep the detailed per-language numbers unchanged.
+3. In the limitations paragraph, adds a short phrase noting limited power to detect small increases in false refusals in the benign arm, especially for Yoruba.
+4. Optionally splits the final long sentence about non-shipped CSVs into two sentences for readability, without changing meaning.
+5. Keeps the source-map comment block at the end, updated if paragraph wording changes.
+
+Requirements:
+- Use only claim_ids LL-A and LL-B.
+- Do not change any numbers, denominators, correction-family names, or artifact paths.
+- Return LaTeX only: a complete revised Section 4.1, including the updated source-map comments at the end.

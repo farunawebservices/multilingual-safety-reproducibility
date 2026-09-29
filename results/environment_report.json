@@ -1,0 +1,121 @@
+{
+  "config": {
+    "no_network": false
+  },
+  "config_hash": "9629d7351473d3a178ee92b1a9f3d06d07d444db3b00ec4f3c911b6d13ea3800",
+  "credentials": {
+    "hf_token_env_set": true,
+    "markers_used": [
+      "KEY",
+      "TOKEN",
+      "SECRET",
+      "PASSWORD",
+      "CREDENTIAL",
+      "AUTH",
+      "COOKIE"
+    ],
+    "n_secret_env_names": 8,
+    "note": "Names only. No credential value is read, logged, or hashed (CLAUDE.md §7).",
+    "secret_env_names_present": [
+      "ANTHROPIC_API_KEY",
+      "ANTHROPIC_AUTH_TOKEN",
+      "CONTAINER_API_KEY",
+      "HF_TOKEN",
+      "JUPYTER_TOKEN",
+      "OPENROUTER_API_KEY",
+      "OPEN_BUTTON_TOKEN",
+      "SSH_PUBLIC_KEY"
+    ]
+  },
+  "deterministic_digest": "82cfba85292a6761611db51745dc15eb44653466c7ee1ad7caf050687115b3e2",
+  "directories": [
+    {
+      "exists": true,
+      "path": "data/raw",
+      "writable": true
+    },
+    {
+      "exists": true,
+      "path": "data/interim",
+      "writable": true
+    },
+    {
+      "exists": true,
+      "path": "data/processed",
+      "writable": true
+    },
+    {
+      "exists": true,
+      "path": "data/manifests",
+      "writable": true
+    },
+    {
+      "exists": true,
+      "path": "results",
+      "writable": true
+    }
+  ],
+  "failures": [],
+  "generated_at": "2026-08-16T16:19:14.160911+00:00",
+  "git_branch": "main",
+  "git_commit": "9d5cf5a9a06d5af6c8ecc35db93129c74451cb28",
+  "git_dirty": true,
+  "network": {
+    "github_api": {
+      "error": null,
+      "reachable": true,
+      "status": 200,
+      "url": "https://api.github.com/repos/centerforaisafety/HarmBench"
+    },
+    "github_raw": {
+      "error": null,
+      "reachable": true,
+      "status": 200,
+      "url": "https://raw.githubusercontent.com/centerforaisafety/HarmBench/main/README.md"
+    },
+    "huggingface_api": {
+      "error": null,
+      "reachable": true,
+      "status": 200,
+      "url": "https://huggingface.co/api/datasets/JailbreakBench/JBB-Behaviors"
+    }
+  },
+  "ok": true,
+  "packages": {
+    "optional": {
+      "jailbreakbench": null,
+      "pyarrow": "25.0.1",
+      "pytest": "9.1.1",
+      "ruff": "0.16.3"
+    },
+    "required": {
+      "datasets": "5.0.1",
+      "huggingface_hub": "1.27.0",
+      "jsonschema": "4.26.0",
+      "pandas": "3.0.5",
+      "pyyaml": "6.0.3",
+      "requests": "2.34.2"
+    }
+  },
+  "platform": {
+    "machine": "x86_64",
+    "release": "5.4.0-216-generic",
+    "system": "Linux"
+  },
+  "python": {
+    "executable": "/workspace/multilingual-multiagent-safety/.venv/bin/python",
+    "implementation": "CPython",
+    "in_virtualenv": true,
+    "version": "3.12.3"
+  },
+  "run_id": "run_20260816T161914Z_27044c47",
+  "stage": "stage0.0_check_environment",
+  "tool_version": "0.0.1",
+  "tools": {
+    "curl": true,
+    "git": true
+  },
+  "warnings": [
+    "git tree is dirty; the commit alone will not reproduce this run"
+  ]
+}

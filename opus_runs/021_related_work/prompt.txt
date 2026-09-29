@@ -1,0 +1,49 @@
+You are drafting the Related Work section of an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md
+- Assembled results + discussion:
+  - paper_sections/assembled/results_chapter_inlined.tex (Sections 4–6)
+  - paper_sections/07_discussion_opening.tex
+
+Task:
+Write a Related Work section (3–5 subsections) that situates this paper in the
+literature on:
+1. Steering / activation engineering for LLMs
+2. Agentic / multi-agent systems and tool use
+3. Multilingual safety and evaluation
+4. Evaluation methodology (correction families, paired tests, robustness checks)
+
+Requirements:
+- Cite real, verifiable papers only (no invented citations).
+- Use a consistent citation style (e.g. author-year or numbered); we will convert
+  to BibTeX later.
+- Make clear what is novel here:
+  - multilingual, multi-agent, multi-model evaluation of planner-targeted steering,
+  - disjoint Holm families per model,
+  - explicit handling of partial coverage and missing-label issues,
+  - exploratory Additions 1–6 (causal patching, calibration, adversarial, etc.).
+- Keep the tone critical and precise: note gaps this paper fills and what remains
+  open.
+- Return LaTeX only: a \section{Related Work} with 3–5 \subsection{} blocks,
+  plus a one-line source map at the end.
+
+Structure:
+\section{Related Work}
+
+\subsection{Steering and activation engineering}
+...
+
+\subsection{Agentic systems and tool use}
+...
+
+\subsection{Multilingual safety and evaluation}
+...
+
+\subsection{Evaluation methodology and correction families}
+...
+
+% ---------------- SOURCE MAP ----------------
+% Related Work: situates this paper in prior literature; no new empirical claims.

@@ -1,0 +1,41 @@
+{
+  "adapter": "analysis/adapters/llama_main.py",
+  "created_utc": "2026-09-08T11:37:55.112847+00:00",
+  "source_file": "artifacts/prior_llama33_phase2/results/baseline_completed_backup (1).jsonl",
+  "source_sha256": "201521b61fbdf3935b9123154ea2430bcf8ac36008c64142dd4517828281a1cd",
+  "source_valid_records": 8154,
+  "source_invalid_or_nonobject_line_numbers": [],
+  "parser": {
+    "veto_regex": "FINAL_DECISION\\s*:\\s*VETO\\b",
+    "allow_regex": "FINAL_DECISION\\s*:\\s*ALLOW\\b",
+    "precedence": "BOTH_LABELS when both patterns match"
+  },
+  "output_file": "data/derived/canonical/llama33_phase1_main.parquet",
+  "canonical_columns": [
+    "run_id",
+    "phase",
+    "model",
+    "model_family",
+    "access",
+    "source_file",
+    "source_sha256",
+    "source_line",
+    "raw_row_pointer",
+    "record_id",
+    "language",
+    "prompt_class",
+    "config",
+    "intervention_target",
+    "layer",
+    "alpha",
+    "parser_outcome",
+    "parse_status",
+    "legacy_is_vetoed",
+    "legacy_final_decision",
+    "legacy_operational_failure",
+    "operational_failure",
+    "true_positive_refusal_raw",
+    "false_positive_refusal_raw",
+    "termination_status"
+  ]
+}

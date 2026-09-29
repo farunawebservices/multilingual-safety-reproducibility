@@ -1,0 +1,7 @@
+source_file_group,baseline_config,steered_config,alpha,correction_family,correction_family_size,cell_n,language_n,prompt_class_n,paired_record_n_total,baseline_only_record_n_total,steered_only_record_n_total,partial_baseline_coverage_cell_n,steered_ids_not_subset_cell_n,expected_full_grid_cell_n,has_full_language_prompt_grid,complete_pairing_coverage
+critic_and_both_steered,baseline,both,1.0,qwen25_72b_primary_33_steered_cells,33,4,2,2,795,0,0,0,0,4,true,true
+critic_and_both_steered,baseline,both,2.0,qwen25_72b_primary_33_steered_cells,33,4,2,2,655,140,0,1,0,4,true,false
+critic_and_both_steered,baseline,critic_only,1.0,qwen25_72b_primary_33_steered_cells,33,5,3,2,801,144,0,1,0,6,false,false
+critic_and_both_steered,baseline,critic_only,2.0,qwen25_72b_primary_33_steered_cells,33,4,2,2,795,0,0,0,0,4,true,true
+planner_steered,baseline,planner_only,1.0,qwen25_72b_primary_33_steered_cells,33,8,4,2,1695,0,0,0,0,8,true,true
+planner_steered,baseline,planner_only,2.0,qwen25_72b_primary_33_steered_cells,33,8,4,2,1568,127,0,1,0,8,true,false

@@ -1,0 +1,139 @@
+{
+  "source_path": "data/raw/phase1/unclassified/originals/gpt_5_partial_or_unknown_570_rows.jsonl",
+  "total_lines": 571,
+  "parsed_rows": 570,
+  "invalid_rows": 1,
+  "top_level_keys": [
+    "composite_run_id",
+    "config",
+    "critic_response",
+    "harmfulness",
+    "id",
+    "is_vetoed",
+    "language",
+    "model",
+    "planner_response",
+    "strength",
+    "tool_response"
+  ],
+  "types_by_key": {
+    "composite_run_id": {
+      "str": 570
+    },
+    "model": {
+      "str": 570
+    },
+    "strength": {
+      "float": 570
+    },
+    "config": {
+      "str": 570
+    },
+    "id": {
+      "str": 570
+    },
+    "language": {
+      "str": 570
+    },
+    "harmfulness": {
+      "str": 570
+    },
+    "planner_response": {
+      "str": 570
+    },
+    "tool_response": {
+      "str": 570
+    },
+    "critic_response": {
+      "str": 570
+    },
+    "is_vetoed": {
+      "bool": 570
+    }
+  },
+  "nested_keys_by_parent": {},
+  "candidate_field_values": {
+    "composite_run_id": {
+      "openai/gpt-5_ar_benign_001_critic": 1,
+      "openai/gpt-5_ar_benign_002_critic": 1,
+      "openai/gpt-5_ar_benign_003_critic": 1,
+      "openai/gpt-5_ar_benign_004_critic": 1,
+      "openai/gpt-5_ar_benign_005_critic": 1,
+      "openai/gpt-5_ar_benign_006_critic": 1,
+      "openai/gpt-5_ar_benign_007_critic": 1,
+      "openai/gpt-5_ar_benign_008_critic": 1,
+      "openai/gpt-5_ar_benign_009_critic": 1,
+      "openai/gpt-5_ar_benign_010_critic": 1,
+      "openai/gpt-5_ar_benign_011_critic": 1,
+      "openai/gpt-5_ar_benign_012_critic": 1,
+      "openai/gpt-5_ar_benign_013_critic": 1,
+      "openai/gpt-5_ar_benign_014_critic": 1,
+      "openai/gpt-5_ar_benign_015_critic": 1,
+      "openai/gpt-5_ar_benign_016_critic": 1,
+      "openai/gpt-5_ar_benign_017_critic": 1,
+      "openai/gpt-5_ar_benign_018_critic": 1,
+      "openai/gpt-5_ar_benign_019_critic": 1,
+      "openai/gpt-5_ar_benign_020_critic": 1,
+      "openai/gpt-5_ar_benign_021_critic": 1,
+      "openai/gpt-5_ar_benign_022_critic": 1,
+      "openai/gpt-5_ar_benign_023_critic": 1,
+      "openai/gpt-5_ar_benign_024_critic": 1,
+      "openai/gpt-5_ar_benign_025_critic": 1,
+      "openai/gpt-5_ar_benign_026_critic": 1,
+      "openai/gpt-5_ar_benign_027_critic": 1,
+      "openai/gpt-5_ar_benign_028_critic": 1,
+      "openai/gpt-5_ar_benign_029_critic": 1,
+      "openai/gpt-5_ar_benign_030_critic": 1
+    },
+    "model": {
+      "openai/gpt-5": 570
+    },
+    "strength": {
+      "0.0": 570
+    },
+    "id": {
+      "ar_benign_001_critic": 1,
+      "ar_benign_002_critic": 1,
+      "ar_benign_003_critic": 1,
+      "ar_benign_004_critic": 1,
+      "ar_benign_005_critic": 1,
+      "ar_benign_006_critic": 1,
+      "ar_benign_007_critic": 1,
+      "ar_benign_008_critic": 1,
+      "ar_benign_009_critic": 1,
+      "ar_benign_010_critic": 1,
+      "ar_benign_011_critic": 1,
+      "ar_benign_012_critic": 1,
+      "ar_benign_013_critic": 1,
+      "ar_benign_014_critic": 1,
+      "ar_benign_015_critic": 1,
+      "ar_benign_016_critic": 1,
+      "ar_benign_017_critic": 1,
+      "ar_benign_018_critic": 1,
+      "ar_benign_019_critic": 1,
+      "ar_benign_020_critic": 1,
+      "ar_benign_021_critic": 1,
+      "ar_benign_022_critic": 1,
+      "ar_benign_023_critic": 1,
+      "ar_benign_024_critic": 1,
+      "ar_benign_025_critic": 1,
+      "ar_benign_026_critic": 1,
+      "ar_benign_027_critic": 1,
+      "ar_benign_028_critic": 1,
+      "ar_benign_029_critic": 1,
+      "ar_benign_030_critic": 1
+    },
+    "language": {
+      "Arabic": 436,
+      "English": 134
+    },
+    "harmfulness": {
+      "harmful": 286,
+      "benign": 284
+    },
+    "is_vetoed": {
+      "False": 335,
+      "True": 235
+    }
+  }
+}

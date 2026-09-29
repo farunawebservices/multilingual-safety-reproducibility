@@ -1,0 +1,33 @@
+%TL;DR: Activation steering in a multi-agent safety pipeline is not a single intervention: its effect depends on role, language, strength, and the decision interface.
+\section{Introduction}
+Large language models are increasingly embedded in systems that decompose a user request into plans, tool actions, and safety decisions. Such pipelines create multiple intervention sites, but most evaluations report a single model-level safety score and therefore obscure whether an intervention helps upstream planning, downstream critique, or both.
+
+%TL;DR: Multilingual evaluation makes this problem harder because safety behavior varies sharply across languages.
+Multilingual safety evaluation adds a second source of heterogeneity. A model can reject a harmful request in English while producing an actionable plan in a lower-resource language, and an intervention that increases refusal behavior in one language may instead increase invalid or unresolved outputs in another. These effects are difficult to interpret when explicit refusals, explicit approvals, and parser failures are collapsed into one binary label.
+
+%TL;DR: We study whether the location of activation steering changes multilingual safety outcomes.
+We study activation steering in a Planner--Tool-Caller--Critic pipeline. The Planner receives the original request and produces a plan, the Tool-Caller converts the plan into tool actions, and the Critic emits a structured VETO or ALLOW decision. We compare Planner-only, Critic-only, and joint steering and evaluate both the aggregate operational-failure rate and its decision composition.
+
+%TL;DR: The paper uses prompt-matched inference and separates confirmatory primary analyses from cross-phase role-strength analyses.
+Our evaluation separates within-model primary comparisons from a secondary cross-phase role-strength analysis. Primary comparisons use exact prompt matching, paired McNemar tests, paired bootstrap intervals, and predeclared Holm correction families. The role-strength analysis matches record identifiers across phases, but we report it as a condition contrast rather than a causal estimate because phase and intervention change together.
+
+%TL;DR: The main result is a sharp role-by-language interaction in Llama 3.3 70B.
+The central result is a role- and language-dependent interaction. In the cross-phase Llama analysis at alpha 30, Planner-only steering reduced harmful operational failure by 37.7 percentage points in Hausa and 19.3 points in Yoruba. Critic-only steering increased failure by 6.3 and 13.0 points, while joint steering reduced failure by 19.0 points in Hausa and increased it by 10.0 points in Yoruba.
+
+%TL;DR: Cross-model primary analyses show that the effect does not transfer uniformly.
+The primary cross-model analyses reinforce this conditional picture. Planner-only steering significantly reduced Qwen 2.5 72B harmful operational failure in Arabic and English, but the Hausa and Yoruba changes did not survive the predeclared 33-cell Holm correction. Llama, Gemma, and GPT-OSS also showed model- and language-specific patterns rather than a uniform intervention effect.
+
+%TL;DR: Decision composition reveals that aggregate safety rates can conceal interface instability.
+The role-strength results are partly explained by changes in the decision interface. Critic-only alpha 20 produced no-decision outputs for 298 of 300 Yoruba harmful prompts, whereas Planner-only alpha 30 produced explicit VETO decisions for 208 of 300 Hausa prompts. We therefore treat no-decision outputs as a first-class outcome rather than interpreting every operational failure as an explicit approval.
+
+%TL;DR: The paper contributes an empirical evaluation protocol rather than a causal mechanistic explanation.
+This paper makes four contributions:
+\begin{itemize}
+    \item We formulate a role- and language-level evaluation of activation steering in a multilingual Planner--Tool-Caller--Critic pipeline, with explicit separation of VETO, ALLOW, and no-decision outputs.
+    \item We provide prompt-matched primary analyses across Llama 3.3 70B, Qwen 2.5 72B, Gemma 4 31B, and GPT-OSS 20B using paired inference, bootstrap intervals, and predeclared multiple-testing correction.
+    \item We show that a cross-phase Llama role-strength contrast has opposite directions for Planner-only and Critic-only steering and language-dependent effects for joint steering.
+    \item We provide decision-composition and secondary audit analyses that identify interface-validity trade-offs and delimit what the experiments do not establish about causality or mechanism.
+\end{itemize}
+
+%TL;DR: We organize the remainder of the paper around the evaluation questions and evidence tiers.
+The remainder of the paper introduces the pipeline and estimands, describes the primary and secondary experimental protocols, reports the role-strength and cross-model results, and discusses limitations and implications for multilingual safety evaluation.

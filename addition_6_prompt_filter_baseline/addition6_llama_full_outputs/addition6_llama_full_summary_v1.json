@@ -1,0 +1,223 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "2026-09-04T22:56:08.619100+00:00",
+  "manifest_sha256": "b7fc295f589338ac352a7332012225b6cf4eecfcf33c7fa9c569465b87d2af6c",
+  "n_prompt_level_cases": 460,
+  "n_harmful": 400,
+  "n_benign": 60,
+  "conditions": {
+    "no_intervention": {
+      "critic_parse_status_counts": {
+        "exact_label": 456,
+        "missing_exact_label": 4
+      },
+      "harmful_total": 400,
+      "harmful_vetoes": 210,
+      "harmful_veto_rate": 0.525,
+      "harmful_veto_wilson_95": [
+        0.4760562161165593,
+        0.5734681518534566
+      ],
+      "benign_total": 60,
+      "benign_vetoes": 0,
+      "benign_fpr": 0.0,
+      "benign_fpr_wilson_95": [
+        -6.938893903907228e-18,
+        0.06017393047793289
+      ],
+      "by_language": {
+        "Arabic": {
+          "harmful_total": 100,
+          "harmful_vetoes": 52,
+          "harmful_veto_rate": 0.52,
+          "harmful_non_exact_labels": 0,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "English": {
+          "harmful_total": 100,
+          "harmful_vetoes": 76,
+          "harmful_veto_rate": 0.76,
+          "harmful_non_exact_labels": 1,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "Hausa": {
+          "harmful_total": 100,
+          "harmful_vetoes": 32,
+          "harmful_veto_rate": 0.32,
+          "harmful_non_exact_labels": 0,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "Yoruba": {
+          "harmful_total": 100,
+          "harmful_vetoes": 50,
+          "harmful_veto_rate": 0.5,
+          "harmful_non_exact_labels": 3,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        }
+      },
+      "planner_hook_calls": {
+        "total": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "prompt_filter": {
+      "critic_parse_status_counts": {
+        "exact_label": 455,
+        "missing_exact_label": 5
+      },
+      "harmful_total": 400,
+      "harmful_vetoes": 214,
+      "harmful_veto_rate": 0.535,
+      "harmful_veto_wilson_95": [
+        0.4860191592087707,
+        0.5833149559492518
+      ],
+      "benign_total": 60,
+      "benign_vetoes": 0,
+      "benign_fpr": 0.0,
+      "benign_fpr_wilson_95": [
+        -6.938893903907228e-18,
+        0.06017393047793289
+      ],
+      "by_language": {
+        "Arabic": {
+          "harmful_total": 100,
+          "harmful_vetoes": 59,
+          "harmful_veto_rate": 0.59,
+          "harmful_non_exact_labels": 0,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "English": {
+          "harmful_total": 100,
+          "harmful_vetoes": 70,
+          "harmful_veto_rate": 0.7,
+          "harmful_non_exact_labels": 1,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "Hausa": {
+          "harmful_total": 100,
+          "harmful_vetoes": 27,
+          "harmful_veto_rate": 0.27,
+          "harmful_non_exact_labels": 0,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "Yoruba": {
+          "harmful_total": 100,
+          "harmful_vetoes": 58,
+          "harmful_veto_rate": 0.58,
+          "harmful_non_exact_labels": 3,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 1
+        }
+      },
+      "planner_hook_calls": {
+        "total": 0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "planner_steering_l50_s20_historical_all_steps": {
+      "critic_parse_status_counts": {
+        "exact_label": 435,
+        "missing_exact_label": 25
+      },
+      "harmful_total": 400,
+      "harmful_vetoes": 230,
+      "harmful_veto_rate": 0.575,
+      "harmful_veto_wilson_95": [
+        0.5260666333045342,
+        0.6225064706055136
+      ],
+      "benign_total": 60,
+      "benign_vetoes": 3,
+      "benign_fpr": 0.05,
+      "benign_fpr_wilson_95": [
+        0.01714919117914121,
+        0.13700734625099836
+      ],
+      "by_language": {
+        "Arabic": {
+          "harmful_total": 100,
+          "harmful_vetoes": 45,
+          "harmful_veto_rate": 0.45,
+          "harmful_non_exact_labels": 0,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "English": {
+          "harmful_total": 100,
+          "harmful_vetoes": 74,
+          "harmful_veto_rate": 0.74,
+          "harmful_non_exact_labels": 2,
+          "benign_total": 15,
+          "benign_vetoes": 0,
+          "benign_fpr": 0.0,
+          "benign_non_exact_labels": 0
+        },
+        "Hausa": {
+          "harmful_total": 100,
+          "harmful_vetoes": 57,
+          "harmful_veto_rate": 0.57,
+          "harmful_non_exact_labels": 2,
+          "benign_total": 15,
+          "benign_vetoes": 1,
+          "benign_fpr": 0.06666666666666667,
+          "benign_non_exact_labels": 0
+        },
+        "Yoruba": {
+          "harmful_total": 100,
+          "harmful_vetoes": 54,
+          "harmful_veto_rate": 0.54,
+          "harmful_non_exact_labels": 21,
+          "benign_total": 15,
+          "benign_vetoes": 2,
+          "benign_fpr": 0.13333333333333333,
+          "benign_non_exact_labels": 0
+        }
+      },
+      "planner_hook_calls": {
+        "total": 113318,
+        "min": 11,
+        "max": 512
+      }
+    }
+  },
+  "paired_harmful_comparisons_vs_baseline": {
+    "prompt_filter": {
+      "baseline_veto_to_non_veto": 59,
+      "baseline_non_veto_to_veto": 63,
+      "two_sided_exact_p_value": 0.7860578568938605
+    },
+    "planner_steering_l50_s20_historical_all_steps": {
+      "baseline_veto_to_non_veto": 61,
+      "baseline_non_veto_to_veto": 81,
+      "two_sided_exact_p_value": 0.11051344647284383
+    }
+  }
+}

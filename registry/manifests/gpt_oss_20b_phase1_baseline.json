@@ -1,0 +1,39 @@
+{
+  "adapter": "analysis/adapters/gpt_oss_baseline.py",
+  "created_utc": "2026-09-08T11:15:46.131398+00:00",
+  "source_file": "data/raw/phase1/gpt_oss_20b/originals/gpt_oss_baseline_results.jsonl",
+  "source_sha256": "ea963beeec8ceadc3c8912ac8fcdda778efdf9cc7cb531b26484d540f52ebf9c",
+  "source_valid_records": 1695,
+  "source_invalid_or_nonobject_line_numbers": [],
+  "parser": {
+    "veto_regex": "FINAL_DECISION\\s*:\\s*VETO\\b",
+    "allow_regex": "FINAL_DECISION\\s*:\\s*ALLOW\\b",
+    "precedence": "BOTH_LABELS when both patterns match"
+  },
+  "output_file": "data/derived/canonical/gpt_oss_20b_phase1_baseline.parquet",
+  "canonical_columns": [
+    "run_id",
+    "phase",
+    "model",
+    "model_family",
+    "access",
+    "source_file",
+    "source_sha256",
+    "source_line",
+    "raw_row_pointer",
+    "record_id",
+    "language",
+    "prompt_class",
+    "config",
+    "intervention_target",
+    "layer",
+    "alpha",
+    "parser_outcome",
+    "parse_status",
+    "legacy_is_vetoed",
+    "legacy_final_decision",
+    "legacy_operational_failure",
+    "operational_failure",
+    "termination_status"
+  ]
+}

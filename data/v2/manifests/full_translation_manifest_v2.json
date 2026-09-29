@@ -1,0 +1,101 @@
+{
+  "artifact_type": "full_translation_run_manifest",
+  "config": {
+    "config_path": "configs/translation_v2.yaml",
+    "dataset_version": "v2",
+    "device": "cuda",
+    "provider": "nllb_local"
+  },
+  "config_hash": "ce2bfaadc6a68f7d84919bbd9d5c762c66c6c200fd705c3cb8bbc2c4b25727f2",
+  "config_path": "configs/translation_v2.yaml",
+  "config_sha256": "e1293a28b1fbbc8fe34c89145b1ec25561dd6e94071777730585cba2083a2ac0",
+  "contains_prompt_text": false,
+  "dataset_version": "v2",
+  "deterministic_digest": "e7d15f079a6c9f381d4fea197f1fa1d02856c60963fed50f5da07d38e8fc28e0",
+  "device_configured": "cuda",
+  "device_reported": "cuda",
+  "dtype_configured": "float32",
+  "dtype_reported": "float32",
+  "generated_at": "2026-08-19T11:31:53.917337+00:00",
+  "generation_config": {
+    "do_sample": false,
+    "max_new_tokens": 256,
+    "no_repeat_ngram_size": 0,
+    "num_beams": 4,
+    "seed": 20260818
+  },
+  "git_branch": "dataset-v2-rebuild",
+  "git_commit": "62a5e3c36a68381f3bff2e454f2f7ebaef214575",
+  "git_dirty": true,
+  "mode": "translate",
+  "model_id": "facebook/nllb-200-distilled-600M",
+  "model_revision_configured": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+  "model_revision_reported": "f8d333a098d19b4fd9a8b18f94170487ad3f821d",
+  "n_requests": 1200,
+  "pilot_responses_exists": false,
+  "pilot_responses_path": "data/v2/interim/full/pilot_responses_v2.jsonl",
+  "pilot_responses_sha256": null,
+  "pilot_rows_reusable": 0,
+  "pilot_rows_seeded_this_run": 0,
+  "provider_requested": "nllb_local",
+  "requests_by_language": {
+    "ar": 200,
+    "ha": 200,
+    "hi": 200,
+    "ko": 200,
+    "sw": 200,
+    "yo": 200
+  },
+  "requests_match_protocol_precondition": true,
+  "requests_path": "data/interim/full/full_translation_requests.jsonl",
+  "requests_sha256": "b502b06817da0b957679f782943a838fd8593a889cff2332b117fd216fa057e4",
+  "requests_sha256_pinned_by_protocol": "b502b06817da0b957679f782943a838fd8593a889cff2332b117fd216fa057e4",
+  "responses_path": "data/v2/interim/full/full_translation_responses_v2.jsonl",
+  "responses_path_is_under_v2_interim": true,
+  "responses_sha256": "67a7b5724ffcad8d12d4cceb5abe28f0848838d082dbfb3ecf40411705e096c8",
+  "run_id": "run_20260819T113153Z_2cecf15a",
+  "schema_version": "full-translation-run.v2",
+  "seed_configured": 20260818,
+  "seed_matches_config": true,
+  "seed_reported_by_provider": 20260818,
+  "stage": "stage2.1_translate_full_set",
+  "tool_version": "0.0.1",
+  "translated_rows_written_to_processed": false,
+  "translated_rows_written_to_processed_note": "This stage writes a response log only. Applying responses to rows is stage 2.3; freezing them under data/v2/processed/ is a later stage still.",
+  "translation": {
+    "correlation": {
+      "fully_correlated": true,
+      "missing_responses": [],
+      "n_requests": 1200,
+      "n_responses": 1200,
+      "orphan_responses": [],
+      "source_hash_mismatches": []
+    },
+    "n_attempted": 1200,
+    "n_not_ok": 0,
+    "n_ok": 1200,
+    "n_responses": 1200,
+    "response_log": {
+      "attempts_by_status": {
+        "ERROR": 0,
+        "OK": 1200,
+        "SKIPPED": 0
+      },
+      "audit_log_is_append_only": true,
+      "effective_by_status": {
+        "ERROR": 0,
+        "OK": 1200,
+        "SKIPPED": 0
+      },
+      "max_attempts_for_one_request": 1,
+      "n_effective": 1200,
+      "n_records_total": 1200,
+      "n_request_ids": 1200,
+      "n_request_ids_with_retries": 0,
+      "n_superseded_records": 0,
+      "note": "Every attempt is retained. `effective` selects the latest successful attempt per request_id (else the latest attempt); superseded records remain in the log and are never deleted or collapsed.",
+      "unresolved_request_ids": []
+    }
+  },
+  "translation_attempted": true
+}

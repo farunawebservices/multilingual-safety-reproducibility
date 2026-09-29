@@ -1,0 +1,148 @@
+{
+  "artifact_set": "llama33_planner20_primary_paired_results",
+  "artifacts": [
+    {
+      "bytes": 14292179,
+      "kind": "raw_result_jsonl",
+      "path": "artifacts/prior_llama33_phase2/results/baseline_completed_backup (1).jsonl",
+      "sha256": "201521b61fbdf3935b9123154ea2430bcf8ac36008c64142dd4517828281a1cd"
+    },
+    {
+      "bytes": 56247,
+      "kind": "canonical_parquet",
+      "path": "data/derived/canonical/llama33_phase1_main.parquet",
+      "sha256": "7276cc13fd9e62196cb181c96f1c3e21259466fa5f3a1ebdabe329cdcbdb381b"
+    },
+    {
+      "bytes": 1174,
+      "kind": "registry_manifest",
+      "path": "registry/manifests/llama33_phase1_main.json",
+      "sha256": "84a42e512f4d0868ba9a8ff578db8a557a098a87c0f0beb4181cdea15a33d49e"
+    },
+    {
+      "bytes": 3761,
+      "kind": "registry_audit_tsv",
+      "path": "registry/llama/main_semantics_audit.tsv",
+      "sha256": "5be1d1396639586b166e1ff640d8226a20f000525f7bc66d23a31db49bd17127"
+    },
+    {
+      "bytes": 5489,
+      "kind": "registry_audit_tsv",
+      "path": "registry/llama/main_semantics_audit_console.tsv",
+      "sha256": "3951a024c38f377c968d34519b14718cd4e2f024912c44bc0e71ea355d548a0c"
+    },
+    {
+      "bytes": 951,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/llama33_planner20_paired_effect.csv",
+      "row_count": 4,
+      "sha256": "e1bb947f4e9608edcc7d481e70b40a9fbdf38c5935ebe84a8642695a540ef69b"
+    },
+    {
+      "bytes": 1763,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/llama33_planner20_paired_inference.csv",
+      "row_count": 4,
+      "sha256": "fca849c57b67c7ba909be652dac9559b2635bbc9be35b3e291e726a044ed1f75"
+    },
+    {
+      "bytes": 704,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/llama33_planner20_benign_refusal_effect.csv",
+      "row_count": 4,
+      "sha256": "5b42218807485d68eb1355ffaec0f91662b02cd97ae7a95d0f324756473ecfef"
+    },
+    {
+      "bytes": 1361,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/llama33_planner20_benign_refusal_inference.csv",
+      "row_count": 4,
+      "sha256": "f0945925d69972def1bcc72557f7d80c2a447063c739c448978c260eeb16d425"
+    },
+    {
+      "bytes": 572,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/llama33_planner20_primary_raw_separation_audit.csv",
+      "row_count": 2,
+      "sha256": "2b51b163b82792e609192cb2243905e1f85e92cdc5693d71d7b2c7e97e6418d4"
+    },
+    {
+      "bytes": 689,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/llama33_planner20_primary_paper_table.csv",
+      "row_count": 4,
+      "sha256": "7ad00b54459446a92e1d8aa61a940ab621a15cb5e69259fdc7b16c80b55b28c1"
+    },
+    {
+      "bytes": 1354,
+      "kind": "latex_table",
+      "path": "paper_artifacts/tables/llama33_planner20_primary_results.tex",
+      "sha256": "792a7b717fe6614f7e54df5412bdaea8696a3863d7610ef982ff4056334a5c98"
+    },
+    {
+      "bytes": 22504,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/llama33_planner20_primary_effects.pdf",
+      "sha256": "d346d7672c7e6bc804dc18e76b91e4c104cc6233838f1722ce73b31c9105f06f"
+    },
+    {
+      "bytes": 188904,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/llama33_planner20_primary_effects.png",
+      "sha256": "38422b8bcc31ca7a3fbe9b5b5e8396c45bbcf9d90b7b780b60bed4d0f5f2a486"
+    },
+    {
+      "bytes": 5767,
+      "kind": "registry_manifest",
+      "path": "paper_artifacts/metrics/llama33_planner20_primary_opus_handoff.md",
+      "sha256": "b9a73011a8ef7d79756efa964546f6a159cc4d091c424221493d13be9be443bb"
+    }
+  ],
+  "authoritative_figure_pdf": "paper_artifacts/figures/llama33_planner20_primary_effects.pdf",
+  "authoritative_latex_table": "paper_artifacts/tables/llama33_planner20_primary_results.tex",
+  "authoritative_paper_table": "paper_artifacts/metrics/llama33_planner20_primary_paper_table.csv",
+  "comparison_type": "Within-phase, within-model, prompt-matched comparison: planner-only alpha 0 versus planner-only alpha 20.",
+  "coverage": {
+    "benign_holm_significant_rows": 0,
+    "benign_paired_prompt_n": 495,
+    "benign_paired_prompt_n_by_language": {
+      "Arabic": 150,
+      "English": 150,
+      "Hausa": 150,
+      "Yoruba": 45
+    },
+    "harmful_holm_significant_rows": 3,
+    "harmful_paired_prompt_n": 1200,
+    "harmful_paired_prompt_n_per_language": 300,
+    "paper_table_rows": 4,
+    "partial_benign_coverage_rows": 1,
+    "partial_harmful_coverage_rows": 0
+  },
+  "created_utc": "2026-09-08T20:46:10.736333+00:00",
+  "inference": {
+    "benign_correction_family_size": 4,
+    "benign_test": "Exact paired McNemar test",
+    "harmful_correction_family_size": 4,
+    "harmful_test": "Exact paired McNemar test",
+    "intervals": "Paired nonparametric bootstrap percentile intervals, 10,000 replicates, seed 20260908.",
+    "multiple_testing": "Holm adjustment applied separately to four harmful and four benign language-specific comparisons."
+  },
+  "interpretation_constraints": [
+    "Harmful operational-failure and benign-refusal outcomes must be reported separately.",
+    "Negative harmful percentage-point differences indicate fewer operational failures under steering.",
+    "Positive benign percentage-point differences indicate more false refusals under steering.",
+    "Harmful comparisons have complete matched coverage: 300 prompts per language.",
+    "Benign coverage differs by language: Yoruba has 45 matched prompts; Arabic, English, and Hausa each have 150.",
+    "Report Holm-adjusted inference separately for the harmful and benign correction families.",
+    "This primary package excludes Phase 2 Turbo results and cross-phase comparisons.",
+    "Describe this as a within-phase, within-model prompt-matched intervention comparison; do not make an unsupported causal-identification claim."
+  ],
+  "model_identifier": "meta-llama/llama-3.3-70b-instruct",
+  "primary_scope": "Arabic, English, Hausa, and Yoruba. Harmful prompts use operational failure; benign prompts use refusal rate.",
+  "raw_provenance": {
+    "raw_source": "artifacts/prior_llama33_phase2/results/baseline_completed_backup (1).jsonl",
+    "raw_source_sha256": "201521b61fbdf3935b9123154ea2430bcf8ac36008c64142dd4517828281a1cd",
+    "raw_to_canonical_audit": "paper_artifacts/metrics/llama33_planner20_primary_raw_separation_audit.csv",
+    "source_structure": "One combined raw JSONL contains distinct planner-only alpha 0 and alpha 20 records."
+  }
+}

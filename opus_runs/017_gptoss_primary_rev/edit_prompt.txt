@@ -1,0 +1,37 @@
+You are revising Section 4.4 (GPT-OSS 20B harmful) of an ICLR paper.
+
+Input:
+- Current draft: opus_runs/016_gptoss_primary/gptoss_primary_draft.tex
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (section 4.4 only)
+
+Task:
+Produce a revised version of Section 4.4 that preserves all existing numbers,
+denominators, artifact paths, correction-family details, and claim boundaries.
+
+Required edit:
+Replace the Yoruba sentence describing "substantial per-prompt churn" and the
+claim that the marginal null "conceals" it with a neutral formulation:
+
+"Yoruba is exactly unchanged at 48 of 300 (16.00\%) in both conditions,
+$\Delta = 0.0$, with 36 discordant prompts split evenly (18 worsened and 18
+improved) and $p = 1.0$. Thus, the equal marginal rates coexist with matched
+prompt-level disagreements in both directions."
+
+Also make this optional wording change if it can be done without changing any
+claim boundary:
+Replace generic wording that the comparison is simply "non-causal" with wording
+that it estimates a condition-specific paired difference on evaluated prompts
+but does not establish a general causal effect across deployment settings,
+model revisions, prompt distributions, or outcome definitions.
+
+Requirements:
+- Use only claim_id GO-A.
+- Do not change any numerical value, denominator, statistical conclusion,
+  correction family, artifact path, or source-map coverage.
+- Retain the mixed-direction conclusion: English improved, Hausa worsened,
+  Arabic Holm-non-significant, Yoruba marginally null.
+- Retain that the GPT-OSS outcome composition cannot be independently verified
+  from the supplied packet and that missing-label counts are unavailable.
+- Return LaTeX only, including an updated source-map block.

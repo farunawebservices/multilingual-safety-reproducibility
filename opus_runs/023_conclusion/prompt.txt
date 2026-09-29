@@ -1,0 +1,18 @@
+You are drafting a short Conclusion paragraph for an ICLR paper.
+
+Inputs:
+- Assembled results + discussion:
+  - paper_sections/assembled/results_chapter_inlined.tex
+  - paper_sections/07_discussion_opening.tex
+
+Task:
+Write 1–2 paragraphs that:
+- Restate the main takeaway (steering effects are large but heterogeneous;
+  mixed-direction in GPT-OSS; null benign; descriptive closed baselines).
+- Emphasize the need for pre-registered, multilingual, multi-model evaluations
+  with disjoint correction families.
+- Point to future work: matched random-vector controls, cross-version audits,
+  expanded language coverage, deployment-focused robustness checks.
+
+Return LaTeX only: a \section{Conclusion} with 1–2 paragraphs and a one-line
+source map.

@@ -1,0 +1,7 @@
+model,metric_csv_n,latex_table_n,figure_n,manifest_n,opus_handoff_n,sha256_inventory,status
+claude_sonnet_4,0,0,0,0,0,,incomplete_or_not_started
+claude_sonnet_5,0,0,0,0,0,,incomplete_or_not_started
+gemma_4_31b,10,1,0,1,1,da58376157ff1b0430d3f7746a969389265f38f8a1277ddc35e34895daeaf219,incomplete_or_not_started
+gpt_5,0,0,0,0,0,,incomplete_or_not_started
+gpt_oss_20b,5,0,0,0,0,fbb95c26fb971911d8f83c63ab8952266472d50ee707e0d63d8dcc41f9a2198c,incomplete_or_not_started
+qwen_25_72b,11,0,0,0,0,48b3127249ef2a760cbdeca56876639e0c99e6fd591f8fd27d9be71e9914cf5c,incomplete_or_not_started

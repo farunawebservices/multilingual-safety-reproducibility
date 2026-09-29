@@ -1,0 +1,128 @@
+generated_at: '2026-08-18T22:02:35.245607+00:00'
+git_commit: 3038fef2333b0b0fdbc62d03f7a56c9ad2e3db68
+git_dirty: false
+policy:
+  merged_into_single_benchmark: false
+  model_run: false
+  raw_data_committed: false
+  raw_data_committed_reason: Both sources are MIT-licensed, so redistribution is legally
+    permitted. Repository policy still keeps harmful prompt text out of git (THIRD_PARTY_DATASETS.md);
+    the acquisition script and hashes are what make the corpus reproducible.
+  sources_kept_separate: true
+  translated: false
+run_id: run_20260818T220235Z_27411b0b
+schema_version: 1
+sources:
+- acquisition_method: HTTPS GET from raw.githubusercontent.com at a pinned commit
+  files:
+  - bytes: 198850
+    columns:
+    - Behavior
+    - FunctionalCategory
+    - SemanticCategory
+    - Tags
+    - ContextString
+    - BehaviorID
+    local_path: data/raw/harmbench/harmbench_behaviors_text_all.csv
+    n_rows: 400
+    part_id: text_all
+    remote_path: data/behavior_datasets/harmbench_behaviors_text_all.csv
+    schema_ok: true
+    sha256: 8d81accedd38eaaf8b760618622bb888417d1fd0c86eba65c427a16f1cbb4afc
+    table_digest: f8ea8898c95d76c43d666e8d625ffdd69cfe5d9f82a8673227d08943756b5d07
+    url: https://raw.githubusercontent.com/centerforaisafety/HarmBench/c0423b952435fcc8467108d8f25962dbae5b7de2/data/behavior_datasets/harmbench_behaviors_text_all.csv
+  - bytes: 160828
+    columns:
+    - Behavior
+    - FunctionalCategory
+    - SemanticCategory
+    - Tags
+    - ContextString
+    - BehaviorID
+    local_path: data/raw/harmbench/harmbench_behaviors_text_test.csv
+    n_rows: 320
+    part_id: text_test
+    remote_path: data/behavior_datasets/harmbench_behaviors_text_test.csv
+    schema_ok: true
+    sha256: 75d257b3e7428c52eb7b0154318f455af3e01b09a3794b5e2f3d36054f3c0e29
+    table_digest: edaecd9f822230aaf96b8379a2591e01b1fc0d4d768b9ad0da0e3b3bc26d1976
+    url: https://raw.githubusercontent.com/centerforaisafety/HarmBench/c0423b952435fcc8467108d8f25962dbae5b7de2/data/behavior_datasets/harmbench_behaviors_text_test.csv
+  - bytes: 38024
+    columns:
+    - Behavior
+    - FunctionalCategory
+    - SemanticCategory
+    - Tags
+    - ContextString
+    - BehaviorID
+    local_path: data/raw/harmbench/harmbench_behaviors_text_val.csv
+    n_rows: 80
+    part_id: text_val
+    remote_path: data/behavior_datasets/harmbench_behaviors_text_val.csv
+    schema_ok: true
+    sha256: 7bfaaa5e2b9b95002c89e2d33c019f58e9e8496e2fc65d368f1eeb8179e69534
+    table_digest: e597f78030a8794a519680c3bb90104b61b78b757139003905443aee4dc2926f
+    url: https://raw.githubusercontent.com/centerforaisafety/HarmBench/c0423b952435fcc8467108d8f25962dbae5b7de2/data/behavior_datasets/harmbench_behaviors_text_val.csv
+  license_id: MIT
+  license_url: https://github.com/centerforaisafety/HarmBench/blob/c0423b952435fcc8467108d8f25962dbae5b7de2/LICENSE
+  local_dir: data/raw/harmbench
+  name: HarmBench text behaviors
+  notes: text_all is the text-only set (vs harmbench_behaviors_multimodal_all.csv).
+    The official val/test partition is file-level, not a column.
+  retrieved_at: '2026-08-18T22:02:39.500800+00:00'
+  revision: c0423b952435fcc8467108d8f25962dbae5b7de2
+  revision_type: git_commit_sha
+  source_id: harmbench
+  url: https://github.com/centerforaisafety/HarmBench
+- acquisition_method: huggingface_hub.hf_hub_download (byte-exact) + datasets.get_dataset_config_names/get_dataset_split_names
+    (structure verification)
+  config_used: behaviors
+  configs_not_acquired:
+  - judge_comparison
+  files:
+  - bytes: 20570
+    columns:
+    - Index
+    - Goal
+    - Target
+    - Behavior
+    - Category
+    - Source
+    local_path: data/raw/jailbreakbench/benign-behaviors.csv
+    n_rows: 100
+    part_id: benign
+    remote_path: data/benign-behaviors.csv
+    schema_ok: true
+    sha256: 3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468
+    table_digest: 7d5eb1ae8714965bbc82d113962dcdf62664940eccfd7d2c3fb8534616baf324
+  - bytes: 23116
+    columns:
+    - Index
+    - Goal
+    - Target
+    - Behavior
+    - Category
+    - Source
+    local_path: data/raw/jailbreakbench/harmful-behaviors.csv
+    n_rows: 100
+    part_id: harmful
+    remote_path: data/harmful-behaviors.csv
+    schema_ok: true
+    sha256: 4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1
+    table_digest: f23a87451330c79e2b2ad0ba503b6fb8c83060be902b6857bdffdaa60eef3c36
+  license_id: MIT
+  license_url: https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors/blob/886acc352a31533ffbcf4ef22c744658688086fc/LICENSE
+  local_dir: data/raw/jailbreakbench
+  name: JailbreakBench/JBB-Behaviors
+  observed_configs:
+    behaviors:
+    - benign
+    - harmful
+    judge_comparison:
+    - test
+  retrieved_at: '2026-08-18T22:02:38.578554+00:00'
+  revision: 886acc352a31533ffbcf4ef22c744658688086fc
+  revision_type: hf_dataset_commit_sha
+  source_id: jailbreakbench
+  url: https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors
+stage: stage0.1_download_sources

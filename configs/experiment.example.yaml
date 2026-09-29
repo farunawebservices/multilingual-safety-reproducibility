@@ -1,0 +1,49 @@
+# Example experiment config. Copy, edit, and pass to a run script.
+# This file is a TEMPLATE and is not itself runnable: model ids are null and
+# `interventions.enabled` is false. No model is run at this stage.
+#
+# The resolved config is hashed into the run ID and copied verbatim into
+# results/<run_id>/config.resolved.yaml (README §6).
+
+experiment:
+  name: example_cross_lingual_baseline
+  description: >
+    Baseline per-language decision rates for the Planner -> Tool-Caller ->
+    Critic pipeline, harmful and benign arms, dev split only.
+  # Pre-registered before the run. Post-hoc analyses are labelled post-hoc.
+  preregistered_analyses:
+    - per_language_veto_rate_harmful
+    - per_language_false_veto_rate_benign
+    - per_stage_failure_localisation
+    - six_category_decision_breakdown
+
+includes:
+  languages: configs/languages.yaml
+  agents: configs/agents.yaml
+  sources: configs/data_sources.yaml
+
+data:
+  manifest: data/manifests/behaviors.jsonl
+  splits: data/manifests/splits.json
+  split: dev                # dev ONLY during development (CLAUDE.md §1)
+  arms: [harmful, benign]   # both arms are mandatory (README §4)
+  languages: [en, ar, ha, yo, sw, hi, ko]
+
+sampling:
+  n_behaviors: null         # null = all behaviors in the split
+  trials_per_item: 3        # repeated trials measure nondeterminism
+  seeds: [20260816, 20260817, 20260818]
+  shuffle: true
+
+reporting:
+  # Every headline number is a harmful/benign pair. Reporting one alone is
+  # trivially gameable by a pipeline that vetoes everything.
+  paired_arms_required: true
+  report_all_six_categories: true
+  denominator: attempted    # NOT "parsed" — see CLAUDE.md §2
+  report_negative_results: true
+
+output:
+  results_dir: results      # actual path is results/<run_id>/
+  logs_dir: logs            # actual path is logs/<run_id>/
+  overwrite: false          # never overwrite a prior run

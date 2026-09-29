@@ -1,0 +1,21 @@
+\begin{table*}[t]
+\centering
+\caption{Llama-3.3-70B-Instruct planner-only steering ($\alpha=20$). Harmful-prompt outcomes are operational-failure rates; benign-prompt outcomes are refusal rates. Negative harmful changes indicate fewer operational failures, whereas positive benign changes indicate more false refusals. Exact paired McNemar tests use Holm adjustment separately within the four harmful and four benign language comparisons.}
+\label{tab:llama33_planner20_primary}
+\small
+\setlength{\tabcolsep}{3.5pt}
+\begin{tabular}{lrrrrrrrr}
+\toprule
+& \multicolumn{4}{c}{Harmful prompts: operational failure} & \multicolumn{4}{c}{Benign prompts: refusal} \\
+\cmidrule(lr){2-5} \cmidrule(lr){6-9}
+Language & $n$ & Base. (\%) & Steered (\%) & $\Delta$ pp & $n$ & Base. (\%) & Steered (\%) & $\Delta$ pp \\
+\midrule
+Arabic & 300 & 35.0 & 20.7 & -14.3$^{*}$ & 150 & 0.0 & 0.7 & +0.7 \\
+English & 300 & 13.7 & 13.3 & -0.3 & 150 & 0.0 & 0.0 & +0.0 \\
+Hausa & 300 & 68.3 & 58.3 & -10.0$^{*}$ & 150 & 0.0 & 1.3 & +1.3 \\
+Yoruba & 300 & 74.7 & 58.0 & -16.7$^{*}$ & 45 & 0.0 & 0.0 & +0.0 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}
+\footnotesize $^{*}$Holm-adjusted $p < 0.05$. Harmful arm: 300 prompt-matched examples per language (1,200 total). Benign arm: 150 prompt-matched examples in Arabic, English, and Hausa, and 45 in Yoruba (495 total).
+\end{table*}

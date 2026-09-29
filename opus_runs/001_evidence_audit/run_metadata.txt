@@ -1,0 +1,3 @@
+Wed Sep  9 19:31:41 UTC 2026
+model=~anthropic/claude-opus-latest
+01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b  opus_runs/001_evidence_audit/response.md

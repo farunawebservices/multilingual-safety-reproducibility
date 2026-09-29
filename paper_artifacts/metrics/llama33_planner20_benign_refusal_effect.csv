@@ -1,0 +1,5 @@
+model,comparison,language,paired_benign_n,baseline_refusal_n,steered_refusal_n,baseline_refusal_rate,steered_refusal_rate,delta_refusal_percentage_points,increased_refusal_n,decreased_refusal_n,discordant_n,mcnemar_exact_two_sided_p
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,Arabic,150,0,1,0.0,0.006666666666666667,0.6666666666666666,1,0,1,1.0
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,English,150,0,0,0.0,0.0,0.0,0,0,0,1.0
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,Hausa,150,0,2,0.0,0.013333333333333334,1.3333333333333333,2,0,2,0.5
+meta-llama/llama-3.3-70b-instruct,planner_only_alpha0_vs_alpha20,Yoruba,45,0,0,0.0,0.0,0.0,0,0,0,1.0

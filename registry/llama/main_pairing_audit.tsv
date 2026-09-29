@@ -1,0 +1,22 @@
+
+PAIR	planner_only:0.0	vs	planner_only:20.0
+language	harmfulness	baseline_n	steered_n	shared_n	baseline_only	steered_only
+Arabic	benign	150	150	150	0	0
+Arabic	harmful	300	300	300	0	0
+English	benign	150	150	150	0	0
+English	harmful	300	300	300	0	0
+Hausa	benign	150	150	150	0	0
+Hausa	harmful	300	300	300	0	0
+Yoruba	benign	45	45	45	0	0
+Yoruba	harmful	300	300	300	0	0
+
+PAIR	critic_only:0.0	vs	critic_only:20.0
+language	harmfulness	baseline_n	steered_n	shared_n	baseline_only	steered_only
+Arabic	benign	150	150	150	0	0
+Arabic	harmful	300	300	300	0	0
+English	benign	150	150	150	0	0
+English	harmful	300	300	300	0	0
+Hausa	benign	150	150	150	0	0
+Hausa	harmful	300	300	300	0	0
+Yoruba	benign	45	24	24	21	0
+Yoruba	harmful	300	0	0	300	0

@@ -1,0 +1,117 @@
+{
+  "config": {
+    "languages": [
+      "en",
+      "ar",
+      "ha",
+      "yo",
+      "sw",
+      "hi",
+      "ko"
+    ],
+    "source": "jailbreakbench",
+    "text_column": "Goal"
+  },
+  "config_hash": "db4bd5371fba81a5a50f6bb343c255893931cec650cec6867cf55c77a9d50294",
+  "contains_prompt_text": false,
+  "counts_by_arm": {
+    "benign": 700,
+    "harmful": 700
+  },
+  "counts_by_category": {
+    "Disinformation": 140,
+    "Economic harm": 140,
+    "Expert advice": 140,
+    "Fraud/Deception": 140,
+    "Government decision-making": 140,
+    "Harassment/Discrimination": 140,
+    "Malware/Hacking": 140,
+    "Physical harm": 140,
+    "Privacy": 140,
+    "Sexual/Adult content": 140
+  },
+  "counts_by_language": {
+    "ar": 200,
+    "en": 200,
+    "ha": 200,
+    "hi": 200,
+    "ko": 200,
+    "sw": 200,
+    "yo": 200
+  },
+  "counts_by_language_and_arm": {
+    "ar:benign": 100,
+    "ar:harmful": 100,
+    "en:benign": 100,
+    "en:harmful": 100,
+    "ha:benign": 100,
+    "ha:harmful": 100,
+    "hi:benign": 100,
+    "hi:harmful": 100,
+    "ko:benign": 100,
+    "ko:harmful": 100,
+    "sw:benign": 100,
+    "sw:harmful": 100,
+    "yo:benign": 100,
+    "yo:harmful": 100
+  },
+  "counts_by_status": {
+    "CANONICAL_SOURCE": 200,
+    "PENDING_TRANSLATION": 1200
+  },
+  "deterministic_digest": "d556b86ae0d859ecbf81f3fc4e2339ce68f5fc13f6e0461814fada0059ee8a05",
+  "generated_at": "2026-08-18T22:05:53.900820+00:00",
+  "git_branch": "dataset-v2-rebuild",
+  "git_commit": "3038fef2333b0b0fdbc62d03f7a56c9ad2e3db68",
+  "git_dirty": true,
+  "harmbench_used": false,
+  "human_reviewed_rows": 0,
+  "integrity": {
+    "behaviors_missing_a_language": 0,
+    "duplicate_behavior_ids": 0,
+    "duplicate_request_ids": 0,
+    "group_invariant_violations": 0,
+    "inconsistent_metadata_groups": 0
+  },
+  "n_behaviors": 200,
+  "n_behaviors_per_arm": {
+    "benign": 100,
+    "harmful": 100
+  },
+  "n_pending": 1200,
+  "n_requests": 1200,
+  "n_review_required": 1200,
+  "n_rows": 1400,
+  "n_translated": 200,
+  "notes": [
+    "Nothing has been translated: all 1,200 non-English rows are PENDING_TRANSLATION.",
+    "Splits are NOT assigned; every row carries the UNASSIGNED placeholder.",
+    "The reviewed pilot artifacts are read-only inputs and were not overwritten.",
+    "Behavior IDs are unchanged from Stage 1; the 20 reviewed pilot behaviors are a subset of this set with identical IDs and source hashes."
+  ],
+  "output_paths": {
+    "manifest": "data/interim/full/full_manifest.json",
+    "outputs": "data/interim/full/full_translation_outputs.jsonl",
+    "requests": "data/interim/full/full_translation_requests.jsonl",
+    "selection": "data/interim/full/full_selection.jsonl"
+  },
+  "pilot_alignment": {
+    "checked": false
+  },
+  "pilot_artifact_hashes_unchanged": {},
+  "run_id": "run_20260818T220553Z_5f4fe81f",
+  "source": "jailbreakbench",
+  "source_hashes": {
+    "benign_csv": "3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468",
+    "harmful_csv": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1",
+    "manifest_json": "dbf39a5b52b73d5685efcd12d24870e5db40533d8e76014ebb5d5afa9013d845",
+    "outputs_jsonl": "32a8bc44a3e796a1cb66afa9b03c89253af0596123f30b7a4cfa3a778b12e578",
+    "requests_jsonl": "b502b06817da0b957679f782943a838fd8593a889cff2332b117fd216fa057e4",
+    "selection_jsonl": "0c42fc094012f6d5e19f1c780bf98c491961a43c56ad837350407dc9bdb842cc"
+  },
+  "split_placeholder": "UNASSIGNED",
+  "splits_assigned": false,
+  "stage": "stage2.0_build_full_request_set",
+  "tool_version": "0.0.1",
+  "translated": false
+}

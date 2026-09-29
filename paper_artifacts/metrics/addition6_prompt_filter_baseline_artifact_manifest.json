@@ -1,0 +1,34 @@
+{
+  "addition": "Addition 6: Prompt Filter Baseline",
+  "description": "Three-condition comparison: no intervention, prompt filter, SAE steering",
+  "canonical_source": {
+    "path": "addition_6_prompt_filter_baseline/prompts/addition6_full_manifest_v1.jsonl",
+    "sha256": "b7fc295f589338ac352a7332012225b6cf4eecfcf33c7fa9c569465b87d2af6c"
+  },
+  "artifacts": {
+    "audited_metrics_csv": {
+      "path": "paper_artifacts/metrics/addition6_prompt_filter_baseline_metrics.csv",
+      "sha256": "c85ca2aa8b4cf4123aebc0fe66bc9dfd3e495d5256b23e402413523033d7e7a9"
+    },
+    "paper_table_csv": {
+      "path": "paper_artifacts/metrics/addition6_prompt_filter_baseline_table.csv",
+      "sha256": "a52bda22c0a02c8a73621ed4f4436db0f35ec31501f370500677485a9b7554d7"
+    },
+    "paper_table_latex": {
+      "path": "paper_artifacts/tables/addition6_prompt_filter_baseline.tex",
+      "sha256": "82e2455b2d118d8c10f33b009ab76f04e589610fe1eb4f2b58fa9b4627a969e0"
+    },
+    "figure_pdf": {
+      "path": "paper_artifacts/figures/addition6_prompt_filter_baseline.pdf",
+      "sha256": "46697c26a46ee169179bc200186e73ee532714dbf375877c19bbe8d56ef8769e"
+    },
+    "figure_png": {
+      "path": "paper_artifacts/figures/addition6_prompt_filter_baseline.png",
+      "sha256": "4ee7457d2361789f05db1e4ecc5738c9607e58f257fc3d2fb70aca799887b1a2"
+    }
+  },
+  "opus_handoff": {
+    "path": "paper_artifacts/metrics/addition6_prompt_filter_baseline_OPUS_HANDOFF.md",
+    "note": "Narrative handoff intentionally excluded from hashed artifacts to avoid a circular dependency."
+  }
+}

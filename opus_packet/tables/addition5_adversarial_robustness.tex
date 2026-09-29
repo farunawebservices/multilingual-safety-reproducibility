@@ -1,0 +1,23 @@
+\begin{table}[t]
+\centering
+\caption{Addition 5: Adversarial robustness check. 50 jailbreak prompts across 6 attack families tested on Llama-3.3-70B-Instruct with random steering (layer 52, strength 20).}
+\label{tab:addition5_robustness}
+\begin{tabular}{lrrrrrr}
+\toprule
+Attack Family & $n$ & Baseline JB & Steered JB & Baseline (\%) & Steered (\%) & Result \\
+\midrule
+dan & 8 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+developer & 8 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+instruction & 8 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+other & 10 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+roleplay & 8 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+translation & 8 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+overall & 50 & 0 & 0 & 0 & 0 & No jailbreaks in either condition \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: All 50 prompts were evaluated as NEITHER (no jailbreak success in baseline or steered conditions).
+\item Steering used a random vector (not a refusal direction).
+\end{tablenotes}
+\end{table}

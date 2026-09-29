@@ -1,0 +1,12 @@
+%TL;DR: Planner-only and Critic-only steering have opposite cross-phase effects in both Hausa and Yoruba, while joint steering is language-dependent.
+\section{Role- and Strength-Dependent Effects}
+\subsection{Planner-only and Critic-only steering move in opposite directions}
+Figure~\ref{fig:role_strength_effects} and Table~\ref{tab:role_strength} show the six prespecified $\alpha=30$ contrasts for Llama 3.3 70B. Planner-only steering reduced operational failure by 37.7 percentage points in Hausa and 19.3 points in Yoruba. Critic-only steering increased failure by 6.3 points in Hausa and 13.0 points in Yoruba. All six contrasts were significant after Holm adjustment within the six-test role-strength family. Because phase and intervention condition change together, these results are condition contrasts rather than causal estimates of role placement or steering strength.
+
+These estimates are cross-phase, record-ID-matched contrasts. The pairing controls prompt identity, but Phase 1 and Phase 2 may differ in conditions not represented by the prompt identifier. We therefore interpret the table as evidence that the recorded Planner-only and Critic-only configurations had different outcome contrasts, not as a causal isolation of role or steering strength.
+
+\subsection{Joint steering has language-dependent effects}
+Joint steering reduced harmful operational failure by 19.0 percentage points in Hausa but increased it by 10.0 points in Yoruba. The opposite directions are accompanied by different output compositions. At $\alpha=30$, Hausa joint steering produced 52.7\% explicit VETO, 19.0\% explicit ALLOW, and 28.3\% no-decision; Yoruba produced 13.3\% VETO, 12.7\% ALLOW, and 74.0\% no-decision. The result is therefore not well summarized by a single claim that joint steering helps or harms.
+
+\subsection{The role-strength pattern is not explained by one aggregate safety score}
+The $\alpha=30$ role comparison motivates reporting the decision interface itself. Planner-only $\alpha=30$ increased explicit VETO from 31.7\% to 69.3\% in Hausa and from 25.3\% to 44.7\% in Yoruba. Critic-only $\alpha=20$ produced no-decision outputs for 99.3\% of Yoruba harmful prompts, and $\alpha=30$ still produced no-decision outputs for 83.0\%. These outcomes are consistent with steering-induced changes in decision production, but the present experiments do not identify whether the source is semantic misclassification, decoding instability, or another implementation-level effect.

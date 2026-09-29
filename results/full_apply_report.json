@@ -1,0 +1,137 @@
+{
+  "config": {
+    "outputs": "/workspace/multilingual-multiagent-safety/data/interim/full/full_translation_outputs.jsonl"
+  },
+  "config_hash": "bf8b29ef05c3f1d1db962aa63d8c6a9fca0f8dbd37b18616a2cf5cbbb9720c4e",
+  "contains_prompt_text": false,
+  "correlation": {
+    "duplicates": 0,
+    "empty_responses": 0,
+    "fully_correlated": true,
+    "hash_mismatches": 0,
+    "keys": [
+      "request_id",
+      "source_text_sha256"
+    ],
+    "missing": 0,
+    "orphaned": 0
+  },
+  "counts_by_arm": {
+    "benign": 700,
+    "harmful": 700
+  },
+  "counts_by_language": {
+    "ar": 200,
+    "en": 200,
+    "ha": 200,
+    "hi": 200,
+    "ko": 200,
+    "sw": 200,
+    "yo": 200
+  },
+  "counts_by_language_and_status": {
+    "ar:CANONICAL_SOURCE": 0,
+    "ar:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "en:CANONICAL_SOURCE": 200,
+    "en:MACHINE_TRANSLATED_UNCHECKED": 0,
+    "ha:CANONICAL_SOURCE": 0,
+    "ha:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "hi:CANONICAL_SOURCE": 0,
+    "hi:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "ko:CANONICAL_SOURCE": 0,
+    "ko:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "sw:CANONICAL_SOURCE": 0,
+    "sw:MACHINE_TRANSLATED_UNCHECKED": 200,
+    "yo:CANONICAL_SOURCE": 0,
+    "yo:MACHINE_TRANSLATED_UNCHECKED": 200
+  },
+  "counts_by_status": {
+    "CANONICAL_SOURCE": 200,
+    "MACHINE_TRANSLATED_UNCHECKED": 1200
+  },
+  "deterministic_digest": "36dd73c87c9b67f83eabd1bb6ce90c5a14f4341b8324d7a1500f88a1554f755d",
+  "generated_at": "2026-08-17T00:27:17.919521+00:00",
+  "git_branch": "main",
+  "git_commit": "8bbfd2632a6c72ef8a86dbec934c6cccf15346fe",
+  "git_dirty": true,
+  "n_applied": 1200,
+  "n_canonical_source_untouched": 200,
+  "n_human_reviewed": 0,
+  "n_left_pending": 0,
+  "n_review_required": 1200,
+  "n_rows": 1400,
+  "n_translated": 1400,
+  "notes": [
+    "Correlated on request_id AND source_text_sha256; a response generated from different source text is not applied.",
+    "English rows are passed through byte-identically.",
+    "review_required stays true on every non-English row; no row is HUMAN_REVIEWED.",
+    "Device/dtype/generation provenance lives in the git-ignored sidecar, not in the row schema and not in any tracked report."
+  ],
+  "pilot_artifact_hashes": {
+    "translation_pilot_outputs.jsonl": "324836a55adeb12556f37b9613a769a6d9e4a52a5f34a0ecea9665f29a265768",
+    "translation_pilot_requests.jsonl": "fec3c64bf60dcbb14d51e4bf057ada2402237e235a39b3b2cea90e53b67924eb",
+    "translation_pilot_responses.jsonl": "9b74e168e772fb3333b39f2d818afe16bc6c9d1a03aab001b824192e636a9988",
+    "translation_pilot_selection.jsonl": "324c4244782e891e1b7d169294afe391fb7fa77887464371726fade895aeeab1"
+  },
+  "pilot_artifacts_unchanged": true,
+  "provenance": {
+    "devices": {
+      "cuda": 1200
+    },
+    "dtypes": {
+      "float32": 1200
+    },
+    "fields": [
+      "request_id",
+      "behavior_id",
+      "source_language",
+      "target_language",
+      "provider",
+      "model_id",
+      "model_revision",
+      "tokenizer_id",
+      "device",
+      "dtype",
+      "generation_config",
+      "response_sha256",
+      "source_text_sha256",
+      "timestamp",
+      "latency_seconds",
+      "status",
+      "run_id"
+    ],
+    "generation_configs": [
+      {
+        "do_sample": false,
+        "max_new_tokens": 256,
+        "no_repeat_ngram_size": 0,
+        "num_beams": 4,
+        "seed": 20260816
+      }
+    ],
+    "model_ids": [
+      "facebook/nllb-200-distilled-600M"
+    ],
+    "model_revisions": [
+      "f8d333a098d19b4fd9a8b18f94170487ad3f821d"
+    ],
+    "n_records": 1200,
+    "providers": {
+      "nllb_local": 1200
+    },
+    "run_ids": {
+      "run_20260817T000601Z_cddb776b": 1200
+    },
+    "sidecar": "data/interim/full/full_translation_provenance.jsonl"
+  },
+  "run_id": "run_20260817T002717Z_0a468208",
+  "source_hashes": {
+    "outputs_jsonl": "52376a0161de820b2c59ecc21a1507f49719bdcc9d3252f5b5693f29c685ed0d",
+    "provenance_jsonl": "a0b729321b17fe6c835782a50f3ad8013eb9573f603389b0d30bceaade53c294",
+    "responses_jsonl": "9fa9fad62c2b2133b8ab78cbe6c7f48f6e9fec36a1daebc4c48ab5c00090096e"
+  },
+  "split_placeholder": "UNASSIGNED",
+  "splits_assigned": false,
+  "stage": "stage2.3_apply_full_responses",
+  "tool_version": "0.0.1"
+}

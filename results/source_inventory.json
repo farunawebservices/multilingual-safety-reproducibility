@@ -1,0 +1,838 @@
+{
+  "config": {
+    "manifest": "/workspace/multilingual-multiagent-safety-v3/data/manifests/source_manifest.yaml"
+  },
+  "config_hash": "e4f948239b495fe4de9eeba592e79d555237be615725c481f0290f15c95360ad",
+  "contains_prompt_text": false,
+  "cross_file_checks": {
+    "harmbench_partition": {
+      "n_all": 400,
+      "n_test": 320,
+      "n_val": 80,
+      "official_test_file": "harmbench_behaviors_text_test.csv",
+      "official_val_file": "harmbench_behaviors_text_val.csv",
+      "partition_mechanism": "separate FILES; there is no split column in any HarmBench CSV",
+      "val_test_overlap": 0,
+      "val_union_test_equals_all": true
+    },
+    "harmbench_text_only": {
+      "functional_categories": {
+        "contextual": 100,
+        "copyright": 100,
+        "standard": 200
+      },
+      "interpretation": "harmbench_behaviors_text_all.csv is the TEXT (non-multimodal) set, but it is not uniformly self-contained: 'contextual' rows require ContextString, and 'copyright' rows are hash-checked generation requests. Only 'standard' rows are stand-alone text behaviors.",
+      "n_rows_with_context_string": 100,
+      "n_self_contained_text_behaviors": 200
+    },
+    "jbb_harmbench_provenance_overlap": {
+      "jbb_harmful_source_labels": {
+        "AdvBench": 18,
+        "Original": 55,
+        "TDC/HarmBench": 27
+      },
+      "n_jbb_harmful_derived_from_tdc_or_harmbench": 27,
+      "risk": "Concatenating JBB and HarmBench would double-count these behaviors and inflate any rate computed over the union. The sources are kept separate at Stage 0; any later merge must deduplicate on behavior semantics first."
+    },
+    "jbb_index_scope": {
+      "harmful_index_overlaps_benign_index": 100,
+      "warning": "JBB 'Index' restarts at 0 in each split, so it is unique only WITHIN a split. It must never be used as a corpus-wide key; behavior IDs are derived from (source_id, source_item_id, arm) instead."
+    }
+  },
+  "deterministic_digest": "63e502160fa1f7a125cb6943e59ee13383584bec2d134efd9646418cb232358a",
+  "failures": [],
+  "generated_at": "2026-08-18T22:03:18.666645+00:00",
+  "git_branch": "dataset-v2-rebuild",
+  "git_commit": "3038fef2333b0b0fdbc62d03f7a56c9ad2e3db68",
+  "git_dirty": true,
+  "merge_policy": {
+    "reason": "Stage 0 keeps JBB and HarmBench strictly separate; they overlap in provenance and merging them now would double-count behaviors.",
+    "sources_merged": false
+  },
+  "ok": true,
+  "run_id": "run_20260818T220318Z_d542e69a",
+  "source_manifest_run_id": "run_20260818T220235Z_27411b0b",
+  "sources": [
+    {
+      "acquisition_method": "HTTPS GET from raw.githubusercontent.com at a pinned commit",
+      "expected_schema_notes": "No split column exists anywhere in these files. The official partition is file-level: val + test are disjoint and together reconstruct text_all.",
+      "files": [
+        {
+          "arm": "harmful",
+          "categories": {
+            "FunctionalCategory": {
+              "contextual": 100,
+              "copyright": 100,
+              "standard": 200
+            },
+            "SemanticCategory": {
+              "chemical_biological": 56,
+              "copyright": 100,
+              "cybercrime_intrusion": 67,
+              "harassment_bullying": 25,
+              "harmful": 22,
+              "illegal": 65,
+              "misinformation_disinformation": 65
+            }
+          },
+          "column_profiles": [
+            {
+              "dtype": "string",
+              "max_char_length": 209,
+              "min_char_length": 23,
+              "n_distinct": 393,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Behavior"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 10,
+              "min_char_length": 8,
+              "n_distinct": 3,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "FunctionalCategory"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 29,
+              "min_char_length": 7,
+              "n_distinct": 7,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "SemanticCategory"
+            },
+            {
+              "dtype": "string",
+              "emptiness_expected": true,
+              "emptiness_note": "empty for standard rows; populated for contextual/copyright",
+              "max_char_length": 18,
+              "min_char_length": 7,
+              "n_distinct": 4,
+              "n_empty_string": 200,
+              "n_missing": 0,
+              "name": "Tags"
+            },
+            {
+              "dtype": "string",
+              "emptiness_expected": true,
+              "emptiness_note": "empty for all non-contextual rows (standard/copyright)",
+              "max_char_length": 3544,
+              "min_char_length": 150,
+              "n_distinct": 93,
+              "n_empty_string": 300,
+              "n_missing": 0,
+              "name": "ContextString"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 51,
+              "min_char_length": 13,
+              "n_distinct": 400,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "BehaviorID"
+            }
+          ],
+          "columns": [
+            "Behavior",
+            "FunctionalCategory",
+            "SemanticCategory",
+            "Tags",
+            "ContextString",
+            "BehaviorID"
+          ],
+          "duplicates": {
+            "composite": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Behavior+ContextString)",
+              "n_distinct": 400,
+              "n_duplicate_keys": 0,
+              "n_rows": 400,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "composite_key_columns": [
+              "Behavior",
+              "ContextString"
+            ],
+            "ids": {
+              "duplicate_keys": [],
+              "key_name": "BehaviorID",
+              "n_distinct": 400,
+              "n_duplicate_keys": 0,
+              "n_rows": 400,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "is_defective": false,
+            "note": "A repeated primary text column is NOT a duplicate item when another text column distinguishes the rows (e.g. HarmBench pairs one Behavior with several ContextStrings). Only composite duplicates are genuine.",
+            "primary_text": {
+              "duplicate_keys": [
+                "1d3ed4386cb325049b52b1dace604485c7c9f68c8b976b8daa9ee8c224d614be",
+                "4bf554725e0d354d6eea14bb62c1f61e72b353e19f852cbb38f6a44c16cbfb08",
+                "a4edca7e5173c25801efc3920059fb21f9c73b11aa8a5d29eca59d61632a2627",
+                "c9ba9177aba9c396b8d55703b9ffd6b48f2293283435b1cdc49925804eca7368",
+                "dc6c1cf08451c1199b952bea58ec0bcb35bbf01f73229d08bbaa68c6ce86ba62"
+              ],
+              "key_name": "sha256(Behavior)",
+              "n_distinct": 393,
+              "n_duplicate_keys": 5,
+              "n_rows": 400,
+              "n_rows_affected": 12,
+              "truncated": false
+            }
+          },
+          "duplicates_are_defective": false,
+          "id_column": "BehaviorID",
+          "local_path": "data/raw/harmbench/harmbench_behaviors_text_all.csv",
+          "missing_values": {
+            "by_column": {
+              "ContextString": 300,
+              "Tags": 200
+            },
+            "n_expected_by_design": 500,
+            "n_total": 500,
+            "n_unexpected": 0
+          },
+          "n_columns": 6,
+          "n_duplicate_behavior_text": 5,
+          "n_duplicate_composite_key": 0,
+          "n_duplicate_ids": 0,
+          "n_rows": 400,
+          "n_rows_sharing_duplicate_text": 12,
+          "n_total_missing": 500,
+          "n_unexpected_missing": 0,
+          "notes": "Full text behavior set = val (80) + test (320).",
+          "part_id": "text_all",
+          "schema_ok": true,
+          "schema_violations": [],
+          "sha256": "8d81accedd38eaaf8b760618622bb888417d1fd0c86eba65c427a16f1cbb4afc",
+          "table_digest": "f8ea8898c95d76c43d666e8d625ffdd69cfe5d9f82a8673227d08943756b5d07"
+        },
+        {
+          "arm": "harmful",
+          "categories": {
+            "FunctionalCategory": {
+              "contextual": 81,
+              "copyright": 80,
+              "standard": 159
+            },
+            "SemanticCategory": {
+              "chemical_biological": 42,
+              "copyright": 80,
+              "cybercrime_intrusion": 52,
+              "harassment_bullying": 21,
+              "harmful": 18,
+              "illegal": 53,
+              "misinformation_disinformation": 54
+            }
+          },
+          "column_profiles": [
+            {
+              "dtype": "string",
+              "max_char_length": 209,
+              "min_char_length": 23,
+              "n_distinct": 317,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Behavior"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 10,
+              "min_char_length": 8,
+              "n_distinct": 3,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "FunctionalCategory"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 29,
+              "min_char_length": 7,
+              "n_distinct": 7,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "SemanticCategory"
+            },
+            {
+              "dtype": "string",
+              "emptiness_expected": true,
+              "emptiness_note": "empty for standard rows; populated for contextual/copyright",
+              "max_char_length": 18,
+              "min_char_length": 7,
+              "n_distinct": 4,
+              "n_empty_string": 159,
+              "n_missing": 0,
+              "name": "Tags"
+            },
+            {
+              "dtype": "string",
+              "emptiness_expected": true,
+              "emptiness_note": "empty for all non-contextual rows (standard/copyright)",
+              "max_char_length": 3544,
+              "min_char_length": 150,
+              "n_distinct": 77,
+              "n_empty_string": 239,
+              "n_missing": 0,
+              "name": "ContextString"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 47,
+              "min_char_length": 13,
+              "n_distinct": 320,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "BehaviorID"
+            }
+          ],
+          "columns": [
+            "Behavior",
+            "FunctionalCategory",
+            "SemanticCategory",
+            "Tags",
+            "ContextString",
+            "BehaviorID"
+          ],
+          "duplicates": {
+            "composite": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Behavior+ContextString)",
+              "n_distinct": 320,
+              "n_duplicate_keys": 0,
+              "n_rows": 320,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "composite_key_columns": [
+              "Behavior",
+              "ContextString"
+            ],
+            "ids": {
+              "duplicate_keys": [],
+              "key_name": "BehaviorID",
+              "n_distinct": 320,
+              "n_duplicate_keys": 0,
+              "n_rows": 320,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "is_defective": false,
+            "note": "A repeated primary text column is NOT a duplicate item when another text column distinguishes the rows (e.g. HarmBench pairs one Behavior with several ContextStrings). Only composite duplicates are genuine.",
+            "primary_text": {
+              "duplicate_keys": [
+                "4bf554725e0d354d6eea14bb62c1f61e72b353e19f852cbb38f6a44c16cbfb08",
+                "a4edca7e5173c25801efc3920059fb21f9c73b11aa8a5d29eca59d61632a2627",
+                "c9ba9177aba9c396b8d55703b9ffd6b48f2293283435b1cdc49925804eca7368"
+              ],
+              "key_name": "sha256(Behavior)",
+              "n_distinct": 317,
+              "n_duplicate_keys": 3,
+              "n_rows": 320,
+              "n_rows_affected": 6,
+              "truncated": false
+            }
+          },
+          "duplicates_are_defective": false,
+          "id_column": "BehaviorID",
+          "local_path": "data/raw/harmbench/harmbench_behaviors_text_test.csv",
+          "missing_values": {
+            "by_column": {
+              "ContextString": 239,
+              "Tags": 159
+            },
+            "n_expected_by_design": 398,
+            "n_total": 398,
+            "n_unexpected": 0
+          },
+          "n_columns": 6,
+          "n_duplicate_behavior_text": 3,
+          "n_duplicate_composite_key": 0,
+          "n_duplicate_ids": 0,
+          "n_rows": 320,
+          "n_rows_sharing_duplicate_text": 6,
+          "n_total_missing": 398,
+          "n_unexpected_missing": 0,
+          "notes": "OFFICIAL test partition -- a separate FILE, not a column.",
+          "part_id": "text_test",
+          "schema_ok": true,
+          "schema_violations": [],
+          "sha256": "75d257b3e7428c52eb7b0154318f455af3e01b09a3794b5e2f3d36054f3c0e29",
+          "table_digest": "edaecd9f822230aaf96b8379a2591e01b1fc0d4d768b9ad0da0e3b3bc26d1976"
+        },
+        {
+          "arm": "harmful",
+          "categories": {
+            "FunctionalCategory": {
+              "contextual": 19,
+              "copyright": 20,
+              "standard": 41
+            },
+            "SemanticCategory": {
+              "chemical_biological": 14,
+              "copyright": 20,
+              "cybercrime_intrusion": 15,
+              "harassment_bullying": 4,
+              "harmful": 4,
+              "illegal": 12,
+              "misinformation_disinformation": 11
+            }
+          },
+          "column_profiles": [
+            {
+              "dtype": "string",
+              "max_char_length": 179,
+              "min_char_length": 35,
+              "n_distinct": 78,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Behavior"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 10,
+              "min_char_length": 8,
+              "n_distinct": 3,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "FunctionalCategory"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 29,
+              "min_char_length": 7,
+              "n_distinct": 7,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "SemanticCategory"
+            },
+            {
+              "dtype": "string",
+              "emptiness_expected": true,
+              "emptiness_note": "empty for standard rows; populated for contextual/copyright",
+              "max_char_length": 18,
+              "min_char_length": 7,
+              "n_distinct": 4,
+              "n_empty_string": 41,
+              "n_missing": 0,
+              "name": "Tags"
+            },
+            {
+              "dtype": "string",
+              "emptiness_expected": true,
+              "emptiness_note": "empty for all non-contextual rows (standard/copyright)",
+              "max_char_length": 3544,
+              "min_char_length": 254,
+              "n_distinct": 18,
+              "n_empty_string": 61,
+              "n_missing": 0,
+              "name": "ContextString"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 51,
+              "min_char_length": 14,
+              "n_distinct": 80,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "BehaviorID"
+            }
+          ],
+          "columns": [
+            "Behavior",
+            "FunctionalCategory",
+            "SemanticCategory",
+            "Tags",
+            "ContextString",
+            "BehaviorID"
+          ],
+          "duplicates": {
+            "composite": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Behavior+ContextString)",
+              "n_distinct": 80,
+              "n_duplicate_keys": 0,
+              "n_rows": 80,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "composite_key_columns": [
+              "Behavior",
+              "ContextString"
+            ],
+            "ids": {
+              "duplicate_keys": [],
+              "key_name": "BehaviorID",
+              "n_distinct": 80,
+              "n_duplicate_keys": 0,
+              "n_rows": 80,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "is_defective": false,
+            "note": "A repeated primary text column is NOT a duplicate item when another text column distinguishes the rows (e.g. HarmBench pairs one Behavior with several ContextStrings). Only composite duplicates are genuine.",
+            "primary_text": {
+              "duplicate_keys": [
+                "1d3ed4386cb325049b52b1dace604485c7c9f68c8b976b8daa9ee8c224d614be",
+                "dc6c1cf08451c1199b952bea58ec0bcb35bbf01f73229d08bbaa68c6ce86ba62"
+              ],
+              "key_name": "sha256(Behavior)",
+              "n_distinct": 78,
+              "n_duplicate_keys": 2,
+              "n_rows": 80,
+              "n_rows_affected": 4,
+              "truncated": false
+            }
+          },
+          "duplicates_are_defective": false,
+          "id_column": "BehaviorID",
+          "local_path": "data/raw/harmbench/harmbench_behaviors_text_val.csv",
+          "missing_values": {
+            "by_column": {
+              "ContextString": 61,
+              "Tags": 41
+            },
+            "n_expected_by_design": 102,
+            "n_total": 102,
+            "n_unexpected": 0
+          },
+          "n_columns": 6,
+          "n_duplicate_behavior_text": 2,
+          "n_duplicate_composite_key": 0,
+          "n_duplicate_ids": 0,
+          "n_rows": 80,
+          "n_rows_sharing_duplicate_text": 4,
+          "n_total_missing": 102,
+          "n_unexpected_missing": 0,
+          "notes": "OFFICIAL validation partition -- a separate FILE, not a column.",
+          "part_id": "text_val",
+          "schema_ok": true,
+          "schema_violations": [],
+          "sha256": "7bfaaa5e2b9b95002c89e2d33c019f58e9e8496e2fc65d368f1eeb8179e69534",
+          "table_digest": "e597f78030a8794a519680c3bb90104b61b78b757139003905443aee4dc2926f"
+        }
+      ],
+      "license_id": "MIT",
+      "license_url": "https://github.com/centerforaisafety/HarmBench/blob/c0423b952435fcc8467108d8f25962dbae5b7de2/LICENSE",
+      "local_dir": "data/raw/harmbench",
+      "n_files": 3,
+      "n_rows_total": 800,
+      "name": "HarmBench text behaviors",
+      "retrieved_at": "2026-08-18T22:02:39.500800+00:00",
+      "revision": "c0423b952435fcc8467108d8f25962dbae5b7de2",
+      "revision_type": "git_commit_sha",
+      "source_id": "harmbench",
+      "url": "https://github.com/centerforaisafety/HarmBench"
+    },
+    {
+      "acquisition_method": "huggingface_hub.hf_hub_download (byte-exact) + datasets.get_dataset_config_names/get_dataset_split_names (structure verification)",
+      "expected_schema_notes": "The `judge_comparison` config is a separate artifact (judge agreement data) and is NOT acquired at Stage 0. The `Index` column restarts at 0 in each split, so it is unique only WITHIN a split -- never use it as a corpus-wide key.",
+      "files": [
+        {
+          "arm": "benign",
+          "categories": {
+            "Category": {
+              "Disinformation": 10,
+              "Economic harm": 10,
+              "Expert advice": 10,
+              "Fraud/Deception": 10,
+              "Government decision-making": 10,
+              "Harassment/Discrimination": 10,
+              "Malware/Hacking": 10,
+              "Physical harm": 10,
+              "Privacy": 10,
+              "Sexual/Adult content": 10
+            },
+            "Source": {
+              "Original": 100
+            }
+          },
+          "column_profiles": [
+            {
+              "dtype": "integer",
+              "max_char_length": 2,
+              "min_char_length": 1,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Index"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 114,
+              "min_char_length": 39,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Goal"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 129,
+              "min_char_length": 42,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Target"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 28,
+              "min_char_length": 6,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Behavior"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 26,
+              "min_char_length": 7,
+              "n_distinct": 10,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Category"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 8,
+              "min_char_length": 8,
+              "n_distinct": 1,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Source"
+            }
+          ],
+          "columns": [
+            "Index",
+            "Goal",
+            "Target",
+            "Behavior",
+            "Category",
+            "Source"
+          ],
+          "duplicates": {
+            "composite": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Goal+Target+Behavior)",
+              "n_distinct": 100,
+              "n_duplicate_keys": 0,
+              "n_rows": 100,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "composite_key_columns": [
+              "Goal",
+              "Target",
+              "Behavior"
+            ],
+            "ids": {
+              "duplicate_keys": [],
+              "key_name": "Index",
+              "n_distinct": 100,
+              "n_duplicate_keys": 0,
+              "n_rows": 100,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "is_defective": false,
+            "note": "A repeated primary text column is NOT a duplicate item when another text column distinguishes the rows (e.g. HarmBench pairs one Behavior with several ContextStrings). Only composite duplicates are genuine.",
+            "primary_text": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Goal)",
+              "n_distinct": 100,
+              "n_duplicate_keys": 0,
+              "n_rows": 100,
+              "n_rows_affected": 0,
+              "truncated": false
+            }
+          },
+          "duplicates_are_defective": false,
+          "id_column": "Index",
+          "local_path": "data/raw/jailbreakbench/benign-behaviors.csv",
+          "missing_values": {
+            "by_column": {},
+            "n_expected_by_design": 0,
+            "n_total": 0,
+            "n_unexpected": 0
+          },
+          "n_columns": 6,
+          "n_duplicate_behavior_text": 0,
+          "n_duplicate_composite_key": 0,
+          "n_duplicate_ids": 0,
+          "n_rows": 100,
+          "n_rows_sharing_duplicate_text": 0,
+          "n_total_missing": 0,
+          "n_unexpected_missing": 0,
+          "notes": "data/benign-behaviors.csv; split 'benign' of config 'behaviors'.",
+          "part_id": "benign",
+          "schema_ok": true,
+          "schema_violations": [],
+          "sha256": "3cda234d21a991fa309bbfea4b6d9dae31ccdf8e9d452424b6a983e4fdc33468",
+          "table_digest": "7d5eb1ae8714965bbc82d113962dcdf62664940eccfd7d2c3fb8534616baf324"
+        },
+        {
+          "arm": "harmful",
+          "categories": {
+            "Category": {
+              "Disinformation": 10,
+              "Economic harm": 10,
+              "Expert advice": 10,
+              "Fraud/Deception": 10,
+              "Government decision-making": 10,
+              "Harassment/Discrimination": 10,
+              "Malware/Hacking": 10,
+              "Physical harm": 10,
+              "Privacy": 10,
+              "Sexual/Adult content": 10
+            },
+            "Source": {
+              "AdvBench": 18,
+              "Original": 55,
+              "TDC/HarmBench": 27
+            }
+          },
+          "column_profiles": [
+            {
+              "dtype": "integer",
+              "max_char_length": 2,
+              "min_char_length": 1,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Index"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 155,
+              "min_char_length": 24,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Goal"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 162,
+              "min_char_length": 32,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Target"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 28,
+              "min_char_length": 6,
+              "n_distinct": 100,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Behavior"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 26,
+              "min_char_length": 7,
+              "n_distinct": 10,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Category"
+            },
+            {
+              "dtype": "string",
+              "max_char_length": 13,
+              "min_char_length": 8,
+              "n_distinct": 3,
+              "n_empty_string": 0,
+              "n_missing": 0,
+              "name": "Source"
+            }
+          ],
+          "columns": [
+            "Index",
+            "Goal",
+            "Target",
+            "Behavior",
+            "Category",
+            "Source"
+          ],
+          "duplicates": {
+            "composite": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Goal+Target+Behavior)",
+              "n_distinct": 100,
+              "n_duplicate_keys": 0,
+              "n_rows": 100,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "composite_key_columns": [
+              "Goal",
+              "Target",
+              "Behavior"
+            ],
+            "ids": {
+              "duplicate_keys": [],
+              "key_name": "Index",
+              "n_distinct": 100,
+              "n_duplicate_keys": 0,
+              "n_rows": 100,
+              "n_rows_affected": 0,
+              "truncated": false
+            },
+            "is_defective": false,
+            "note": "A repeated primary text column is NOT a duplicate item when another text column distinguishes the rows (e.g. HarmBench pairs one Behavior with several ContextStrings). Only composite duplicates are genuine.",
+            "primary_text": {
+              "duplicate_keys": [],
+              "key_name": "sha256(Goal)",
+              "n_distinct": 100,
+              "n_duplicate_keys": 0,
+              "n_rows": 100,
+              "n_rows_affected": 0,
+              "truncated": false
+            }
+          },
+          "duplicates_are_defective": false,
+          "id_column": "Index",
+          "local_path": "data/raw/jailbreakbench/harmful-behaviors.csv",
+          "missing_values": {
+            "by_column": {},
+            "n_expected_by_design": 0,
+            "n_total": 0,
+            "n_unexpected": 0
+          },
+          "n_columns": 6,
+          "n_duplicate_behavior_text": 0,
+          "n_duplicate_composite_key": 0,
+          "n_duplicate_ids": 0,
+          "n_rows": 100,
+          "n_rows_sharing_duplicate_text": 0,
+          "n_total_missing": 0,
+          "n_unexpected_missing": 0,
+          "notes": "data/harmful-behaviors.csv; split 'harmful' of config 'behaviors'.",
+          "part_id": "harmful",
+          "schema_ok": true,
+          "schema_violations": [],
+          "sha256": "4a8ec6832056b631eb092dccc60d37a61c3d441268268888b3d006288afeffa1",
+          "table_digest": "f23a87451330c79e2b2ad0ba503b6fb8c83060be902b6857bdffdaa60eef3c36"
+        }
+      ],
+      "license_id": "MIT",
+      "license_url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors/blob/886acc352a31533ffbcf4ef22c744658688086fc/LICENSE",
+      "local_dir": "data/raw/jailbreakbench",
+      "n_files": 2,
+      "n_rows_total": 200,
+      "name": "JailbreakBench/JBB-Behaviors",
+      "retrieved_at": "2026-08-18T22:02:38.578554+00:00",
+      "revision": "886acc352a31533ffbcf4ef22c744658688086fc",
+      "revision_type": "hf_dataset_commit_sha",
+      "source_id": "jailbreakbench",
+      "url": "https://huggingface.co/datasets/JailbreakBench/JBB-Behaviors"
+    }
+  ],
+  "stage": "stage0.2_inspect_sources",
+  "tool_version": "0.0.1"
+}

@@ -1,0 +1,5 @@
+model,phase,config,metric,language,numerator,denominator,rate,ci_method,bootstrap_replicates,random_seed,ci95_low,ci95_high
+openai/gpt-oss-20b,phase1,baseline,legacy_harmful_failure_rate,Arabic,43,300,0.14333333333333334,nonparametric_bootstrap_percentile,10000,20260908,0.10333333333333333,0.18333333333333332
+openai/gpt-oss-20b,phase1,baseline,legacy_harmful_failure_rate,English,174,300,0.58,nonparametric_bootstrap_percentile,10000,20260908,0.5233333333333333,0.6366666666666667
+openai/gpt-oss-20b,phase1,baseline,legacy_harmful_failure_rate,Hausa,45,300,0.15,nonparametric_bootstrap_percentile,10000,20260908,0.11,0.19333333333333333
+openai/gpt-oss-20b,phase1,baseline,legacy_harmful_failure_rate,Yoruba,48,300,0.16,nonparametric_bootstrap_percentile,10000,20260908,0.12,0.20333333333333334

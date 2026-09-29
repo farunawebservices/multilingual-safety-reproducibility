@@ -1,0 +1,4163 @@
+{
+  "caveats": [
+    "Heuristics catch mechanical failures, not meaning. Passing is not validation.",
+    "No row is marked validated and no review_required flag is cleared here.",
+    "Latin-script targets (ha, yo, sw) are the least reliably checkable; uncertainty there resolves to human review, never acceptance.",
+    "No model under evaluation was used to produce or judge these rows."
+  ],
+  "config": {
+    "outputs": "data/v2/interim/pilot_outputs_v2.jsonl"
+  },
+  "config_hash": "b0da5c27882fad6b02386e2258e3d46c8d5492f068bd05e2ae0ff19fc5f6b323",
+  "contains_prompt_text": false,
+  "counts_by_category": {
+    "Disinformation": 14,
+    "Economic harm": 14,
+    "Expert advice": 14,
+    "Fraud/Deception": 14,
+    "Government decision-making": 14,
+    "Harassment/Discrimination": 14,
+    "Malware/Hacking": 14,
+    "Physical harm": 14,
+    "Privacy": 14,
+    "Sexual/Adult content": 14
+  },
+  "counts_by_harm_label": {
+    "benign": 70,
+    "harmful": 70
+  },
+  "counts_by_language": {
+    "ar": 20,
+    "en": 20,
+    "ha": 20,
+    "hi": 20,
+    "ko": 20,
+    "sw": 20,
+    "yo": 20
+  },
+  "counts_by_status": {
+    "CANONICAL_SOURCE": 20,
+    "MACHINE_TRANSLATED_UNCHECKED": 120
+  },
+  "counts_by_validation_status": {
+    "canonical_source": 20,
+    "heuristics_failed": 14,
+    "heuristics_passed": 106,
+    "human_reviewed": 0,
+    "pending_translation": 0
+  },
+  "deterministic_digest": "82b2e447f7ed4a51f768cfcc70a25ccc8f04d2e2bd9ac5d0d1b281986bc6efea",
+  "duplicate_prompt_hashes": {},
+  "generated_at": "2026-08-19T08:56:00.785776+00:00",
+  "git_branch": "dataset-v2-rebuild",
+  "git_commit": "951308b5085c2cc14f506dec40a901f7978c8aa0",
+  "git_dirty": true,
+  "group_violations": {},
+  "issue_counts": {
+    "CONTAINS_PLACEHOLDER": 0,
+    "DUPLICATE_TRANSLATION": 0,
+    "EMPTY_TEXT": 0,
+    "ENGLISH_LEAKAGE": 0,
+    "IDENTICAL_TO_SOURCE": 0,
+    "MISSING_EXPECTED_DIACRITICS": 11,
+    "NOT_TRANSLATED": 0,
+    "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+    "SUSPICIOUSLY_LONG": 1,
+    "SUSPICIOUSLY_SHORT": 2,
+    "WRONG_SCRIPT": 0
+  },
+  "issue_counts_by_language": {
+    "ar": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "en": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "ha": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 11,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "hi": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "ko": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 2,
+      "WRONG_SCRIPT": 0
+    },
+    "sw": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 0,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    },
+    "yo": {
+      "CONTAINS_PLACEHOLDER": 0,
+      "DUPLICATE_TRANSLATION": 0,
+      "EMPTY_TEXT": 0,
+      "ENGLISH_LEAKAGE": 0,
+      "IDENTICAL_TO_SOURCE": 0,
+      "MISSING_EXPECTED_DIACRITICS": 0,
+      "NOT_TRANSLATED": 0,
+      "NO_TARGET_LANGUAGE_EVIDENCE": 0,
+      "SUSPICIOUSLY_LONG": 1,
+      "SUSPICIOUSLY_SHORT": 0,
+      "WRONG_SCRIPT": 0
+    }
+  },
+  "judged_by_model_under_evaluation": false,
+  "n_behaviors": 20,
+  "n_duplicate_prompt_hashes": 0,
+  "n_parse_errors": 0,
+  "n_review_required": 120,
+  "n_rows": 140,
+  "native_speaker_reviewed_rows": 0,
+  "native_speaker_reviewers": [],
+  "native_speaker_validation_claimed": false,
+  "ok": true,
+  "parse_errors": [],
+  "policy_violations": [],
+  "rows": [
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.6761,
+        "n_chars": 48,
+        "n_tokens": 8,
+        "script_counts": {
+          "Arab": 40,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 71,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "f4e976ca8e3d743a560703e07795871b6d836da1705341f5940845b09eaea9f8",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 71,
+        "n_tokens": 11,
+        "source_n_chars": 71
+      },
+      "prompt_hash": "ce04403c43543e093fabdf3c3ddcdf5ea0069da21e1ff1b68354f683dfd6bf27",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1127,
+        "n_chars": 79,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 66,
+          "Other": 0
+        },
+        "source_n_chars": 71,
+        "target_function_word_ratio": 0.3571
+      },
+      "prompt_hash": "174f76b94d320fead58f00a5a654018a78f0bd2801c5547999612656722f38be",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.1268,
+        "n_chars": 80,
+        "n_tokens": 29,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 38,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 71,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "8184d4407bb4ab260b2ac75a8a91be6ea855aabfec1b57b3dbaa5b51f355cf36",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5915,
+        "n_chars": 42,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 29,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 71,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "14e05d0f3ba8a31e93c9eced6eebcff75a3e1e3e86a80145dba4df84ce9c72e4",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1408,
+        "n_chars": 81,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 70,
+          "Other": 0
+        },
+        "source_n_chars": 71,
+        "target_function_word_ratio": 0.4167
+      },
+      "prompt_hash": "cc28c5506aeda910e517a98d170497e6fd50e2ff2214df6da7dd5ef06de60b31",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_72e4cee2cc80",
+      "category": "Disinformation",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1127,
+        "n_chars": 79,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 19,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 59,
+          "Other": 0
+        },
+        "source_n_chars": 71,
+        "target_function_word_ratio": 0.2632
+      },
+      "prompt_hash": "5032c52f505dd9023c0d12dc2455b044d983ea0f95ffd1ab783e6042c80de16d",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.9103,
+        "n_chars": 71,
+        "n_tokens": 11,
+        "script_counts": {
+          "Arab": 56,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 78,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "3d9f0eaf88460538f416d7807c2ad29d89c8013f54dad0f513fe737d88467b0b",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 78,
+        "n_tokens": 12,
+        "source_n_chars": 78
+      },
+      "prompt_hash": "17ba6ced2b2272161ce02be7c6d9cc08f85faf2cd591acfe68523b6108feb295",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0714,
+        "expected_script": "Latn",
+        "length_ratio": 1.0641,
+        "n_chars": 83,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 70,
+          "Other": 0
+        },
+        "source_n_chars": 78,
+        "target_function_word_ratio": 0.4286
+      },
+      "prompt_hash": "63ccf69c24b603a2116dcd3f5f779ccc6abd962668b32ec9a9c3aabc6249fedc",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.0256,
+        "n_chars": 80,
+        "n_tokens": 29,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 38,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 78,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "09ffdee0bc228af46b6b3c790b0a9c959f42fbcb8904cd75ac23e9f2f223d75c",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5513,
+        "n_chars": 43,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 34,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 78,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "1a8ce269046de42bfb4c887d9c9a9977cfbce7f0b4a076b0a09fada6f3707e29",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0641,
+        "n_chars": 83,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 72,
+          "Other": 0
+        },
+        "source_n_chars": 78,
+        "target_function_word_ratio": 0.5
+      },
+      "prompt_hash": "9338143387fa4e9c793b58ba96fc7aa72a6af3f61d9eb49f52ea07d3c3ecc0c0",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a39a4c7d178f",
+      "category": "Economic harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.9103,
+        "n_chars": 71,
+        "n_missing_diacritic_sentinels": 8,
+        "n_tokens": 15,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 55,
+          "Other": 0
+        },
+        "source_n_chars": 78,
+        "target_function_word_ratio": 0.3333
+      },
+      "prompt_hash": "1f45b62c26d33799aac61131590540db1c32327f6bde7f2ff344cb8075b39418",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.6889,
+        "n_chars": 31,
+        "n_tokens": 5,
+        "script_counts": {
+          "Arab": 26,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 45,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "f8e6afb18a7d0405b28685d505fff50954a9d1c59b0c7e1e03971fd8fa237ad0",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 45,
+        "n_tokens": 8,
+        "source_n_chars": 45
+      },
+      "prompt_hash": "61a847ceef24c3729f1b34c204b3c1dc9c8fede32c237276e122a95ca660ccfd",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.125,
+        "expected_script": "Latn",
+        "length_ratio": 0.8444,
+        "n_chars": 38,
+        "n_tokens": 8,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 30,
+          "Other": 0
+        },
+        "source_n_chars": 45,
+        "target_function_word_ratio": 0.375
+      },
+      "prompt_hash": "e99ba4e1240265c98e9294619e93ee61681bf79f0d4f31caaad79ada64274c06",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8222,
+        "n_chars": 37,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 16,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 45,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "79071c50d46de4af5bf25751d515fbdf3008ab31053e7ebda0c71d9687a45042",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [
+        "SUSPICIOUSLY_SHORT"
+      ],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.3778,
+        "n_chars": 17,
+        "n_tokens": 4,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 13,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 45,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "d14a79bf4100ef708b1c67917e52bb86a550e74a822c20fb064eaf93bdc2cd32",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.8222,
+        "n_chars": 37,
+        "n_tokens": 6,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 31,
+          "Other": 0
+        },
+        "source_n_chars": 45,
+        "target_function_word_ratio": 0.1667
+      },
+      "prompt_hash": "981ea6d0fc884b0fe8b51fd9155822747aba6d0281a9a24d37c9e74a75a1db51",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_91a0f589c181",
+      "category": "Expert advice",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1556,
+        "n_chars": 52,
+        "n_missing_diacritic_sentinels": 10,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 37,
+          "Other": 0
+        },
+        "source_n_chars": 45,
+        "target_function_word_ratio": 0.3846
+      },
+      "prompt_hash": "8bb5788d0a541caad7b7c975ef29d05257433a3bae85e75dcd4cec75efbeb211",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8989,
+        "n_chars": 80,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 67,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 89,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "ca66232591db6202d1e28a9468e11557518513f28bb73677bba7c0567269d661",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 89,
+        "n_tokens": 18,
+        "source_n_chars": 89
+      },
+      "prompt_hash": "30c4c6e1ba49ead8b47ae0b953787ab4bd22cdd3d6fd8b86b54500a98d82595f",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0526,
+        "expected_script": "Latn",
+        "length_ratio": 1.1461,
+        "n_chars": 102,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 19,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 84,
+          "Other": 0
+        },
+        "source_n_chars": 89,
+        "target_function_word_ratio": 0.3684
+      },
+      "prompt_hash": "0f698d2e590daa3e0abbc1d2f2e3f2b71066c16635925fea3d520ad4937c3ac6",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.0674,
+        "n_chars": 95,
+        "n_tokens": 36,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 49,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 89,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "ed6ed0af7243114a3185505ff04b8abdfcdd2f96a0ca88753be853fc0617d521",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.4494,
+        "n_chars": 40,
+        "n_tokens": 11,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 30,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 89,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "d479b4da89e84fca8a48031cfbbf7a6d0ac43cc3b817f067dfa20760794ee3a8",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.4382,
+        "n_chars": 128,
+        "n_tokens": 25,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 104,
+          "Other": 0
+        },
+        "source_n_chars": 89,
+        "target_function_word_ratio": 0.48
+      },
+      "prompt_hash": "32d2c9c919262baba651255528411c217de4216218c0bd29bf3aa3a15a6422c4",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_66925697e389",
+      "category": "Fraud/Deception",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.236,
+        "n_chars": 110,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 28,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 78,
+          "Other": 0
+        },
+        "source_n_chars": 89,
+        "target_function_word_ratio": 0.1071
+      },
+      "prompt_hash": "0098caff77e69d381c264efa5d73a65f8186d4abaae0dd1674184b96f663b399",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.7375,
+        "n_chars": 59,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 50,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 80,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "a0b74c5f3de7b032e572f2a76adeb38461d20f918f5f20aa1424fb2d97accb59",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 80,
+        "n_tokens": 14,
+        "source_n_chars": 80
+      },
+      "prompt_hash": "f0a8dc1f3bfeda772e21a17617be598deec9706f24dfabdd478b4960824cab6f",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.125,
+        "expected_script": "Latn",
+        "length_ratio": 1.0125,
+        "n_chars": 81,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 16,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 66,
+          "Other": 0
+        },
+        "source_n_chars": 80,
+        "target_function_word_ratio": 0.5
+      },
+      "prompt_hash": "7b78c691e9657a68a0f7427274b6a0b4a62eb800b87d8debfaba90d8bb7de266",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.225,
+        "n_chars": 98,
+        "n_tokens": 34,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 45,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 80,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "71419b727b3152657140e893289f0cd6b3e290432c748bb2d9d2ae1d4c9a8ba9",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5625,
+        "n_chars": 45,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 32,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 80,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "fe015cea5b2970f44eb1067c00d881ecc827380ac34f7c2daa2b38c3ddc80c95",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.8875,
+        "n_chars": 71,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 62,
+          "Other": 0
+        },
+        "source_n_chars": 80,
+        "target_function_word_ratio": 0.3
+      },
+      "prompt_hash": "74705d43e621a62ab83c720bdf0a5c93f7e54f71dbfc77dcef8a556e5cd3ceab",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0f4a1eff5468",
+      "category": "Government decision-making",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.9375,
+        "n_chars": 75,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 16,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 59,
+          "Other": 0
+        },
+        "source_n_chars": 80,
+        "target_function_word_ratio": 0.1875
+      },
+      "prompt_hash": "4d3902b28b01c365337658aacd7e228d8730f181fa0571f4371ff89be5f2bd22",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.6863,
+        "n_chars": 35,
+        "n_tokens": 6,
+        "script_counts": {
+          "Arab": 30,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 51,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "e7aeddb6f272c9c9f77e25912d4370b2c7e3649dcd39636e50a74b4314d748e1",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 51,
+        "n_tokens": 10,
+        "source_n_chars": 51
+      },
+      "prompt_hash": "eb0ae6254af68274d6e4d4686ebd8504710dc80e86232b191223cd18bfc7a592",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0784,
+        "n_chars": 55,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 11,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 45,
+          "Other": 0
+        },
+        "source_n_chars": 51,
+        "target_function_word_ratio": 0.4545
+      },
+      "prompt_hash": "c81c90d5a7daad40143ccfce2726a056cf37d8a193937f62db2948376f9a6899",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.0,
+        "n_chars": 51,
+        "n_tokens": 20,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 23,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 51,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "a59ce19fefae1e0347bc86a8073974b07d82e263e5b311c44ab84ab39e71823d",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [
+        "SUSPICIOUSLY_SHORT"
+      ],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.3922,
+        "n_chars": 20,
+        "n_tokens": 5,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 16,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 51,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "f11553d8df18ff8c7770f9fdd6ec6b32f6e6137bba3448a8d4c426cf1be283f3",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1176,
+        "n_chars": 57,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 48,
+          "Other": 0
+        },
+        "source_n_chars": 51,
+        "target_function_word_ratio": 0.3
+      },
+      "prompt_hash": "57154f7d2d1ce86be473e657e6f4d96ea6f175d6ffd3dee26bbdb29b1cf5afd3",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a3309b0a68c5",
+      "category": "Harassment/Discrimination",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.9216,
+        "n_chars": 47,
+        "n_missing_diacritic_sentinels": 8,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 38,
+          "Other": 0
+        },
+        "source_n_chars": 51,
+        "target_function_word_ratio": 0.2222
+      },
+      "prompt_hash": "ac3cc5b75fd2fda4955b5c57eceee9943de76ab6ce77fff4797cb9863579d591",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8727,
+        "n_chars": 48,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 40,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 55,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "ba3749effa8285427f79f44f06e84f44036dca61505da99eab4ac55a5a394952",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 55,
+        "n_tokens": 8,
+        "source_n_chars": 55
+      },
+      "prompt_hash": "8afb73e1250a956539bde3a441a5084d8784387f2f46016c3e5e1ba737b3d2a8",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.8182,
+        "n_chars": 45,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 36,
+          "Other": 0
+        },
+        "source_n_chars": 55,
+        "target_function_word_ratio": 0.4
+      },
+      "prompt_hash": "4b3bb4491a982a19c7b7664cdcd044e9601292c916fc0100cd16f22e21e2ed86",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8182,
+        "n_chars": 45,
+        "n_tokens": 19,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 24,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 55,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "91bd2640d806194735991f2d0c19550d271fce29cf4abcb525a303dd5350b999",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.1154,
+        "length_ratio": 0.6909,
+        "n_chars": 38,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 23,
+          "Latn": 3,
+          "Other": 0
+        },
+        "source_n_chars": 55,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "1b5ab60c01e53a937bf530d2ed621636a9ed7748da6c9ede470aaeb43ec11f99",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.8182,
+        "n_chars": 45,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 37,
+          "Other": 0
+        },
+        "source_n_chars": 55,
+        "target_function_word_ratio": 0.3333
+      },
+      "prompt_hash": "7c1010fee416e98fb0a52eb291b9e67f464568a9e26ce7637b7fed755dd31611",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_0cb6fe1fcdac",
+      "category": "Malware/Hacking",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.9818,
+        "n_chars": 54,
+        "n_missing_diacritic_sentinels": 11,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 41,
+          "Other": 0
+        },
+        "source_n_chars": 55,
+        "target_function_word_ratio": 0.1429
+      },
+      "prompt_hash": "c658e159fd2ce259db4321f52f1fbd27446727e8e59efd8d35b712fc5e7d42fa",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8704,
+        "n_chars": 47,
+        "n_tokens": 8,
+        "script_counts": {
+          "Arab": 40,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 54,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "b08443072e77ec5ac0dfb17e131f3d914e8a5cbf6232182f88712b22c808cf3b",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 54,
+        "n_tokens": 8,
+        "source_n_chars": 54
+      },
+      "prompt_hash": "fc6f3b8f654836f2490d9ff39b5c2f7aa25c1583fde3a57c398e03dee8e3a12c",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1296,
+        "n_chars": 61,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 50,
+          "Other": 0
+        },
+        "source_n_chars": 54,
+        "target_function_word_ratio": 0.5
+      },
+      "prompt_hash": "a2727ebe22f3b99ec2d8f9eb2fc7e1defee34ea790153913af39c1a941cd7a73",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.2963,
+        "n_chars": 70,
+        "n_tokens": 23,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 38,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 54,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "ea702b9b128ffa1f3f9444353951b37e3d0c2ce5200693fe0c73c7446ff68605",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5926,
+        "n_chars": 32,
+        "n_tokens": 8,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 24,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 54,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "b76b721b1f40c64b9090d9ae3b205aadbe781b3f47fd15466fb70a56683150c7",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0926,
+        "n_chars": 59,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 51,
+          "Other": 0
+        },
+        "source_n_chars": 54,
+        "target_function_word_ratio": 0.4444
+      },
+      "prompt_hash": "bf31325416de1da330ef648732be758088d2b77524decc8796da1a9066f1440a",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_04bf1788c1aa",
+      "category": "Physical harm",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.5185,
+        "n_chars": 82,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 21,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 62,
+          "Other": 0
+        },
+        "source_n_chars": 54,
+        "target_function_word_ratio": 0.1905
+      },
+      "prompt_hash": "75c16427b8c484f2b58c268712300b42341062c12e96602df00db41e024f7161",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.7561,
+        "n_chars": 62,
+        "n_tokens": 11,
+        "script_counts": {
+          "Arab": 52,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 82,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "9dc48ba060a3da439cfebc48aa0272088081298719c41d0c42f727d0b04df201",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 82,
+        "n_tokens": 15,
+        "source_n_chars": 82
+      },
+      "prompt_hash": "c4e842b6411c582696070aecd3374b2be18bfe812778330d1466fe8938c4da2c",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.3049,
+        "n_chars": 107,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 19,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 89,
+          "Other": 0
+        },
+        "source_n_chars": 82,
+        "target_function_word_ratio": 0.3684
+      },
+      "prompt_hash": "e14ea2a8918bba66a7b7a68a62bb77f68176a73ee152c032d74cd537824bd0fe",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0652,
+        "length_ratio": 1.0854,
+        "n_chars": 89,
+        "n_tokens": 34,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 43,
+          "Hang": 0,
+          "Latn": 3,
+          "Other": 0
+        },
+        "source_n_chars": 82,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "3fab4cdc03516d787c2137d120e7fbb6456d5789807f83e3a641bea6f55c4ce6",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0909,
+        "length_ratio": 0.5122,
+        "n_chars": 42,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 30,
+          "Latn": 3,
+          "Other": 0
+        },
+        "source_n_chars": 82,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "df04e13820bb9796879fd80bd8d755f589eb6a51d94bb048990c8e6009885ee7",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.878,
+        "n_chars": 72,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 61,
+          "Other": 0
+        },
+        "source_n_chars": 82,
+        "target_function_word_ratio": 0.25
+      },
+      "prompt_hash": "2c650353bf9224b064f04c27fbbf0cb5eda8a4fd6bd9f764f2014200e2d30b7e",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_2085696094d9",
+      "category": "Privacy",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.3293,
+        "n_chars": 109,
+        "n_missing_diacritic_sentinels": 4,
+        "n_tokens": 27,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 80,
+          "Other": 0
+        },
+        "source_n_chars": 82,
+        "target_function_word_ratio": 0.2222
+      },
+      "prompt_hash": "ad133fae107aa20694d3477e7a2730a8572748def3121cd5e4a31d26ae8cc0e4",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.88,
+        "n_chars": 66,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 57,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 75,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "86078e51b5aefc5e10ed9b16fd8ba407e482647792d2dffd53c558cafacd43e7",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 75,
+        "n_tokens": 13,
+        "source_n_chars": 75
+      },
+      "prompt_hash": "c68a237cfea15b05f59b87a5405a75a162c6f35a5e778c748399bf44c969ce20",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1333,
+        "n_chars": 85,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 15,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 71,
+          "Other": 0
+        },
+        "source_n_chars": 75,
+        "target_function_word_ratio": 0.4
+      },
+      "prompt_hash": "d9567f4ddc8f4f19dd623bf8a385d4e875b4f9a4f6ae1a32265e26d5bc68e00b",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.0933,
+        "n_chars": 82,
+        "n_tokens": 32,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 39,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 75,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "26eb9bf83812ab1a75cd19f431e2cc805627a692793dca26622a84077ddb6c9d",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.4267,
+        "n_chars": 32,
+        "n_tokens": 7,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 25,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 75,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "7feff130c09c446fe407f7b4aa3324691d5ce9d1f5dfacad8508236265c4aee6",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.2,
+        "n_chars": 90,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 78,
+          "Other": 0
+        },
+        "source_n_chars": 75,
+        "target_function_word_ratio": 0.3077
+      },
+      "prompt_hash": "bb0d6168fde5849b8d7fb872d4c0c69e0157d890d0eb6c6a3f5470acfb88669c",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_396c1816ee5c",
+      "category": "Sexual/Adult content",
+      "harm_label": "benign",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.4267,
+        "n_chars": 107,
+        "n_missing_diacritic_sentinels": 4,
+        "n_tokens": 24,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 83,
+          "Other": 0
+        },
+        "source_n_chars": 75,
+        "target_function_word_ratio": 0.25
+      },
+      "prompt_hash": "437edaaa4047e62641ce27e4ebc70374cf9719ddd5221010c5f9dde333861528",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.7656,
+        "n_chars": 49,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 37,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 64,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "ef2e3d4f8cd75d4a7cc31492bcb226dd9324b78b4de129da253ab4e1ac39aa29",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 64,
+        "n_tokens": 10,
+        "source_n_chars": 64
+      },
+      "prompt_hash": "4527475587c9746f2fb398a31fef7c715064318e913da6f582f40c0eb15b165a",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.2656,
+        "n_chars": 81,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 15,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 64,
+          "Other": 0
+        },
+        "source_n_chars": 64,
+        "target_function_word_ratio": 0.4
+      },
+      "prompt_hash": "6366e824fa2273f4e898f0dbff7c58007737b2add28a11219d6042b6e9b119d7",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.6719,
+        "n_chars": 43,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 18,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 64,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "d0f40bd3949e12a05119555d6b2176df114bec6f0f18946263fdf0a2edd4d8e2",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.4375,
+        "n_chars": 28,
+        "n_tokens": 7,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 19,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 64,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "3b4496ecbab5b03ba94f17f747c4b2846e8dd0c251988521b61b3888c71d2551",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.2812,
+        "n_chars": 82,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 71,
+          "Other": 0
+        },
+        "source_n_chars": 64,
+        "target_function_word_ratio": 0.4444
+      },
+      "prompt_hash": "5770ae4c649e9d0e04aa1df73c3d005ffc1fbc56bc15e0850808e9b4a692009e",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b2d4a02cc6fa",
+      "category": "Disinformation",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.8594,
+        "n_chars": 55,
+        "n_missing_diacritic_sentinels": 10,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 40,
+          "Other": 0
+        },
+        "source_n_chars": 64,
+        "target_function_word_ratio": 0.4167
+      },
+      "prompt_hash": "4728ccc23eae45a7cdee1dec10432ad6833587aa02b290c8edab93d6cbf55082",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.84,
+        "n_chars": 105,
+        "n_tokens": 17,
+        "script_counts": {
+          "Arab": 89,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 125,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "b79eaf4f3cd572fdde090deeb41fb57d9c65d575c037509df009eec890cea943",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 125,
+        "n_tokens": 24,
+        "source_n_chars": 125
+      },
+      "prompt_hash": "add373c90c0469e82b4bf82cb9b09ca01216ee30dab8ff5aa88f0a1aedec0e7e",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0333,
+        "expected_script": "Latn",
+        "length_ratio": 1.072,
+        "n_chars": 134,
+        "n_missing_diacritic_sentinels": 5,
+        "n_tokens": 30,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 105,
+          "Other": 0
+        },
+        "source_n_chars": 125,
+        "target_function_word_ratio": 0.4
+      },
+      "prompt_hash": "10d03e3da4a269df51eee9916c5536c36f70d454237a07c59efa6941789867e8",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.976,
+        "n_chars": 122,
+        "n_tokens": 45,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 61,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 125,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "1edf656cc027c67085279328a2f98e1b792bc113f8ec8d39fa242720e56c2f2e",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0652,
+        "length_ratio": 0.472,
+        "n_chars": 59,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 43,
+          "Latn": 3,
+          "Other": 0
+        },
+        "source_n_chars": 125,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "5f2812ea1b5f52f9dc65fe9a838c4b6decb6cdfe27ff6640babf809054e59004",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.128,
+        "n_chars": 141,
+        "n_tokens": 22,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 120,
+          "Other": 0
+        },
+        "source_n_chars": 125,
+        "target_function_word_ratio": 0.3636
+      },
+      "prompt_hash": "b416b2df77023ac5abe492533479136948b5079952d8101e658701991e7bf426",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_7b8a918374ca",
+      "category": "Economic harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.144,
+        "n_chars": 143,
+        "n_missing_diacritic_sentinels": 5,
+        "n_tokens": 34,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 101,
+          "Other": 0
+        },
+        "source_n_chars": 125,
+        "target_function_word_ratio": 0.1176
+      },
+      "prompt_hash": "013ea81787e06ee70be950165a23c306c03324e88afe39114141ea6f5c4e2f11",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.962,
+        "n_chars": 76,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 65,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 79,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "aaf40311f2c330aa6475b2a3884894f68b8bf5139cf623432bee601b200c4ace",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 79,
+        "n_tokens": 10,
+        "source_n_chars": 79
+      },
+      "prompt_hash": "8d83ab85999515ac1a77cab9caad4375151f81f06a86b7fb996630cd73d06808",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0556,
+        "expected_script": "Latn",
+        "length_ratio": 1.2152,
+        "n_chars": 96,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 18,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 79,
+          "Other": 0
+        },
+        "source_n_chars": 79,
+        "target_function_word_ratio": 0.3889
+      },
+      "prompt_hash": "38f5378c6aa4ad23ab52d67e1eb7b2245841302304187fbe670d1f554f1800bb",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.9367,
+        "n_chars": 74,
+        "n_tokens": 28,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 36,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 79,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "40964879055e88d1a36bbb222bfa796e75c45a0e25597f5b355369b81727d360",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.4051,
+        "n_chars": 32,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 24,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 79,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "c679743507330d72c4a9e64d1ec92b0a6ec3dce1ce4bc60720eca7145b8ca288",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0886,
+        "n_chars": 86,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 74,
+          "Other": 0
+        },
+        "source_n_chars": 79,
+        "target_function_word_ratio": 0.3077
+      },
+      "prompt_hash": "e495f1c4823899668c07389ff94bf228b33c5576fa436d4977045f703f6f732c",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_95932dd7307f",
+      "category": "Expert advice",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.5949,
+        "n_chars": 126,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 31,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 89,
+          "Other": 0
+        },
+        "source_n_chars": 79,
+        "target_function_word_ratio": 0.1613
+      },
+      "prompt_hash": "ab034b6c4253972499c0247dba9013bcbbc38c4e4b4f70ff5abf99ece4ba4727",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.027,
+        "n_chars": 76,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 64,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "04f699cfbe87c0bd0acc0b68f71cd2761be63f1af84589c8b150c0e11ef48bac",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 74,
+        "n_tokens": 14,
+        "source_n_chars": 74
+      },
+      "prompt_hash": "244dcd310f4f33556f1a167a4b1af262ed5bb509d54925a547368e538320e67d",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0526,
+        "expected_script": "Latn",
+        "length_ratio": 1.1757,
+        "n_chars": 87,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 19,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 69,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": 0.4737
+      },
+      "prompt_hash": "3b4d88d5f3f12b814ea459a9a8f77839812a5f1c375960aa0840934ac24f77ef",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.1486,
+        "n_chars": 85,
+        "n_tokens": 29,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 43,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "c1ebdbabece8d9962647500fcd81548eadb5a85a3f34175d8c88b286322c7f4d",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.2222,
+        "length_ratio": 0.6081,
+        "n_chars": 45,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 28,
+          "Latn": 8,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "182d73ff9b86ea12c96c95721875bd93663bd4aad064b8037276bc7b8ff7282e",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0811,
+        "n_chars": 80,
+        "n_tokens": 15,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 66,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": 0.5333
+      },
+      "prompt_hash": "b82cd68bfb33cffec30a22a7dc1fffb209e17aef2bd87a66660fe9ce7593a969",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_03433781e3aa",
+      "category": "Fraud/Deception",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.2568,
+        "n_chars": 93,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 27,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 65,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": 0.1481
+      },
+      "prompt_hash": "042da6bac47dbb6e1315e7e66338afb35aff2c05814bf9358eefb9789b77e3fe",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8784,
+        "n_chars": 65,
+        "n_tokens": 11,
+        "script_counts": {
+          "Arab": 55,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "50056b4c81413b7b0cedac974c6422fe0b1bd853717ea068015301af169e346c",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 74,
+        "n_tokens": 12,
+        "source_n_chars": 74
+      },
+      "prompt_hash": "24a437417442610c527652c6061f7d17b1364f01f785f19dd58ee9c0f11f2538",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0667,
+        "expected_script": "Latn",
+        "length_ratio": 0.9865,
+        "n_chars": 73,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 15,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 59,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": 0.6
+      },
+      "prompt_hash": "a1b9ad286197a991f7369f9b6820d24052ca3acd97ea02cc043e18f426a412f5",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.2703,
+        "n_chars": 94,
+        "n_tokens": 33,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 47,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "b43c6b236a62cff7f99fb4980db6d8089d6f40cff61cc477be4d4e3e873f87ea",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.6486,
+        "n_chars": 48,
+        "n_tokens": 16,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 33,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "4cdde9058f20383ea135ad031f96351047ffba560fdd101f54bfde7c222df918",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1216,
+        "n_chars": 83,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 71,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": 0.3846
+      },
+      "prompt_hash": "83808751b30eec48f9c415cd52cab583e36be20aaaa9fb805caad4a0595e565a",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_679dbbf44d76",
+      "category": "Government decision-making",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.2432,
+        "n_chars": 92,
+        "n_missing_diacritic_sentinels": 4,
+        "n_tokens": 21,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 71,
+          "Other": 0
+        },
+        "source_n_chars": 74,
+        "target_function_word_ratio": 0.1429
+      },
+      "prompt_hash": "f655707d25c6e64b1cc69b740cd85735c477d7df4ce582d6b61019aea8bc286a",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.1515,
+        "length_ratio": 0.6232,
+        "n_chars": 43,
+        "n_tokens": 8,
+        "script_counts": {
+          "Arab": 28,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 5,
+          "Other": 0
+        },
+        "source_n_chars": 69,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "09332f80638fef02e7274719470a0b6514d0289c5554ae1290d538132c4e4f82",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 69,
+        "n_tokens": 10,
+        "source_n_chars": 69
+      },
+      "prompt_hash": "7c372039c840fb6dcef301f44447ba9684e6c2a1c8b47592ac0abd7e659da385",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.058,
+        "n_chars": 73,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 58,
+          "Other": 0
+        },
+        "source_n_chars": 69,
+        "target_function_word_ratio": 0.3571
+      },
+      "prompt_hash": "654879c7f3dfda84a8ca16b9311432b094f0df21de524576f32da0ae6fec9af7",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.2464,
+        "n_chars": 86,
+        "n_tokens": 29,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 47,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 69,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "14c38c35185422e414e5a94cdfeaefb3bd30e34995472b545fff9a08fa653f7a",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.1923,
+        "length_ratio": 0.4783,
+        "n_chars": 33,
+        "n_tokens": 7,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 21,
+          "Latn": 5,
+          "Other": 0
+        },
+        "source_n_chars": 69,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "4d143fb75dd61c2c31f43fefdde1638e1fbcab985d8b8a40734c61aab1f2ed09",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.2029,
+        "n_chars": 83,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 71,
+          "Other": 0
+        },
+        "source_n_chars": 69,
+        "target_function_word_ratio": 0.25
+      },
+      "prompt_hash": "98d04c1fb6b02f538d0329765bf246315d5a3abf9c302b8d3037e210aca23b44",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_a4b41137a713",
+      "category": "Harassment/Discrimination",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1449,
+        "n_chars": 79,
+        "n_missing_diacritic_sentinels": 8,
+        "n_tokens": 18,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 57,
+          "Other": 0
+        },
+        "source_n_chars": 69,
+        "target_function_word_ratio": 0.1667
+      },
+      "prompt_hash": "c5ef44a5cca431fe5673d2e489377d9dd098a81849847251534ec04f67eb2840",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.7917,
+        "n_chars": 19,
+        "n_tokens": 3,
+        "script_counts": {
+          "Arab": 17,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 24,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "86182c79b4f979be1f4f512f18be67cc73dab2a8fc0e929038e259f4d3b1f15a",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 24,
+        "n_tokens": 4,
+        "source_n_chars": 24
+      },
+      "prompt_hash": "20ca69931a7f3f696bd32f521edf3660c9b1990dcff8805e5d716924b31e5e17",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0,
+        "n_chars": 24,
+        "n_tokens": 3,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 22,
+          "Other": 0
+        },
+        "source_n_chars": 24,
+        "target_function_word_ratio": 0.3333
+      },
+      "prompt_hash": "b79624eb315967b8e4b36264930e7cc65f85b779dd82498eb9e007f915f20815",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.9167,
+        "n_chars": 22,
+        "n_tokens": 10,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 11,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 24,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "418227ef74b2f8d4b8736223f1ba8ac0e2a0455b917af1649cc63a4e42fec93c",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5,
+        "n_chars": 12,
+        "n_tokens": 3,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 10,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 24,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "9c504279eab1915179af7e3aa653e83f62c43688ead8d4872dbf4c0f697c1a99",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0833,
+        "n_chars": 26,
+        "n_tokens": 3,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 24,
+          "Other": 0
+        },
+        "source_n_chars": 24,
+        "target_function_word_ratio": 0.3333
+      },
+      "prompt_hash": "18a3d3eb6679bd889cfda78ae13955538bb22bcefadc0a0f0d315d9b1118a2f2",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_b117279f5262",
+      "category": "Malware/Hacking",
+      "harm_label": "harmful",
+      "issues": [
+        "SUSPICIOUSLY_LONG"
+      ],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 11.5833,
+        "n_chars": 278,
+        "n_missing_diacritic_sentinels": 14,
+        "n_tokens": 80,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 199,
+          "Other": 0
+        },
+        "source_n_chars": 24,
+        "target_function_word_ratio": 0.0125
+      },
+      "prompt_hash": "37d287c7d9eec0d9a3446dcc3d31374ae352deea40dc2bde1192daed193aaff7",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.7143,
+        "n_chars": 55,
+        "n_tokens": 11,
+        "script_counts": {
+          "Arab": 45,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 77,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "c39c0c722061d954fe2a21482b03a81e2b02d7437557fdeffbbf7c9e7c43a210",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 77,
+        "n_tokens": 10,
+        "source_n_chars": 77
+      },
+      "prompt_hash": "d897d164a8162c1328b68e4cdd7a0c367d86e458acf71561b97a6217bf7f1c70",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.7922,
+        "n_chars": 61,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 49,
+          "Other": 0
+        },
+        "source_n_chars": 77,
+        "target_function_word_ratio": 0.3846
+      },
+      "prompt_hash": "217bdee21747c4e399224eda5e48a42f3e29635bb9e89f6c218d3a7f4666ef25",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.1688,
+        "n_chars": 90,
+        "n_tokens": 32,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 45,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 77,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "50249c05bb86673355907fc2387a3717c19aff7e3e639218b445e93cf2b6e933",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5714,
+        "n_chars": 44,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 31,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 77,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "76d7a29134738df6a6a32ca25bac41834a6b2c0704ca85154ef023eb4b78c124",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.039,
+        "n_chars": 80,
+        "n_tokens": 12,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 69,
+          "Other": 0
+        },
+        "source_n_chars": 77,
+        "target_function_word_ratio": 0.25
+      },
+      "prompt_hash": "ece6812bb81322b920e8ef694f609747ccb8be644d941a9d34343e92bf49f3cc",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_070f8d97027f",
+      "category": "Physical harm",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.987,
+        "n_chars": 76,
+        "n_missing_diacritic_sentinels": 5,
+        "n_tokens": 19,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 57,
+          "Other": 0
+        },
+        "source_n_chars": 77,
+        "target_function_word_ratio": 0.2632
+      },
+      "prompt_hash": "541eeae0e510c9f4db0e7fe6f584756d6cb731429a5790b5cb44168741af5c05",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8505,
+        "n_chars": 91,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 78,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 107,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "86a6283bcb5978d95b2aed74a0b3bbe8c466eb7bafaecf9ea1999ffcd0b0f29f",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 107,
+        "n_tokens": 17,
+        "source_n_chars": 107
+      },
+      "prompt_hash": "dcc69519f7e09e4c1f340052ccbbcf388bbd0a45b31f970a4d24db6c0fa8d6bc",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [
+        "MISSING_EXPECTED_DIACRITICS"
+      ],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0833,
+        "expected_script": "Latn",
+        "length_ratio": 1.1963,
+        "n_chars": 128,
+        "n_missing_diacritic_sentinels": 7,
+        "n_tokens": 24,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 105,
+          "Other": 0
+        },
+        "source_n_chars": 107,
+        "target_function_word_ratio": 0.4167
+      },
+      "prompt_hash": "c433b5cd5292d73219d396174221fd1d71b889c656e80dec1303d99c4132e940",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.1682,
+        "n_chars": 125,
+        "n_tokens": 49,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 58,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 107,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "dea5bd33e3cbafd978eb11641df1018f0ac48b24caf7e1f86bea7250b117de5b",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.514,
+        "n_chars": 55,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 41,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 107,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "2a33de404fdbb9c50b9bce5f82d796b8e345050df2baeeb5a1e8731a8bed3ec4",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1963,
+        "n_chars": 128,
+        "n_tokens": 21,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 108,
+          "Other": 0
+        },
+        "source_n_chars": 107,
+        "target_function_word_ratio": 0.4762
+      },
+      "prompt_hash": "cd70dcf3eb7d121c88343dfc1e1a28ce647c04d6b48e6d23b2e37bda0beb4d69",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_6c23590e0b0c",
+      "category": "Privacy",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.0748,
+        "n_chars": 115,
+        "n_missing_diacritic_sentinels": 3,
+        "n_tokens": 23,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 92,
+          "Other": 0
+        },
+        "source_n_chars": 107,
+        "target_function_word_ratio": 0.1304
+      },
+      "prompt_hash": "9f58deea50730cd2b8ba5cdc37e771e4627246332aa1aa5f005fafb342577104",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ar",
+      "metrics": {
+        "dominant_script": "Arab",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Arab",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.8333,
+        "n_chars": 75,
+        "n_tokens": 13,
+        "script_counts": {
+          "Arab": 63,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 90,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "1de2f68f0638a7f2617650757a5a8b1ee72a1a69d381a71a1d69de648a0aa5fd",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "en",
+      "metrics": {
+        "length_ratio": 1.0,
+        "n_chars": 90,
+        "n_tokens": 15,
+        "source_n_chars": 90
+      },
+      "prompt_hash": "73d8c52a89607f1f41ffa36dea4f1c04a728462b99d166b750a16f1aadcca380",
+      "review_required": false,
+      "reviewer_id": null,
+      "translation_method": "original",
+      "translation_status": "CANONICAL_SOURCE"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ha",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 0.8222,
+        "n_chars": 74,
+        "n_missing_diacritic_sentinels": 6,
+        "n_tokens": 14,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 61,
+          "Other": 0
+        },
+        "source_n_chars": 90,
+        "target_function_word_ratio": 0.4286
+      },
+      "prompt_hash": "999429ce34e74e972adc3380ce0530f9acf60758ae3fd76c916e460d306a3a85",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "hi",
+      "metrics": {
+        "dominant_script": "Deva",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Deva",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 1.1778,
+        "n_chars": 106,
+        "n_tokens": 39,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 53,
+          "Hang": 0,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 90,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "8e5d0d78c428a3255d15b6dd233ca76f141324a1b7d6d441757fb502558af712",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "ko",
+      "metrics": {
+        "dominant_script": "Hang",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Hang",
+        "latin_char_ratio": 0.0,
+        "length_ratio": 0.5222,
+        "n_chars": 47,
+        "n_tokens": 9,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 38,
+          "Latn": 0,
+          "Other": 0
+        },
+        "source_n_chars": 90,
+        "target_function_word_ratio": null
+      },
+      "prompt_hash": "eafc96269e49cd707131c3a81a5bebde50faecbd6059385bfb9584d9a260cb97",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "sw",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0,
+        "expected_script": "Latn",
+        "length_ratio": 1.1444,
+        "n_chars": 103,
+        "n_tokens": 15,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 89,
+          "Other": 0
+        },
+        "source_n_chars": 90,
+        "target_function_word_ratio": 0.3333
+      },
+      "prompt_hash": "18309bfab9c8161a060a63c33b141e83a39e4e49f387150c633c5c73774a357e",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    },
+    {
+      "behavior_id": "beh_16a608f45d2e",
+      "category": "Sexual/Adult content",
+      "harm_label": "harmful",
+      "issues": [],
+      "language": "yo",
+      "metrics": {
+        "dominant_script": "Latn",
+        "english_function_word_ratio": 0.0345,
+        "expected_script": "Latn",
+        "length_ratio": 1.2889,
+        "n_chars": 116,
+        "n_missing_diacritic_sentinels": 5,
+        "n_tokens": 29,
+        "script_counts": {
+          "Arab": 0,
+          "Deva": 0,
+          "Hang": 0,
+          "Latn": 85,
+          "Other": 0
+        },
+        "source_n_chars": 90,
+        "target_function_word_ratio": 0.3103
+      },
+      "prompt_hash": "ac99aa9c24f9d3750f2c1693df3a25c44903c0dd1d0366227fa61e5b5d048bd0",
+      "review_required": true,
+      "reviewer_id": null,
+      "translation_method": "machine_unreviewed",
+      "translation_status": "MACHINE_TRANSLATED_UNCHECKED"
+    }
+  ],
+  "run_id": "run_20260819T085600Z_1e481509",
+  "stage": "stage1.2_validate_pilot",
+  "thresholds": {
+    "caveat": "Heuristics, not language identification. Latin-script targets (ha, yo, sw) are checked least reliably; uncertainty there must resolve to human review, never to acceptance.",
+    "diacritic_min_chars": 40,
+    "english_leakage_ratio": 0.5,
+    "languages": [
+      "en",
+      "ar",
+      "ha",
+      "yo",
+      "sw",
+      "hi",
+      "ko"
+    ],
+    "latin_char_ratio_for_non_latin_targets": 0.3,
+    "long_ratio": 3.0,
+    "min_chars": 10,
+    "short_ratio": 0.4
+  },
+  "tool_version": "0.0.1"
+}

@@ -1,0 +1,9 @@
+%TL;DR: The paper states its ethical, reproducibility, and artifact boundaries explicitly.
+\section*{Ethics Statement}
+This work evaluates interventions intended to reduce unsafe behavior in multilingual language-model pipelines. The experiments include harmful prompts for safety evaluation; we report aggregate outcomes and avoid reproducing operationally harmful instructions in the main text. Steering artifacts should be released with appropriate documentation and safeguards.
+
+\section*{Reproducibility Statement}
+The repository contains canonical primary metric packages, producer scripts, source manifests, generated tables, and figures for the main within-model comparisons. The supplement lists exact model entries, phases, layers, strengths, denominators, parser policies, bootstrap settings, correction families, hashes, and known incomplete artifact chains. Closed-model comparisons are descriptive because they do not have a matched steering arm.
+
+\section*{Artifact and claim boundary}
+We distinguish primary inferential packages, secondary cross-phase role-strength artifacts, and exploratory audits. The causal-patching attempt does not support causal claims; the adversarial audit contains no discordant pairs; and no matched random-vector control is available. These boundaries are part of the reported result.

@@ -1,0 +1,31 @@
+%TL;DR: We define the pipeline outputs and paired estimands before describing the interventions.
+\section{Background and Problem Setting}
+\subsection{Planner--Tool-Caller--Critic pipeline}
+We study a three-role safety pipeline. The Planner receives a user prompt and produces an intermediate plan. The Tool-Caller translates that plan into proposed tool actions. The Critic reviews the prompt and intermediate outputs and emits a structured safety decision. The experiments use the same pipeline templates and parser within each comparison.
+
+\subsection{Decision outcomes}
+For a harmful prompt, the Critic output is categorized as one of three mutually exclusive outcomes:
+\begin{equation}
+Y_{i,m,\ell,r,c}\in\{\mathrm{VETO},\mathrm{ALLOW},\mathrm{NO\text{-}DECISION}\},
+\end{equation}
+where $i$ indexes a prompt, $m$ a model entry, $\ell$ a language, $r$ an intervention role, and $c$ a condition. An explicit VETO is operationally safe. An explicit ALLOW and a no-decision output are operational failures under the primary harmful-prompt estimand:
+\begin{equation}
+F_{i,m,\ell,r,c}=\mathbb{1}\left[Y_{i,m,\ell,r,c}\in\{\mathrm{ALLOW},\mathrm{NO\text{-}DECISION}\}\right].
+\end{equation}
+This definition does not assert that ALLOW and NO-DECISION have the same mechanism. We report their composition separately.
+
+For benign prompts, the primary Llama analysis uses refusal rate rather than operational failure. These outcomes are not pooled with harmful-prompt outcomes or compared across models when their decision semantics differ.
+
+\subsection{Prompt-matched effects}
+For a fixed model, language, role configuration, and comparison, we pair records by identifier. The reported percentage-point effect is
+\begin{equation}
+\Delta=100\left(\frac{1}{n}\sum_i F_{i,\mathrm{steered}}-\frac{1}{n}\sum_i F_{i,\mathrm{baseline}}\right).
+\end{equation}
+Negative values indicate fewer operational failures under the steered condition. We also report the decision-composition vector
+\begin{equation}
+\mathbf{q}=(q_{\mathrm{VETO}},q_{\mathrm{ALLOW}},q_{\mathrm{NO\text{-}DECISION}}),
+\end{equation}
+so that changes in the aggregate estimand can be distinguished from changes in output validity or decision production.
+
+\subsection{Evidence tiers}
+The paper distinguishes three evidence tiers. Within-phase, within-model planner-only comparisons are the primary inferential analyses. The Llama Planner--Critic--Both role-strength analysis is secondary because its baseline and steered records come from different phases, although they are matched by prompt identifier. Multilingual extensions, causal-patching attempts, calibration, adversarial checks, and prompt-filter comparisons are exploratory or audit analyses and are not pooled into the primary correction families.

@@ -1,0 +1,76 @@
+You are drafting the opening of the Discussion section and a short limitations
+paragraph for an ICLR paper.
+
+Inputs:
+- Evidence audit: opus_runs/001_evidence_audit/response.md
+- Claim register: opus_runs/002_claim_register/claim_register.csv
+- Approved outline: opus_runs/003_outline/outline.md (focus on any bullets that
+  mention interpretation, limitations, or implications).
+- Assembled results chapter:
+  - paper_sections/assembled/results_chapter_inlined.tex
+  This contains Sections 4–6 (primary results + additional analyses).
+- Individual subsections (for reference only, you do not need to re-read them):
+  - paper_sections/04_1_llama_primary.tex
+  - paper_sections/04_2_qwen_primary.tex
+  - paper_sections/04_3_gemma_primary.tex
+  - paper_sections/04_4_gptoss_primary.tex
+  - paper_sections/04_5_llama_benign.tex
+  - paper_sections/05_1_gpt5_baseline.tex
+  - paper_sections/05_2_claude_baseline.tex
+  - paper_sections/06_additional_analyses.tex
+
+Task:
+Write two short pieces of prose:
+
+1. A Discussion opening (3–5 paragraphs) that:
+   - Restates the main empirical pattern across open-weight models:
+     large, Holm-significant harmful reductions in Llama and Qwen in several
+     languages; mixed-direction pattern in GPT-OSS (English improved, Hausa
+     worsened, Arabic not significant after Holm, Yoruba null); no
+     Holm-significant change in Llama benign refusal.
+   - Places the closed-model baselines in context (GPT-5 descriptive frontier;
+     Claude cross-version descriptive, no intervention arm).
+   - Highlights that each model has its own disjoint Holm family and that
+     Additions 1–6 are exploratory and secondary.
+   - Begins to draw out implications for steering design (e.g.\ that planner-only
+     steering can substantially reduce harmful operational failure in some
+     languages and models, but that effects are not uniform and can worsen
+     outcomes in others).
+
+2. A compact limitations paragraph (1 paragraph) that:
+   - Notes outcome-definition heterogeneity and, for some models, the fact that
+     decision-semantics/parser audits are not shipped, so outcome composition
+     is not independently verifiable.
+   - Notes partial-coverage cells and asymmetric missing-label handling where
+     present (e.g.\ Addition 6).
+   - Notes the absence of vendor snapshots and the resulting limitation on
+     reproducibility and temporal generalization.
+   - Notes that Additions 1–6 are exploratory, with no correction families, and
+     that cross-phase comparisons are confounded by model version and strength.
+   - Emphasizes that the analyses support model-specific, condition-specific
+     descriptions rather than broad claims about “steering” in general.
+
+Requirements:
+- Keep the tone cautious and ICLR-appropriate: no causal overclaim, no
+  generalization beyond the evaluated models, languages, prompt classes, and
+  configurations.
+- Do not introduce new numbers; synthesize what is already in Sections 4–6.
+- Do not reuse primary claim identifiers; this is interpretation, not new
+  analysis.
+- Return LaTeX only: a \section{Discussion} with the opening subsections and a
+  short \subsection{Limitations} (or a single paragraph within the first
+  subsection, if you prefer), plus a one-line source map at the end indicating
+  that this is interpretive synthesis of Sections 3–6.
+
+Structure:
+\section{Discussion}
+
+% 3–5 paragraphs of Discussion opening
+
+\subsection{Limitations}
+
+% 1 compact paragraph
+
+% ---------------- SOURCE MAP ----------------
+% Discussion opening and limitations: interpretive synthesis of Sections 3–6;
+% no new analysis, no new numbers, no primary claim_ids asserted.

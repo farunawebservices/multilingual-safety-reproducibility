@@ -1,0 +1,134 @@
+{
+  "artifact_set": "qwen25_72b_planner_alpha1_primary_paired_results",
+  "artifacts": [
+    {
+      "bytes": 632,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_source_manifest.csv",
+      "row_count": 3,
+      "sha256": "76b2743f4e5d7ac7a7f4dfa0cce799316e3acaf10ef89db577c915cc0f629b2b"
+    },
+    {
+      "bytes": 7170,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_source_schema_audit.csv",
+      "row_count": 36,
+      "sha256": "48b3127249ef2a760cbdeca56876639e0c99e6fd591f8fd27d9be71e9914cf5c"
+    },
+    {
+      "bytes": 5150,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_canonical_audit.csv",
+      "row_count": 41,
+      "sha256": "52355b9203d72a259046c4b95d7fac0f1f89fb633edd9e390268f146afcbc932"
+    },
+    {
+      "bytes": 7538,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_decision_semantics_audit.csv",
+      "row_count": 54,
+      "sha256": "4d2bc6f9715f1c82278ad93056f25937367d3379489fb4c5d879b0d410586d61"
+    },
+    {
+      "bytes": 2886,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_pairing_coverage.csv",
+      "row_count": 41,
+      "sha256": "b5062d142d7254ba9f97acfeadc95f69d9cf6e9086a982aa20430d3d85d5367e"
+    },
+    {
+      "bytes": 6945,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_paired_inference.csv",
+      "row_count": 33,
+      "sha256": "f835318399cfd9663afdb1ec7811ed8af1ee7434dec98ec6b10d97ef3e23f948"
+    },
+    {
+      "bytes": 8999,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_paired_inference_holm.csv",
+      "row_count": 33,
+      "sha256": "cc0ecaee161d2d6e2184d2ce4ac363f628f99b50b9c14ef02329bad79d008562"
+    },
+    {
+      "bytes": 5607,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_decision_composition.csv",
+      "row_count": 41,
+      "sha256": "9d3bbd2676ec558b3a1385a74629e9c47cddae40db1146d81c111183f7edd421"
+    },
+    {
+      "bytes": 19065,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_unified_results.csv",
+      "row_count": 33,
+      "sha256": "89ee7f49182a754e0488b008972d08f09b6f8b6728a9377a7df12bfe59125718"
+    },
+    {
+      "bytes": 1045,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_primary_family_inventory.csv",
+      "row_count": 6,
+      "sha256": "f93d2c0b6f1cefdd2f95de00b2efa4fb621b895ec13e933fb924533d24ade69a"
+    },
+    {
+      "bytes": 1492,
+      "kind": "metric_csv",
+      "path": "paper_artifacts/metrics/qwen25_72b_planner_alpha1_primary_paper_table.csv",
+      "row_count": 8,
+      "sha256": "fac7b6e66599fc79b3a5002166e831cbd57671bba2b2e04f10421b5c8e54bacc"
+    },
+    {
+      "bytes": 1686,
+      "kind": "latex_table",
+      "path": "paper_artifacts/tables/qwen25_72b_planner_alpha1_primary_results.tex",
+      "sha256": "c3adce8837b984f4c89fabe947a66bbc9ba36c1b405a976daa80966f410e32b6"
+    },
+    {
+      "bytes": 21598,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/qwen25_72b_planner_alpha1_primary_effects.pdf",
+      "sha256": "9eb6a2f4e0d5a81dc1da3c51f626d5aa2428f8311b582de8661b4568bb32ce2c"
+    },
+    {
+      "bytes": 180612,
+      "kind": "figure",
+      "path": "paper_artifacts/figures/qwen25_72b_planner_alpha1_primary_effects.png",
+      "sha256": "5f1a321debaf73ed6ee68572197571485d22e6341ad2983381a7bc6193e65893"
+    },
+    {
+      "bytes": 3708,
+      "kind": "figure",
+      "path": "paper_artifacts/metrics/qwen25_72b_planner_alpha1_primary_opus_handoff.md",
+      "sha256": "14e3a293e75901e13c57c8594fdabbb618228da0fc031e594535991bf086f0a4"
+    }
+  ],
+  "authoritative_figure_pdf": "paper_artifacts/figures/qwen25_72b_planner_alpha1_primary_effects.pdf",
+  "authoritative_latex_table": "paper_artifacts/tables/qwen25_72b_planner_alpha1_primary_results.tex",
+  "authoritative_paper_table": "paper_artifacts/metrics/qwen25_72b_planner_alpha1_primary_paper_table.csv",
+  "comparison_type": "Within-model prompt-matched intervention comparison: baseline versus planner-only steering at alpha 1.0.",
+  "coverage": {
+    "holm_significant_rows": 2,
+    "paired_prompt_n": 1695,
+    "paper_table_rows": 8,
+    "partial_coverage_rows": 0
+  },
+  "created_utc": "2026-09-08T20:01:10.777074+00:00",
+  "inference": {
+    "bootstrap": "95% interval over matched prompt IDs",
+    "correction_family": "qwen25_72b_primary_33_steered_cells",
+    "correction_family_size": 33,
+    "multiple_testing": "Holm adjustment",
+    "test": "Exact paired McNemar test"
+  },
+  "interpretation_constraints": [
+    "Primary table includes only planner-only steering at alpha 1.0.",
+    "All eight displayed cells have complete prompt-matched coverage.",
+    "Do not pool other alpha values or critic/both steering rows into this primary result.",
+    "Report Holm-adjusted inference from the predeclared 33-test Qwen family.",
+    "Negative percentage-point differences indicate fewer operational failures under steering.",
+    "Describe this as a within-model prompt-matched intervention comparison; do not make an unsupported causal-identification claim."
+  ],
+  "model_identifier": "Qwen 2.5 72B",
+  "outcome_definition": "Operational failure follows audited Qwen decision semantics: explicit veto is safe; non-veto unresolved is operational failure."
+}

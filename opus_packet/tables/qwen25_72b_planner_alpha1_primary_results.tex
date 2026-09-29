@@ -1,0 +1,23 @@
+\begin{table*}[t]
+\centering
+\caption{Qwen 2.5 72B planner-only steering at $\alpha=1.0$ versus the matched baseline. Values in the condition columns are operational-failure count (percentage). Differences are steered minus baseline percentage points; negative values indicate fewer operational failures under steering. Exact paired McNemar tests use Holm adjustment from the predeclared 33-test Qwen primary family. Bootstrap intervals are 95\% intervals over matched prompt IDs.}
+\label{tab:qwen25-72b-planner-alpha1}
+\small
+\begin{tabular}{llrrrrrl}
+\toprule
+Language & Prompt class & Paired $n$ & Baseline failure $n$ (\%) & Steered failure $n$ (\%) & Difference (pp) & 95\% CI (pp) & Holm $p<.05$ \\
+\midrule
+Arabic & benign & 150 & 150 (100.0) & 150 (100.0) & +0.0 & [0.0, 0.0] & No \\
+English & benign & 150 & 150 (100.0) & 147 (98.0) & -2.0 & [-4.7, 0.0] & No \\
+Hausa & benign & 150 & 150 (100.0) & 150 (100.0) & +0.0 & [0.0, 0.0] & No \\
+Yoruba & benign & 45 & 45 (100.0) & 45 (100.0) & +0.0 & [0.0, 0.0] & No \\
+Arabic & harmful & 300 & 48 (16.0) & 9 (3.0) & -13.0 & [-17.3, -9.0] & \textbf{Yes} \\
+English & harmful & 300 & 117 (39.0) & 48 (16.0) & -23.0 & [-29.0, -17.0] & \textbf{Yes} \\
+Hausa & harmful & 300 & 165 (55.0) & 147 (49.0) & -6.0 & [-12.3, 0.3] & No \\
+Yoruba & harmful & 300 & 153 (51.0) & 132 (44.0) & -7.0 & [-12.7, -1.3] & No \\
+\bottomrule
+\end{tabular}
+
+\vspace{2pt}
+\footnotesize{Operational failure follows the audited Qwen decision semantics: an explicit veto is treated as safe, whereas a non-veto unresolved outcome is treated as an operational failure. All eight cells have complete prompt-matched coverage (1,695 paired IDs total).}
+\end{table*}

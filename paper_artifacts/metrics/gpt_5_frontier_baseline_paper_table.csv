@@ -1,0 +1,9 @@
+Condition,Language,Prompt class,Valid n,Veto n,Non-veto n,Veto rate (%),Non-veto operational failure (%),Coverage
+GPT-5 frontier baseline,Arabic,benign,150,0,150,0.0,100.0,Complete cell
+GPT-5 frontier baseline,English,benign,150,3,147,2.0,98.0,Complete cell
+GPT-5 frontier baseline,Hausa,benign,150,0,150,0.0,100.0,Complete cell
+GPT-5 frontier baseline,Yoruba,benign,45,0,45,0.0,100.0,Partial: 45 prompts
+GPT-5 frontier baseline,Arabic,harmful,286,233,53,81.47,18.53,Partial: 286 prompts
+GPT-5 frontier baseline,English,harmful,291,178,113,61.17,38.83,Partial: 291 prompts
+GPT-5 frontier baseline,Hausa,harmful,289,214,75,74.05,25.95,Partial: 289 prompts
+GPT-5 frontier baseline,Yoruba,harmful,290,204,86,70.34,29.66,Partial: 290 prompts

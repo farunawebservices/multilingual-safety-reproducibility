@@ -1,0 +1,38 @@
+
+=== data/raw/phase1/gpt_5/originals/frontier_baseline_gpt_5_results.jsonl ===
+parsed_rows=1651	invalid_rows=0	duplicate_ids=0
+config	strength	language	harmfulness	n
+frontier_baseline	0.0	Arabic	benign	150
+frontier_baseline	0.0	Arabic	harmful	286
+frontier_baseline	0.0	English	benign	150
+frontier_baseline	0.0	English	harmful	291
+frontier_baseline	0.0	Hausa	benign	150
+frontier_baseline	0.0	Hausa	harmful	289
+frontier_baseline	0.0	Yoruba	benign	45
+frontier_baseline	0.0	Yoruba	harmful	290
+
+=== data/raw/phase1/gpt_oss_20b/originals/gpt_oss_baseline_results.jsonl ===
+parsed_rows=1695	invalid_rows=0	duplicate_ids=0
+config	strength	language	harmfulness	n
+baseline	0.0	Arabic	benign	150
+baseline	0.0	Arabic	harmful	300
+baseline	0.0	English	benign	150
+baseline	0.0	English	harmful	300
+baseline	0.0	Hausa	benign	150
+baseline	0.0	Hausa	harmful	300
+baseline	0.0	Yoruba	benign	45
+baseline	0.0	Yoruba	harmful	300
+
+=== data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_baseline_results (1).jsonl ===
+parsed_rows=551	invalid_rows=1	duplicate_ids=0
+config	strength	language	harmfulness	n
+baseline	0.0	Arabic	benign	150
+baseline	0.0	Arabic	harmful	300
+baseline	0.0	English	benign	101
+
+=== data/raw/phase1/gemma_4_31b/originals/gemma_4_31b_steered_results (1).jsonl ===
+parsed_rows=562	invalid_rows=1	duplicate_ids=0
+config	strength	language	harmfulness	n
+planner_only	1.0	Arabic	benign	150
+planner_only	1.0	Arabic	harmful	300
+planner_only	1.0	English	benign	112

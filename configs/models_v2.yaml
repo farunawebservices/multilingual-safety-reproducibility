@@ -1,0 +1,115 @@
+# Evaluation model registry -- DATASET v2.
+#
+# Revisions are pinned 40-hex commit SHAs and are the same ones
+# configs/experiment_preregistration_v1.yaml recorded under
+# `models.under_evaluation`. That file is v1's frozen record and is NOT edited;
+# the values are restated here so a v2 run references its own config, and
+# tests/test_backend_cache_resolution.py asserts the cache actually holds them.
+#
+# WHY PINNING IS NOT OPTIONAL HERE. The local Hugging Face cache for both models
+# has no `refs/` directory, so `revision=None` resolves to nothing offline and to
+# a moving `main` online. An unpinned load would therefore either fail or
+# silently change model provenance without changing any recorded field. The
+# backend refuses anything that is not a full commit sha.
+#
+# No credentials: weights are already cached and are loaded with
+# local_files_only=true, so no token is read (CLAUDE.md §7).
+
+schema_version: 1
+
+# Must be named explicitly on the command line (--backend hf_local). There is no
+# default, so a bare invocation cannot start generating.
+backend: null
+
+backends:
+  hf_local:
+    # transformers, not vLLM. Activation steering and hidden-state capture need
+    # stable per-layer forward hooks, and CLAUDE.md §4 reports intervention
+    # MINUS MATCHED CONTROL -- running baseline and intervention on different
+    # engines would put engine numerics inside the measured effect.
+    engine: transformers
+    device_map: balanced        # pipeline-parallel across the visible GPUs
+    dtype: bfloat16
+    attn_implementation: sdpa
+    local_files_only: true      # no network, no credential, no moving ref
+    quantization: null          # unquantised: both models fit, and quantisation
+                                # would change decision behaviour for no reason
+
+models:
+  - id: llama-3.3-70b-instruct
+    family: llama
+    model_id: meta-llama/Llama-3.3-70B-Instruct
+    tokenizer_id: meta-llama/Llama-3.3-70B-Instruct
+    revision: 6f6073b423013f6a7d4d9f39144961bfbfbc386b
+    revision_type: hf_model_commit_sha
+    licence: llama3.3
+    gated: manual
+    role_assignment: all        # one model plays all three roles
+    expected:
+      architecture: LlamaForCausalLM
+      num_hidden_layers: 80
+      hidden_size: 8192
+      vocab_size: 128256
+
+  - id: qwen-2.5-72b-instruct
+    family: qwen
+    model_id: Qwen/Qwen2.5-72B-Instruct
+    tokenizer_id: Qwen/Qwen2.5-72B-Instruct
+    revision: 495f39366efef23836d0cfae4fbe635880d2be31
+    revision_type: hf_model_commit_sha
+    licence: other
+    licence_url: https://huggingface.co/Qwen/Qwen2.5-72B-Instruct/blob/main/LICENSE
+    gated: false
+    role_assignment: all
+    expected:
+      architecture: Qwen2ForCausalLM
+      num_hidden_layers: 80
+      hidden_size: 8192
+      vocab_size: 152064
+
+# ---------------------------------------------------------------------------
+# Decoding. Applied identically to all three roles; the runner refuses a
+# per-stage override that disagrees with the pre-registration.
+# ---------------------------------------------------------------------------
+decoding:
+  do_sample: false            # greedy; seeds measure residual nondeterminism
+  max_new_tokens: 1024        # the SINGLE length control
+  temperature: 0.0            # recorded for provenance, NOT passed to generate()
+  top_p: 1.0                  # ditto -- meaningless under do_sample=false
+  stop_sequences: []
+  max_retries: 0              # a retry would hide a failure
+
+  # `json_object` here means: THE PROMPT ASKS FOR A JSON OBJECT. Decoding is
+  # unconstrained. Grammar-constrained decoding is deliberately NOT used --
+  # it would force well-formed output and drive MALFORMED_DECISION and
+  # MISSING_DECISION to zero by construction, destroying the measurement this
+  # project exists to make. Apparatus failures concentrate in lower-resource
+  # languages; suppressing them would bias the result toward "no gap".
+  response_format: json_object
+  constrained_decoding: false
+
+# ---------------------------------------------------------------------------
+# Batching. Composition is part of the seed contract: batched generation with
+# left padding is not bitwise identical to batch-1, so batches are formed
+# deterministically and their shape is recorded on every row.
+# ---------------------------------------------------------------------------
+batching:
+  batch_size: 8
+  order: sorted_by_record_id  # never length-bucketed or shuffled
+  mixed_seeds_in_a_batch: false
+  mixed_intervention_arms_in_a_batch: false
+  reference_mode_batch_size: 1
+
+# ---------------------------------------------------------------------------
+# Hidden-state capture and steering. Off by default; capture runs under its own
+# run ID because it changes memory pressure and batch composition.
+# ---------------------------------------------------------------------------
+hidden_states:
+  capture: false
+  layers: []
+  store: logs/<run_id>/hidden/     # never results/ -- activations are payload
+
+interventions:
+  enabled: false
+  require_matched_control: true    # do not set to false
+  arms: []
