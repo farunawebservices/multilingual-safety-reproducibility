@@ -12,6 +12,13 @@ BLUE, INK, MUTED = "#2c5f8a", "#1f2937", "#5b6472"
 FILL, EDGE, RULE = "#eef3f7", "#c9d6e2", "#d5dbe1"
 
 
+MINFS = 7.6
+def enforce(fig):
+    for t in fig.findobj(matplotlib.text.Text):
+        if t.get_text().strip():
+            t.set_fontsize(max(t.get_fontsize(), MINFS))
+
+
 def box(ax, x, y, w, h, fc=FILL, ec=EDGE, lw=0.8, r=1.2, z=1):
     ax.add_patch(FancyBboxPatch((x, y), w, h, boxstyle=f"round,pad=0,rounding_size={r}",
                                 fc=fc, ec=ec, lw=lw, zorder=z))
@@ -81,7 +88,7 @@ def toggle(ax, x, y, s, on):
 
 
 # =========================== Figure 1 ==================================
-fig, ax = plt.subplots(figsize=(6.6, 3.15))
+fig, ax = plt.subplots(figsize=(6.3, 3.35))
 ax.set_xlim(0, 132); ax.set_ylim(0, 63); ax.axis("off")
 ax.add_patch(Rectangle((0.3, 0.3), 131.4, 62.4, fill=False, ec="#9aa3ad", lw=0.6))
 line(ax, [42, 42], [11, 61], c=RULE, lw=0.6)
@@ -99,12 +106,12 @@ for (lx, ly, name) in ((3, 44.5, "English"), (22, 44.5, "Arabic"), (3, 37.5, "Ha
             fontweight="bold")
 line(ax, [10.5, 10.5, 29.5, 29.5], [37.3, 35.2, 35.2, 37.3])
 arrow(ax, 20, 35.2, 20, 32.6)
-for (bx, label, ic) in ((2, "Planner", icon_planner), (15.5, "Tool-Caller", icon_tool),
-                        (29, "Critic", icon_shield)):
-    box(ax, bx, 22.5, 11, 9.8)
-    ic(ax, bx + 5.5, 28.6, 3.6)
-    ax.text(bx + 5.5, 24.3, label, ha="center", va="center", fontsize=6.6, color=INK)
-arrow(ax, 13, 27.4, 15.5, 27.4); arrow(ax, 26.5, 27.4, 29, 27.4)
+for (bx, label, ic) in ((1.0, "Planner", icon_planner), (14.5, "Tool-Caller", icon_tool),
+                        (28.0, "Critic", icon_shield)):
+    box(ax, bx, 22.5, 13, 9.8)
+    ic(ax, bx + 6.5, 28.6, 3.6)
+    ax.text(bx + 6.5, 24.3, label, ha="center", va="center", fontsize=6.6, color=INK)
+arrow(ax, 14.0, 27.4, 14.5, 27.4); arrow(ax, 27.5, 27.4, 28.0, 27.4)
 line(ax, [34.5, 34.5], [22.5, 20.4]); line(ax, [11.5, 34.5], [20.4, 20.4])
 for bx, k in ((11.5, "veto"), (23, "allow"), (34.5, "nodec")):
     arrow(ax, bx, 20.4, bx, 18.4)
@@ -155,12 +162,13 @@ for x, k, lab in ((4, "veto", "VETO"), (32, "allow", "ALLOW"), (61, "nodec", "NO
     ax.text(x + 3.6, 5, lab, ha="left", va="center", fontsize=7, color=INK)
 ax.text(129.5, 5, "*Not causal for site or strength", ha="right", va="center", fontsize=6.4,
         color=MUTED)
+enforce(fig)
 fig.subplots_adjust(0, 0, 1, 1)
 fig.savefig(f"{OUT}/figure-1-concept-2.pdf"); fig.savefig(f"{OUT}/figure-1-concept-2.png", dpi=200)
 plt.close(fig)
 
 # =========================== Figure 2 ==================================
-fig, ax = plt.subplots(figsize=(6.6, 3.3))
+fig, ax = plt.subplots(figsize=(6.3, 3.45))
 ax.set_xlim(0, 132); ax.set_ylim(0, 66); ax.axis("off")
 ax.add_patch(Rectangle((0.3, 0.3), 131.4, 65.4, fill=False, ec="#9aa3ad", lw=0.6))
 
@@ -217,6 +225,7 @@ ax.text(66, 9.0, "Prompt-clustered bootstrap CI | Randomization test | Holm corr
         ha="center", va="center", fontsize=7.2, color=INK)
 ax.text(66, 4.6, "Failure + decision composition + parser validity + exact n",
         ha="center", va="center", fontsize=6.6, color=BLUE)
+enforce(fig)
 fig.subplots_adjust(0, 0, 1, 1)
 fig.savefig(f"{OUT}/figure-2-method-2.pdf"); fig.savefig(f"{OUT}/figure-2-method-2.png", dpi=200)
 plt.close(fig)
