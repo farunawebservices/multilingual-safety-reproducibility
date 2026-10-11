@@ -17,7 +17,8 @@ Record-level McNemar tests and intervals are reported alongside for comparison.
 ```bash
 python analysis/reanalysis/clustered_reanalysis.py \
     analysis/reanalysis . analysis/reanalysis/clustered_reanalysis.csv
-python analysis/reanalysis/draw_figs.py <output_dir>   # Figures 1-2
+python analysis/reanalysis/draw_figure1.py <output_dir>   # Figure 1
+python analysis/reanalysis/draw_figure2.py <output_dir>   # Figure 2
 ```
 
 `minipq.py` is a dependency-free Parquet reader (requires the system
